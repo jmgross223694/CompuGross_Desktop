@@ -35,6 +35,9 @@ namespace CompuGross
             this.btnPresupuestos = new System.Windows.Forms.Button();
             this.btnIngresos = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClientes
@@ -42,10 +45,10 @@ namespace CompuGross
             this.btnClientes.BackColor = System.Drawing.Color.Wheat;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.Location = new System.Drawing.Point(13, 52);
+            this.btnClientes.Location = new System.Drawing.Point(7, 52);
             this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(122, 46);
+            this.btnClientes.Size = new System.Drawing.Size(147, 46);
             this.btnClientes.TabIndex = 0;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = false;
@@ -56,10 +59,10 @@ namespace CompuGross
             this.btnUsuarios.BackColor = System.Drawing.Color.Wheat;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuarios.Location = new System.Drawing.Point(13, 126);
+            this.btnUsuarios.Location = new System.Drawing.Point(7, 126);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(122, 46);
+            this.btnUsuarios.Size = new System.Drawing.Size(147, 46);
             this.btnUsuarios.TabIndex = 10;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = false;
@@ -70,10 +73,10 @@ namespace CompuGross
             this.btnPresupuestos.BackColor = System.Drawing.Color.Wheat;
             this.btnPresupuestos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPresupuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPresupuestos.Location = new System.Drawing.Point(163, 52);
+            this.btnPresupuestos.Location = new System.Drawing.Point(178, 52);
             this.btnPresupuestos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPresupuestos.Name = "btnPresupuestos";
-            this.btnPresupuestos.Size = new System.Drawing.Size(122, 46);
+            this.btnPresupuestos.Size = new System.Drawing.Size(147, 46);
             this.btnPresupuestos.TabIndex = 1;
             this.btnPresupuestos.Text = "Presupuestos";
             this.btnPresupuestos.UseVisualStyleBackColor = false;
@@ -83,10 +86,10 @@ namespace CompuGross
             this.btnIngresos.BackColor = System.Drawing.Color.Wheat;
             this.btnIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresos.Location = new System.Drawing.Point(163, 126);
+            this.btnIngresos.Location = new System.Drawing.Point(178, 126);
             this.btnIngresos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnIngresos.Name = "btnIngresos";
-            this.btnIngresos.Size = new System.Drawing.Size(122, 46);
+            this.btnIngresos.Size = new System.Drawing.Size(147, 46);
             this.btnIngresos.TabIndex = 2;
             this.btnIngresos.Text = "Ingresos";
             this.btnIngresos.UseVisualStyleBackColor = false;
@@ -98,21 +101,65 @@ namespace CompuGross
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(67, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 25);
+            this.label1.Size = new System.Drawing.Size(203, 31);
             this.label1.TabIndex = 11;
             this.label1.Text = "Menú principal";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Wheat;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(7, 198);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(147, 46);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Proveedores";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Wheat;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(178, 198);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(147, 46);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Precios";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.Red;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(3, 309);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(118, 26);
+            this.btnCerrarSesion.TabIndex = 12;
+            this.btnCerrarSesion.Text = "Cerrar sesión";
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // MenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(301, 187);
+            this.ClientSize = new System.Drawing.Size(333, 337);
+            this.Controls.Add(this.btnCerrarSesion);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnIngresos);
             this.Controls.Add(this.btnPresupuestos);
@@ -138,5 +185,8 @@ namespace CompuGross
         private System.Windows.Forms.Button btnPresupuestos;
         private System.Windows.Forms.Button btnIngresos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCerrarSesion;
     }
 }

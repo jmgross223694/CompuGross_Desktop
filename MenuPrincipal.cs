@@ -43,5 +43,10 @@ namespace CompuGross
             frmAgregarUsuario.ShowDialog();
             this.Show();
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }
