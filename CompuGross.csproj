@@ -96,6 +96,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CompuGrossDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ListadoPrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoPrecios.Designer.cs">
+      <DependentUpon>ListadoPrecios.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoPrecios.resx">
+      <DependentUpon>ListadoPrecios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>

@@ -57,10 +57,12 @@ namespace CompuGross
             this.dgvClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 52);
+            this.dgvClientes.Location = new System.Drawing.Point(4, 64);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(748, 683);
+            this.dgvClientes.RowHeadersWidth = 51;
+            this.dgvClientes.Size = new System.Drawing.Size(993, 492);
             this.dgvClientes.TabIndex = 0;
             // 
             // compuGrossDataSet
@@ -81,19 +83,21 @@ namespace CompuGross
             // 
             this.txtBoxBusquedaCliente.AcceptsReturn = true;
             this.txtBoxBusquedaCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBoxBusquedaCliente.Location = new System.Drawing.Point(3, 26);
+            this.txtBoxBusquedaCliente.Location = new System.Drawing.Point(4, 32);
+            this.txtBoxBusquedaCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxBusquedaCliente.MaxLength = 200;
             this.txtBoxBusquedaCliente.Name = "txtBoxBusquedaCliente";
-            this.txtBoxBusquedaCliente.Size = new System.Drawing.Size(571, 20);
+            this.txtBoxBusquedaCliente.Size = new System.Drawing.Size(457, 22);
             this.txtBoxBusquedaCliente.TabIndex = 1;
             this.txtBoxBusquedaCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxBusquedaCliente_KeyUp);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1, 10);
+            this.label2.Location = new System.Drawing.Point(1, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "BUSCAR...";
             // 
@@ -106,10 +110,10 @@ namespace CompuGross
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.ForeColor = System.Drawing.Color.Transparent;
             this.btnEditar.ImageKey = "(ninguno)";
-            this.btnEditar.Location = new System.Drawing.Point(588, 7);
+            this.btnEditar.Location = new System.Drawing.Point(784, 9);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(0);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(43, 40);
+            this.btnEditar.Size = new System.Drawing.Size(57, 49);
             this.btnEditar.TabIndex = 8;
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -124,10 +128,10 @@ namespace CompuGross
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Transparent;
             this.btnAgregar.ImageKey = "(ninguno)";
-            this.btnAgregar.Location = new System.Drawing.Point(648, 7);
+            this.btnAgregar.Location = new System.Drawing.Point(864, 9);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(43, 40);
+            this.btnAgregar.Size = new System.Drawing.Size(57, 49);
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -141,23 +145,24 @@ namespace CompuGross
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBorrar.ForeColor = System.Drawing.Color.Transparent;
             this.btnBorrar.ImageKey = "(ninguno)";
-            this.btnBorrar.Location = new System.Drawing.Point(706, 6);
+            this.btnBorrar.Location = new System.Drawing.Point(941, 7);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(43, 40);
+            this.btnBorrar.Size = new System.Drawing.Size(57, 49);
             this.btnBorrar.TabIndex = 11;
             this.btnBorrar.UseVisualStyleBackColor = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // Clientes
             // 
+            this.AcceptButton = this.btnEditar;
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(758, 747);
+            this.ClientSize = new System.Drawing.Size(1007, 570);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEditar);
@@ -165,6 +170,7 @@ namespace CompuGross
             this.Controls.Add(this.txtBoxBusquedaCliente);
             this.Controls.Add(this.dgvClientes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Clientes";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

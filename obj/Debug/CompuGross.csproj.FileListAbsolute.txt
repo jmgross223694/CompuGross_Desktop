@@ -17,3 +17,4 @@ C:\Users\Juan Manuel\Desktop\GitHub\CompuGross\bin\Debug\Negocio.pdb
 C:\Users\Juan Manuel\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.csproj.CopyComplete
 C:\Users\Juan Manuel\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.exe
 C:\Users\Juan Manuel\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.pdb
+C:\Users\Juan Manuel\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.ListaPrecios.resources

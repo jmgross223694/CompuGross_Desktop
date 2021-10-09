@@ -48,5 +48,13 @@ namespace CompuGross
         {
             Application.Restart();
         }
+
+        private void btnPrecios_Click(object sender, EventArgs e)
+        {
+            ListaPrecios frmListadoPrecios = new ListaPrecios();
+            this.Hide();
+            frmListadoPrecios.ShowDialog();
+            this.Show();
+        }
     }
 }
