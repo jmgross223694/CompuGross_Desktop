@@ -114,12 +114,12 @@ namespace CompuGross
                     }
                     else 
                     {
-                        MessageBox.Show("El usuario o la clave no existen en la base de datos.");
+                        MessageBox.Show("Usuario inexistente / Clave incorrecta.");
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("El usuario o la clave no existen en la base de datos.");
+                    MessageBox.Show("Usuario inexistente / Clave incorrecta.");
                 }
                 finally
                 {
@@ -231,9 +231,8 @@ namespace CompuGross
 
                         BindData();
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        //MessageBox.Show(ex.ToString());
                         MessageBox.Show("Error al intentar actualizar la clave.");
                     }
                     finally
@@ -368,9 +367,8 @@ namespace CompuGross
                                 lblCodigoRecuperacion.Visible = true;
                                 btnEnviarCodigo.Text = "Validar";
                             }
-                            catch (Exception ex)
+                            catch
                             {
-                                //MessageBox.Show(ex.ToString());
                                 MessageBox.Show("Error al agregar el código de recuperación a la Base de datos.");
                             }
                             finally

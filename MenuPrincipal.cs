@@ -28,7 +28,9 @@ namespace CompuGross
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
         {
             MessageBox.Show("Se ha cerrado la sesión en curso.", "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            Application.Restart();
+            Login frmLogin = new Login();
+            this.Hide();
+            frmLogin.ShowDialog();
         }
 
         private void lblCerrarSesion_Click(object sender, EventArgs e)
@@ -54,6 +56,14 @@ namespace CompuGross
             ListaPrecios frmListadoPrecios = new ListaPrecios();
             this.Hide();
             frmListadoPrecios.ShowDialog();
+            this.Show();
+        }
+
+        private void btnIngresos_Click(object sender, EventArgs e)
+        {
+            Ingresos frmIngresos = new Ingresos();
+            this.Hide();
+            frmIngresos.ShowDialog();
             this.Show();
         }
     }

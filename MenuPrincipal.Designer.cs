@@ -93,6 +93,7 @@ namespace CompuGross
             this.btnIngresos.TabIndex = 2;
             this.btnIngresos.Text = "Ingresos";
             this.btnIngresos.UseVisualStyleBackColor = false;
+            this.btnIngresos.Click += new System.EventHandler(this.btnIngresos_Click);
             // 
             // label1
             // 
@@ -101,7 +102,7 @@ namespace CompuGross
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(67, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 31);
+            this.label1.Size = new System.Drawing.Size(167, 25);
             this.label1.TabIndex = 11;
             this.label1.Text = "Menú principal";
             // 
@@ -151,7 +152,7 @@ namespace CompuGross
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Wheat;

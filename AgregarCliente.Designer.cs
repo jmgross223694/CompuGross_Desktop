@@ -69,7 +69,7 @@ namespace CompuGross
             this.txtDni.Margin = new System.Windows.Forms.Padding(6);
             this.txtDni.MaxLength = 11;
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(554, 37);
+            this.txtDni.Size = new System.Drawing.Size(554, 31);
             this.txtDni.TabIndex = 0;
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
@@ -100,9 +100,10 @@ namespace CompuGross
             this.txtNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombres.Location = new System.Drawing.Point(120, 115);
             this.txtNombres.Margin = new System.Windows.Forms.Padding(6);
+            this.txtNombres.MaxLength = 200;
             this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(554, 37);
-            this.txtNombres.TabIndex = 2;
+            this.txtNombres.Size = new System.Drawing.Size(554, 31);
+            this.txtNombres.TabIndex = 1;
             this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
             // 
             // lblDireccion
@@ -121,9 +122,10 @@ namespace CompuGross
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(120, 201);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(6);
+            this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(554, 37);
-            this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.Size = new System.Drawing.Size(554, 31);
+            this.txtDireccion.TabIndex = 2;
             // 
             // lblLocalidad
             // 
@@ -154,8 +156,8 @@ namespace CompuGross
             this.txtTelefono1.Margin = new System.Windows.Forms.Padding(6);
             this.txtTelefono1.MaxLength = 2;
             this.txtTelefono1.Name = "txtTelefono1";
-            this.txtTelefono1.Size = new System.Drawing.Size(47, 37);
-            this.txtTelefono1.TabIndex = 5;
+            this.txtTelefono1.Size = new System.Drawing.Size(47, 31);
+            this.txtTelefono1.TabIndex = 4;
             this.txtTelefono1.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             // 
             // lblMail
@@ -174,9 +176,10 @@ namespace CompuGross
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(120, 453);
             this.txtMail.Margin = new System.Windows.Forms.Padding(6);
+            this.txtMail.MaxLength = 100;
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(554, 37);
-            this.txtMail.TabIndex = 8;
+            this.txtMail.Size = new System.Drawing.Size(554, 31);
+            this.txtMail.TabIndex = 7;
             // 
             // label8
             // 
@@ -227,8 +230,8 @@ namespace CompuGross
             this.ddlLocalidad.Location = new System.Drawing.Point(120, 287);
             this.ddlLocalidad.Margin = new System.Windows.Forms.Padding(6);
             this.ddlLocalidad.Name = "ddlLocalidad";
-            this.ddlLocalidad.Size = new System.Drawing.Size(554, 37);
-            this.ddlLocalidad.TabIndex = 4;
+            this.ddlLocalidad.Size = new System.Drawing.Size(554, 32);
+            this.ddlLocalidad.TabIndex = 3;
             this.ddlLocalidad.ValueMember = "ID";
             // 
             // localidadesBindingSource
@@ -253,7 +256,7 @@ namespace CompuGross
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(545, 574);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 20);
+            this.label1.Size = new System.Drawing.Size(141, 16);
             this.label1.TabIndex = 22;
             this.label1.Text = "* Campos obligatorios";
             // 
@@ -264,7 +267,7 @@ namespace CompuGross
             this.txtTelefono2.Margin = new System.Windows.Forms.Padding(6);
             this.txtTelefono2.MaxLength = 4;
             this.txtTelefono2.Name = "txtTelefono2";
-            this.txtTelefono2.Size = new System.Drawing.Size(244, 37);
+            this.txtTelefono2.Size = new System.Drawing.Size(244, 31);
             this.txtTelefono2.TabIndex = 5;
             this.txtTelefono2.TextChanged += new System.EventHandler(this.txtTelefono2_TextChanged);
             // 
@@ -275,8 +278,8 @@ namespace CompuGross
             this.txtTelefono3.Margin = new System.Windows.Forms.Padding(6);
             this.txtTelefono3.MaxLength = 4;
             this.txtTelefono3.Name = "txtTelefono3";
-            this.txtTelefono3.Size = new System.Drawing.Size(239, 37);
-            this.txtTelefono3.TabIndex = 7;
+            this.txtTelefono3.Size = new System.Drawing.Size(239, 31);
+            this.txtTelefono3.TabIndex = 6;
             this.txtTelefono3.TextChanged += new System.EventHandler(this.txtTelefono3_TextChanged);
             // 
             // label2
@@ -313,7 +316,7 @@ namespace CompuGross
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(118, 356);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 17);
+            this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 27;
             this.label4.Text = "Cod.Área";
             // 
@@ -325,7 +328,7 @@ namespace CompuGross
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(126, 400);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 28;
             this.label5.Text = "Sin \'0\'";
             // 
@@ -334,9 +337,9 @@ namespace CompuGross
             this.txtTelefonoEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefonoEditar.Location = new System.Drawing.Point(120, 369);
             this.txtTelefonoEditar.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTelefonoEditar.MaxLength = 12;
+            this.txtTelefonoEditar.MaxLength = 8;
             this.txtTelefonoEditar.Name = "txtTelefonoEditar";
-            this.txtTelefonoEditar.Size = new System.Drawing.Size(554, 37);
+            this.txtTelefonoEditar.Size = new System.Drawing.Size(554, 31);
             this.txtTelefonoEditar.TabIndex = 29;
             // 
             // txtId
@@ -344,13 +347,13 @@ namespace CompuGross
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(13, 9);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(57, 23);
+            this.txtId.Size = new System.Drawing.Size(57, 20);
             this.txtId.TabIndex = 30;
             this.txtId.Visible = false;
             // 
             // AgregarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;

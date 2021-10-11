@@ -57,7 +57,7 @@ create table OrdenesTrabajo(
 )
 GO
 
-create alter view ExportClientes
+create view ExportClientes
 as
 	select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, isnull(C.Direccion, '-') as Direccion,
 	isnull((select L.Descripcion from Localidades L where C.IdLocalidad = L.ID), '-') as Localidad,
@@ -107,4 +107,19 @@ insert into ListaPrecios(Descripcion, Precio) values('Adicional servicio a domic
 insert into ListaPrecios(Descripcion, Precio) values('Instalación de cámaras (precio por cámara)', 27)
 insert into ListaPrecios(Descripcion, Precio) values('Servicio técnico / mantenimiento de sistema de cámaras', 12)
 insert into ListaPrecios(Descripcion, Precio) values('Recuperación de datos (hasta 100gb)', 16)
+GO
+
+create view ExportIngresos
+as
+	select count(*) as Cant1, 
+	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipo = 1) as Ganancia1,
+	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipo = 1) as PromGanancia1,
+	(select count(*) from OrdenesTrabajo where IdTipo = 2) as Cant2, 
+	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipo = 2) as Ganancia2,
+	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipo = 2) as PromGanancia2,
+	(select count(*) from OrdenesTrabajo where IdTipo = 3) as Cant3, 
+	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipo = 3) as Ganancia3,
+	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipo = 3) as PromGanancia3,
+	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from OrdenesTrabajo where ID = 1)))) as TotalDiasServicio
+	from OrdenesTrabajo where IdTipo = 1
 GO
