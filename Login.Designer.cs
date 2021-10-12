@@ -44,6 +44,7 @@ namespace CompuGross
             this.lblCodigoRecuperacion = new System.Windows.Forms.Label();
             this.lblClaveNueva = new System.Windows.Forms.Label();
             this.cbMostrarClave = new System.Windows.Forms.CheckBox();
+            this.lblLargoClave2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -148,11 +149,20 @@ namespace CompuGross
             this.cbMostrarClave.UseVisualStyleBackColor = false;
             this.cbMostrarClave.CheckedChanged += new System.EventHandler(this.cbMostrarClave_CheckedChanged);
             // 
+            // lblLargoClave2
+            // 
+            resources.ApplyResources(this.lblLargoClave2, "lblLargoClave2");
+            this.lblLargoClave2.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargoClave2.ForeColor = System.Drawing.Color.Red;
+            this.lblLargoClave2.Name = "lblLargoClave2";
+            this.lblLargoClave2.UseMnemonic = false;
+            // 
             // Login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.lblLargoClave2);
             this.Controls.Add(this.cbMostrarClave);
             this.Controls.Add(this.lblClaveNueva);
             this.Controls.Add(this.lblCodigoRecuperacion);
@@ -193,5 +203,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblCodigoRecuperacion;
         private System.Windows.Forms.Label lblClaveNueva;
         private System.Windows.Forms.CheckBox cbMostrarClave;
+        private System.Windows.Forms.Label lblLargoClave2;
     }
 }

@@ -29,7 +29,9 @@ namespace CompuGross
             txtClave.Enabled = false;
             txtClave.Text = "";
             lblMail.Visible = false;
+            txtMail.Text = "";
             txtMail.Visible = false;
+            txtMail.MaxLength = 100;
             lblUsuario.Visible = true;
             txtUsuario.Visible = true;
             txtUsuario.Text = "";
@@ -37,6 +39,7 @@ namespace CompuGross
             txtClave.Visible = true;
             lblRecuperarClave.Visible = true;
             lblLargoClave.Visible = true;
+            lblLargoClave2.Visible = false;
             btnIngresar.Visible = true;
             btnRegistro.Visible = true;
             btnEnviarCodigo.Visible = false;
@@ -204,13 +207,19 @@ namespace CompuGross
             {
                 if (txtMail.Text == "")
                 {
-                    MessageBox.Show("Clave nueva vacío.");
+                    MessageBox.Show("Clave nueva vacía.");
                     txtMail.BackColor = Color.LightSalmon;
                     txtMail.Focus();
                 }
                 else if (txtMail.Text.Length < 8)
                 {
                     MessageBox.Show("La clave no puede ser menor a 8 caracteres.");
+                    txtMail.BackColor = Color.LightSalmon;
+                    txtMail.Focus();
+                }
+                else if (txtMail.Text.Length > 8)
+                {
+                    MessageBox.Show("La clave no puede ser mayor a 8 caracteres.");
                     txtMail.BackColor = Color.LightSalmon;
                     txtMail.Focus();
                 }
@@ -280,6 +289,10 @@ namespace CompuGross
                             txtMail.UseSystemPasswordChar = true;
 
                             cbMostrarClave.Visible = true;
+
+                            lblLargoClave2.Visible = true;
+
+                            txtMail.MaxLength = 8;
                         }
                         else
                         {
@@ -439,12 +452,12 @@ namespace CompuGross
                 if (contador)
                 {
                     DialogResult ResultadoMensaje = MessageBox.Show(texto, titulo);
-                    if (ResultadoMensaje == DialogResult.OK) IntervaloTiempo.Dispose();
+                    if (ResultadoMensaje == DialogResult.None) IntervaloTiempo.Dispose();
                 }
                 else
                 {
                     DialogResult ResultadoMensaje = MessageBox.Show(texto, titulo);
-                    if (ResultadoMensaje == DialogResult.OK) IntervaloTiempo.Dispose();
+                    if (ResultadoMensaje == DialogResult.None) IntervaloTiempo.Dispose();
                 }
             }
             public static void Show(string texto, string titulo, int tiempo, bool contador)

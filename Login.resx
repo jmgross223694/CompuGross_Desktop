@@ -122,14 +122,10 @@
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="txtUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 46</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>17, 37</value>
   </data>
   <data name="txtUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>297, 37</value>
+    <value>224, 31</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtUsuario.TabIndex" type="System.Int32, mscorlib">
@@ -145,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtUsuario.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="lblUsuario.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -154,13 +150,10 @@
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="lblUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>108, 11</value>
-  </data>
-  <data name="lblUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>81, 9</value>
   </data>
   <data name="lblUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 31</value>
+    <value>86, 25</value>
   </data>
   <data name="lblUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -178,7 +171,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblUsuario.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="lblClave.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -187,13 +180,10 @@
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="lblClave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 114</value>
-  </data>
-  <data name="lblClave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>70, 93</value>
   </data>
   <data name="lblClave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 31</value>
+    <value>123, 25</value>
   </data>
   <data name="lblClave.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -211,16 +201,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblClave.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="txtClave.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="txtClave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 149</value>
-  </data>
-  <data name="txtClave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>17, 121</value>
   </data>
   <data name="txtClave.MaxLength" type="System.Int32, mscorlib">
     <value>8</value>
@@ -229,7 +216,7 @@
     <value>x</value>
   </data>
   <data name="txtClave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>297, 37</value>
+    <value>224, 31</value>
   </data>
   <data name="txtClave.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -244,19 +231,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtClave.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="lblLargoClave.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblLargoClave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 198</value>
-  </data>
-  <data name="lblLargoClave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>168, 161</value>
   </data>
   <data name="lblLargoClave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 17</value>
+    <value>73, 13</value>
   </data>
   <data name="lblLargoClave.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -274,8 +258,9 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblLargoClave.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnIngresar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
   </data>
@@ -286,13 +271,10 @@
     <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
   </data>
   <data name="btnIngresar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 263</value>
-  </data>
-  <data name="btnIngresar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>17, 214</value>
   </data>
   <data name="btnIngresar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 55</value>
+    <value>110, 45</value>
   </data>
   <data name="btnIngresar.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -310,19 +292,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnIngresar.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="lblRecuperarClave.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblRecuperarClave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 198</value>
-  </data>
-  <data name="lblRecuperarClave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>14, 161</value>
   </data>
   <data name="lblRecuperarClave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 17</value>
+    <value>113, 13</value>
   </data>
   <data name="lblRecuperarClave.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -340,7 +319,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblRecuperarClave.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="btnRegistro.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -355,13 +334,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnRegistro.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 263</value>
-  </data>
-  <data name="btnRegistro.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>145, 214</value>
   </data>
   <data name="btnRegistro.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 55</value>
+    <value>98, 45</value>
   </data>
   <data name="btnRegistro.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -379,16 +355,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnRegistro.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="txtMail.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="txtMail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 135</value>
+    <value>17, 110</value>
+  </data>
+  <data name="txtMail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="txtMail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>297, 30</value>
+    <value>224, 26</value>
   </data>
   <data name="txtMail.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -403,7 +382,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtMail.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lblMail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -412,10 +391,13 @@
     <value>Microsoft Sans Serif, 16.2pt</value>
   </data>
   <data name="lblMail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 69</value>
+    <value>103, 56</value>
+  </data>
+  <data name="lblMail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="lblMail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 32</value>
+    <value>52, 26</value>
   </data>
   <data name="lblMail.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -433,16 +415,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblMail.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btnEnviarCodigo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="btnEnviarCodigo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 218</value>
+    <value>58, 177</value>
+  </data>
+  <data name="btnEnviarCodigo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnEnviarCodigo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 55</value>
+    <value>143, 45</value>
   </data>
   <data name="btnEnviarCodigo.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -460,7 +445,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnEnviarCodigo.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lblCodigoRecuperacion.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -469,10 +454,13 @@
     <value>Microsoft Sans Serif, 16.2pt</value>
   </data>
   <data name="lblCodigoRecuperacion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 69</value>
+    <value>53, 56</value>
+  </data>
+  <data name="lblCodigoRecuperacion.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="lblCodigoRecuperacion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 32</value>
+    <value>154, 26</value>
   </data>
   <data name="lblCodigoRecuperacion.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -490,7 +478,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCodigoRecuperacion.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblClaveNueva.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -502,10 +490,13 @@
     <value>NoControl</value>
   </data>
   <data name="lblClaveNueva.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 69</value>
+    <value>63, 56</value>
+  </data>
+  <data name="lblClaveNueva.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="lblClaveNueva.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 32</value>
+    <value>133, 26</value>
   </data>
   <data name="lblClaveNueva.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -523,16 +514,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblClaveNueva.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="cbMostrarClave.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="cbMostrarClave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 174</value>
+    <value>17, 141</value>
+  </data>
+  <data name="cbMostrarClave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="cbMostrarClave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 21</value>
+    <value>117, 17</value>
   </data>
   <data name="cbMostrarClave.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -550,6 +544,36 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbMostrarClave.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblLargoClave2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblLargoClave2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblLargoClave2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 142</value>
+  </data>
+  <data name="lblLargoClave2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 13</value>
+  </data>
+  <data name="lblLargoClave2.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="lblLargoClave2.Text" xml:space="preserve">
+    <value>* 8 caracteres</value>
+  </data>
+  <data name="&gt;&gt;lblLargoClave2.Name" xml:space="preserve">
+    <value>lblLargoClave2</value>
+  </data>
+  <data name="&gt;&gt;lblLargoClave2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLargoClave2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblLargoClave2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -559,7 +583,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -33708,7 +33732,7 @@
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>355, 337</value>
+    <value>266, 274</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -38045,11 +38069,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>373, 384</value>
+    <value>284, 319</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
