@@ -157,7 +157,36 @@ namespace CompuGross
                 {
                     datos.CerrarConexion();
                 }
+
             }
         }
+
+        /*private void button1_Click(object sender, EventArgs e)
+        {
+            //minimizar el formulario para que no aparezca en la captura
+            //this.WindowState = FormWindowState.Minimized;
+            //tiempo de espera con el formulario minimizado
+            //el proceso de esperar y enviar Alt + ImprPant se realiza 2 veces seguidas, si se lanza 
+            //sólo una vez no captura bien la ventana que está en primer plano
+            //tiempo de espera con el formulario minimizado
+            //System.Threading.Thread.Sleep(500);
+            //enviar la pulsación equivalente a Alt + ImprPant
+            SendKeys.SendWait("%{PRTSC}");
+            //tiempo de espera con el formulario minimizado
+            //System.Threading.Thread.Sleep(500);
+            //enviar la pulsación equivalente a Alt + ImprPant
+            //SendKeys.SendWait("%{PRTSC}");
+            //capturar, guardar y mostrar la captura en el PictureBox
+            //crear variable Bitmap
+            Bitmap pantalla;
+            //asignar al Bitmap el contenido del portapapeles
+            pantalla = ((Bitmap)(Clipboard.GetDataObject().GetData("Bitmap")));
+            //guardar el Bitmap como JPG
+            pantalla.Save("Ventana.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            //mostrar el Bitmap en el control PictureBox
+            //ImgPantalla.Image = pantalla;
+            //restaurar el formulario a su tamaño normal desde minimizado
+            //this.WindowState = FormWindowState.Normal;
+        }*/
     }
 }

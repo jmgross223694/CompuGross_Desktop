@@ -1,0 +1,12 @@
+IdCliente bigint not null
+FechaRecepcion date not null
+IdTipoEquipo int not null
+DatosEquipo varchar(800) not null
+IdTipoServicio int not null
+Descripcion varchar(500) not null
+CostoRepuestos money not null
+CostoTerceros money not null
+CostoCG money not null
+CostoTotal money not null
+Devolucion date null
+Ganancia money null

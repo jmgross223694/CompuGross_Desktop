@@ -38,6 +38,7 @@ namespace CompuGross
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnPrecios = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnOrdenesTrabajo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClientes
@@ -73,7 +74,7 @@ namespace CompuGross
             this.btnPresupuestos.BackColor = System.Drawing.Color.Wheat;
             this.btnPresupuestos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPresupuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPresupuestos.Location = new System.Drawing.Point(178, 52);
+            this.btnPresupuestos.Location = new System.Drawing.Point(349, 52);
             this.btnPresupuestos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPresupuestos.Name = "btnPresupuestos";
             this.btnPresupuestos.Size = new System.Drawing.Size(147, 46);
@@ -100,7 +101,7 @@ namespace CompuGross
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(88, 9);
+            this.label1.Location = new System.Drawing.Point(168, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 25);
             this.label1.TabIndex = 11;
@@ -123,7 +124,7 @@ namespace CompuGross
             // 
             this.btnPrecios.BackColor = System.Drawing.Color.Wheat;
             this.btnPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrecios.Location = new System.Drawing.Point(178, 198);
             this.btnPrecios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrecios.Name = "btnPrecios";
@@ -139,7 +140,7 @@ namespace CompuGross
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(3, 309);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(3, 317);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(118, 26);
@@ -147,6 +148,20 @@ namespace CompuGross
             this.btnCerrarSesion.Text = "Cerrar sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
+            // btnOrdenesTrabajo
+            // 
+            this.btnOrdenesTrabajo.BackColor = System.Drawing.Color.Wheat;
+            this.btnOrdenesTrabajo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOrdenesTrabajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrdenesTrabajo.Location = new System.Drawing.Point(178, 52);
+            this.btnOrdenesTrabajo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOrdenesTrabajo.Name = "btnOrdenesTrabajo";
+            this.btnOrdenesTrabajo.Size = new System.Drawing.Size(147, 46);
+            this.btnOrdenesTrabajo.TabIndex = 13;
+            this.btnOrdenesTrabajo.Text = "Órdenes de trabajo";
+            this.btnOrdenesTrabajo.UseVisualStyleBackColor = false;
+            this.btnOrdenesTrabajo.Click += new System.EventHandler(this.btnOrdenesTrabajo_Click);
             // 
             // MenuPrincipal
             // 
@@ -158,7 +173,8 @@ namespace CompuGross
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(333, 337);
+            this.ClientSize = new System.Drawing.Size(503, 346);
+            this.Controls.Add(this.btnOrdenesTrabajo);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnPrecios);
             this.Controls.Add(this.btnProveedores);
@@ -190,5 +206,6 @@ namespace CompuGross
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnPrecios;
         private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.Button btnOrdenesTrabajo;
     }
 }

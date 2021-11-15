@@ -66,5 +66,13 @@ namespace CompuGross
             frmIngresos.ShowDialog();
             this.Show();
         }
+
+        private void btnOrdenesTrabajo_Click(object sender, EventArgs e)
+        {
+            OrdenesTrabajo frmOrdenesTrabajo = new OrdenesTrabajo();
+            this.Hide();
+            frmOrdenesTrabajo.ShowDialog();
+            this.Show();
+        }
     }
 }

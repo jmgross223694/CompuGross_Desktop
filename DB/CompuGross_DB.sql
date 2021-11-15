@@ -40,20 +40,27 @@ create table TiposServicio(
 )
 GO
 
+create table TiposEquipo(
+	ID int primary key not null identity(1,1),
+	Descripcion varchar(30) unique not null,
+	Estado bit not null default(1)
+)
+GO
+
 create table OrdenesTrabajo(
 	ID bigint primary key not null identity(1,1),
 	IdCliente bigint not null foreign key references Clientes(ID),
 	FechaRecepcion date not null,
-	Equipo varchar(300) not null,
-	NumSerie varchar(200) null,
+	IdTipoEquipo int null foreign key references TiposEquipo(ID),
+	DatosEquipo varchar(2000) not null,
 	IdTipo int not null foreign key references TiposServicio(ID),
-	Descripcion varchar(500) not null,
+	Descripcion varchar(1000) not null,
 	CostoRepuestos money not null default(0),
 	CostoTerceros money not null default(0),
 	CostoCG money not null default(0),
 	CostoTotal money not null default(0),
-	Devolucion date null,
-	Ganancia money null
+	Devolucion date not null,
+	Ganancia money not null
 )
 GO
 
@@ -109,6 +116,20 @@ insert into ListaPrecios(Descripcion, Precio) values('Servicio técnico / manteni
 insert into ListaPrecios(Descripcion, Precio) values('Recuperación de datos (hasta 100gb)', 16)
 GO
 
+--INSERT TIPOS DE EQUIPO
+insert into TiposEquipo(Descripcion) values('PC de Escritorio')
+insert into TiposEquipo(Descripcion) values('All in One')
+insert into TiposEquipo(Descripcion) values('Notebook')
+insert into TiposEquipo(Descripcion) values('Netbook')
+insert into TiposEquipo(Descripcion) values('Tablet')
+insert into TiposEquipo(Descripcion) values('Impresora')
+insert into TiposEquipo(Descripcion) values('Televisor')
+insert into TiposEquipo(Descripcion) values('Monitor')
+insert into TiposEquipo(Descripcion) values('Celular')
+insert into TiposEquipo(Descripcion) values('Consola')
+insert into TiposEquipo(Descripcion) values('Cámaras')
+GO
+
 create view ExportIngresos
 as
 	select count(*) as Cant1, 
@@ -120,6 +141,29 @@ as
 	(select count(*) from OrdenesTrabajo where IdTipo = 3) as Cant3, 
 	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipo = 3) as Ganancia3,
 	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipo = 3) as PromGanancia3,
-	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from OrdenesTrabajo where ID = 1)))) as TotalDiasServicio
+	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from OrdenesTrabajo where FechaRecepcion = '28-06-2017')))) as TotalDiasServicio
 	from OrdenesTrabajo where IdTipo = 1
 GO
+
+create view ExportOrdenesTrabajo
+as
+	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCLiente) Cliente,
+	FechaRecepcion, (select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,
+	OT.DatosEquipo, (select TS.Descripcion from TiposServicio TS where TS.ID = OT.IdTipo) TipoServicio,
+	OT.Descripcion, OT.CostoRepuestos, OT.CostoTerceros, OT.CostoCG, OT.CostoTotal, OT.Devolucion FechaDevolucion,
+	OT.Ganancia
+	from OrdenesTrabajo OT
+GO
+
+/*
+select * from ExportOrdenesTrabajo 
+where 
+Cliente like '%texto%' 
+OR ID like '%texto%'
+OR TipoServicio like '%texto%'
+OR TipoEquipo like '%texto%'
+OR DatosEquipo like '%texto%'
+OR Descripcion like '%texto%'
+OR FechaRecepcion like '%texto%'
+OR FechaDevolucion like '%texto%'
+*/
