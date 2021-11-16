@@ -16,5 +16,20 @@ namespace CompuGross
         {
             InitializeComponent();
         }
+
+        /*
+         select * from ExportOrdenesTrabajo 
+         where 
+         Cliente like '%texto%' 
+         OR ID like '%texto%'
+         OR TipoServicio like '%texto%'
+         OR TipoEquipo like '%texto%'
+         OR DatosEquipo like '%texto%'
+         OR Descripcion like '%texto%'
+         OR FechaRecepcion like '%texto%'
+         OR FechaDevolucion like '%texto%'
+            Clientes:
+            ID, Cliente, DNI, Mail
+        */
     }
 }
