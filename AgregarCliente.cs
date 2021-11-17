@@ -69,8 +69,8 @@ namespace CompuGross
                 txtNombres.Text = cliente.Nombres;
                 txtDireccion.Text = cliente.Direccion;
                 if (txtDireccion.Text == "-") { txtDireccion.Text = ""; }
-                if (cliente.IdLocalidad == 0) { ddlLocalidad.SelectedValue = "0"; }
-                else { ddlLocalidad.SelectedValue = cliente.IdLocalidad; }
+                if (cliente.Localidad == "-") { ddlLocalidad.SelectedItem = "-"; }
+                else { ddlLocalidad.SelectedItem = cliente.Localidad; }
                 label4.Visible = false;
                 label5.Visible = false;
                 txtTelefono1.Visible = false;
@@ -90,7 +90,27 @@ namespace CompuGross
 
         private void cargarDdlLocalidades()
         {
-            this.localidadesTableAdapter.Fill(this.compuGrossDataSet1.Localidades);
+            string selectLocalidades = "select ID, Descripcion, Estado from Localidades where Estado = 1 order by ID asc";
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta(selectLocalidades);
+                datos.EjecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    ddlLocalidad.Items.Add(datos.Lector["Descripcion"].ToString());
+                }
+                ddlLocalidad.SelectedItem = "-";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al leer la tabla Localidades en la base de datos.");
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
@@ -115,7 +135,7 @@ namespace CompuGross
                     cliente.Nombres = txtNombres.Text;
                     cliente.DNI = txtDni.Text;
                     cliente.Direccion = txtDireccion.Text;
-                    cliente.IdLocalidad = Convert.ToInt64(ddlLocalidad.SelectedValue);
+                    cliente.Localidad = ddlLocalidad.SelectedItem.ToString();
                     cliente.Telefono = txtTelefonoEditar.Text;
                     cliente.Mail = txtMail.Text;
 
@@ -142,7 +162,7 @@ namespace CompuGross
                     MessageBox.Show("Teléfono sin completar !!!");
                 }
                 string DNI = txtDni.Text, Nombres = txtNombres.Text, Direccion = txtDireccion.Text;
-                long Localidad = Convert.ToInt64(ddlLocalidad.SelectedValue);
+                string Localidad = ddlLocalidad.SelectedItem.ToString();
                 string Telefono = txtTelefono1.Text + "-" + txtTelefono2.Text + "-" + txtTelefono3.Text;
                 string Mail = txtMail.Text;
 

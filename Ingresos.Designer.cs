@@ -85,7 +85,6 @@ namespace CompuGross
             // 
             this.txtTipoServicio1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.txtTipoServicio1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtTipoServicio1.Enabled = false;
             this.txtTipoServicio1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipoServicio1.ForeColor = System.Drawing.SystemColors.Window;
             this.txtTipoServicio1.Location = new System.Drawing.Point(138, 50);
@@ -99,7 +98,6 @@ namespace CompuGross
             // 
             this.txtTipoServicio2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.txtTipoServicio2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtTipoServicio2.Enabled = false;
             this.txtTipoServicio2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipoServicio2.Location = new System.Drawing.Point(138, 98);
             this.txtTipoServicio2.Name = "txtTipoServicio2";
@@ -112,7 +110,6 @@ namespace CompuGross
             // 
             this.txtxTipoServicio3.BackColor = System.Drawing.Color.Gold;
             this.txtxTipoServicio3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtxTipoServicio3.Enabled = false;
             this.txtxTipoServicio3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtxTipoServicio3.Location = new System.Drawing.Point(139, 145);
             this.txtxTipoServicio3.Name = "txtxTipoServicio3";
@@ -125,7 +122,6 @@ namespace CompuGross
             // 
             this.txtGanancia3.BackColor = System.Drawing.Color.Gold;
             this.txtGanancia3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtGanancia3.Enabled = false;
             this.txtGanancia3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGanancia3.Location = new System.Drawing.Point(342, 145);
             this.txtGanancia3.Name = "txtGanancia3";
@@ -138,7 +134,6 @@ namespace CompuGross
             // 
             this.txtGanancia2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.txtGanancia2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtGanancia2.Enabled = false;
             this.txtGanancia2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGanancia2.Location = new System.Drawing.Point(341, 98);
             this.txtGanancia2.Name = "txtGanancia2";
@@ -151,7 +146,6 @@ namespace CompuGross
             // 
             this.txtGanancia1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.txtGanancia1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtGanancia1.Enabled = false;
             this.txtGanancia1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGanancia1.ForeColor = System.Drawing.SystemColors.Window;
             this.txtGanancia1.Location = new System.Drawing.Point(341, 50);
@@ -198,7 +192,6 @@ namespace CompuGross
             // 
             this.txtCantidad3.BackColor = System.Drawing.Color.Gold;
             this.txtCantidad3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtCantidad3.Enabled = false;
             this.txtCantidad3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad3.Location = new System.Drawing.Point(13, 145);
             this.txtCantidad3.Name = "txtCantidad3";
@@ -211,7 +204,6 @@ namespace CompuGross
             // 
             this.txtCantidad2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.txtCantidad2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtCantidad2.Enabled = false;
             this.txtCantidad2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad2.Location = new System.Drawing.Point(12, 98);
             this.txtCantidad2.Name = "txtCantidad2";
@@ -224,7 +216,6 @@ namespace CompuGross
             // 
             this.txtCantidad1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.txtCantidad1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtCantidad1.Enabled = false;
             this.txtCantidad1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad1.ForeColor = System.Drawing.SystemColors.Window;
             this.txtCantidad1.Location = new System.Drawing.Point(12, 50);

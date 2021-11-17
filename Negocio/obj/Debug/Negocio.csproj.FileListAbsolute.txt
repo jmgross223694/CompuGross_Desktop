@@ -13,6 +13,5 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\bin\Debug\Dominio.dll
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\bin\Debug\Dominio.pdb
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
-C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.dll
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.pdb

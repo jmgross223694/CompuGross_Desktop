@@ -125,7 +125,7 @@ namespace CompuGross
                 string anioElegido = cbAnios.SelectedItem.ToString();
 
                 string selectGananciasPorAnio = "select convert(int,sum(Ganancia)) as 'GananciaAnual' " +
-                                                "from OrdenesTrabajo where year(Devolucion) = " +
+                                                "from OrdenesTrabajo where year(FechaDevolucion) = " +
                                                 anioElegido;
 
                 AccesoDatos datos = new AccesoDatos();

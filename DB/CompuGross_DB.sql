@@ -1,3 +1,4 @@
+
 create database CompuGross
 GO
 
@@ -59,8 +60,9 @@ create table OrdenesTrabajo(
 	CostoTerceros money not null default(0),
 	CostoCG money not null default(0),
 	CostoTotal money not null default(0),
-	Devolucion date not null,
-	Ganancia money not null
+	FechaDevolucion date not null,
+	Ganancia money not null,
+	Estado bit not null default(1)
 )
 GO
 
@@ -82,7 +84,7 @@ create procedure SP_NUEVO_CLIENTE(
 as
 begin
 	insert into Clientes(DNI, Nombres, Direccion, IdLocalidad, Telefono, Mail)
-	values(@DNI, @Nombres, @Direccion, @Localidad, @Telefono, @Mail)
+	values(@DNI, @Nombres, @Direccion, (select ID from Localidades where Descripcion = @Localidad), @Telefono, @Mail)
 end
 GO
 
@@ -141,29 +143,66 @@ as
 	(select count(*) from OrdenesTrabajo where IdTipo = 3) as Cant3, 
 	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipo = 3) as Ganancia3,
 	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipo = 3) as PromGanancia3,
-	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from OrdenesTrabajo where FechaRecepcion = '28-06-2017')))) as TotalDiasServicio
+	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from 
+	OrdenesTrabajo where FechaRecepcion = '28-06-2017')))) as TotalDiasServicio
 	from OrdenesTrabajo where IdTipo = 1
 GO
 
 create view ExportOrdenesTrabajo
 as
 	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCLiente) Cliente,
-	FechaRecepcion, (select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,
+	CONVERT(varchar(10), OT.FechaRecepcion, 105) FechaRecepcion,
+	CONVERT(varchar(10), OT.FechaDevolucion, 105) FechaDevolucion,
+	(select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,
 	OT.DatosEquipo, (select TS.Descripcion from TiposServicio TS where TS.ID = OT.IdTipo) TipoServicio,
-	OT.Descripcion, OT.CostoRepuestos, OT.CostoTerceros, OT.CostoCG, OT.CostoTotal, OT.Devolucion FechaDevolucion,
-	OT.Ganancia
+	OT.Descripcion, CONVERT(varchar(10),OT.CostoRepuestos) CostoRepuestos, 
+	CONVERT(varchar(10),OT.CostoTerceros) CostoTerceros, CONVERT(varchar(10),OT.CostoCG) CostoCG, 
+	CONVERT(varchar(10),OT.CostoTotal) CostoTotal,
+	CONVERT(varchar(10),OT.Ganancia) Ganancia, OT.Estado
 	from OrdenesTrabajo OT
 GO
 
-/*
-select * from ExportOrdenesTrabajo 
-where 
-Cliente like '%texto%' 
-OR ID like '%texto%'
-OR TipoServicio like '%texto%'
-OR TipoEquipo like '%texto%'
-OR DatosEquipo like '%texto%'
-OR Descripcion like '%texto%'
-OR FechaRecepcion like '%texto%'
-OR FechaDevolucion like '%texto%'
-*/
+create procedure SP_UPDATE_ORDEN_TRABAJO(
+	@ID bigint,
+	@Cliente varchar(200),
+	@FechaRecepcion varchar(10),
+	@TipoEquipo varchar(30),
+	@DatosEquipo varchar(800),
+	@TipoServicio varchar(30),
+	@Descripcion varchar(500),
+	@CostoRepuestos money,
+	@CostoTerceros money,
+	@CostoCG money,
+	@CostoTotal money,
+	@FechaDevolucion varchar(10),
+	@Ganancia money,
+	@Estado bit
+)as
+begin
+	update OrdenesTrabajo set
+							IdCliente = (select ID from Clientes where Nombres = @Cliente),
+							FechaRecepcion = @FechaRecepcion,
+							IdTipoEquipo = (select ID from TiposEquipo where Descripcion = @TipoEquipo),
+							DatosEquipo = @DatosEquipo,
+							IdTipo = (select ID from TiposServicio where Descripcion = @TipoServicio),
+							Descripcion = @Descripcion,
+							CostoRepuestos = @CostoRepuestos,
+							CostoTerceros = @CostoTerceros,
+							CostoCG = @CostoCG,
+							CostoTotal = @CostoTotal,
+							FechaDevolucion = @FechaDevolucion,
+							Ganancia = @Ganancia,
+							Estado = @Estado
+	where ID = @ID
+end
+GO
+
+create trigger TR_BAJA_LOGICA_ORDEN_TRABAJO on OrdenesTrabajo
+instead of delete
+as
+begin
+	declare @IdOrden bigint = (select ID from deleted)
+	
+	update OrdenesTrabajo set Estado = 0 where ID = @IdOrden
+end
+GO

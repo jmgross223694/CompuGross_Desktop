@@ -8,5 +8,5 @@ CostoRepuestos money not null
 CostoTerceros money not null
 CostoCG money not null
 CostoTotal money not null
-Devolucion date null
+FechaDevolucion date null
 Ganancia money null

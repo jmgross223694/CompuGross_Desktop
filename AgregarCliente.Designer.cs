@@ -29,7 +29,6 @@ namespace CompuGross
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarCliente));
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblDni = new System.Windows.Forms.Label();
@@ -46,9 +45,6 @@ namespace CompuGross
             this.label7 = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.ddlLocalidad = new System.Windows.Forms.ComboBox();
-            this.localidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.compuGrossDataSet1 = new CompuGross.CompuGrossDataSet1();
-            this.localidadesTableAdapter = new CompuGross.CompuGrossDataSet1TableAdapters.LocalidadesTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTelefono2 = new System.Windows.Forms.TextBox();
             this.txtTelefono3 = new System.Windows.Forms.TextBox();
@@ -58,7 +54,7 @@ namespace CompuGross
             this.label5 = new System.Windows.Forms.Label();
             this.txtTelefonoEditar = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.localidadesBindingSource)).BeginInit();
+            this.compuGrossDataSet1 = new CompuGross.CompuGrossDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -223,9 +219,7 @@ namespace CompuGross
             // 
             // ddlLocalidad
             // 
-            this.ddlLocalidad.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.localidadesBindingSource, "ID", true));
-            this.ddlLocalidad.DataSource = this.localidadesBindingSource;
-            this.ddlLocalidad.DisplayMember = "Descripcion";
+            this.ddlLocalidad.DisplayMember = "ID";
             this.ddlLocalidad.FormattingEnabled = true;
             this.ddlLocalidad.Location = new System.Drawing.Point(120, 287);
             this.ddlLocalidad.Margin = new System.Windows.Forms.Padding(6);
@@ -233,20 +227,6 @@ namespace CompuGross
             this.ddlLocalidad.Size = new System.Drawing.Size(554, 32);
             this.ddlLocalidad.TabIndex = 3;
             this.ddlLocalidad.ValueMember = "ID";
-            // 
-            // localidadesBindingSource
-            // 
-            this.localidadesBindingSource.DataMember = "Localidades";
-            this.localidadesBindingSource.DataSource = this.compuGrossDataSet1;
-            // 
-            // compuGrossDataSet1
-            // 
-            this.compuGrossDataSet1.DataSetName = "CompuGrossDataSet1";
-            this.compuGrossDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // localidadesTableAdapter
-            // 
-            this.localidadesTableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
@@ -351,6 +331,11 @@ namespace CompuGross
             this.txtId.TabIndex = 30;
             this.txtId.Visible = false;
             // 
+            // compuGrossDataSet1
+            // 
+            this.compuGrossDataSet1.DataSetName = "CompuGrossDataSet";
+            this.compuGrossDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // AgregarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -394,7 +379,6 @@ namespace CompuGross
             this.Text = "Nuevo Cliente";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Agregar_FormClosed);
             this.Load += new System.EventHandler(this.Agregar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.localidadesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -417,9 +401,6 @@ namespace CompuGross
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox ddlLocalidad;
-        private CompuGrossDataSet1 compuGrossDataSet1;
-        private System.Windows.Forms.BindingSource localidadesBindingSource;
-        private CompuGrossDataSet1TableAdapters.LocalidadesTableAdapter localidadesTableAdapter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTelefono2;
         private System.Windows.Forms.TextBox txtTelefono3;
@@ -430,5 +411,6 @@ namespace CompuGross
         private System.Windows.Forms.TextBox txtTelefonoEditar;
         public System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.TextBox txtId;
+        private CompuGrossDataSet compuGrossDataSet1;
     }
 }

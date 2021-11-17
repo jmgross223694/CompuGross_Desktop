@@ -80,8 +80,12 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string update = "update Clientes set Nombres = '" + cliente.Nombres + "', DNI = '" + cliente.DNI + "', Direccion = '" + cliente.Direccion + "', " +
-                                "IdLocalidad = " + cliente.IdLocalidad + ", Telefono = '" + cliente.Telefono + "', Mail = '" + cliente.Mail + "' " + 
+                string update = "update Clientes set Nombres = '" + cliente.Nombres + 
+                                "', DNI = '" + cliente.DNI + 
+                                "', Direccion = '" + cliente.Direccion + "', " +
+                                "IdLocalidad = (select ID from Localidades where Descripcion = '" + cliente.Localidad + 
+                                "'), Telefono = '" + cliente.Telefono + 
+                                "', Mail = '" + cliente.Mail + "' " + 
                                 "WHERE ID = " + cliente.Id;
 
                 datos.SetearConsulta(update);

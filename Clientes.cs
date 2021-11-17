@@ -20,7 +20,7 @@ namespace CompuGross
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Clientes_Load(object sender, EventArgs e)
         {
             cargarListado();
             ocultarColumnas();
@@ -52,7 +52,6 @@ namespace CompuGross
             }
             catch (Exception es)
             {
-
                 MessageBox.Show(es.ToString());
             }
         }
