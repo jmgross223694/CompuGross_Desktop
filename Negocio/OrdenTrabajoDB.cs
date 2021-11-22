@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                string consulta = "select * from ExportOrdenesTrabajo ORDER BY ID ASC";
+                string consulta = "select * from ExportOrdenesTrabajo ORDER BY FechaRecepcion desc";
 
                 datos.SetearConsulta(consulta);
                 datos.EjecutarLectura();
@@ -27,8 +27,10 @@ namespace Negocio
                     OrdenTrabajo aux = new OrdenTrabajo();
                     aux.ID = (long)datos.Lector["ID"];
                     aux.Cliente = datos.Lector["Cliente"].ToString();
-                    aux.FechaRecepcion = datos.Lector["FechaRecepcion"].ToString();
-                    aux.FechaDevolucion = datos.Lector["FechaDevolucion"].ToString();
+                    DateTime aux1 = Convert.ToDateTime(datos.Lector["FechaRecepcion"]);
+                    aux.FechaRecepcion = aux1.ToShortDateString();
+                    DateTime aux2 = Convert.ToDateTime(datos.Lector["FechaDevolucion"]);
+                    aux.FechaDevolucion = aux2.ToShortDateString();
                     aux.TipoEquipo = datos.Lector["TipoEquipo"].ToString();
                     aux.RAM = datos.Lector["RAM"].ToString();
                     aux.PlacaMadre = datos.Lector["PlacaMadre"].ToString();
@@ -117,28 +119,25 @@ namespace Negocio
         public void ModificarOrden(OrdenTrabajo ordenTrabajo)
         {
             string update = "exec SP_UPDATE_ORDEN_TRABAJO " +
-                                ordenTrabajo.ID + ", " +
-                                ordenTrabajo.Cliente + ", '" +
-                                ordenTrabajo.FechaRecepcion + "', " +
-                                ordenTrabajo.TipoEquipo + ", '" +
-                                ordenTrabajo.RAM + "', " +
-                                ordenTrabajo.PlacaMadre + "', " +
-                                ordenTrabajo.MarcaModelo + "', " +
-                                ordenTrabajo.Microprocesador + "', " +
-                                ordenTrabajo.Almacenamiento + "', " +
-                                ordenTrabajo.CdDvd + "', " +
-                                ordenTrabajo.Fuente + "', " +
-                                ordenTrabajo.Adicionales + "', " +
-                                ordenTrabajo.NumSerie + "', " +
-                                ordenTrabajo.TipoServicio + ", '" +
+                                ordenTrabajo.ID + ", '" +
+                                ordenTrabajo.Cliente + "', '" +
+                                ordenTrabajo.FechaRecepcion + "', '" +
+                                ordenTrabajo.TipoEquipo + "', '" +
+                                ordenTrabajo.RAM + "', '" +
+                                ordenTrabajo.PlacaMadre + "', '" +
+                                ordenTrabajo.MarcaModelo + "', '" +
+                                ordenTrabajo.Microprocesador + "', '" +
+                                ordenTrabajo.Almacenamiento + "', '" +
+                                ordenTrabajo.CdDvd + "', '" +
+                                ordenTrabajo.Fuente + "', '" +
+                                ordenTrabajo.Adicionales + "', '" +
+                                ordenTrabajo.NumSerie + "', '" +
+                                ordenTrabajo.TipoServicio + "', '" +
                                 ordenTrabajo.Descripcion + "', " +
                                 ordenTrabajo.CostoRepuestos + ", " +
                                 ordenTrabajo.CostoTerceros + ", " +
-                                ordenTrabajo.CostoCG + ", " +
-                                ordenTrabajo.CostoTotal + ", '" +
-                                ordenTrabajo.FechaDevolucion + "', " +
-                                ordenTrabajo.Ganancia + ", " +
-                                ordenTrabajo.Estado;
+                                ordenTrabajo.CostoCG + ", '" +
+                                ordenTrabajo.FechaDevolucion + "'";
 
             AccesoDatos datos = new AccesoDatos();
 

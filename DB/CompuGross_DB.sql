@@ -158,8 +158,8 @@ GO
 create view ExportOrdenesTrabajo
 as
 	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCLiente) Cliente,
-	CONVERT(varchar(10), OT.FechaRecepcion, 105) FechaRecepcion,
-	CONVERT(varchar(10), OT.FechaDevolucion, 105) FechaDevolucion,
+	OT.FechaRecepcion FechaRecepcion,
+	OT.FechaDevolucion FechaDevolucion,
 	(select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,
 	OT.RAM, OT.PlacaMadre, OT.MarcaModelo, OT.Microprocesador, OT.Almacenamiento, OT.CdDvd, 
 	OT.Fuente, OT.Adicionales, OT.NumSerie,
@@ -191,10 +191,7 @@ create procedure SP_UPDATE_ORDEN_TRABAJO(
 	@CostoRepuestos money,
 	@CostoTerceros money,
 	@CostoCG money,
-	@CostoTotal money,
-	@FechaDevolucion varchar(10),
-	@Ganancia money,
-	@Estado bit
+	@FechaDevolucion varchar(10)
 )as
 begin
 	update OrdenesTrabajo set
@@ -215,10 +212,9 @@ begin
 							CostoRepuestos = @CostoRepuestos,
 							CostoTerceros = @CostoTerceros,
 							CostoCG = @CostoCG,
-							CostoTotal = @CostoTotal,
+							CostoTotal = @CostoCG + @CostoTerceros + @CostoRepuestos,
 							FechaDevolucion = @FechaDevolucion,
-							Ganancia = @Ganancia,
-							Estado = @Estado
+							Ganancia = @CostoCG
 	where ID = @ID
 end
 GO

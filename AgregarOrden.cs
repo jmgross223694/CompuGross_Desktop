@@ -14,6 +14,7 @@ namespace CompuGross
 {
     public partial class AgregarOrden : Form
     {
+        private long IdOrden = 0;
         private List<Cliente> listaClientes;
         private OrdenTrabajo orden = null;
         public AgregarOrden()
@@ -45,6 +46,8 @@ namespace CompuGross
             txtBuscarCliente.Enabled = false;
 
             completarCamposOrden(orden);
+
+            this.IdOrden = orden.ID;
         }
 
         private void AgregarOrden_Load(object sender, EventArgs e)
@@ -274,12 +277,75 @@ namespace CompuGross
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             if (txtFechaRecepcion.Text == "" || ddlTiposEquipo.SelectedItem.ToString() == ""
-                || txtMarcaModelo.Text == "" || ddlTiposServicio.SelectedItem.ToString() == ""
-                || txtCostoManoObra.Text == "" || txtDescripcion.Text == "")
+                    || txtMarcaModelo.Text == "" || ddlTiposServicio.SelectedItem.ToString() == ""
+                    || txtCostoManoObra.Text == "" || txtDescripcion.Text == "")
             {
                 MessageBox.Show("Faltan completar campos obligatorios !!");
             }
-            else
+
+            if (Text == "Modificar Orden") //Modificar orden
+            {
+                OrdenTrabajoDB ordenDb = new OrdenTrabajoDB();
+                OrdenTrabajo orden = new OrdenTrabajo();
+
+                orden.ID = this.IdOrden;
+
+                orden.Cliente = txtCliente.Text;
+                orden.FechaRecepcion = txtFechaRecepcion.Text;
+                orden.TipoEquipo = ddlTiposEquipo.SelectedItem.ToString();
+
+                if (txtRam.Text == "") { orden.RAM = "-"; }
+                else { orden.RAM = txtRam.Text; }
+
+                if (txtPlacaMadre.Text == "") { orden.PlacaMadre = "-"; }
+                else { orden.PlacaMadre = txtPlacaMadre.Text; }
+
+                if (txtMicroprocesador.Text == "") { orden.Microprocesador = "-"; }
+                else { orden.Microprocesador = txtMicroprocesador.Text; }
+
+                if (txtAlmacenamiento.Text == "") { orden.Almacenamiento = "-"; }
+                else { orden.Almacenamiento = txtAlmacenamiento.Text; }
+
+                if (txtCdDvd.Text == "") { orden.CdDvd = "-"; }
+                else { orden.CdDvd = txtCdDvd.Text; }
+
+                if (txtFuente.Text == "") { orden.Fuente = "-"; }
+                else { orden.Fuente = txtFuente.Text; }
+
+                if (txtAdicionales.Text == "") { orden.Adicionales = "-"; }
+                else { orden.Adicionales = txtAdicionales.Text; }
+
+                if (txtNumSerie.Text == "") { orden.NumSerie = "-"; }
+                else { orden.NumSerie = txtNumSerie.Text; }
+
+                if (txtCostoRepuestos.Text == "") { orden.CostoRepuestos = 0; }
+                else { orden.CostoRepuestos = Convert.ToInt32(txtCostoRepuestos.Text); }
+
+                if (txtCostoTerceros.Text == "") { orden.CostoTerceros = 0; }
+                else { orden.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
+
+                if (txtFechaDevolucion.Text == "") { orden.FechaDevolucion = ""; }
+                else { orden.FechaDevolucion = txtFechaDevolucion.Text; }
+
+                orden.MarcaModelo = txtMarcaModelo.Text;
+                orden.TipoServicio = ddlTiposServicio.SelectedItem.ToString();
+                orden.Descripcion = txtDescripcion.Text;
+                orden.CostoCG = Convert.ToInt32(txtCostoManoObra.Text);
+
+                try
+                {
+                    ordenDb.ModificarOrden(orden);
+
+                    MessageBox.Show("Se guardaron los cambios en la Orden de trabajo N°" + orden.ID + ".");
+
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Se produjo un error y no se modificó la orden de trabajo.");
+                }
+            }
+            else //Agregar nueva
             {
                 OrdenTrabajoDB ordenDb = new OrdenTrabajoDB();
                 OrdenTrabajo orden = new OrdenTrabajo();
@@ -330,11 +396,9 @@ namespace CompuGross
                 {
                     ordenDb.AgregarOrden(orden);
 
-                    MessageBox.Show("Orden de trabajo, agregada correctamente.");
+                    MessageBox.Show("Orden de trabajo agregada correctamente.");
 
-                    borrarContenidoCampos();
-
-                    inhabilitarCampos();
+                    this.Close();
                 }
                 catch (Exception)
                 {
