@@ -1,4 +1,3 @@
-
 create database CompuGross
 GO
 
@@ -52,15 +51,23 @@ create table OrdenesTrabajo(
 	ID bigint primary key not null identity(1,1),
 	IdCliente bigint not null foreign key references Clientes(ID),
 	FechaRecepcion date not null,
-	IdTipoEquipo int null foreign key references TiposEquipo(ID),
-	DatosEquipo varchar(2000) not null,
-	IdTipo int not null foreign key references TiposServicio(ID),
+	IdTipoEquipo int not null foreign key references TiposEquipo(ID),
+	RAM varchar(50) not null default('-'),
+	PlacaMadre varchar(50) not null default('-'),
+	MarcaModelo varchar(50) not null default('-'),
+	Microprocesador varchar(50) not null default('-'),
+	Almacenamiento varchar(50) not null default('-'),
+	CdDvd varchar(50) not null default('-'),
+	Fuente varchar(50) not null default('-'),
+	Adicionales varchar(50) not null default('-'),
+	NumSerie varchar(100) not null default('-'),
+	IdTipoServicio int not null foreign key references TiposServicio(ID),
 	Descripcion varchar(1000) not null,
 	CostoRepuestos money not null default(0),
 	CostoTerceros money not null default(0),
 	CostoCG money not null default(0),
 	CostoTotal money not null default(0),
-	FechaDevolucion date not null,
+	FechaDevolucion date null,
 	Ganancia money not null,
 	Estado bit not null default(1)
 )
@@ -135,17 +142,17 @@ GO
 create view ExportIngresos
 as
 	select count(*) as Cant1, 
-	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipo = 1) as Ganancia1,
-	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipo = 1) as PromGanancia1,
-	(select count(*) from OrdenesTrabajo where IdTipo = 2) as Cant2, 
-	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipo = 2) as Ganancia2,
-	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipo = 2) as PromGanancia2,
-	(select count(*) from OrdenesTrabajo where IdTipo = 3) as Cant3, 
-	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipo = 3) as Ganancia3,
-	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipo = 3) as PromGanancia3,
+	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 1) as Ganancia1,
+	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 1) as PromGanancia1,
+	(select count(*) from OrdenesTrabajo where IdTipoServicio = 2) as Cant2, 
+	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 2) as Ganancia2,
+	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 2) as PromGanancia2,
+	(select count(*) from OrdenesTrabajo where IdTipoServicio = 3) as Cant3, 
+	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 3) as Ganancia3,
+	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 3) as PromGanancia3,
 	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from 
 	OrdenesTrabajo where FechaRecepcion = '28-06-2017')))) as TotalDiasServicio
-	from OrdenesTrabajo where IdTipo = 1
+	from OrdenesTrabajo where IdTipoServicio = 1 AND Estado = 1
 GO
 
 create view ExportOrdenesTrabajo
@@ -154,12 +161,15 @@ as
 	CONVERT(varchar(10), OT.FechaRecepcion, 105) FechaRecepcion,
 	CONVERT(varchar(10), OT.FechaDevolucion, 105) FechaDevolucion,
 	(select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,
-	OT.DatosEquipo, (select TS.Descripcion from TiposServicio TS where TS.ID = OT.IdTipo) TipoServicio,
-	OT.Descripcion, CONVERT(varchar(10),OT.CostoRepuestos) CostoRepuestos, 
-	CONVERT(varchar(10),OT.CostoTerceros) CostoTerceros, CONVERT(varchar(10),OT.CostoCG) CostoCG, 
-	CONVERT(varchar(10),OT.CostoTotal) CostoTotal,
-	CONVERT(varchar(10),OT.Ganancia) Ganancia, OT.Estado
-	from OrdenesTrabajo OT
+	OT.RAM, OT.PlacaMadre, OT.MarcaModelo, OT.Microprocesador, OT.Almacenamiento, OT.CdDvd, 
+	OT.Fuente, OT.Adicionales, OT.NumSerie,
+	(select TS.Descripcion from TiposServicio TS where TS.ID = OT.IdTipoServicio) TipoServicio,
+	OT.Descripcion, 
+	CONVERT(int,OT.CostoRepuestos) CostoRepuestos, 
+	CONVERT(int,OT.CostoTerceros) CostoTerceros, CONVERT(int,OT.CostoCG) CostoCG, 
+	CONVERT(int,OT.CostoTotal) CostoTotal,
+	CONVERT(int,OT.Ganancia) Ganancia, OT.Estado
+	from OrdenesTrabajo OT where Estado = 1
 GO
 
 create procedure SP_UPDATE_ORDEN_TRABAJO(
@@ -167,7 +177,15 @@ create procedure SP_UPDATE_ORDEN_TRABAJO(
 	@Cliente varchar(200),
 	@FechaRecepcion varchar(10),
 	@TipoEquipo varchar(30),
-	@DatosEquipo varchar(800),
+	@RAM varchar(50),
+	@PlacaMadre varchar(50),
+	@MarcaModelo varchar(50),
+	@Microprocesador varchar(50),
+	@Almacenamiento varchar(50),
+	@CdDvd varchar(50),
+	@Fuente varchar(50),
+	@Adicionales varchar(50),
+	@NumSerie varchar(100),
 	@TipoServicio varchar(30),
 	@Descripcion varchar(500),
 	@CostoRepuestos money,
@@ -183,8 +201,16 @@ begin
 							IdCliente = (select ID from Clientes where Nombres = @Cliente),
 							FechaRecepcion = @FechaRecepcion,
 							IdTipoEquipo = (select ID from TiposEquipo where Descripcion = @TipoEquipo),
-							DatosEquipo = @DatosEquipo,
-							IdTipo = (select ID from TiposServicio where Descripcion = @TipoServicio),
+							RAM = @RAM,
+							PlacaMadre = @PlacaMadre,
+							MarcaModelo = @MarcaModelo,
+							Microprocesador= @Microprocesador,
+							Almacenamiento = @Almacenamiento,
+							CdDvd = @CdDvd,
+							Fuente = @Fuente,
+							Adicionales = @Adicionales,
+							NumSerie = @NumSerie,
+							IdTipoServicio = (select ID from TiposServicio where Descripcion = @TipoServicio),
 							Descripcion = @Descripcion,
 							CostoRepuestos = @CostoRepuestos,
 							CostoTerceros = @CostoTerceros,
@@ -194,6 +220,66 @@ begin
 							Ganancia = @Ganancia,
 							Estado = @Estado
 	where ID = @ID
+end
+GO
+
+create procedure SP_INSERT_ORDEN_TRABAJO(
+	@Cliente varchar(200),
+	@FechaRecepcion varchar(10),
+	@TipoEquipo varchar(30),
+	@RAM varchar(50),
+	@PlacaMadre varchar(50),
+	@MarcaModelo varchar(50),
+	@Microprocesador varchar(50),
+	@Almacenamiento varchar(50),
+	@CdDvd varchar(50),
+	@Fuente varchar(50),
+	@Adicionales varchar(50),
+	@NumSerie varchar(100),
+	@TipoServicio varchar(30),
+	@Descripcion varchar(500),
+	@CostoRepuestos money,
+	@CostoTerceros money,
+	@CostoCG money,
+	@FechaDevolucion varchar(10)
+)as
+begin
+	if (@FechaDevolucion = '')
+		begin
+			insert into OrdenesTrabajo(IdCliente, FechaRecepcion, IdTipoEquipo, RAM, 
+							   PlacaMadre, MarcaModelo, Microprocesador, 
+							   Almacenamiento, CdDvd, Fuente, Adicionales,
+							   NumSerie, IdTipoServicio, Descripcion,
+							   CostoRepuestos, CostoTerceros, CostoCG,
+							   Ganancia, CostoTotal)
+							
+			values((select ID from Clientes where Nombres = @Cliente), @FechaRecepcion, 
+				   (select ID from TiposEquipo where Descripcion = @TipoEquipo), @RAM,
+				   @PlacaMadre, @MarcaModelo, @Microprocesador, @Almacenamiento, @CdDvd,
+				   @Fuente, @Adicionales, @NumSerie,
+				   (select ID from TiposServicio where Descripcion = @TipoServicio),
+				   @Descripcion, @CostoRepuestos, @CostoTerceros, @CostoCG,
+				   @CostoCG, (@CostoRepuestos + @CostoCG + @CostoTerceros))
+		end
+	else
+		begin
+			insert into OrdenesTrabajo(IdCliente, FechaRecepcion, IdTipoEquipo, RAM, 
+							   PlacaMadre, MarcaModelo, Microprocesador, 
+							   Almacenamiento, CdDvd, Fuente, Adicionales,
+							   NumSerie, IdTipoServicio, Descripcion,
+							   CostoRepuestos, CostoTerceros, CostoCG,
+							   FechaDevolucion, Ganancia, CostoTotal)
+							
+			values((select ID from Clientes where Nombres = @Cliente), @FechaRecepcion, 
+				   (select ID from TiposEquipo where Descripcion = @TipoEquipo), @RAM,
+				   @PlacaMadre, @MarcaModelo, @Microprocesador, @Almacenamiento, @CdDvd,
+				   @Fuente, @Adicionales, @NumSerie,
+				   (select ID from TiposServicio where Descripcion = @TipoServicio),
+				   @Descripcion, @CostoRepuestos, @CostoTerceros, @CostoCG,
+				   @FechaDevolucion, @CostoCG, (@CostoRepuestos + @CostoCG + @CostoTerceros))
+		end
+	
+	
 end
 GO
 

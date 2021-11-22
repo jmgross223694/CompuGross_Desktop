@@ -106,6 +106,7 @@ namespace CompuGross
             catch (Exception)
             {
                 MessageBox.Show("Error al leer la tabla Localidades en la base de datos.");
+                this.Close();
             }
             finally
             {
@@ -141,13 +142,19 @@ namespace CompuGross
 
                     try
                     {
-                        clienteDB.ModificarCliente(cliente);
-                        MessageBox.Show("Cliente modificado con éxito!");
-                        Form.ActiveForm.Close();
+                        int clienteModificado = 0;
+                        clienteModificado = clienteDB.ModificarCliente(cliente);
+
+                        if (clienteModificado == 1)
+                        {
+                            MessageBox.Show("Cliente modificado con éxito!");
+                            Form.ActiveForm.Close();
+                        }
                     }
                     catch
                     {
-                        MessageBox.Show("Se produjo un error al intentar modificar el cliente.", "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Se produjo un error y no se modificó el cliente.", "Atención!", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -161,33 +168,43 @@ namespace CompuGross
                 {
                     MessageBox.Show("Teléfono sin completar !!!");
                 }
-                string DNI = txtDni.Text, Nombres = txtNombres.Text, Direccion = txtDireccion.Text;
-                string Localidad = ddlLocalidad.SelectedItem.ToString();
-                string Telefono = txtTelefono1.Text + "-" + txtTelefono2.Text + "-" + txtTelefono3.Text;
-                string Mail = txtMail.Text;
 
-                string insertCliente = "EXEC SP_NUEVO_CLIENTE '" + DNI + "', '" +
-                                       Nombres + "', '" + Direccion + "', " +
-                                       Localidad + ", '" + Telefono + "', '" + Mail + "'";
+                ClienteDB clienteDB = new ClienteDB();
 
-                AccesoDatos datos = new AccesoDatos();
+                Cliente cliente = new Cliente();
+
+                int clienteAgregado = 0;
+
+                if (txtDni.Text == "") { cliente.DNI = "-"; }
+                else { cliente.DNI = txtDni.Text; }
+
+                cliente.Nombres = txtNombres.Text;
+
+                if (txtDireccion.Text == "") { cliente.Direccion = "-"; }
+                else { cliente.Direccion = txtDireccion.Text; }
+
+                if (ddlLocalidad.SelectedItem.ToString() == "-") { cliente.Localidad = "-"; }
+                else { cliente.Localidad = ddlLocalidad.SelectedItem.ToString(); }
+
+                cliente.Telefono = txtTelefono1.Text + "-" + txtTelefono2.Text + "-" + txtTelefono3.Text;
+
+                if (txtMail.Text == "") { cliente.Mail = "-"; } 
+                else { cliente.Mail = txtMail.Text; }
 
                 try
                 {
-                    datos.SetearConsulta(insertCliente);
-                    datos.EjecutarLectura();
+                    clienteAgregado = clienteDB.AgregarCliente(cliente);
 
-                    MessageBox.Show("Cliente agregado con éxito !!!");
-
-                    this.Hide();
+                    if (clienteAgregado == 1)
+                    {
+                        MessageBox.Show("Cliente agregado con éxito !!!");
+                        Form.ActiveForm.Close();
+                    }
                 }
-                catch (Exception)
+                catch
                 {
-                    throw;
-                }
-                finally
-                {
-                    datos.CerrarConexion();
+                    MessageBox.Show("Se produjo un error y no se agregó el nuevo cliente.", "Atención!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

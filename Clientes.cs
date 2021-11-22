@@ -24,21 +24,50 @@ namespace CompuGross
         {
             cargarListado();
             ocultarColumnas();
-            centrarColumnas();
+            alinearColumnas();
+            cambiarTitulosColumnas();
+            ordenarColumnas();
         }
 
-        private void centrarColumnas()
+        private void alinearColumnas()
         {
-            this.dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvClientes.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvClientes.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["Id"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["Nombres"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["DNI"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["Direccion"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["Telefono"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvClientes.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["Telefono"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["DNI"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["Localidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void ocultarColumnas()
         {
-            dgvClientes.Columns["ID"].Visible = false;
             dgvClientes.Columns["IdLocalidad"].Visible = false;
+            //dgvClientes.Columns["Direccion"].Visible = false;
+        }
+
+        private void cambiarTitulosColumnas()
+        {
+            dgvClientes.Columns["Id"].HeaderText = "N° de cliente";
+            dgvClientes.Columns["Nombres"].HeaderText = "Cliente";
+            dgvClientes.Columns["Telefono"].HeaderText = "Teléfono";
+            dgvClientes.Columns["Direccion"].HeaderText = "Dirección";
+        }
+
+        private void ordenarColumnas()
+        {
+            dgvClientes.AllowUserToOrderColumns = true;
+
+            dgvClientes.Columns["Id"].DisplayIndex = 0;
+            dgvClientes.Columns["DNI"].DisplayIndex = 1;
+            dgvClientes.Columns["Nombres"].DisplayIndex = 2;
+            dgvClientes.Columns["Telefono"].DisplayIndex = 3;
+            dgvClientes.Columns["Mail"].DisplayIndex = 4;
+            dgvClientes.Columns["Direccion"].DisplayIndex = 5;
+            dgvClientes.Columns["Localidad"].DisplayIndex = 6;
         }
 
         private void cargarListado()
@@ -54,11 +83,6 @@ namespace CompuGross
             {
                 MessageBox.Show(es.ToString());
             }
-        }
-
-        private void comboBoxBuscarCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtBoxBusquedaCliente.Text = "";
         }
 
         private void BuscarFiltro()
@@ -80,7 +104,9 @@ namespace CompuGross
                 dgvClientes.DataSource = listaClientes;
             }
             ocultarColumnas();
-            centrarColumnas();
+            alinearColumnas();
+            cambiarTitulosColumnas();
+            ordenarColumnas();
         }
 
         private void txtBoxBusquedaCliente_KeyUp(object sender, KeyEventArgs e)
@@ -94,7 +120,10 @@ namespace CompuGross
             frmAgregar.ShowDialog();
             cargarListado();
             ocultarColumnas();
-            centrarColumnas();
+            alinearColumnas();
+            cambiarTitulosColumnas();
+            ordenarColumnas();
+            txtBoxBusquedaCliente.Text = "";
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -110,6 +139,11 @@ namespace CompuGross
                     clienteDB.EliminarCliente(seleccionado.Nombres, seleccionado.Telefono);
                     MessageBox.Show("El cliente " + seleccionado.Nombres + ", se ha eliminado correctamente");
                     cargarListado();
+                    ocultarColumnas();
+                    alinearColumnas();
+                    cambiarTitulosColumnas();
+                    ordenarColumnas();
+                    txtBoxBusquedaCliente.Text = "";
                 }
             }
             catch (Exception ex)
@@ -127,6 +161,11 @@ namespace CompuGross
                 AgregarCliente modificar = new AgregarCliente(seleccionado);
                 modificar.ShowDialog();
                 cargarListado();
+                ocultarColumnas();
+                alinearColumnas();
+                cambiarTitulosColumnas();
+                ordenarColumnas();
+                txtBoxBusquedaCliente.Text = "";
             }
             catch (Exception ex)
             {

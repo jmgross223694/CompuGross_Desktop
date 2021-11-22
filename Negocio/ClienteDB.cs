@@ -10,7 +10,6 @@ namespace Negocio
 {
     public class ClienteDB
     {
-        private AccesoDatos datos;
         public List<Cliente> Listar()
         {
             List<Cliente> lista = new List<Cliente>();
@@ -53,9 +52,40 @@ namespace Negocio
             }
         }
 
-        public void EliminarCliente(string nombres, string telefono)
+        public int AgregarCliente(Cliente cliente)
         {
-            datos = new AccesoDatos();
+            string insertCliente = "EXEC SP_NUEVO_CLIENTE '" + cliente.DNI + "', '" +
+                                       cliente.Nombres + "', '" + cliente.Direccion + "', '" +
+                                       cliente.Localidad + "', '" + cliente.Telefono + "', '" + cliente.Mail + "'";
+
+            AccesoDatos datos = new AccesoDatos();
+
+            int clienteAgregado = 0;
+
+            try
+            {
+                datos.SetearConsulta(insertCliente);
+                datos.EjecutarLectura();
+
+                clienteAgregado = 1;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+            return clienteAgregado;
+        }
+
+        public int EliminarCliente(string nombres, string telefono)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            
+            int clienteEliminado = 0;
 
             try
             {
@@ -63,6 +93,8 @@ namespace Negocio
 
                 datos.SetearConsulta(delete);
                 datos.EjecutarLectura();
+
+                clienteEliminado = 1;
             }
             catch (Exception ex)
             {
@@ -73,11 +105,16 @@ namespace Negocio
                 datos.CerrarConexion();
                 datos = null;
             }
+
+            return clienteEliminado;
         }
 
-        public void ModificarCliente(Cliente cliente)
+        public int ModificarCliente(Cliente cliente)
         {
             AccesoDatos datos = new AccesoDatos();
+            
+            int clienteModificado = 0;
+
             try
             {
                 string update = "update Clientes set Nombres = '" + cliente.Nombres + 
@@ -90,6 +127,8 @@ namespace Negocio
 
                 datos.SetearConsulta(update);
                 datos.EjecutarLectura();
+
+                clienteModificado = 1;
             }
             catch (Exception ex)
             {
@@ -99,6 +138,8 @@ namespace Negocio
             {
                 datos.CerrarConexion();
             }
+
+            return clienteModificado;
         }
     }
 }

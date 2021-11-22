@@ -17,7 +17,7 @@ namespace CompuGross
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
-            //Application.Run(new OrdenesTrabajo());
+            //Application.Run(new Clientes());
         }
     }
 }

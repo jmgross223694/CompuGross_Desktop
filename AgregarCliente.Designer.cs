@@ -220,6 +220,7 @@ namespace CompuGross
             // ddlLocalidad
             // 
             this.ddlLocalidad.DisplayMember = "ID";
+            this.ddlLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlLocalidad.FormattingEnabled = true;
             this.ddlLocalidad.Location = new System.Drawing.Point(120, 287);
             this.ddlLocalidad.Margin = new System.Windows.Forms.Padding(6);

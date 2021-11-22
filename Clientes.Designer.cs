@@ -30,13 +30,16 @@ namespace CompuGross
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.compuGrossDataSet = new CompuGross.CompuGrossDataSet();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new CompuGross.CompuGrossDataSetTableAdapters.ClientesTableAdapter();
             this.txtBoxBusquedaCliente = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblFiltro = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
@@ -49,25 +52,58 @@ namespace CompuGross
             // 
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
+            this.dgvClientes.AllowUserToResizeColumns = false;
             this.dgvClientes.AllowUserToResizeRows = false;
             this.dgvClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvClientes.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvClientes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvClientes.ColumnHeadersHeight = 30;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.Location = new System.Drawing.Point(3, 52);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.RowHeadersWidth = 51;
+            this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(745, 400);
-            this.dgvClientes.TabIndex = 0;
+            this.dgvClientes.ShowCellErrors = false;
+            this.dgvClientes.ShowCellToolTips = false;
+            this.dgvClientes.ShowEditingIcon = false;
+            this.dgvClientes.ShowRowErrors = false;
+            this.dgvClientes.Size = new System.Drawing.Size(892, 400);
+            this.dgvClientes.StandardTab = true;
+            this.dgvClientes.TabIndex = 4;
             // 
             // compuGrossDataSet
             // 
@@ -87,21 +123,22 @@ namespace CompuGross
             // 
             this.txtBoxBusquedaCliente.AcceptsReturn = true;
             this.txtBoxBusquedaCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBoxBusquedaCliente.Location = new System.Drawing.Point(3, 26);
+            this.txtBoxBusquedaCliente.Location = new System.Drawing.Point(208, 27);
             this.txtBoxBusquedaCliente.MaxLength = 200;
             this.txtBoxBusquedaCliente.Name = "txtBoxBusquedaCliente";
             this.txtBoxBusquedaCliente.Size = new System.Drawing.Size(344, 20);
-            this.txtBoxBusquedaCliente.TabIndex = 1;
+            this.txtBoxBusquedaCliente.TabIndex = 0;
             this.txtBoxBusquedaCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxBusquedaCliente_KeyUp);
             // 
-            // label2
+            // lblFiltro
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "BUSCAR...";
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(352, 6);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(66, 20);
+            this.lblFiltro.TabIndex = 5;
+            this.lblFiltro.Text = "FILTRO";
             // 
             // btnEditar
             // 
@@ -112,11 +149,11 @@ namespace CompuGross
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.ForeColor = System.Drawing.Color.Transparent;
             this.btnEditar.ImageKey = "(ninguno)";
-            this.btnEditar.Location = new System.Drawing.Point(588, 7);
+            this.btnEditar.Location = new System.Drawing.Point(59, 6);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(0);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(43, 40);
-            this.btnEditar.TabIndex = 8;
+            this.btnEditar.TabIndex = 1;
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -130,11 +167,11 @@ namespace CompuGross
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Transparent;
             this.btnAgregar.ImageKey = "(ninguno)";
-            this.btnAgregar.Location = new System.Drawing.Point(648, 7);
+            this.btnAgregar.Location = new System.Drawing.Point(3, 6);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(43, 40);
-            this.btnAgregar.TabIndex = 10;
+            this.btnAgregar.TabIndex = 2;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -147,11 +184,11 @@ namespace CompuGross
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBorrar.ForeColor = System.Drawing.Color.Transparent;
             this.btnBorrar.ImageKey = "(ninguno)";
-            this.btnBorrar.Location = new System.Drawing.Point(706, 6);
+            this.btnBorrar.Location = new System.Drawing.Point(818, 7);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(43, 40);
-            this.btnBorrar.TabIndex = 11;
+            this.btnBorrar.TabIndex = 3;
             this.btnBorrar.UseVisualStyleBackColor = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
@@ -165,11 +202,11 @@ namespace CompuGross
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(755, 463);
+            this.ClientSize = new System.Drawing.Size(906, 463);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.txtBoxBusquedaCliente);
             this.Controls.Add(this.dgvClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -194,7 +231,7 @@ namespace CompuGross
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private CompuGrossDataSetTableAdapters.ClientesTableAdapter clientesTableAdapter;
         private System.Windows.Forms.TextBox txtBoxBusquedaCliente;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnBorrar;

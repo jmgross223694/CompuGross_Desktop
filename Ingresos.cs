@@ -144,7 +144,7 @@ namespace CompuGross
                         int mesesTrabajados = 12;
 
                         if (anioElegido == "2017") { mesesTrabajados = 6; }
-                        else if (anioElegido == DateTime.Now.Year.ToString()) { mesesTrabajados = DateTime.Now.Month; }
+                        if (anioElegido == DateTime.Now.Year.ToString()) { mesesTrabajados = DateTime.Now.Month; }
 
                         lblMensualMonto.Text = "$ " + Convert.ToString(Convert.ToInt32(gananciaAnual / mesesTrabajados));
                     }
