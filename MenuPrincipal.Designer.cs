@@ -39,6 +39,7 @@ namespace CompuGross
             this.btnPrecios = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnOrdenesTrabajo = new System.Windows.Forms.Button();
+            this.btnBackup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClientes
@@ -136,10 +137,10 @@ namespace CompuGross
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.Red;
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.Black;
             this.btnCerrarSesion.Location = new System.Drawing.Point(3, 317);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
@@ -163,6 +164,20 @@ namespace CompuGross
             this.btnOrdenesTrabajo.UseVisualStyleBackColor = false;
             this.btnOrdenesTrabajo.Click += new System.EventHandler(this.btnOrdenesTrabajo_Click);
             // 
+            // btnBackup
+            // 
+            this.btnBackup.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.Location = new System.Drawing.Point(178, 297);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(147, 46);
+            this.btnBackup.TabIndex = 14;
+            this.btnBackup.Text = "Backup";
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
             // MenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -174,6 +189,7 @@ namespace CompuGross
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(503, 346);
+            this.Controls.Add(this.btnBackup);
             this.Controls.Add(this.btnOrdenesTrabajo);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnPrecios);
@@ -207,5 +223,6 @@ namespace CompuGross
         private System.Windows.Forms.Button btnPrecios;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Button btnOrdenesTrabajo;
+        private System.Windows.Forms.Button btnBackup;
     }
 }

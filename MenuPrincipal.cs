@@ -74,5 +74,13 @@ namespace CompuGross
             frmOrdenesTrabajo.ShowDialog();
             this.Show();
         }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            Backup frmBackup = new Backup();
+            this.Hide();
+            frmBackup.Show();
+            this.Show();
+        }
     }
 }

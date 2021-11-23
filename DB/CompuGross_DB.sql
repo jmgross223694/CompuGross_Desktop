@@ -25,11 +25,11 @@ GO
 create table Clientes(
 	ID bigint primary key not null identity(1,1),
 	Nombres varchar(200) not null,
-	DNI varchar(11) null default(''),
+	DNI varchar(11) null default('-'),
 	Direccion varchar(100) null,
 	IdLocalidad bigint null foreign key references Localidades(ID),
 	Telefono varchar(50) null,
-	Mail varchar(100) null default('')
+	Mail varchar(100) null default('-')
 )
 GO
 

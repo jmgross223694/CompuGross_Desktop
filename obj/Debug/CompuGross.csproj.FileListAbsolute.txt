@@ -41,4 +41,4 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.exe
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.pdb
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.OrdenesTrabajo.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.AgregarOrden.resources
-C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.csproj.CopyComplete
+C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Backup.resources
