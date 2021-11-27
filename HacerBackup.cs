@@ -33,6 +33,7 @@ namespace CompuGross
 
                 List<string> listaTablas = new List<string>();
 
+                listaTablas.Add("TiposUsuario");
                 listaTablas.Add("Usuarios");
                 listaTablas.Add("Localidades");
                 listaTablas.Add("Clientes");
@@ -40,7 +41,7 @@ namespace CompuGross
                 listaTablas.Add("TiposEquipo");
                 listaTablas.Add("OrdenesTrabajo");
                 listaTablas.Add("ListaPrecios");
-
+                
                 bool bandera = false;
 
                 foreach (var nombreTabla in listaTablas)

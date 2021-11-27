@@ -20,13 +20,17 @@ namespace CompuGross
 
         private void AgregarUsuario_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'compuGrossDataSet1.Localidades' Puede moverla o quitarla según sea necesario.
+            //this.localidadesTableAdapter.Fill(this.compuGrossDataSet1.Localidades);
             btnRegistrar.Enabled = false;
 
+            //cbTipoUsuario.Enabled = false;
             txtApellidos.Enabled = false;
             txtMail.Enabled = false;
             txtUsername.Enabled = false;
             txtClave.Enabled = false;
 
+            cbTipoUsuario.SelectedItem = "-";
             txtNombres.Text = "";
             txtApellidos.Text = "";
             txtMail.Text = "";
@@ -43,9 +47,16 @@ namespace CompuGross
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (txtNombres.Text == "" || txtApellidos.Text == "" || txtMail.Text == "" || txtUsername.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
+            if (cbTipoUsuario.SelectedItem.ToString() == "-" || txtNombres.Text == "" || txtApellidos.Text == "" || txtMail.Text == "" 
+                || txtUsername.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
             {
-                MessageBox.Show("Hay campos vacíos y/o la clave es menor de 8 caracteres.", "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hay campos vacíos y/o la clave es menor de 8 caracteres.", "Atención!", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                if (cbTipoUsuario.SelectedItem.ToString() == "-")
+                {
+                    cbTipoUsuario.BackColor = Color.LightSalmon;
+                }
                 if (txtNombres.Text == "")
                 {
                     txtNombres.BackColor = Color.LightSalmon;
@@ -71,9 +82,13 @@ namespace CompuGross
             {
                 AccesoDatos datos = new AccesoDatos();
 
-                string nombres = txtNombres.Text, apellidos = txtApellidos.Text, mail = txtMail.Text, usuario = txtUsername.Text, clave = txtClave.Text;
+                string tipo = cbTipoUsuario.SelectedItem.ToString(), nombres = txtNombres.Text, 
+                    apellidos = txtApellidos.Text, mail = txtMail.Text, usuario = txtUsername.Text, 
+                    clave = txtClave.Text;
 
-                string insertUsuario = "insert into Usuarios(Nombre, Apellido, Mail, Username, Clave) values('" + nombres + "', '" + apellidos + "', '" +
+                string insertUsuario = "insert into Usuarios(IdTipo, Nombre, Apellido, Mail, Username, Clave) " +
+                    "values((select ID from TiposUsuario where Tipo = '" + tipo + "'), '" 
+                    + nombres + "', '" + apellidos + "', '" +
                     mail + "', '" + usuario + "', PWDENCRYPT('" + clave + "'))";
 
                 try

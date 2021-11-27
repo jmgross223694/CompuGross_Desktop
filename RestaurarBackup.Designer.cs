@@ -144,7 +144,8 @@ namespace CompuGross
             "Localidades",
             "TiposServicio",
             "TiposEquipo",
-            "Usuarios"});
+            "Usuarios",
+            "TiposUsuario"});
             this.cbTabla.Location = new System.Drawing.Point(513, 28);
             this.cbTabla.Name = "cbTabla";
             this.cbTabla.Size = new System.Drawing.Size(121, 23);

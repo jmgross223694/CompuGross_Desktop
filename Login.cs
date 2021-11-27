@@ -83,13 +83,15 @@ namespace CompuGross
                 string usuario = txtUsuario.Text;
                 string clave = txtClave.Text;
 
-                string buscarUsuario = "select Nombre, Count(*) as Cantidad " +
+                string buscarUsuario = "select (select TU.Tipo from TiposUsuario TU where ID = IdTipo) Tipo, " +
+                    "Nombre, Count(*) as Cantidad " +
                     "from Usuarios where Username = '" + usuario + "' " +
                     "and PWDCOMPARE('" + clave + "'" + ", Clave)=1 " +
-                    "group by Nombre";
+                    "group by IdTipo, Nombre";
 
                 int existe = 0;
-                string nombre = "Vacío";
+                string nombre = "";
+                string tipoUsuario = "";
 
                 try
                 {
@@ -100,8 +102,9 @@ namespace CompuGross
                     {
                         existe = Convert.ToInt32(datos.Lector["Cantidad"]);
                         nombre = datos.Lector["Nombre"].ToString();
+                        tipoUsuario = datos.Lector["Tipo"].ToString();
 
-                        MessageBox.Show("Bienvenido nuevamente " + nombre);
+                        MessageBox.Show("Bienvenido nuevamente " + nombre, "Log-in exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         txtUsuario.Text = "";
                         txtClave.Text = "";
@@ -109,7 +112,8 @@ namespace CompuGross
                         txtClave.BackColor = Color.White;
                         txtClave.Enabled = false;
 
-                        MenuPrincipal frmInicio = new MenuPrincipal();
+                        string usuarioLogueado = tipoUsuario;
+                        MenuPrincipal frmInicio = new MenuPrincipal(usuarioLogueado);
 
                         this.Hide();
                         frmInicio.ShowDialog();
@@ -408,7 +412,11 @@ namespace CompuGross
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (txtMail.Visible == true)
+            if (btnEnviarCodigo.Visible == true && btnEnviarCodigo.Text == "Enviar código" && lblUsuario.Visible == false)
+            {
+                Application.Restart();
+            }
+            else if (txtMail.Visible == true)
             {
                 BindData();
             }

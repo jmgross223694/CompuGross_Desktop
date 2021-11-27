@@ -12,9 +12,12 @@ namespace CompuGross
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        private string usuarioEnLinea = "";
+
+        public MenuPrincipal(string usuarioLogueado)
         {
             InitializeComponent();
+            this.usuarioEnLinea = usuarioLogueado;
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -81,6 +84,21 @@ namespace CompuGross
             this.Hide();
             frmBackup.ShowDialog();
             this.Show();
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            lblUser.Text = this.usuarioEnLinea;
+
+            if (lblUser.Text != "admin")
+            {
+                //btnClientes.Visible = false;
+                btnBackup.Visible = false;
+                //btnOrdenesTrabajo.Visible = false;
+                btnUsuarios.Visible = false;
+                //btnPrecios.Visible = false;
+                btnIngresos.Visible = false;
+            }
         }
     }
 }

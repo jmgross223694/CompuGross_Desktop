@@ -4,8 +4,19 @@ GO
 use CompuGross
 GO
 
+create table TiposUsuario(
+	ID int not null primary key identity(1,1),
+	Tipo varchar(10) not null unique check (Tipo IN('admin', 'user'))
+)
+GO
+
+insert into TiposUsuario(Tipo) values('admin')
+insert into TiposUsuario(Tipo) values('user')
+GO
+
 create table Usuarios(
 	ID int primary key not null identity(1,1),
+	IdTipo int not null foreign key references TiposUsuario(ID),
 	Apellido varchar(50) not null,
 	Nombre varchar(50) not null,
 	Username varchar(10) unique not null,

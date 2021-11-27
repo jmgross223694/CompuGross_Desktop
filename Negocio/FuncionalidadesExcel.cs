@@ -80,11 +80,17 @@ namespace Negocio
 
                     if (tablaSeleccionada == "Usuarios")
                     {
+                        s.ColumnMappings.Add("IdTipo", "IdTipo");
                         s.ColumnMappings.Add("Apellido", "Apellido");
                         s.ColumnMappings.Add("Nombre", "Nombre");
                         s.ColumnMappings.Add("Username", "Username");
                         s.ColumnMappings.Add("Mail", "Mail");
                         s.ColumnMappings.Add("Clave", "Clave");
+                    }
+
+                    if (tablaSeleccionada == "TiposUsuario")
+                    {
+                        s.ColumnMappings.Add("Tipo", "Tipo");
                     }
 
                     s.DestinationTableName = tablaSeleccionada;
