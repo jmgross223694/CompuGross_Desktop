@@ -77,9 +77,9 @@ namespace CompuGross
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            Backup frmBackup = new Backup();
+            HacerBackup frmBackup = new HacerBackup();
             this.Hide();
-            frmBackup.Show();
+            frmBackup.ShowDialog();
             this.Show();
         }
     }

@@ -106,7 +106,7 @@ GO
 insert into ListaPrecios(Descripcion, Precio) values('Back-up de disco HDD o SSD (hasta 50Gb, sino adicional $12 por Gb)', 13)
 insert into ListaPrecios(Descripcion, Precio) values('Formateo', 20)
 insert into ListaPrecios(Descripcion, Precio) values('Formateo + Back-up', 24)
-insert into ListaPrecios(Descripcion, Precio) values('Copia de datos (CD; PenDrive; HDD; SSD)', 10)
+insert into ListaPrecios(Descripcion, Precio) values('Copia de datos (CD/PenDrive/HDD/SSD)', 10)
 insert into ListaPrecios(Descripcion, Precio) values('Limpieza y optimización de software', 10)
 insert into ListaPrecios(Descripcion, Precio) values('Limpieza de hardware CPU (suciedad interna)', 15)
 insert into ListaPrecios(Descripcion, Precio) values('Limpieza de hardware Notebook / Netbook', 20)
@@ -288,3 +288,20 @@ begin
 	update OrdenesTrabajo set Estado = 0 where ID = @IdOrden
 end
 GO
+
+--use compugross
+/*
+select * from Usuarios
+
+select * from Localidades
+
+select * from Clientes
+
+select * from TiposServicio
+
+select * from TiposEquipo
+
+select * from OrdenesTrabajo
+
+select * from ListaPrecios
+*/

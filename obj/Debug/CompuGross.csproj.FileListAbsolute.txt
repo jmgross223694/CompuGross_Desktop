@@ -41,4 +41,11 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.exe
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.pdb
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.OrdenesTrabajo.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.AgregarOrden.resources
-C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Backup.resources
+C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.dll
+C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.pdb
+C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.xml
+C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.HacerBackup.resources
+C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.RestaurarBackup.resources

@@ -259,7 +259,10 @@ namespace CompuGross
             {
                 dgvClientes.Visible = true;
 
+                txtBuscarCliente.Visible = true;
                 txtBuscarCliente.Enabled = true;
+
+                lblBuscarCliente.Visible = true;
             }
             else
             {
@@ -269,8 +272,11 @@ namespace CompuGross
 
                 dgvClientes.Visible = false;
 
+                txtBuscarCliente.Visible = false;
                 txtBuscarCliente.Enabled = false;
                 txtBuscarCliente.Text = "";
+
+                lblBuscarCliente.Visible = false;
             }
         }
 

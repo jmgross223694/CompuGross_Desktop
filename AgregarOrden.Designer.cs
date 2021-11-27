@@ -103,7 +103,7 @@ namespace CompuGross
             // 
             this.txtRam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRam.Location = new System.Drawing.Point(141, 149);
-            this.txtRam.MaxLength = 4;
+            this.txtRam.MaxLength = 10;
             this.txtRam.Name = "txtRam";
             this.txtRam.Size = new System.Drawing.Size(121, 22);
             this.txtRam.TabIndex = 5;
