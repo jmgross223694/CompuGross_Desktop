@@ -301,18 +301,3 @@ end
 GO
 
 --use compugross
-/*
-select * from Usuarios
-
-select * from Localidades
-
-select * from Clientes
-
-select * from TiposServicio
-
-select * from TiposEquipo
-
-select * from OrdenesTrabajo
-
-select * from ListaPrecios
-*/

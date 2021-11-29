@@ -344,7 +344,10 @@ namespace CompuGross
                         }
                         if (existe != 0 && mailDestino != "")
                         {
-                            int codigoMail = DateTime.Now.Millisecond * (DateTime.Now.Hour - 24) * DateTime.Now.Second;
+                            Random numRandom = new Random();
+
+                            int codigoMail = numRandom.Next(100000, 999999);
+
                             if (codigoMail < 0) { codigoMail = codigoMail * (-1); }
 
                             string asunto = "COMPUGROSS - RECUPERAR CONTRASEÑA (" + DateTime.Now.ToShortDateString() + ", " + DateTime.Now.ToShortTimeString() + " hs)";
@@ -412,11 +415,7 @@ namespace CompuGross
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (btnEnviarCodigo.Visible == true && btnEnviarCodigo.Text == "Enviar código" && lblUsuario.Visible == false)
-            {
-                Application.Restart();
-            }
-            else if (txtMail.Visible == true)
+            if (txtMail.Visible == true)
             {
                 BindData();
             }

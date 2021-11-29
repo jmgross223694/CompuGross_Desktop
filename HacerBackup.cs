@@ -30,7 +30,6 @@ namespace CompuGross
             }
             else
             {
-
                 List<string> listaTablas = new List<string>();
 
                 listaTablas.Add("TiposUsuario");
@@ -81,7 +80,6 @@ namespace CompuGross
                             }
                         }
                         sw.Write(sw.NewLine); //saltamos linea
-
 
                         // copiar info linea por linea
                         foreach (DataRow renglon in dt.Rows)

@@ -91,21 +91,33 @@ namespace CompuGross
 
         private void btnCargarArchivo_Click(object sender, EventArgs e)
         {
-            DataTable data = (DataTable)(dgvContenidoExcel.DataSource);
-
-            bool resultado = new FuncionalidadesExcel().CargarDatos(data, cbTabla.SelectedItem.ToString());
-
-            if (resultado)
+            if (txtArchivo.Text == "")
             {
-                MessageBox.Show("El archivo se importó correctamente.");
-
-                dgvContenidoExcel.DataSource = null;
-                txtArchivo.Text = "";
-                cbTabla.SelectedItem = "-";
+                MessageBox.Show("No hay ningún archivo seleccionado.");
+            }
+            else if (cbTabla.SelectedItem.ToString() == "-")
+            {
+                MessageBox.Show("No ha seleccionado una tabla.");
             }
             else
             {
-                MessageBox.Show("Se produjo un error y no se importó el archivo.");
+
+                DataTable data = (DataTable)(dgvContenidoExcel.DataSource);
+
+                bool resultado = new FuncionalidadesExcel().CargarDatos(data, cbTabla.SelectedItem.ToString());
+
+                if (resultado)
+                {
+                    MessageBox.Show("El archivo se importó correctamente.");
+
+                    dgvContenidoExcel.DataSource = null;
+                    txtArchivo.Text = "";
+                    cbTabla.SelectedItem = "-";
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error y no se importó el archivo.");
+                }
             }
         }
     }

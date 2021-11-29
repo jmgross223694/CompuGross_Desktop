@@ -108,7 +108,6 @@ namespace Negocio
                     }
                 }
             }
-
             return resultado;
         }
     }
