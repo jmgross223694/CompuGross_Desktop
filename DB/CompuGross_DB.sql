@@ -4,6 +4,29 @@ GO
 use CompuGross
 GO
 
+create table Licencias(
+	ID int not null primary key identity(347862,13),
+	Serial varbinary(max) not null,
+	Estado bit not null default(1)
+)
+GO
+
+create table Activado(
+	ID smallint primary key not null identity(1,1),
+	IdLicencia int not null foreign key references Licencias(ID),
+	Estado bit,
+	Validez date not null default(getdate()+365)
+)
+GO
+
+insert into Licencias(Serial) values(pwdencrypt('9687-9367-9819-6821-2419-7850'))
+insert into Licencias(Serial) values(pwdencrypt('4214-1810-8064-6539-7738-1505'))
+insert into Licencias(Serial) values(pwdencrypt('8259-5919-3923-7237-4899-8042'))
+insert into Licencias(Serial) values(pwdencrypt('4681-2234-7293-1081-5156-4060'))
+insert into Licencias(Serial) values(pwdencrypt('7587-5505-3692-8846-7458-6196'))
+insert into Licencias(Serial) values(pwdencrypt('6549-5139-9932-6621-7375-1543'))
+GO
+
 create table TiposUsuario(
 	ID int not null primary key identity(1,1),
 	Tipo varchar(10) not null unique check (Tipo IN('admin', 'user'))

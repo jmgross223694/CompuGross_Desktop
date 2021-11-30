@@ -86,7 +86,7 @@ namespace CompuGross
                 string buscarUsuario = "select (select TU.Tipo from TiposUsuario TU where ID = IdTipo) Tipo, " +
                     "Nombre, Count(*) as Cantidad " +
                     "from Usuarios where Username = '" + usuario + "' " +
-                    "and PWDCOMPARE('" + clave + "'" + ", Clave)=1 " +
+                    "and PWDCOMPARE('" + clave + "', Clave)=1 " +
                     "group by IdTipo, Nombre";
 
                 int existe = 0;
