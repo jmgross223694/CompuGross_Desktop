@@ -4,6 +4,12 @@ GO
 use CompuGross
 GO
 
+create table credencialesMail(
+	mail varchar(100), 
+	pass varchar(20)
+)
+GO
+
 create table Licencias(
 	ID int not null primary key identity(347862,13),
 	Serial varbinary(max) not null,

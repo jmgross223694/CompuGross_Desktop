@@ -23,7 +23,8 @@ namespace CompuGross
         {
             AccesoDatos datos3 = new AccesoDatos();
             DateTime Validez = DateTime.Now;
-            string selectActivacion = "select Validez from Activado where Estado = 1 and (select Estado from Licencias where ID = IdLicencia) = 1";
+            string selectActivacion = "select Validez from Activado where Estado = 1 and " +
+                "(select Estado from Licencias where ID = IdLicencia) = 1";
             datos3.SetearConsulta(selectActivacion);
 
             try
@@ -234,7 +235,7 @@ namespace CompuGross
                 catch
                 {
                     MessageBox.Show("Se ha producido un error al leer la Base de datos","Error en Base de datos",
-                                    MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -243,12 +244,12 @@ namespace CompuGross
 
                 if (Coincidencias > 0 && IdLicencia > 0)
                 {
-                    string mailDestino = "compugross01.05.13@gmail.com";
+                    string mailDestino = "compugross02.05.13@gmail.com";
                     string asunto = "NUEVO REGISTRO DE LICENCIA DE SOFTWARE";
                     string softwareRegistrado = "CompuGross - ST";
                     string cuerpo = "Hola, te queremos informar que se ha realizado " +
                         "un nuevo registro de licencia de software, correspondiente " +
-                        "al programa " + softwareRegistrado + "\n\n" +
+                        "al programa " + softwareRegistrado + ", en el equipo " + NombreEquipo + "\n\n" +
                         "El ID de la licencia utilizada es el N°" + IdLicencia + "\n\n" +
                         "Saludos cordiales\n\n" +
                         "CompuGross.";

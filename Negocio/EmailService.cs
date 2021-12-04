@@ -11,13 +11,41 @@ namespace Negocio
 
         public EmailService()
         {
-            string user = "compugross02.05.13@gmail.com", pass = "Cafalisonapa22";
+            AccesoDatos datos = new AccesoDatos();
 
-            server = new SmtpClient();
-            server.Credentials = new NetworkCredential(user, pass);
-            server.EnableSsl = true;
-            server.Port = 587;
-            server.Host = "smtp.gmail.com";
+            string selectCredencialesMail = "select mail, pass from credencialesMail";
+
+            string user = "";
+            string pass = "";
+
+            try
+            {
+                datos.SetearConsulta(selectCredencialesMail);
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read() == true)
+                {
+                    user = datos.Lector["mail"].ToString();
+                    pass = datos.Lector["pass"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                e.Message.ToString();
+            }
+
+            try
+            {
+                server = new SmtpClient();
+                server.Credentials = new NetworkCredential(user, pass);
+                server.EnableSsl = true;
+                server.Port = 587;
+                server.Host = "smtp.gmail.com";
+            }
+            catch (Exception e)
+            {
+                e.Message.ToString();
+            }
         }
 
         public void armarCorreo(string mailDestino, string asunto, string cuerpo)
