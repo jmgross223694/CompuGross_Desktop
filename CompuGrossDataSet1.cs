@@ -7,9 +7,11 @@
     }
 }
 
-namespace CompuGross.CompuGrossDataSet1TableAdapters {
-    
-    
-    public partial class LocalidadesTableAdapter {
+namespace CompuGross.CompuGrossDataSet1TableAdapters
+{
+
+
+    public partial class LocalidadesTableAdapter
+    {
     }
 }

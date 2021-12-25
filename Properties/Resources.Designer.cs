@@ -63,6 +63,16 @@ namespace CompuGross.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_logo {
+            get {
+                object obj = ResourceManager.GetObject("add-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap agregar_usuario {
             get {
                 object obj = ResourceManager.GetObject("agregar-usuario", resourceCulture);
@@ -96,6 +106,26 @@ namespace CompuGross.Properties {
         internal static System.Drawing.Bitmap cancel_logo {
             get {
                 object obj = ResourceManager.GetObject("cancel-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap del_logo {
+            get {
+                object obj = ResourceManager.GetObject("del-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_logo {
+            get {
+                object obj = ResourceManager.GetObject("edit-logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

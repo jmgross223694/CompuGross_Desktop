@@ -80,6 +80,12 @@ create table TiposServicio(
 )
 GO
 
+--INSERT TiposServicio
+insert into TiposServicio(Descripcion) values('Armado de gabinete')
+insert into TiposServicio(Descripcion) values('Cámaras de seguridad')
+insert into TiposServicio(Descripcion) values('Servicio técnico')
+GO
+
 create table TiposEquipo(
 	ID int primary key not null identity(1,1),
 	Descripcion varchar(30) unique not null,

@@ -15,4 +15,3 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.csproj.Assem
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.dll
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.pdb
-C:\Users\Juanma\Desktop\GitHub\CompuGross\Negocio\obj\Debug\Negocio.csproj.CopyComplete
