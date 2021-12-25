@@ -18,6 +18,7 @@ namespace CompuGross
         public AgregarCliente()
         {
             InitializeComponent();
+            Text = "Agregar Cliente";
         }
 
         public AgregarCliente(Cliente cliente)

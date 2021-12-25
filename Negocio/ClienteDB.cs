@@ -20,7 +20,8 @@ namespace Negocio
                 string consulta = "select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, " +
                     "isnull(C.Direccion, '-') as Direccion, isnull((select L.Descripcion from Localidades L " +
                     "where C.IdLocalidad = L.ID), '-') as Localidad, isnull(C.IdLocalidad, '-') as IdLocalidad, " +
-                    "isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail from Clientes C ORDER BY Cliente ASC";
+                    "isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail from Clientes C " +
+                    "where Estado = 1 ORDER BY Cliente ASC";
 
                 datos.SetearConsulta(consulta);
                 datos.EjecutarLectura();

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="txtUsuario.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtUsuario.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -126,7 +129,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtUsuario.MaxLength" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>15</value>
   </data>
   <data name="txtUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>224, 31</value>
@@ -146,6 +149,9 @@
   <data name="&gt;&gt;txtUsuario.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
+  <metadata name="lblUsuario.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblUsuario.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -176,6 +182,9 @@
   <data name="&gt;&gt;lblUsuario.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <metadata name="lblClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblClave.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -206,6 +215,9 @@
   <data name="&gt;&gt;lblClave.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
+  <metadata name="txtClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="txtClave.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
@@ -236,6 +248,9 @@
   <data name="&gt;&gt;txtClave.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <metadata name="lblLargoClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblLargoClave.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -263,6 +278,9 @@
   <data name="&gt;&gt;lblLargoClave.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <metadata name="btnIngresar.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnIngresar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -297,6 +315,9 @@
   <data name="&gt;&gt;btnIngresar.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <metadata name="lblRecuperarClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblRecuperarClave.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -324,6 +345,9 @@
   <data name="&gt;&gt;lblRecuperarClave.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <metadata name="btnRegistro.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="btnRegistro.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
   </data>
@@ -360,6 +384,9 @@
   <data name="&gt;&gt;btnRegistro.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <metadata name="txtMail.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="txtMail.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
@@ -390,6 +417,9 @@
   <data name="&gt;&gt;txtMail.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <metadata name="lblMail.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblMail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -423,6 +453,9 @@
   <data name="&gt;&gt;lblMail.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <metadata name="btnEnviarCodigo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="btnEnviarCodigo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
@@ -453,6 +486,9 @@
   <data name="&gt;&gt;btnEnviarCodigo.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <metadata name="lblCodigoRecuperacion.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblCodigoRecuperacion.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -486,6 +522,9 @@
   <data name="&gt;&gt;lblCodigoRecuperacion.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <metadata name="lblClaveNueva.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblClaveNueva.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -522,6 +561,9 @@
   <data name="&gt;&gt;lblClaveNueva.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <metadata name="cbMostrarClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="cbMostrarClave.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -552,6 +594,9 @@
   <data name="&gt;&gt;cbMostrarClave.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="lblLargoClave2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblLargoClave2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>

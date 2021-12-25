@@ -23,13 +23,10 @@ namespace CompuGross
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-           /*
-            cargarListado();
-            ocultarColumnas();
-            alinearColumnas();
-            cambiarTitulosColumnas();
-            ordenarColumnas();
-           */
+            btnEditar.Enabled = false;
+            btnBorrar.Enabled = false;
+            txtBoxBusquedaCliente.Enabled = false;
+            this.Height = 125;
         }
 
         private void alinearColumnas()
@@ -49,7 +46,7 @@ namespace CompuGross
         private void ocultarColumnas()
         {
             dgvClientes.Columns["IdLocalidad"].Visible = false;
-            //dgvClientes.Columns["Direccion"].Visible = false;
+            dgvClientes.Columns["Direccion"].Visible = false;
         }
 
         private void cambiarTitulosColumnas()
@@ -120,14 +117,28 @@ namespace CompuGross
 
         private void txtBoxBusquedaCliente_KeyUp(object sender, KeyEventArgs e)
         {
-            BuscarFiltro();
+            if (txtBoxBusquedaCliente.Text != "" && e.KeyCode.Equals(Keys.Enter))
+            {
+                if (dgvClientes.DataSource == null)
+                {
+                    cargarListado();
+                    ocultarColumnas();
+                    alinearColumnas();
+                    cambiarTitulosColumnas();
+                    ordenarColumnas();
+                }
+
+                BuscarFiltro();
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             AgregarCliente frmAgregar = new AgregarCliente();
-            frmAgregar.ShowDialog();
             txtBoxBusquedaCliente.Text = "";
+            this.Hide();
+            frmAgregar.ShowDialog();
+            this.Show();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -143,6 +154,12 @@ namespace CompuGross
                     clienteDB.EliminarCliente(seleccionado.Nombres, seleccionado.Telefono);
                     MessageBox.Show("El cliente " + seleccionado.Nombres + ", se ha eliminado correctamente");
                     txtBoxBusquedaCliente.Text = "";
+
+                    cargarListado();
+                    ocultarColumnas();
+                    alinearColumnas();
+                    cambiarTitulosColumnas();
+                    ordenarColumnas();
                 }
             }
             catch (Exception ex)
@@ -156,14 +173,55 @@ namespace CompuGross
         {
             try
             {
+                txtBoxBusquedaCliente.Text = "";
                 Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
                 AgregarCliente modificar = new AgregarCliente(seleccionado);
+                this.Hide();
                 modificar.ShowDialog();
-                txtBoxBusquedaCliente.Text = "";
+                this.Show();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private void lblFiltro_Click(object sender, EventArgs e)
+        {
+            this.Height = 800;
+            this.CenterToScreen();
+
+            btnEditar.Enabled = true;
+            btnBorrar.Enabled = true;
+
+            if (dgvClientes.DataSource == null)
+            {
+                cargarListado();
+                ocultarColumnas();
+                alinearColumnas();
+                cambiarTitulosColumnas();
+                ordenarColumnas();
+            }
+            else if (txtBoxBusquedaCliente.Text != "")
+            {
+                BuscarFiltro();
+            }
+        }
+
+        private void txtBoxBusquedaCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtBoxBusquedaCliente.Text != "" && e.KeyCode.Equals(Keys.Enter))
+            {
+                if (dgvClientes.DataSource == null)
+                {
+                    cargarListado();
+                    ocultarColumnas();
+                    alinearColumnas();
+                    cambiarTitulosColumnas();
+                    ordenarColumnas();
+                }
+
+                BuscarFiltro();
             }
         }
     }

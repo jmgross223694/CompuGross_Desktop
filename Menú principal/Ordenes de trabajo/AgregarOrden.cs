@@ -32,6 +32,10 @@ namespace CompuGross
             fechaDevolucion.Enabled = false;
             this.Height = 120;
             this.Width = 270;
+
+            ddlTiposEquipo.SelectedValue = "-";
+            ddlTiposServicio.SelectedValue = "-";
+            ddlCdDvd.SelectedValue = "-";
         }
 
         public AgregarOrden(OrdenTrabajo orden) //Modificar orden
@@ -62,8 +66,6 @@ namespace CompuGross
             AlinearColumnasGrillaClientes();
             ordenarColumnasGrillaClientes();
             cambiarTitulosGrillaClientes();
-            ddlTiposEquipo.SelectedValue = "-";
-            ddlTiposServicio.SelectedValue = "-";
         }
 
         private void borrarContenidoCampos()
@@ -76,7 +78,7 @@ namespace CompuGross
             txtMarcaModelo.Text = "";
             txtMicroprocesador.Text = "";
             txtAlmacenamiento.Text = "";
-            txtCdDvd.Text = "";
+            ddlCdDvd.SelectedItem = "-";
             txtFuente.Text = "";
             txtAdicionales.Text = "";
             txtNumSerie.Text = "";
@@ -97,7 +99,7 @@ namespace CompuGross
             txtMarcaModelo.Visible = false;
             txtMicroprocesador.Visible = false;
             txtAlmacenamiento.Visible = false;
-            txtCdDvd.Visible = false;
+            ddlCdDvd.Visible = false;
             txtFuente.Visible = false;
             txtAdicionales.Visible = false;
             txtNumSerie.Visible = false;
@@ -146,7 +148,7 @@ namespace CompuGross
             txtMarcaModelo.Visible = true;
             txtMicroprocesador.Visible = true;
             txtAlmacenamiento.Visible = true;
-            txtCdDvd.Visible = true;
+            ddlCdDvd.Visible = true;
             txtFuente.Visible = true;
             txtAdicionales.Visible = true;
             txtNumSerie.Visible = true;
@@ -195,7 +197,7 @@ namespace CompuGross
             txtMarcaModelo.Enabled = false;
             txtMicroprocesador.Enabled = false;
             txtAlmacenamiento.Enabled = false;
-            txtCdDvd.Enabled = false;
+            ddlCdDvd.Enabled = false;
             txtFuente.Enabled = false;
             txtAdicionales.Enabled = false;
             txtNumSerie.Enabled = false;
@@ -217,7 +219,7 @@ namespace CompuGross
             txtMarcaModelo.Text = orden.MarcaModelo;
             txtMicroprocesador.Text = orden.Microprocesador;
             txtAlmacenamiento.Text = orden.Almacenamiento;
-            txtCdDvd.Text = orden.CdDvd;
+            ddlCdDvd.SelectedItem = orden.CdDvd;
             txtFuente.Text = orden.Fuente;
             txtAdicionales.Text = orden.Adicionales;
             txtNumSerie.Text = orden.NumSerie;
@@ -239,7 +241,7 @@ namespace CompuGross
             txtMarcaModelo.Enabled = true;
             txtMicroprocesador.Enabled = true;
             txtAlmacenamiento.Enabled = true;
-            txtCdDvd.Enabled = true;
+            ddlCdDvd.Enabled = true;
             txtFuente.Enabled = true;
             txtAdicionales.Enabled = true;
             txtNumSerie.Enabled = true;
@@ -359,6 +361,8 @@ namespace CompuGross
             this.Height = 596;
             this.Width = 544;
 
+            this.CenterToScreen();
+
             if (dgvClientes.Visible == false)
             {
                 ocultarCampos();
@@ -434,8 +438,7 @@ namespace CompuGross
                     if (txtAlmacenamiento.Text == "") { orden.Almacenamiento = "-"; }
                     else { orden.Almacenamiento = txtAlmacenamiento.Text; }
 
-                    if (txtCdDvd.Text == "") { orden.CdDvd = "-"; }
-                    else { orden.CdDvd = txtCdDvd.Text; }
+                    orden.CdDvd = ddlCdDvd.SelectedItem.ToString();
 
                     if (txtFuente.Text == "") { orden.Fuente = "-"; }
                     else { orden.Fuente = txtFuente.Text; }
@@ -494,8 +497,7 @@ namespace CompuGross
                     if (txtAlmacenamiento.Text == "") { orden.Almacenamiento = "-"; }
                     else { orden.Almacenamiento = txtAlmacenamiento.Text; }
 
-                    if (txtCdDvd.Text == "") { orden.CdDvd = "-"; }
-                    else { orden.CdDvd = txtCdDvd.Text; }
+                    orden.CdDvd = ddlCdDvd.SelectedItem.ToString();
 
                     if (txtFuente.Text == "") { orden.Fuente = "-"; }
                     else { orden.Fuente = txtFuente.Text; }

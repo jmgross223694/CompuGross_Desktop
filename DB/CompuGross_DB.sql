@@ -48,7 +48,7 @@ create table Usuarios(
 	IdTipo int not null foreign key references TiposUsuario(ID),
 	Apellido varchar(50) not null,
 	Nombre varchar(50) not null,
-	Username varchar(10) unique not null,
+	Username varchar(15) unique not null,
 	Mail varchar(100) unique not null,
 	Clave varbinary(max) not null,
 	CodigoRecuperarClave int not null default(0)
@@ -69,7 +69,8 @@ create table Clientes(
 	Direccion varchar(100) null,
 	IdLocalidad bigint null foreign key references Localidades(ID),
 	Telefono varchar(50) null,
-	Mail varchar(100) null default('-')
+	Mail varchar(100) null default('-'),
+	Estado bit not null default(1)
 )
 GO
 
@@ -136,8 +137,18 @@ create procedure SP_NUEVO_CLIENTE(
 )
 as
 begin
-	insert into Clientes(DNI, Nombres, Direccion, IdLocalidad, Telefono, Mail)
-	values(@DNI, @Nombres, @Direccion, (select ID from Localidades where Descripcion = @Localidad), @Telefono, @Mail)
+	declare @IdClienteExistente bigint = 0
+	set @IdClienteExistente = (select ID from Clientes where Nombres = @Nombres and DNI = @DNI and Estado = 0)
+
+	if (@IdClienteExistente <> 0)
+		begin
+			update clientes set Estado = 1 where DNI = @DNI
+		end
+	else
+		begin
+			insert into Clientes(DNI, Nombres, Direccion, IdLocalidad, Telefono, Mail)
+			values(@DNI, @Nombres, @Direccion, (select ID from Localidades where Descripcion = @Localidad), @Telefono, @Mail)
+		end
 end
 GO
 
@@ -332,6 +343,19 @@ begin
 	declare @IdOrden bigint = (select ID from deleted)
 	
 	update OrdenesTrabajo set Estado = 0 where ID = @IdOrden
+end
+GO
+
+create trigger TR_BAJA_LOGICA_CLIENTE on Clientes
+instead of delete
+as
+begin
+	begin try
+		delete from Clientes where ID = (select ID from deleted)
+	end try
+	begin catch
+		update Clientes set Estado = 0 where ID = (select ID from deleted)
+	end catch
 end
 GO
 

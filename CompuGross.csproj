@@ -306,7 +306,7 @@
     <None Include="img\edit-logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\edit-logo.jpg" />
+    <None Include="img\fondoDolar.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

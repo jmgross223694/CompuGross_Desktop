@@ -16,7 +16,7 @@ namespace CompuGross
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new AgregarOrden());
+            //Application.Run(new Clientes());
             Application.Run(new Activación());
         }
     }
