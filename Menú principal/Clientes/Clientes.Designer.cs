@@ -30,23 +30,98 @@ namespace CompuGross
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.compuGrossDataSet = new CompuGross.CompuGrossDataSet();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new CompuGross.CompuGrossDataSetTableAdapters.ClientesTableAdapter();
-            this.txtBoxBusquedaCliente = new System.Windows.Forms.TextBox();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.lblFiltro = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // compuGrossDataSet
+            // 
+            this.compuGrossDataSet.DataSetName = "CompuGrossDataSet";
+            this.compuGrossDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clientesBindingSource
+            // 
+            this.clientesBindingSource.DataMember = "Clientes";
+            this.clientesBindingSource.DataSource = this.compuGrossDataSet;
+            // 
+            // clientesTableAdapter
+            // 
+            this.clientesTableAdapter.ClearBeforeFill = true;
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.BackColor = System.Drawing.Color.Transparent;
+            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(123, 14);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(98, 24);
+            this.lblFiltro.TabIndex = 0;
+            this.lblFiltro.Text = "BUSCAR:";
+            this.lblFiltro.Click += new System.EventHandler(this.lblFiltro_Click);
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.AcceptsReturn = true;
+            this.txtFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFiltro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltro.Location = new System.Drawing.Point(223, 14);
+            this.txtFiltro.MaxLength = 200;
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(359, 26);
+            this.txtFiltro.TabIndex = 1;
+            this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
+            this.txtFiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyUp);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnBorrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBorrar.BackgroundImage")));
+            this.btnBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBorrar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnBorrar.ImageKey = "(ninguno)";
+            this.btnBorrar.Location = new System.Drawing.Point(598, 7);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(43, 40);
+            this.btnBorrar.TabIndex = 4;
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregar.BackgroundImage")));
+            this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAgregar.ImageKey = "(ninguno)";
+            this.btnAgregar.Location = new System.Drawing.Point(3, 6);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(43, 40);
+            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgvClientes
             // 
@@ -103,104 +178,22 @@ namespace CompuGross
             this.dgvClientes.ShowRowErrors = false;
             this.dgvClientes.Size = new System.Drawing.Size(638, 23);
             this.dgvClientes.StandardTab = true;
-            this.dgvClientes.TabIndex = 2;
-            // 
-            // compuGrossDataSet
-            // 
-            this.compuGrossDataSet.DataSetName = "CompuGrossDataSet";
-            this.compuGrossDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientesBindingSource
-            // 
-            this.clientesBindingSource.DataMember = "Clientes";
-            this.clientesBindingSource.DataSource = this.compuGrossDataSet;
-            // 
-            // clientesTableAdapter
-            // 
-            this.clientesTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtBoxBusquedaCliente
-            // 
-            this.txtBoxBusquedaCliente.AcceptsReturn = true;
-            this.txtBoxBusquedaCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxBusquedaCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBoxBusquedaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxBusquedaCliente.Location = new System.Drawing.Point(223, 14);
-            this.txtBoxBusquedaCliente.MaxLength = 200;
-            this.txtBoxBusquedaCliente.Name = "txtBoxBusquedaCliente";
-            this.txtBoxBusquedaCliente.Size = new System.Drawing.Size(359, 26);
-            this.txtBoxBusquedaCliente.TabIndex = 0;
-            this.txtBoxBusquedaCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxBusquedaCliente_KeyDown);
-            this.txtBoxBusquedaCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxBusquedaCliente_KeyUp);
+            this.dgvClientes.TabIndex = 7;
             // 
             // btnEditar
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.btnEditar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditar.BackgroundImage")));
-            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.BackgroundImage = global::CompuGross.Properties.Resources.edit_logo;
+            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnEditar.ImageKey = "(ninguno)";
-            this.btnEditar.Location = new System.Drawing.Point(59, 6);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEditar.Location = new System.Drawing.Point(61, 6);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(43, 40);
-            this.btnEditar.TabIndex = 4;
-            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.TabIndex = 8;
+            this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregar.BackgroundImage")));
-            this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAgregar.ImageKey = "(ninguno)";
-            this.btnAgregar.Location = new System.Drawing.Point(3, 6);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(43, 40);
-            this.btnAgregar.TabIndex = 3;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnBorrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBorrar.BackgroundImage")));
-            this.btnBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBorrar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnBorrar.ImageKey = "(ninguno)";
-            this.btnBorrar.Location = new System.Drawing.Point(598, 7);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(43, 40);
-            this.btnBorrar.TabIndex = 5;
-            this.btnBorrar.UseVisualStyleBackColor = false;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
-            // 
-            // lblFiltro
-            // 
-            this.lblFiltro.AutoSize = true;
-            this.lblFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.lblFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(123, 13);
-            this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(98, 24);
-            this.lblFiltro.TabIndex = 1;
-            this.lblFiltro.Text = "BUSCAR:";
-            this.lblFiltro.Click += new System.EventHandler(this.lblFiltro_Click);
             // 
             // Clientes
             // 
-            this.AcceptButton = this.btnEditar;
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,11 +202,11 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(647, 86);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.txtBoxBusquedaCliente);
+            this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.dgvClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -222,9 +215,9 @@ namespace CompuGross
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.Clientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,11 +229,11 @@ namespace CompuGross
         private CompuGrossDataSet compuGrossDataSet;
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private CompuGrossDataSetTableAdapters.ClientesTableAdapter clientesTableAdapter;
-        private System.Windows.Forms.TextBox txtBoxBusquedaCliente;
-        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
 

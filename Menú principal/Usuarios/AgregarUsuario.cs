@@ -27,30 +27,30 @@ namespace CompuGross
             //cbTipoUsuario.Enabled = false;
             txtApellidos.Enabled = false;
             txtMail.Enabled = false;
-            txtUsername.Enabled = false;
+            txtDni.Enabled = false;
             txtClave.Enabled = false;
 
             cbTipoUsuario.SelectedItem = "-";
             txtNombres.Text = "";
             txtApellidos.Text = "";
             txtMail.Text = "";
-            txtUsername.Text = "";
+            txtDni.Text = "";
             txtClave.Text = "";
 
             txtNombres.BackColor = Color.White;
             txtApellidos.BackColor = Color.White;
             txtMail.BackColor = Color.White;
-            txtUsername.BackColor = Color.White;
+            txtDni.BackColor = Color.White;
             txtClave.BackColor = Color.White;
         }
 
-
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (cbTipoUsuario.SelectedItem.ToString() == "-" || txtNombres.Text == "" || txtApellidos.Text == "" || txtMail.Text == "" 
-                || txtUsername.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
+            if (cbTipoUsuario.SelectedItem.ToString() == "-" || txtNombres.Text == "" || txtApellidos.Text == "" 
+                || txtMail.Text == "" || !txtMail.Text.Contains("@") || !txtMail.Text.Contains(".com")
+                || txtDni.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
             {
-                MessageBox.Show("Hay campos vacíos y/o la clave es menor de 8 caracteres.", "Atención!", 
+                MessageBox.Show("Hay datos inválidos o sin completar.", "Atención!", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 if (cbTipoUsuario.SelectedItem.ToString() == "-")
@@ -69,62 +69,150 @@ namespace CompuGross
                 {
                     txtMail.BackColor = Color.LightSalmon;
                 }
-                if (txtUsername.Text == "")
+                if (!txtMail.Text.Contains("@") && !txtMail.Text.Contains(".com"))
                 {
-                    txtUsername.BackColor = Color.LightSalmon;
+                    MessageBox.Show("Mail inválido.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    txtMail.BackColor = Color.LightSalmon;
                 }
-                if (txtClave.Text == "")
+                if (txtDni.Text == "")
                 {
+                    txtDni.BackColor = Color.LightSalmon;
+                }
+                if (txtClave.Text == "" || txtClave.Text.Length < 8)
+                {
+                    if (txtClave.Text.Length < 8)
+                    {
+                        MessageBox.Show("La clave es menor a 8 caracteres.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                     txtClave.BackColor = Color.LightSalmon;
                 }
             }
             else
             {
-                AccesoDatos datos = new AccesoDatos();
+                txtClave.BackColor = Color.White;
 
-                string tipo = cbTipoUsuario.SelectedItem.ToString(), nombres = txtNombres.Text, 
-                    apellidos = txtApellidos.Text, mail = txtMail.Text, usuario = txtUsername.Text, 
-                    clave = txtClave.Text;
+                bool claveValida = validarMayusculaClave(txtClave.Text);
+                claveValida = validarNumeroClave(txtClave.Text);
+                claveValida = validarMinusculaClave(txtClave.Text);
 
-                string insertUsuario = "insert into Usuarios(IdTipo, Nombre, Apellido, Mail, Username, Clave) " +
-                    "values((select ID from TiposUsuario where Tipo = '" + tipo + "'), '" 
-                    + nombres + "', '" + apellidos + "', '" +
-                    mail + "', '" + usuario + "', PWDENCRYPT('" + clave + "'))";
-
-                try
+                if (claveValida == true)
                 {
-                    datos.SetearConsulta(insertUsuario);
-                    datos.EjecutarLectura();
-                    datos.CerrarConexion();
 
-                    MessageBox.Show("Usuario creado correctamente.", "Atención!");
+                    AccesoDatos datos = new AccesoDatos();
 
-                    DialogResult result = MessageBox.Show("¿ Desea agregar otro usuario ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    string tipo = cbTipoUsuario.SelectedItem.ToString(), nombres = txtNombres.Text,
+                        apellidos = txtApellidos.Text, mail = txtMail.Text, usuario = txtDni.Text + ".cg",
+                        clave = txtClave.Text;
 
-                    if (result == DialogResult.No)
+                    string insertUsuario = "insert into Usuarios(IdTipo, Nombre, Apellido, Mail, Username, Clave) " +
+                        "values((select ID from TiposUsuario where Tipo = '" + tipo + "'), '"
+                        + nombres + "', '" + apellidos + "', '" +
+                        mail + "', '" + usuario + "', PWDENCRYPT('" + clave + "'))";
+
+                    try
                     {
-                        this.Close();
+                        datos.SetearConsulta(insertUsuario);
+                        datos.EjecutarLectura();
+                        datos.CerrarConexion();
+
+                        MessageBox.Show("Usuario creado correctamente.", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        DialogResult result = MessageBox.Show("¿ Desea agregar otro usuario ?", "Confirmar",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.No)
+                        {
+                            this.Close();
+                        }
+                        else
+                        {
+                            txtNombres.Text = "";
+                            txtApellidos.Text = "";
+                            txtMail.Text = "";
+                            txtDni.Text = "";
+                            txtClave.Text = "";
+
+                            txtNombres.BackColor = Color.White;
+                            txtApellidos.BackColor = Color.White;
+                            txtMail.BackColor = Color.White;
+                            txtDni.BackColor = Color.White;
+                            txtClave.BackColor = Color.White;
+                        }
                     }
-                    else
+                    catch
                     {
-                        txtNombres.Text = "";
-                        txtApellidos.Text = "";
-                        txtMail.Text = "";
-                        txtUsername.Text = "";
-                        txtClave.Text = "";
-
-                        txtNombres.BackColor = Color.White;
-                        txtApellidos.BackColor = Color.White;
-                        txtMail.BackColor = Color.White;
-                        txtUsername.BackColor = Color.White;
-                        txtClave.BackColor = Color.White;
+                        MessageBox.Show("Error al crear usuario", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Error al crear usuario", "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Clave inválida.", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtClave.BackColor = Color.LightSalmon;
+                    txtClave.Focus();
                 }
             }
+        }
+
+        private bool validarMinusculaClave(string clave)
+        {
+            bool resultado = false;
+            string claveMinuscula = clave.ToLower();
+            int minuscula = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (clave[i] == claveMinuscula[i])
+                {
+                    minuscula++;
+                }
+            }
+
+            if (minuscula > 0) { resultado = true; }
+
+            return resultado;
+        }
+
+        private bool validarMayusculaClave(string clave)
+        {
+            bool resultado = false;
+            string claveMayuscula = clave.ToUpper();
+            int mayuscula = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (clave[i] == claveMayuscula[i])
+                {
+                    mayuscula++;
+                }
+            }
+
+            if (mayuscula > 0) { resultado = true; }
+
+            return resultado;
+        }
+
+        private bool validarNumeroClave(string clave)
+        {
+            bool resultado = false;
+            int numero = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (char.IsNumber(clave, i))
+                {
+                    numero++;
+                }
+            }
+
+            if (numero > 0) { resultado = true; }
+
+            return resultado;
         }
 
         private void txtNombres_TextChanged(object sender, EventArgs e)
@@ -143,17 +231,17 @@ namespace CompuGross
 
         private void txtMail_TextChanged(object sender, EventArgs e)
         {
-            if (txtMail.Text == "") { txtMail.BackColor = Color.LightSalmon; txtUsername.Enabled = false; }
+            if (txtMail.Text == "") { txtMail.BackColor = Color.LightSalmon; txtDni.Enabled = false; }
             else { txtMail.BackColor = Color.White; }
-            if (txtMail.Text.Length >= 5) { txtUsername.Enabled = true; }
+            if (txtMail.Text.Length >= 5) { txtDni.Enabled = true; }
 
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "") { txtUsername.BackColor = Color.LightSalmon; txtClave.Enabled = false; }
-            else { txtUsername.BackColor = Color.White; }
-            if (txtUsername.Text.Length >= 5) { txtClave.Enabled = true; }
+            if (txtDni.Text == "") { txtDni.BackColor = Color.LightSalmon; txtClave.Enabled = false; }
+            else { txtDni.BackColor = Color.White; }
+            if (txtDni.Text.Length >= 5) { txtClave.Enabled = true; }
         }
 
         private void txtClave_TextChanged(object sender, EventArgs e)
@@ -161,6 +249,57 @@ namespace CompuGross
             if (txtClave.Text == "") { txtClave.BackColor = Color.LightSalmon; }
             else { txtClave.BackColor = Color.White; }
             if (txtClave.Text.Length == 8) { btnRegistrar.Enabled = true; }
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(sender, e);
+        }
+
+        private void soloNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void soloLetras(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ' ')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '-')
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloLetras(sender, e);
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloLetras(sender, e);
         }
     }
 }

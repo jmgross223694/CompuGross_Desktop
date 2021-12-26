@@ -58,7 +58,7 @@ namespace CompuGross
                     cant2 = Convert.ToInt32(datos.Lector["Cant2"]);
                     cant3 = Convert.ToInt32(datos.Lector["Cant3"]);
 
-                    int cantTotal = Convert.ToInt32(cant1) + Convert.ToInt32(cant2) + Convert.ToInt32(cant3);
+                    int cantTotal = cant1 + cant2 + cant3;
 
                     totalDiasServicio = Convert.ToDouble(datos.Lector["TotalDiasServicio"]);
 

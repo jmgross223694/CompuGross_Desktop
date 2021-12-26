@@ -69,7 +69,7 @@ namespace Negocio
         {
             string insertOrden = "EXEC SP_INSERT_ORDEN_TRABAJO '" + orden.Cliente + "', '" + 
                                 orden.FechaRecepcion + "', '" + orden.TipoEquipo + "', '" + 
-                                orden.RAM + " GB', '" + orden.PlacaMadre + "', '" + 
+                                orden.RAM + ", '" + orden.PlacaMadre + "', '" + 
                                 orden.MarcaModelo + "', '" + orden.Microprocesador + "', '" + 
                                 orden.Almacenamiento + "', '" + orden.CdDvd + "', '" + 
                                 orden.Fuente + "', '" + orden.Adicionales + "', '" +

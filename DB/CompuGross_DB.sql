@@ -65,7 +65,7 @@ GO
 create table Clientes(
 	ID bigint primary key not null identity(1,1),
 	Nombres varchar(200) not null,
-	DNI varchar(11) null default('-'),
+	DNI varchar(9) null default('-'),
 	Direccion varchar(100) null,
 	IdLocalidad bigint null foreign key references Localidades(ID),
 	Telefono varchar(50) null,
@@ -198,15 +198,15 @@ GO
 
 create view ExportIngresos
 as
-	select count(*) as Cant1, 
-	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 1) as Ganancia1,
-	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 1) as PromGanancia1,
+	select isnull(count(*),0) as Cant1, 
+	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where IdTipoServicio = 1) as Ganancia1,
+	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where IdTipoServicio = 1) as PromGanancia1,
 	(select count(*) from OrdenesTrabajo where IdTipoServicio = 2) as Cant2, 
-	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 2) as Ganancia2,
-	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 2) as PromGanancia2,
+	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where IdTipoServicio = 2) as Ganancia2,
+	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where IdTipoServicio = 2) as PromGanancia2,
 	(select count(*) from OrdenesTrabajo where IdTipoServicio = 3) as Cant3, 
-	(select convert(int,sum(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 3) as Ganancia3,
-	(select convert(int,avg(Ganancia)) from OrdenesTrabajo where IdTipoServicio = 3) as PromGanancia3,
+	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where IdTipoServicio = 3) as Ganancia3,
+	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where IdTipoServicio = 3) as PromGanancia3,
 	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from 
 	OrdenesTrabajo where FechaRecepcion = '28-06-2017')))) as TotalDiasServicio
 	from OrdenesTrabajo where IdTipoServicio = 1 AND Estado = 1
@@ -358,5 +358,3 @@ begin
 	end catch
 end
 GO
-
---use compugross

@@ -25,7 +25,7 @@ namespace CompuGross
         {
             btnEditar.Enabled = false;
             btnBorrar.Enabled = false;
-            txtBoxBusquedaCliente.Enabled = false;
+            txtFiltro.Enabled = false;
             this.Height = 125;
         }
 
@@ -94,13 +94,13 @@ namespace CompuGross
             ordenarColumnas();
 
             List<Cliente> filtro;
-            if (txtBoxBusquedaCliente.Text != "")
+            if (txtFiltro.Text != "")
             {
-                filtro = listaClientes.FindAll(Art => Art.DNI.ToUpper().Contains(txtBoxBusquedaCliente.Text.ToUpper()) || 
-                                               Art.Nombres.ToUpper().Contains(txtBoxBusquedaCliente.Text.ToUpper()) || 
-                                               Art.Direccion.ToUpper().Contains(txtBoxBusquedaCliente.Text.ToUpper()) ||
-                                               Art.Localidad.ToUpper().Contains(txtBoxBusquedaCliente.Text.ToUpper()) ||
-                                               Art.Telefono.ToUpper().Contains(txtBoxBusquedaCliente.Text.ToUpper()));
+                filtro = listaClientes.FindAll(Art => Art.DNI.ToUpper().Contains(txtFiltro.Text.ToUpper()) || 
+                                               Art.Nombres.ToUpper().Contains(txtFiltro.Text.ToUpper()) || 
+                                               Art.Direccion.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.Localidad.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.Telefono.ToUpper().Contains(txtFiltro.Text.ToUpper()));
                 dgvClientes.DataSource = null;
                 dgvClientes.DataSource = filtro;
             }
@@ -115,9 +115,9 @@ namespace CompuGross
             ordenarColumnas();
         }
 
-        private void txtBoxBusquedaCliente_KeyUp(object sender, KeyEventArgs e)
+        private void txtFiltro_KeyUp(object sender, KeyEventArgs e)
         {
-            if (txtBoxBusquedaCliente.Text != "" && e.KeyCode.Equals(Keys.Enter))
+            if (txtFiltro.Text != "" && e.KeyCode.Equals(Keys.Enter))
             {
                 if (dgvClientes.DataSource == null)
                 {
@@ -135,7 +135,7 @@ namespace CompuGross
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             AgregarCliente frmAgregar = new AgregarCliente();
-            txtBoxBusquedaCliente.Text = "";
+            txtFiltro.Text = "";
             this.Hide();
             frmAgregar.ShowDialog();
             this.Show();
@@ -153,7 +153,7 @@ namespace CompuGross
                 {
                     clienteDB.EliminarCliente(seleccionado.Nombres, seleccionado.Telefono);
                     MessageBox.Show("El cliente " + seleccionado.Nombres + ", se ha eliminado correctamente");
-                    txtBoxBusquedaCliente.Text = "";
+                    txtFiltro.Text = "";
 
                     cargarListado();
                     ocultarColumnas();
@@ -165,23 +165,6 @@ namespace CompuGross
             catch (Exception ex)
             {
 
-                throw ex;
-            }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                txtBoxBusquedaCliente.Text = "";
-                Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-                AgregarCliente modificar = new AgregarCliente(seleccionado);
-                this.Hide();
-                modificar.ShowDialog();
-                this.Show();
-            }
-            catch (Exception ex)
-            {
                 throw ex;
             }
         }
@@ -193,6 +176,7 @@ namespace CompuGross
 
             btnEditar.Enabled = true;
             btnBorrar.Enabled = true;
+            txtFiltro.Enabled = true;
 
             if (dgvClientes.DataSource == null)
             {
@@ -202,15 +186,16 @@ namespace CompuGross
                 cambiarTitulosColumnas();
                 ordenarColumnas();
             }
-            else if (txtBoxBusquedaCliente.Text != "")
+            else if (txtFiltro.Text != "")
             {
                 BuscarFiltro();
             }
+            txtFiltro.Focus();
         }
 
-        private void txtBoxBusquedaCliente_KeyDown(object sender, KeyEventArgs e)
+        private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
         {
-            if (txtBoxBusquedaCliente.Text != "" && e.KeyCode.Equals(Keys.Enter))
+            if (txtFiltro.Text != "" && e.KeyCode.Equals(Keys.Enter))
             {
                 if (dgvClientes.DataSource == null)
                 {
@@ -222,6 +207,33 @@ namespace CompuGross
                 }
 
                 BuscarFiltro();
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvClientes.CurrentRow != null)
+                {
+                    txtFiltro.Text = "";
+
+                    Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+
+                    AgregarCliente modificar = new AgregarCliente(seleccionado);
+                    this.Hide();
+                    modificar.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No se ha seleccionado ningún cliente.", "Atención!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch
+            {
+
             }
         }
     }

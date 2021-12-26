@@ -22,14 +22,10 @@ namespace CompuGross
 
         private void OrdenesTrabajo_Load(object sender, EventArgs e)
         {
-         /*
-            cargarListado();
-            alinearTitulos();
-            alinearColumnas();
-            ocultarColumnas();
-            ordenarColumnas();
-            cambiarTitulos();
-         */
+            btnEditar.Enabled = false;
+            btnBorrar.Enabled = false;
+            txtFiltro.Enabled = false;
+            this.Height = 125;
         }
 
         private void cargarListado()
@@ -66,12 +62,11 @@ namespace CompuGross
             dgvOrdenesTrabajo.Columns["Ganancia"].DefaultCellStyle.Format = "C0";
 
             dgvOrdenesTrabajo.Columns["ID"].HeaderText = "N° de orden";
-            dgvOrdenesTrabajo.Columns["FechaRecepcion"].HeaderText = "Fecha de recepción";
-            dgvOrdenesTrabajo.Columns["FechaDevolucion"].HeaderText = "Fecha de devolución";
-            dgvOrdenesTrabajo.Columns["MarcaModelo"].HeaderText = "Equipo";
-            dgvOrdenesTrabajo.Columns["TipoServicio"].HeaderText = "Tipo de servicio";
-            dgvOrdenesTrabajo.Columns["TipoEquipo"].HeaderText = "Tipo de equipo";
-            dgvOrdenesTrabajo.Columns["Descripcion"].HeaderText = "Descripción";
+            dgvOrdenesTrabajo.Columns["FechaRecepcion"].HeaderText = "Recepción";
+            dgvOrdenesTrabajo.Columns["FechaDevolucion"].HeaderText = "Devolución";
+            dgvOrdenesTrabajo.Columns["TipoServicio"].HeaderText = "Tipo";
+            dgvOrdenesTrabajo.Columns["TipoEquipo"].HeaderText = "Equipo";
+            dgvOrdenesTrabajo.Columns["MarcaModelo"].HeaderText = "Marca y modelo";
             dgvOrdenesTrabajo.Columns["CostoTotal"].HeaderText = "Subtotal";
         }
 
@@ -180,7 +175,19 @@ namespace CompuGross
 
         private void txtFiltro_KeyUp(object sender, KeyEventArgs e)
         {
-            BuscarFiltro();
+            if (txtFiltro.Text != "" && e.KeyCode.Equals(Keys.Enter))
+            {
+                if (dgvOrdenesTrabajo.DataSource == null)
+                {
+                    cargarListado();
+                    ocultarColumnas();
+                    alinearColumnas();
+                    ordenarColumnas();
+                    cambiarTitulos();
+                }
+
+                BuscarFiltro();
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -197,6 +204,8 @@ namespace CompuGross
             {
                 if (dgvOrdenesTrabajo.CurrentRow != null)
                 {
+                    txtFiltro.Text = "";
+                    
                     OrdenTrabajo seleccionado = (OrdenTrabajo)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
 
                     AgregarOrden frmModificar = new AgregarOrden(seleccionado);
@@ -213,6 +222,46 @@ namespace CompuGross
             catch
             {
                 
+            }
+        }
+
+        private void lblFiltro_Click(object sender, EventArgs e)
+        {
+            this.Height = 800;
+            this.CenterToScreen();
+
+            btnEditar.Enabled = true;
+            btnBorrar.Enabled = true;
+            txtFiltro.Enabled = true;
+
+            if (dgvOrdenesTrabajo.DataSource == null)
+            {
+                cargarListado();
+                ocultarColumnas();
+                alinearColumnas();
+                ordenarColumnas();
+                cambiarTitulos();
+            }
+            else if (txtFiltro.Text != "")
+            {
+                BuscarFiltro();
+            }
+        }
+
+        private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtFiltro.Text != "" && e.KeyCode.Equals(Keys.Enter))
+            {
+                if (dgvOrdenesTrabajo.DataSource == null)
+                {
+                    cargarListado();
+                    ocultarColumnas();
+                    alinearColumnas();
+                    ordenarColumnas();
+                    cambiarTitulos();
+                }
+
+                BuscarFiltro();
             }
         }
     }

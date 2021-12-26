@@ -64,7 +64,7 @@ namespace CompuGross
 
                     if (txtClave.Text == "" || txtClave.Text.Length < 8)
                     {
-                        MessageBox.Show("Clave vacía o inferior a 8 caracteres.");
+                        MessageBox.Show("Clave inferior a 8 caracteres.");
                         txtClave.BackColor = Color.LightSalmon;
                         txtClave.Focus();
                     }
@@ -78,7 +78,7 @@ namespace CompuGross
             {
                 AccesoDatos datos = new AccesoDatos();
 
-                string usuario = txtUsuario.Text;
+                string usuario = txtUsuario.Text + ".cg";
                 string clave = txtClave.Text;
 
                 string buscarUsuario = "select (select TU.Tipo from TiposUsuario TU where ID = IdTipo) Tipo, " +
@@ -171,6 +171,8 @@ namespace CompuGross
                 }
                 else { ClickBtnIngresar(); }
             }
+
+            soloNumeros(sender, e);
         }
 
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
@@ -433,6 +435,21 @@ namespace CompuGross
             else
             {
                 txtMail.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void soloNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
 

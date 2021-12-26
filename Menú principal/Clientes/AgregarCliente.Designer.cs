@@ -100,6 +100,7 @@
             this.txtNombres.Size = new System.Drawing.Size(554, 31);
             this.txtNombres.TabIndex = 1;
             this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // lblDireccion
             // 
@@ -149,10 +150,11 @@
             this.txtTelefono1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono1.Location = new System.Drawing.Point(120, 369);
             this.txtTelefono1.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTelefono1.MaxLength = 2;
+            this.txtTelefono1.MaxLength = 4;
             this.txtTelefono1.Name = "txtTelefono1";
-            this.txtTelefono1.Size = new System.Drawing.Size(47, 31);
+            this.txtTelefono1.Size = new System.Drawing.Size(59, 31);
             this.txtTelefono1.TabIndex = 4;
+            this.txtTelefono1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono1.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             // 
             // lblMail
@@ -243,12 +245,13 @@
             // txtTelefono2
             // 
             this.txtTelefono2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono2.Location = new System.Drawing.Point(179, 369);
+            this.txtTelefono2.Location = new System.Drawing.Point(191, 369);
             this.txtTelefono2.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTelefono2.MaxLength = 4;
+            this.txtTelefono2.MaxLength = 6;
             this.txtTelefono2.Name = "txtTelefono2";
-            this.txtTelefono2.Size = new System.Drawing.Size(244, 31);
+            this.txtTelefono2.Size = new System.Drawing.Size(232, 31);
             this.txtTelefono2.TabIndex = 5;
+            this.txtTelefono2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono2.TextChanged += new System.EventHandler(this.txtTelefono2_TextChanged);
             // 
             // txtTelefono3
@@ -256,10 +259,11 @@
             this.txtTelefono3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono3.Location = new System.Drawing.Point(435, 369);
             this.txtTelefono3.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTelefono3.MaxLength = 4;
+            this.txtTelefono3.MaxLength = 6;
             this.txtTelefono3.Name = "txtTelefono3";
             this.txtTelefono3.Size = new System.Drawing.Size(239, 31);
             this.txtTelefono3.TabIndex = 6;
+            this.txtTelefono3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono3.TextChanged += new System.EventHandler(this.txtTelefono3_TextChanged);
             // 
             // label2
@@ -280,7 +284,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(169, 374);
+            this.label3.Location = new System.Drawing.Point(179, 374);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(10, 21);
@@ -317,10 +321,11 @@
             this.txtTelefonoEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefonoEditar.Location = new System.Drawing.Point(120, 369);
             this.txtTelefonoEditar.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTelefonoEditar.MaxLength = 8;
+            this.txtTelefonoEditar.MaxLength = 50;
             this.txtTelefonoEditar.Name = "txtTelefonoEditar";
             this.txtTelefonoEditar.Size = new System.Drawing.Size(554, 31);
             this.txtTelefonoEditar.TabIndex = 29;
+            this.txtTelefonoEditar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoEditar_KeyPress);
             // 
             // txtId
             // 
@@ -345,8 +350,8 @@
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(698, 606);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtTelefonoEditar);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblTel2);
             this.Controls.Add(this.lblTel1);
             this.Controls.Add(this.label3);
@@ -377,7 +382,6 @@
             this.Name = "AgregarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Cliente";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Agregar_FormClosed);
             this.Load += new System.EventHandler(this.Agregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).EndInit();
             this.ResumeLayout(false);

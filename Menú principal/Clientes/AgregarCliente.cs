@@ -121,41 +121,66 @@ namespace CompuGross
             {
                 if (txtNombres.Text == "")
                 {
-                    MessageBox.Show("Apellido y nombre sin completar !!!");
+                    MessageBox.Show("Apellido y Nombre sin completar.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNombres.BackColor = Color.LightSalmon;
+                    txtNombres.Focus();
                 }
                 else if (txtTelefonoEditar.Text == "")
                 {
-                    MessageBox.Show("Teléfono sin completar !!!");
+                    txtNombres.BackColor = Color.White;
+
+                    MessageBox.Show("Teléfono sin completar.", "Atención!!", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTelefonoEditar.BackColor = Color.LightSalmon;
+                    txtTelefonoEditar.Focus();
                 }
                 else
                 {
-                    ClienteDB clienteDB = new ClienteDB();
+                    txtTelefonoEditar.BackColor = Color.White;
 
-                    Cliente cliente = new Cliente();
-
-                    cliente.Id = Convert.ToInt64(txtId.Text);
-                    cliente.Nombres = txtNombres.Text;
-                    cliente.DNI = txtDni.Text;
-                    cliente.Direccion = txtDireccion.Text;
-                    cliente.Localidad = ddlLocalidad.SelectedItem.ToString();
-                    cliente.Telefono = txtTelefonoEditar.Text;
-                    cliente.Mail = txtMail.Text;
-
-                    try
+                    if (txtMail.Text != "" && txtMail.Text != "-")
                     {
-                        int clienteModificado = 0;
-                        clienteModificado = clienteDB.ModificarCliente(cliente);
-
-                        if (clienteModificado == 1)
+                        if (!txtMail.Text.Contains("@") && !txtMail.Text.Contains(".com"))
                         {
-                            MessageBox.Show("Cliente modificado con éxito!");
-                            Form.ActiveForm.Close();
+                            MessageBox.Show("El mail ingresado es inválido.", "Atención!!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtMail.BackColor = Color.LightSalmon;
+                            txtMail.Focus();
                         }
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Se produjo un error y no se modificó el cliente.", "Atención!", 
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtMail.BackColor = Color.White;
+
+                        ClienteDB clienteDB = new ClienteDB();
+
+                        Cliente cliente = new Cliente();
+
+                        cliente.Id = Convert.ToInt64(txtId.Text);
+                        cliente.Nombres = txtNombres.Text;
+                        cliente.DNI = txtDni.Text;
+                        cliente.Direccion = txtDireccion.Text;
+                        cliente.Localidad = ddlLocalidad.SelectedItem.ToString();
+                        cliente.Telefono = txtTelefonoEditar.Text;
+                        cliente.Mail = txtMail.Text;
+
+                        try
+                        {
+                            int clienteModificado = 0;
+                            clienteModificado = clienteDB.ModificarCliente(cliente);
+
+                            if (clienteModificado == 1)
+                            {
+                                MessageBox.Show("Cliente modificado con éxito!");
+                                Form.ActiveForm.Close();
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Se produjo un error y no se modificó el cliente.", "Atención!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
             }
@@ -163,49 +188,75 @@ namespace CompuGross
             {
                 if (txtNombres.Text == "")
                 {
-                    MessageBox.Show("Apellido y nombre sin completar !!!");
+                    MessageBox.Show("Apellido y Nombre sin completar.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNombres.BackColor = Color.LightSalmon;
+                    txtNombres.Focus();
                 }
                 else if (txtTelefono1.Text == "")
                 {
-                    MessageBox.Show("Teléfono sin completar !!!");
+                    MessageBox.Show("Código de Área sin completar.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTelefono1.BackColor = Color.LightSalmon;
+                    txtTelefono1.Focus();
                 }
-
-                ClienteDB clienteDB = new ClienteDB();
-
-                Cliente cliente = new Cliente();
-
-                int clienteAgregado = 0;
-
-                if (txtDni.Text == "") { cliente.DNI = "-"; }
-                else { cliente.DNI = txtDni.Text; }
-
-                cliente.Nombres = txtNombres.Text;
-
-                if (txtDireccion.Text == "") { cliente.Direccion = "-"; }
-                else { cliente.Direccion = txtDireccion.Text; }
-
-                if (ddlLocalidad.SelectedItem.ToString() == "-") { cliente.Localidad = "-"; }
-                else { cliente.Localidad = ddlLocalidad.SelectedItem.ToString(); }
-
-                cliente.Telefono = txtTelefono1.Text + "-" + txtTelefono2.Text + "-" + txtTelefono3.Text;
-
-                if (txtMail.Text == "") { cliente.Mail = "-"; } 
-                else { cliente.Mail = txtMail.Text; }
-
-                try
+                else if (txtTelefono2.Text == "")
                 {
-                    clienteAgregado = clienteDB.AgregarCliente(cliente);
+                    MessageBox.Show("Prefijo del teléfono sin completar.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTelefono2.BackColor = Color.LightSalmon;
+                    txtTelefono2.Focus();
+                }
+                else if (txtTelefono3.Text == "")
+                {
+                    MessageBox.Show("Sufijo del teléfono sin completar.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTelefono3.BackColor = Color.LightSalmon;
+                    txtTelefono3.Focus();
+                }
+                else
+                {
+                    txtTelefono1.BackColor = Color.White;
+                    txtTelefono2.BackColor = Color.White;
+                    txtTelefono3.BackColor = Color.White;
 
-                    if (clienteAgregado == 1)
+                    ClienteDB clienteDB = new ClienteDB();
+
+                    Cliente cliente = new Cliente();
+
+                    int clienteAgregado = 0;
+
+                    if (txtDni.Text == "") { cliente.DNI = "-"; }
+                    else { cliente.DNI = txtDni.Text; }
+
+                    cliente.Nombres = txtNombres.Text;
+
+                    if (txtDireccion.Text == "") { cliente.Direccion = "-"; }
+                    else { cliente.Direccion = txtDireccion.Text; }
+
+                    if (ddlLocalidad.SelectedItem.ToString() == "-") { cliente.Localidad = "-"; }
+                    else { cliente.Localidad = ddlLocalidad.SelectedItem.ToString(); }
+
+                    cliente.Telefono = txtTelefono1.Text + "-" + txtTelefono2.Text + "-" + txtTelefono3.Text;
+
+                    if (txtMail.Text == "") { cliente.Mail = "-"; }
+                    else { cliente.Mail = txtMail.Text; }
+
+                    try
                     {
-                        MessageBox.Show("Cliente agregado con éxito !!!");
-                        Form.ActiveForm.Close();
+                        clienteAgregado = clienteDB.AgregarCliente(cliente);
+
+                        if (clienteAgregado == 1)
+                        {
+                            MessageBox.Show("Cliente agregado con éxito !!!");
+                            Form.ActiveForm.Close();
+                        }
                     }
-                }
-                catch
-                {
-                    MessageBox.Show("Se produjo un error y no se agregó el nuevo cliente.", "Atención!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    catch
+                    {
+                        MessageBox.Show("Se produjo un error y no se agregó el nuevo cliente.", "Atención!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
         }
@@ -217,14 +268,35 @@ namespace CompuGross
 
         private void soloNumeros(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
             {
                 e.Handled = true;
             }
+        }
 
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+        private void soloLetras(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ' ')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '-')
+            {
+                e.Handled = true;
+            }
+            else
             {
                 e.Handled = true;
             }
@@ -291,9 +363,21 @@ namespace CompuGross
             }
         }
 
-        private void Agregar_FormClosed(object sender, FormClosedEventArgs e)
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            soloLetras(sender, e);
+        }
+
+        private void txtTelefonoEditar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == '-')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

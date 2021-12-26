@@ -198,6 +198,7 @@ namespace CompuGross
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(165, 138);
             this.txtDescripcion.TabIndex = 18;
+            this.txtDescripcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescripcion_KeyDown);
             // 
             // txtNumSerie
             // 
@@ -216,6 +217,7 @@ namespace CompuGross
             this.txtCostoRepuestos.Name = "txtCostoRepuestos";
             this.txtCostoRepuestos.Size = new System.Drawing.Size(158, 22);
             this.txtCostoRepuestos.TabIndex = 14;
+            this.txtCostoRepuestos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoRepuestos_KeyPress);
             // 
             // txtCostoManoObra
             // 
@@ -225,6 +227,7 @@ namespace CompuGross
             this.txtCostoManoObra.Name = "txtCostoManoObra";
             this.txtCostoManoObra.Size = new System.Drawing.Size(161, 22);
             this.txtCostoManoObra.TabIndex = 15;
+            this.txtCostoManoObra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoManoObra_KeyPress);
             // 
             // txtCostoTerceros
             // 
@@ -234,6 +237,7 @@ namespace CompuGross
             this.txtCostoTerceros.Name = "txtCostoTerceros";
             this.txtCostoTerceros.Size = new System.Drawing.Size(158, 22);
             this.txtCostoTerceros.TabIndex = 16;
+            this.txtCostoTerceros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoTerceros_KeyPress);
             // 
             // lblCliente
             // 

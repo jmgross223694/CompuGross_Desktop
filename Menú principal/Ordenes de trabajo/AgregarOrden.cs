@@ -15,6 +15,8 @@ namespace CompuGross
     public partial class AgregarOrden : Form
     {
         private long IdOrden = 0;
+        private int contador = 0;
+        private bool puntoDecimal = false;
         private List<Cliente> listaClientes;
         private OrdenTrabajo orden = null;
 
@@ -35,7 +37,7 @@ namespace CompuGross
 
             ddlTiposEquipo.SelectedValue = "-";
             ddlTiposServicio.SelectedValue = "-";
-            ddlCdDvd.SelectedValue = "-";
+            ddlCdDvd.SelectedItem = "-";
         }
 
         public AgregarOrden(OrdenTrabajo orden) //Modificar orden
@@ -413,6 +415,11 @@ namespace CompuGross
                 if (txtDescripcion.Text == "")
                 { txtDescripcion.BackColor = Color.FromArgb(255, 175, 158); }
             }
+            else if (txtDescripcion.Text.Contains("-"))
+            {
+                MessageBox.Show("La descripción no puede contener '-'.");
+                txtDescripcion.BackColor = Color.FromArgb(255, 175, 158);
+            }
             else
             {
                 if (Text == "Modificar Orden") //Modificar orden
@@ -427,7 +434,7 @@ namespace CompuGross
                     orden.TipoEquipo = ddlTiposEquipo.SelectedItem.ToString();
 
                     if (txtRam.Text == "") { orden.RAM = "-"; }
-                    else { orden.RAM = txtRam.Text; }
+                    else { orden.RAM = txtRam.Text + " GB"; }
 
                     if (txtPlacaMadre.Text == "") { orden.PlacaMadre = "-"; }
                     else { orden.PlacaMadre = txtPlacaMadre.Text; }
@@ -486,7 +493,7 @@ namespace CompuGross
                     orden.TipoEquipo = ddlTiposEquipo.SelectedItem.ToString();
 
                     if (txtRam.Text == "") { orden.RAM = "-"; }
-                    else { orden.RAM = txtRam.Text; }
+                    else { orden.RAM = txtRam.Text + " GB"; }
 
                     if (txtPlacaMadre.Text == "") { orden.PlacaMadre = "-"; }
                     else { orden.PlacaMadre = txtPlacaMadre.Text; }
@@ -576,6 +583,69 @@ namespace CompuGross
         {
             if (cbFechaDevolucion.Checked == true) { fechaDevolucion.Enabled = true; }
             else { fechaDevolucion.Enabled = false; }
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            string descripcionActual = txtDescripcion.Text;
+
+            if (e.KeyCode.Equals(Keys.Enter) || e.KeyValue == 189 || e.KeyValue == 109)
+            {
+                if (e.KeyCode.Equals(Keys.Enter))
+                {
+                    MessageBox.Show("No se permiten saltos de línea en la descripción.", "Atención!!", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("No se permiten guiones en la descripción.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+                txtDescripcion.Text = descripcionActual;
+                int largo = txtDescripcion.Text.Length;
+                txtDescripcion.Select(largo, 0);
+            }
+        }
+
+        private void soloNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCostoRepuestos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCostoManoObra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(sender, e);
+        }
+
+        private void txtCostoTerceros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(sender, e);
         }
     }
 }

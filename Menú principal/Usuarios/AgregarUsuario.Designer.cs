@@ -38,7 +38,7 @@ namespace CompuGross
             this.label3 = new System.Windows.Forms.Label();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -49,6 +49,12 @@ namespace CompuGross
             this.compuGrossDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.localidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.localidadesTableAdapter = new CompuGross.CompuGrossDataSet1TableAdapters.LocalidadesTableAdapter();
+            this.lblAsterisco1 = new System.Windows.Forms.Label();
+            this.lblAsterisco2 = new System.Windows.Forms.Label();
+            this.lblAsterisco3 = new System.Windows.Forms.Label();
+            this.lblAsterisco4 = new System.Windows.Forms.Label();
+            this.lblAsterisco5 = new System.Windows.Forms.Label();
+            this.lblAsterisco6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.localidadesBindingSource)).BeginInit();
@@ -63,6 +69,7 @@ namespace CompuGross
             this.txtApellidos.Size = new System.Drawing.Size(315, 31);
             this.txtApellidos.TabIndex = 1;
             this.txtApellidos.TextChanged += new System.EventHandler(this.txtApellidos_TextChanged);
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidos_KeyPress);
             // 
             // label1
             // 
@@ -95,6 +102,7 @@ namespace CompuGross
             this.txtNombres.Size = new System.Drawing.Size(315, 31);
             this.txtNombres.TabIndex = 0;
             this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // label3
             // 
@@ -124,19 +132,20 @@ namespace CompuGross
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 204);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 25);
+            this.label4.Size = new System.Drawing.Size(47, 25);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Usuario";
+            this.label4.Text = "DNI";
             // 
-            // txtUsername
+            // txtDni
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(112, 201);
-            this.txtUsername.MaxLength = 15;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(315, 31);
-            this.txtUsername.TabIndex = 3;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.Location = new System.Drawing.Point(112, 201);
+            this.txtDni.MaxLength = 9;
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(315, 31);
+            this.txtDni.TabIndex = 3;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // label5
             // 
@@ -164,6 +173,7 @@ namespace CompuGross
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnRegistrar.Location = new System.Drawing.Point(142, 313);
@@ -200,6 +210,7 @@ namespace CompuGross
             // 
             // cbTipoUsuario
             // 
+            this.cbTipoUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -232,6 +243,90 @@ namespace CompuGross
             // 
             this.localidadesTableAdapter.ClearBeforeFill = true;
             // 
+            // lblAsterisco1
+            // 
+            this.lblAsterisco1.AutoSize = true;
+            this.lblAsterisco1.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsterisco1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco1.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblAsterisco1.Location = new System.Drawing.Point(0, 12);
+            this.lblAsterisco1.Name = "lblAsterisco1";
+            this.lblAsterisco1.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisco1.TabIndex = 14;
+            this.lblAsterisco1.Text = "*";
+            this.lblAsterisco1.UseMnemonic = false;
+            // 
+            // lblAsterisco2
+            // 
+            this.lblAsterisco2.AutoSize = true;
+            this.lblAsterisco2.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsterisco2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco2.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblAsterisco2.Location = new System.Drawing.Point(0, 59);
+            this.lblAsterisco2.Name = "lblAsterisco2";
+            this.lblAsterisco2.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisco2.TabIndex = 15;
+            this.lblAsterisco2.Text = "*";
+            this.lblAsterisco2.UseMnemonic = false;
+            // 
+            // lblAsterisco3
+            // 
+            this.lblAsterisco3.AutoSize = true;
+            this.lblAsterisco3.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsterisco3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco3.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblAsterisco3.Location = new System.Drawing.Point(0, 108);
+            this.lblAsterisco3.Name = "lblAsterisco3";
+            this.lblAsterisco3.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisco3.TabIndex = 16;
+            this.lblAsterisco3.Text = "*";
+            this.lblAsterisco3.UseMnemonic = false;
+            // 
+            // lblAsterisco4
+            // 
+            this.lblAsterisco4.AutoSize = true;
+            this.lblAsterisco4.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsterisco4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco4.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblAsterisco4.Location = new System.Drawing.Point(0, 155);
+            this.lblAsterisco4.Name = "lblAsterisco4";
+            this.lblAsterisco4.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisco4.TabIndex = 17;
+            this.lblAsterisco4.Text = "*";
+            this.lblAsterisco4.UseMnemonic = false;
+            // 
+            // lblAsterisco5
+            // 
+            this.lblAsterisco5.AutoSize = true;
+            this.lblAsterisco5.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsterisco5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco5.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblAsterisco5.Location = new System.Drawing.Point(0, 204);
+            this.lblAsterisco5.Name = "lblAsterisco5";
+            this.lblAsterisco5.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisco5.TabIndex = 18;
+            this.lblAsterisco5.Text = "*";
+            this.lblAsterisco5.UseMnemonic = false;
+            // 
+            // lblAsterisco6
+            // 
+            this.lblAsterisco6.AutoSize = true;
+            this.lblAsterisco6.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsterisco6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco6.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblAsterisco6.Location = new System.Drawing.Point(0, 252);
+            this.lblAsterisco6.Name = "lblAsterisco6";
+            this.lblAsterisco6.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisco6.TabIndex = 19;
+            this.lblAsterisco6.Text = "*";
+            this.lblAsterisco6.UseMnemonic = false;
+            // 
             // AgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +335,12 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(439, 365);
+            this.Controls.Add(this.lblAsterisco6);
+            this.Controls.Add(this.lblAsterisco5);
+            this.Controls.Add(this.lblAsterisco4);
+            this.Controls.Add(this.lblAsterisco3);
+            this.Controls.Add(this.lblAsterisco2);
+            this.Controls.Add(this.lblAsterisco1);
             this.Controls.Add(this.cbTipoUsuario);
             this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.lblLargoClave);
@@ -249,7 +350,7 @@ namespace CompuGross
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.label1);
@@ -277,7 +378,7 @@ namespace CompuGross
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Button btnRegistrar;
@@ -288,5 +389,11 @@ namespace CompuGross
         private CompuGrossDataSet1 compuGrossDataSet1;
         private System.Windows.Forms.BindingSource localidadesBindingSource;
         private CompuGrossDataSet1TableAdapters.LocalidadesTableAdapter localidadesTableAdapter;
+        private System.Windows.Forms.Label lblAsterisco1;
+        private System.Windows.Forms.Label lblAsterisco2;
+        private System.Windows.Forms.Label lblAsterisco3;
+        private System.Windows.Forms.Label lblAsterisco4;
+        private System.Windows.Forms.Label lblAsterisco5;
+        private System.Windows.Forms.Label lblAsterisco6;
     }
 }
