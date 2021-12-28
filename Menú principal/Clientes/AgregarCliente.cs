@@ -62,6 +62,8 @@ namespace CompuGross
 
             if (cliente != null)
             {
+                lblMailValido.Visible = true;
+
                 btnConfirmar.Enabled = true;
                 btnConfirmar.Text = "Confirmar cambios";
                 txtId.Text = Convert.ToString(cliente.Id);
@@ -86,6 +88,11 @@ namespace CompuGross
                 if (txtTelefonoEditar.Text == "-") { txtTelefonoEditar.Text = ""; }
                 txtMail.Text = cliente.Mail;
                 if (txtMail.Text == "-") { txtMail.Text = ""; }
+            }
+            else
+            {
+                lblMailValido.Visible = false;
+                lblMailInvalido.Visible = false;
             }
         }
 
@@ -378,6 +385,72 @@ namespace CompuGross
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtTelefono1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(sender, e);
+        }
+
+        private void txtTelefono2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(sender, e);
+        }
+
+        private void txtTelefono3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(sender, e);
+        }
+
+        private void txtMail_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMail.Text != "")
+            {
+                string mail = txtMail.Text;
+                int len = mail.Length;
+
+                bool mailValido = validarMail(mail);
+
+                if (mailValido) 
+                { 
+                    lblMailValido.Visible = true; 
+                    lblMailInvalido.Visible = false;
+                    txtMail.BackColor = Color.White;
+                }
+                else 
+                { 
+                    lblMailValido.Visible = false; 
+                    lblMailInvalido.Visible = true;
+                    txtMail.BackColor = Color.LightCoral;
+                }
+            }
+        }
+
+        private void txtMail_Enter(object sender, EventArgs e)
+        {
+            lblMailInvalido.Visible = true;
+        }
+
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            lblMailInvalido.Visible = false;
+            lblMailValido.Visible = false;
+        }
+
+        private bool validarMail(string mail)
+        {
+            bool resultado = false;
+
+            if (mail == "-")
+            {
+                resultado = true;
+            }
+            else if (mail.Contains("@") && mail.Contains(".com") && !mail.Contains("@.com"))
+            {
+                resultado = true;
+            }
+
+            return resultado;
         }
     }
 }

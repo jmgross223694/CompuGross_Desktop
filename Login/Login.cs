@@ -38,7 +38,6 @@ namespace CompuGross
             lblClave.Visible = true;
             txtClave.Visible = true;
             lblRecuperarClave.Visible = true;
-            lblLargoClave.Visible = true;
             lblLargoClave2.Visible = false;
             btnIngresar.Visible = true;
             btnRegistro.Visible = true;
@@ -192,7 +191,6 @@ namespace CompuGross
             lblClave.Visible = false;
             txtClave.Visible = false;
             lblRecuperarClave.Visible = false;
-            lblLargoClave.Visible = false;
             btnIngresar.Visible = false;
             btnRegistro.Visible = false;
             btnEnviarCodigo.Visible = true;

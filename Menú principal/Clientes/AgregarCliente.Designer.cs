@@ -54,6 +54,8 @@
             this.txtTelefonoEditar = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.compuGrossDataSet1 = new CompuGross.CompuGrossDataSet();
+            this.lblMailValido = new System.Windows.Forms.Label();
+            this.lblMailInvalido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,6 +158,7 @@
             this.txtTelefono1.TabIndex = 4;
             this.txtTelefono1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono1.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono1_KeyPress);
             // 
             // lblMail
             // 
@@ -177,6 +180,9 @@
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(554, 31);
             this.txtMail.TabIndex = 7;
+            this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
+            this.txtMail.Enter += new System.EventHandler(this.txtMail_Enter);
+            this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
             // 
             // label8
             // 
@@ -253,6 +259,7 @@
             this.txtTelefono2.TabIndex = 5;
             this.txtTelefono2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono2.TextChanged += new System.EventHandler(this.txtTelefono2_TextChanged);
+            this.txtTelefono2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono2_KeyPress);
             // 
             // txtTelefono3
             // 
@@ -265,6 +272,7 @@
             this.txtTelefono3.TabIndex = 6;
             this.txtTelefono3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono3.TextChanged += new System.EventHandler(this.txtTelefono3_TextChanged);
+            this.txtTelefono3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono3_KeyPress);
             // 
             // label2
             // 
@@ -341,6 +349,32 @@
             this.compuGrossDataSet1.DataSetName = "CompuGrossDataSet";
             this.compuGrossDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // lblMailValido
+            // 
+            this.lblMailValido.BackColor = System.Drawing.Color.White;
+            this.lblMailValido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMailValido.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblMailValido.Location = new System.Drawing.Point(618, 468);
+            this.lblMailValido.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblMailValido.Name = "lblMailValido";
+            this.lblMailValido.Size = new System.Drawing.Size(55, 15);
+            this.lblMailValido.TabIndex = 31;
+            this.lblMailValido.Text = "VÁLIDO";
+            this.lblMailValido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMailInvalido
+            // 
+            this.lblMailInvalido.BackColor = System.Drawing.Color.White;
+            this.lblMailInvalido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMailInvalido.ForeColor = System.Drawing.Color.Red;
+            this.lblMailInvalido.Location = new System.Drawing.Point(606, 468);
+            this.lblMailInvalido.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblMailInvalido.Name = "lblMailInvalido";
+            this.lblMailInvalido.Size = new System.Drawing.Size(67, 15);
+            this.lblMailInvalido.TabIndex = 32;
+            this.lblMailInvalido.Text = "INVÁLIDO";
+            this.lblMailInvalido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AgregarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -350,7 +384,7 @@
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(698, 606);
-            this.Controls.Add(this.txtTelefonoEditar);
+            this.Controls.Add(this.lblMailValido);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblTel2);
             this.Controls.Add(this.lblTel1);
@@ -364,7 +398,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblMail);
-            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.txtTelefono1);
             this.Controls.Add(this.lblLocalidad);
@@ -374,6 +407,9 @@
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.txtDni);
+            this.Controls.Add(this.txtTelefonoEditar);
+            this.Controls.Add(this.lblMailInvalido);
+            this.Controls.Add(this.txtMail);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -416,5 +452,7 @@
         public System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.TextBox txtId;
         private CompuGrossDataSet compuGrossDataSet1;
+        private System.Windows.Forms.Label lblMailValido;
+        private System.Windows.Forms.Label lblMailInvalido;
     }
 }

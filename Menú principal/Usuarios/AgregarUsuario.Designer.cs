@@ -42,7 +42,7 @@ namespace CompuGross
             this.label5 = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.lblLargoClave = new System.Windows.Forms.Label();
+            this.lblCaracteres = new System.Windows.Forms.Label();
             this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.cbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.compuGrossDataSet1 = new CompuGross.CompuGrossDataSet1();
@@ -55,6 +55,11 @@ namespace CompuGross
             this.lblAsterisco4 = new System.Windows.Forms.Label();
             this.lblAsterisco5 = new System.Windows.Forms.Label();
             this.lblAsterisco6 = new System.Windows.Forms.Label();
+            this.lblMayus = new System.Windows.Forms.Label();
+            this.lblMinus = new System.Windows.Forms.Label();
+            this.lblNum = new System.Windows.Forms.Label();
+            this.lblMailInvalido = new System.Windows.Forms.Label();
+            this.lblMailValido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.localidadesBindingSource)).BeginInit();
@@ -124,6 +129,8 @@ namespace CompuGross
             this.txtMail.Size = new System.Drawing.Size(315, 31);
             this.txtMail.TabIndex = 2;
             this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
+            this.txtMail.Enter += new System.EventHandler(this.txtMail_Enter);
+            this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
             // 
             // label4
             // 
@@ -140,7 +147,7 @@ namespace CompuGross
             // 
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(112, 201);
-            this.txtDni.MaxLength = 9;
+            this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(315, 31);
             this.txtDni.TabIndex = 3;
@@ -169,6 +176,8 @@ namespace CompuGross
             this.txtClave.TabIndex = 4;
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
+            this.txtClave.Enter += new System.EventHandler(this.txtClave_Enter);
+            this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 
             // btnRegistrar
             // 
@@ -184,18 +193,18 @@ namespace CompuGross
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // lblLargoClave
+            // lblCaracteres
             // 
-            this.lblLargoClave.AutoSize = true;
-            this.lblLargoClave.BackColor = System.Drawing.Color.Transparent;
-            this.lblLargoClave.ForeColor = System.Drawing.Color.Red;
-            this.lblLargoClave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblLargoClave.Location = new System.Drawing.Point(358, 283);
-            this.lblLargoClave.Name = "lblLargoClave";
-            this.lblLargoClave.Size = new System.Drawing.Size(73, 13);
-            this.lblLargoClave.TabIndex = 11;
-            this.lblLargoClave.Text = "* 8 caracteres";
-            this.lblLargoClave.UseMnemonic = false;
+            this.lblCaracteres.AutoSize = true;
+            this.lblCaracteres.BackColor = System.Drawing.Color.Transparent;
+            this.lblCaracteres.ForeColor = System.Drawing.Color.Red;
+            this.lblCaracteres.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCaracteres.Location = new System.Drawing.Point(109, 283);
+            this.lblCaracteres.Name = "lblCaracteres";
+            this.lblCaracteres.Size = new System.Drawing.Size(76, 13);
+            this.lblCaracteres.TabIndex = 11;
+            this.lblCaracteres.Text = "* 8 caracteres,";
+            this.lblCaracteres.UseMnemonic = false;
             // 
             // lblTipoUsuario
             // 
@@ -327,6 +336,71 @@ namespace CompuGross
             this.lblAsterisco6.Text = "*";
             this.lblAsterisco6.UseMnemonic = false;
             // 
+            // lblMayus
+            // 
+            this.lblMayus.AutoSize = true;
+            this.lblMayus.BackColor = System.Drawing.Color.Transparent;
+            this.lblMayus.ForeColor = System.Drawing.Color.Red;
+            this.lblMayus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblMayus.Location = new System.Drawing.Point(183, 283);
+            this.lblMayus.Name = "lblMayus";
+            this.lblMayus.Size = new System.Drawing.Size(73, 13);
+            this.lblMayus.TabIndex = 20;
+            this.lblMayus.Text = "1 Mayúscula, ";
+            this.lblMayus.UseMnemonic = false;
+            // 
+            // lblMinus
+            // 
+            this.lblMinus.AutoSize = true;
+            this.lblMinus.BackColor = System.Drawing.Color.Transparent;
+            this.lblMinus.ForeColor = System.Drawing.Color.Red;
+            this.lblMinus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblMinus.Location = new System.Drawing.Point(251, 283);
+            this.lblMinus.Name = "lblMinus";
+            this.lblMinus.Size = new System.Drawing.Size(70, 13);
+            this.lblMinus.TabIndex = 21;
+            this.lblMinus.Text = "1 Minúscula  ";
+            this.lblMinus.UseMnemonic = false;
+            // 
+            // lblNum
+            // 
+            this.lblNum.AutoSize = true;
+            this.lblNum.BackColor = System.Drawing.Color.Transparent;
+            this.lblNum.ForeColor = System.Drawing.Color.Red;
+            this.lblNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblNum.Location = new System.Drawing.Point(315, 283);
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(115, 13);
+            this.lblNum.TabIndex = 22;
+            this.lblNum.Text = "y un Número al menos.";
+            this.lblNum.UseMnemonic = false;
+            // 
+            // lblMailInvalido
+            // 
+            this.lblMailInvalido.AutoSize = true;
+            this.lblMailInvalido.BackColor = System.Drawing.Color.White;
+            this.lblMailInvalido.ForeColor = System.Drawing.Color.Red;
+            this.lblMailInvalido.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblMailInvalido.Location = new System.Drawing.Point(368, 170);
+            this.lblMailInvalido.Name = "lblMailInvalido";
+            this.lblMailInvalido.Size = new System.Drawing.Size(57, 13);
+            this.lblMailInvalido.TabIndex = 23;
+            this.lblMailInvalido.Text = "INVÁLIDO";
+            this.lblMailInvalido.UseMnemonic = false;
+            // 
+            // lblMailValido
+            // 
+            this.lblMailValido.AutoSize = true;
+            this.lblMailValido.BackColor = System.Drawing.Color.White;
+            this.lblMailValido.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblMailValido.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblMailValido.Location = new System.Drawing.Point(380, 170);
+            this.lblMailValido.Name = "lblMailValido";
+            this.lblMailValido.Size = new System.Drawing.Size(46, 13);
+            this.lblMailValido.TabIndex = 24;
+            this.lblMailValido.Text = "VÁLIDO";
+            this.lblMailValido.UseMnemonic = false;
+            // 
             // AgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +409,11 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(439, 365);
+            this.Controls.Add(this.lblMailValido);
+            this.Controls.Add(this.lblMailInvalido);
+            this.Controls.Add(this.lblNum);
+            this.Controls.Add(this.lblMinus);
+            this.Controls.Add(this.lblMayus);
             this.Controls.Add(this.lblAsterisco6);
             this.Controls.Add(this.lblAsterisco5);
             this.Controls.Add(this.lblAsterisco4);
@@ -343,7 +422,7 @@ namespace CompuGross
             this.Controls.Add(this.lblAsterisco1);
             this.Controls.Add(this.cbTipoUsuario);
             this.Controls.Add(this.lblTipoUsuario);
-            this.Controls.Add(this.lblLargoClave);
+            this.Controls.Add(this.lblCaracteres);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtClave);
@@ -382,7 +461,7 @@ namespace CompuGross
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Label lblLargoClave;
+        private System.Windows.Forms.Label lblCaracteres;
         private System.Windows.Forms.Label lblTipoUsuario;
         private System.Windows.Forms.ComboBox cbTipoUsuario;
         private System.Windows.Forms.BindingSource compuGrossDataSet1BindingSource;
@@ -395,5 +474,10 @@ namespace CompuGross
         private System.Windows.Forms.Label lblAsterisco4;
         private System.Windows.Forms.Label lblAsterisco5;
         private System.Windows.Forms.Label lblAsterisco6;
+        private System.Windows.Forms.Label lblMayus;
+        private System.Windows.Forms.Label lblMinus;
+        private System.Windows.Forms.Label lblNum;
+        private System.Windows.Forms.Label lblMailInvalido;
+        private System.Windows.Forms.Label lblMailValido;
     }
 }

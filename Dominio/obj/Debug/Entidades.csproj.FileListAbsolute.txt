@@ -3,4 +3,3 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\Dominio\bin\Debug\Dominio.pdb
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Dominio\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Dominio\obj\Debug\Dominio.dll
 C:\Users\Juanma\Desktop\GitHub\CompuGross\Dominio\obj\Debug\Dominio.pdb
-C:\Users\Juanma\Desktop\GitHub\CompuGross\Dominio\obj\Debug\Entidades.csproj.AssemblyReference.cache

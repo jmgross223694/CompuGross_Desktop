@@ -42,6 +42,14 @@ namespace CompuGross
             txtMail.BackColor = Color.White;
             txtDni.BackColor = Color.White;
             txtClave.BackColor = Color.White;
+
+            lblMailInvalido.Visible = false;
+            lblMailValido.Visible = false;
+
+            lblCaracteres.Visible = false;
+            lblMayus.Visible = false;
+            lblMinus.Visible = false;
+            lblNum.Visible = false;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -92,15 +100,21 @@ namespace CompuGross
             }
             else
             {
+                cbTipoUsuario.BackColor = Color.White;
+                txtNombres.BackColor = Color.White;
+                txtApellidos.BackColor = Color.White;
+                txtMail.BackColor = Color.White;
+                txtDni.BackColor = Color.White;
                 txtClave.BackColor = Color.White;
 
-                bool claveValida = validarMayusculaClave(txtClave.Text);
-                claveValida = validarNumeroClave(txtClave.Text);
-                claveValida = validarMinusculaClave(txtClave.Text);
+                bool mayuscula = validarMayusculaClave(txtClave.Text);
 
-                if (claveValida == true)
+                bool numero = validarNumeroClave(txtClave.Text);
+
+                bool minuscula = validarMinusculaClave(txtClave.Text);
+
+                if (mayuscula && numero && minuscula)
                 {
-
                     AccesoDatos datos = new AccesoDatos();
 
                     string tipo = cbTipoUsuario.SelectedItem.ToString(), nombres = txtNombres.Text,
@@ -151,8 +165,22 @@ namespace CompuGross
                 }
                 else
                 {
-                    MessageBox.Show("Clave inválida.", "Atención!!",
+                    if (!mayuscula)
+                    {
+                        MessageBox.Show("La clave ingresada no contiene ninguna mayúscula.", "Atención!!",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    if (!minuscula)
+                    {
+                        MessageBox.Show("La clave ingresada no contiene ninguna minúscula.", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    if (!numero)
+                    {
+                        MessageBox.Show("La clave ingresada no contiene ningún número.", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
                     txtClave.BackColor = Color.LightSalmon;
                     txtClave.Focus();
                 }
@@ -215,6 +243,18 @@ namespace CompuGross
             return resultado;
         }
 
+        private bool validarMail(string mail)
+        {
+            bool resultado = false;
+
+            if (mail.Contains("@") && mail.Contains(".com") && !mail.Contains("@.com"))
+            {
+                resultado = true;
+            }
+
+            return resultado;
+        }
+
         private void txtNombres_TextChanged(object sender, EventArgs e)
         {
             if (txtNombres.Text == "") { txtNombres.BackColor = Color.LightSalmon; txtApellidos.Enabled = false; }
@@ -231,9 +271,28 @@ namespace CompuGross
 
         private void txtMail_TextChanged(object sender, EventArgs e)
         {
+            string mail = txtMail.Text;
+            int len = mail.Length;
+
             if (txtMail.Text == "") { txtMail.BackColor = Color.LightSalmon; txtDni.Enabled = false; }
-            else { txtMail.BackColor = Color.White; }
-            if (txtMail.Text.Length >= 5) { txtDni.Enabled = true; }
+            else 
+            {
+                bool mailValido = validarMail(mail);
+
+                if (mailValido) { lblMailValido.Visible = true; lblMailInvalido.Visible = false; }
+                else { lblMailValido.Visible = false; lblMailInvalido.Visible = true; }
+
+                if (mailValido)
+                {
+                    txtMail.BackColor = Color.White;
+                    if (len >= 5) { txtDni.Enabled = true; }
+                }
+                else
+                {
+                    if (len < 5) { txtDni.Enabled = false; }
+                    txtMail.BackColor = Color.LightSalmon;
+                }
+            }
 
         }
 
@@ -246,9 +305,36 @@ namespace CompuGross
 
         private void txtClave_TextChanged(object sender, EventArgs e)
         {
+            string clave = txtClave.Text;
+            int len = clave.Length;
+            btnRegistrar.Enabled = false;
+
             if (txtClave.Text == "") { txtClave.BackColor = Color.LightSalmon; }
-            else { txtClave.BackColor = Color.White; }
-            if (txtClave.Text.Length == 8) { btnRegistrar.Enabled = true; }
+            else 
+            {
+                bool mayuscula = validarMayusculaClave(clave), 
+                     minuscula = validarMinusculaClave(clave),
+                     numero = validarNumeroClave(clave);
+                
+                if (len == 8) { lblCaracteres.ForeColor = Color.ForestGreen; }
+                else { lblCaracteres.ForeColor = Color.Red; }
+                if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; }
+                else { lblMayus.ForeColor = Color.Red; }
+                if (minuscula) { lblMinus.ForeColor = Color.ForestGreen; }
+                else { lblMinus.ForeColor = Color.Red; }
+                if (numero) { lblNum.ForeColor = Color.ForestGreen; }
+                else { lblNum.ForeColor = Color.Red; }
+
+                if (mayuscula && minuscula && numero && len == 8)
+                {
+                    txtClave.BackColor = Color.White;
+                    btnRegistrar.Enabled = true;
+                }
+                else
+                {
+                    txtClave.BackColor = Color.LightSalmon;
+                }
+            }
         }
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
@@ -300,6 +386,33 @@ namespace CompuGross
         private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
         {
             soloLetras(sender, e);
+        }
+
+        private void txtClave_Enter(object sender, EventArgs e)
+        {
+            lblCaracteres.Visible = true;
+            lblMayus.Visible = true;
+            lblMinus.Visible = true;
+            lblNum.Visible = true;
+        }
+
+        private void txtClave_Leave(object sender, EventArgs e)
+        {
+            lblCaracteres.Visible = false;
+            lblMayus.Visible = false;
+            lblMinus.Visible = false;
+            lblNum.Visible = false;
+        }
+
+        private void txtMail_Enter(object sender, EventArgs e)
+        {
+            lblMailInvalido.Visible = true;
+        }
+
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            lblMailInvalido.Visible = false;
+            lblMailValido.Visible = false;
         }
     }
 }

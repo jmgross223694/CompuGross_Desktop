@@ -34,7 +34,6 @@ namespace CompuGross
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblClave = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
-            this.lblLargoClave = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblRecuperarClave = new System.Windows.Forms.LinkLabel();
             this.btnRegistro = new System.Windows.Forms.Button();
@@ -73,14 +72,6 @@ namespace CompuGross
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
-            // 
-            // lblLargoClave
-            // 
-            resources.ApplyResources(this.lblLargoClave, "lblLargoClave");
-            this.lblLargoClave.BackColor = System.Drawing.Color.Transparent;
-            this.lblLargoClave.ForeColor = System.Drawing.Color.Red;
-            this.lblLargoClave.Name = "lblLargoClave";
-            this.lblLargoClave.UseMnemonic = false;
             // 
             // btnIngresar
             // 
@@ -172,7 +163,6 @@ namespace CompuGross
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.lblRecuperarClave);
             this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.lblLargoClave);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.lblClave);
             this.Controls.Add(this.lblUsuario);
@@ -193,7 +183,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.Label lblLargoClave;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.LinkLabel lblRecuperarClave;
         private System.Windows.Forms.Button btnRegistro;
