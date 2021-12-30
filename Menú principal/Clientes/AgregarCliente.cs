@@ -311,24 +311,30 @@ namespace CompuGross
 
         private void txtNombres_TextChanged(object sender, EventArgs e)
         {
-            if (txtNombres.Text != "")
+            string nombres = txtNombres.Text;
+            int len = nombres.Length;
+
+            if (nombres != "" && len >= 3)
             {
                 txtNombres.BackColor = Color.White;
-                if (txtTelefono1.Text != "" && txtTelefono2.Text != "" && txtTelefono3.Text != "")
-                {
-                    btnConfirmar.Enabled = true;
-                }
+                txtTelefono1.Enabled = true;
             }
             else
             {
                 txtNombres.BackColor = Color.LightSalmon;
+                txtTelefono1.Enabled = false;
+                txtTelefono2.Enabled = false;
+                txtTelefono3.Enabled = false;
                 btnConfirmar.Enabled = false;
             }
         }
 
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        private void txtTelefono1_TextChanged(object sender, EventArgs e)
         {
-            if (txtTelefono1.Text != "")
+            string tel1 = txtTelefono1.Text;
+            int len = tel1.Length;
+
+            if (tel1 != "" && len >= 2)
             {
                 txtTelefono1.BackColor = Color.White;
                 txtTelefono2.Enabled = true;
@@ -336,14 +342,18 @@ namespace CompuGross
             else
             {
                 txtTelefono1.BackColor = Color.LightSalmon;
-                btnConfirmar.Enabled = false;
                 txtTelefono2.Enabled = false;
+                txtTelefono3.Enabled = false;
+                btnConfirmar.Enabled = false;
             }
         }
 
         private void txtTelefono2_TextChanged(object sender, EventArgs e)
         {
-            if (txtTelefono2.Text != "")
+            string tel2 = txtTelefono2.Text;
+            int len = tel2.Length;
+
+            if (tel2 != "" && len >= 3)
             {
                 txtTelefono2.BackColor = Color.White;
                 txtTelefono3.Enabled = true;
@@ -351,17 +361,36 @@ namespace CompuGross
             else
             {
                 txtTelefono2.BackColor = Color.LightSalmon;
-                btnConfirmar.Enabled = false;
                 txtTelefono3.Enabled = false;
+                btnConfirmar.Enabled = false;
             }
         }
 
         private void txtTelefono3_TextChanged(object sender, EventArgs e)
         {
-            if (txtTelefono3.Text != "")
+            string nombres = txtNombres.Text;
+            int lenNombres = nombres.Length;
+            string tel3 = txtTelefono3.Text;
+            int lenTel3 = tel3.Length;
+
+            if (tel3 != "" && lenTel3 >= 3)
             {
                 txtTelefono3.BackColor = Color.White;
-                if (txtNombres.Text != "") { btnConfirmar.Enabled = true; }
+                if (nombres != "" && lenNombres >= 3) 
+                { 
+                    if (txtMail.Text != "" && validarMail(txtMail.Text))
+                    {
+                        btnConfirmar.Enabled = true;
+                    }
+                    else if (txtMail.Text == "" || txtMail.Text == "-")
+                    {
+                        btnConfirmar.Enabled = true;
+                    }
+                    else
+                    {
+                        btnConfirmar.Enabled = false;
+                    }
+                }
             }
             else
             {
@@ -404,7 +433,7 @@ namespace CompuGross
 
         private void txtMail_TextChanged(object sender, EventArgs e)
         {
-            if (txtMail.Text != "")
+            if (txtMail.Text != "" && txtMail.Text != "-")
             {
                 string mail = txtMail.Text;
                 int len = mail.Length;
@@ -416,13 +445,20 @@ namespace CompuGross
                     lblMailValido.Visible = true; 
                     lblMailInvalido.Visible = false;
                     txtMail.BackColor = Color.White;
+                    btnConfirmar.Enabled = true;
                 }
                 else 
                 { 
                     lblMailValido.Visible = false; 
                     lblMailInvalido.Visible = true;
                     txtMail.BackColor = Color.LightCoral;
+                    btnConfirmar.Enabled = false;
                 }
+            }
+            else
+            {
+                txtMail.BackColor = Color.White;
+                btnConfirmar.Enabled = true;
             }
         }
 
@@ -440,12 +476,13 @@ namespace CompuGross
         private bool validarMail(string mail)
         {
             bool resultado = false;
+            int len = mail.Length;
 
             if (mail == "-")
             {
                 resultado = true;
             }
-            else if (mail.Contains("@") && mail.Contains(".com") && !mail.Contains("@.com"))
+            else if (mail.Contains("@") && mail.Contains(".com") && !mail.Contains("@.com") && len > 5)
             {
                 resultado = true;
             }

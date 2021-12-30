@@ -23,8 +23,11 @@ namespace CompuGross
             // TODO: esta línea de código carga datos en la tabla 'compuGrossDataSet1.Localidades' Puede moverla o quitarla según sea necesario.
             //this.localidadesTableAdapter.Fill(this.compuGrossDataSet1.Localidades);
             btnRegistrar.Enabled = false;
+            btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
+            btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
 
             //cbTipoUsuario.Enabled = false;
+            txtNombres.Enabled = false;
             txtApellidos.Enabled = false;
             txtMail.Enabled = false;
             txtDni.Enabled = false;
@@ -50,6 +53,8 @@ namespace CompuGross
             lblMayus.Visible = false;
             lblMinus.Visible = false;
             lblNum.Visible = false;
+
+            cbMostrarClave.Enabled = false;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -58,7 +63,7 @@ namespace CompuGross
                 || txtMail.Text == "" || !txtMail.Text.Contains("@") || !txtMail.Text.Contains(".com")
                 || txtDni.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
             {
-                MessageBox.Show("Hay datos inválidos o sin completar.", "Atención!", 
+                MessageBox.Show("Hay datos inválidos o sin completar.", "Atención!!", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 if (cbTipoUsuario.SelectedItem.ToString() == "-")
@@ -100,89 +105,95 @@ namespace CompuGross
             }
             else
             {
-                cbTipoUsuario.BackColor = Color.White;
-                txtNombres.BackColor = Color.White;
-                txtApellidos.BackColor = Color.White;
-                txtMail.BackColor = Color.White;
-                txtDni.BackColor = Color.White;
-                txtClave.BackColor = Color.White;
-
-                bool mayuscula = validarMayusculaClave(txtClave.Text);
-
-                bool numero = validarNumeroClave(txtClave.Text);
-
-                bool minuscula = validarMinusculaClave(txtClave.Text);
-
-                if (mayuscula && numero && minuscula)
-                {
-                    AccesoDatos datos = new AccesoDatos();
-
-                    string tipo = cbTipoUsuario.SelectedItem.ToString(), nombres = txtNombres.Text,
-                        apellidos = txtApellidos.Text, mail = txtMail.Text, usuario = txtDni.Text + ".cg",
-                        clave = txtClave.Text;
-
-                    string insertUsuario = "insert into Usuarios(IdTipo, Nombre, Apellido, Mail, Username, Clave) " +
-                        "values((select ID from TiposUsuario where Tipo = '" + tipo + "'), '"
-                        + nombres + "', '" + apellidos + "', '" +
-                        mail + "', '" + usuario + "', PWDENCRYPT('" + clave + "'))";
-
-                    try
-                    {
-                        datos.SetearConsulta(insertUsuario);
-                        datos.EjecutarLectura();
-                        datos.CerrarConexion();
-
-                        MessageBox.Show("Usuario creado correctamente.", "Atención!!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        DialogResult result = MessageBox.Show("¿ Desea agregar otro usuario ?", "Confirmar",
+                DialogResult result2 = MessageBox.Show("¿ Confirma los datos ingresados ?", "Confirmar",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        if (result == DialogResult.No)
-                        {
-                            this.Close();
-                        }
-                        else
-                        {
-                            txtNombres.Text = "";
-                            txtApellidos.Text = "";
-                            txtMail.Text = "";
-                            txtDni.Text = "";
-                            txtClave.Text = "";
-
-                            txtNombres.BackColor = Color.White;
-                            txtApellidos.BackColor = Color.White;
-                            txtMail.BackColor = Color.White;
-                            txtDni.BackColor = Color.White;
-                            txtClave.BackColor = Color.White;
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Error al crear usuario", "Atención!!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                else
+                if (result2 == DialogResult.Yes)
                 {
-                    if (!mayuscula)
-                    {
-                        MessageBox.Show("La clave ingresada no contiene ninguna mayúscula.", "Atención!!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    if (!minuscula)
-                    {
-                        MessageBox.Show("La clave ingresada no contiene ninguna minúscula.", "Atención!!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    if (!numero)
-                    {
-                        MessageBox.Show("La clave ingresada no contiene ningún número.", "Atención!!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    cbTipoUsuario.BackColor = Color.White;
+                    txtNombres.BackColor = Color.White;
+                    txtApellidos.BackColor = Color.White;
+                    txtMail.BackColor = Color.White;
+                    txtDni.BackColor = Color.White;
+                    txtClave.BackColor = Color.White;
 
-                    txtClave.BackColor = Color.LightSalmon;
-                    txtClave.Focus();
+                    bool mayuscula = validarMayusculaClave(txtClave.Text);
+
+                    bool numero = validarNumeroClave(txtClave.Text);
+
+                    bool minuscula = validarMinusculaClave(txtClave.Text);
+
+                    if (mayuscula && numero && minuscula)
+                    {
+                        AccesoDatos datos = new AccesoDatos();
+
+                        string tipo = cbTipoUsuario.SelectedItem.ToString(), nombres = txtNombres.Text,
+                            apellidos = txtApellidos.Text, mail = txtMail.Text, usuario = txtDni.Text + ".cg",
+                            clave = txtClave.Text;
+
+                        string insertUsuario = "insert into Usuarios(IdTipo, Nombre, Apellido, Mail, Username, Clave) " +
+                            "values((select ID from TiposUsuario where Tipo = '" + tipo + "'), '"
+                            + nombres + "', '" + apellidos + "', '" +
+                            mail + "', '" + usuario + "', PWDENCRYPT('" + clave + "'))";
+
+                        try
+                        {
+                            datos.SetearConsulta(insertUsuario);
+                            datos.EjecutarLectura();
+                            datos.CerrarConexion();
+
+                            MessageBox.Show("Usuario creado correctamente.", "Atención!!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            DialogResult result = MessageBox.Show("¿ Desea agregar otro usuario ?", "Confirmar",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                            if (result == DialogResult.No)
+                            {
+                                this.Close();
+                            }
+                            else
+                            {
+                                txtNombres.Text = "";
+                                txtApellidos.Text = "";
+                                txtMail.Text = "";
+                                txtDni.Text = "";
+                                txtClave.Text = "";
+
+                                txtNombres.BackColor = Color.White;
+                                txtApellidos.BackColor = Color.White;
+                                txtMail.BackColor = Color.White;
+                                txtDni.BackColor = Color.White;
+                                txtClave.BackColor = Color.White;
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Error al crear usuario", "Atención!!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        if (!mayuscula)
+                        {
+                            MessageBox.Show("La clave ingresada no contiene ninguna mayúscula.", "Atención!!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        if (!minuscula)
+                        {
+                            MessageBox.Show("La clave ingresada no contiene ninguna minúscula.", "Atención!!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        if (!numero)
+                        {
+                            MessageBox.Show("La clave ingresada no contiene ningún número.", "Atención!!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                        txtClave.BackColor = Color.LightSalmon;
+                        txtClave.Focus();
+                    }
                 }
             }
         }
@@ -195,7 +206,7 @@ namespace CompuGross
 
             for (int i = 0; i < clave.Length; i++)
             {
-                if (clave[i] == claveMinuscula[i])
+                if (!char.IsDigit(clave[i]) && clave[i] == claveMinuscula[i])
                 {
                     minuscula++;
                 }
@@ -214,7 +225,7 @@ namespace CompuGross
 
             for (int i = 0; i < clave.Length; i++)
             {
-                if (clave[i] == claveMayuscula[i])
+                if (!char.IsDigit(clave[i]) && clave[i] == claveMayuscula[i])
                 {
                     mayuscula++;
                 }
@@ -246,8 +257,9 @@ namespace CompuGross
         private bool validarMail(string mail)
         {
             bool resultado = false;
+            int len = mail.Length;
 
-            if (mail.Contains("@") && mail.Contains(".com") && !mail.Contains("@.com"))
+            if (mail.Contains("@") && mail.Contains(".com") && !mail.Contains("@.com") && len > 5)
             {
                 resultado = true;
             }
@@ -257,65 +269,202 @@ namespace CompuGross
 
         private void txtNombres_TextChanged(object sender, EventArgs e)
         {
-            if (txtNombres.Text == "") { txtNombres.BackColor = Color.LightSalmon; txtApellidos.Enabled = false; }
-            else { txtNombres.BackColor = Color.White; }
-            if (txtNombres.Text.Length >= 5) { txtApellidos.Enabled = true; }
+            string nombres = txtNombres.Text;
+            int len = nombres.Length;
+
+            if (nombres != "" && len >= 3) 
+            {
+                txtApellidos.Enabled = true;
+                txtNombres.BackColor = Color.White;
+
+                string tipo = cbTipoUsuario.SelectedItem.ToString();
+                string apellidos = txtApellidos.Text;
+                string mail = txtMail.Text;
+                string dni = txtDni.Text;
+                string clave = txtClave.Text;
+                bool claveValida = false, mailValido = false;
+                if (validarMayusculaClave(clave) && validarMinusculaClave(clave) && validarNumeroClave(clave))
+                {
+                    claveValida = true;
+                }
+                if (validarMail(mail)) 
+                { 
+                    mailValido = true; 
+                }
+
+                if (tipo != "-" && apellidos.Length >= 3 && mailValido && dni.Length >= 7 && claveValida)
+                {
+                    btnRegistrar.Enabled = true;
+                    btnRegistrar.BackColor = Color.YellowGreen;
+                    btnRegistrar.ForeColor = Color.Black;
+                }
+            }
+            else 
+            {
+                txtNombres.BackColor = Color.LightSalmon;
+                txtApellidos.Enabled = false;
+                txtDni.Enabled = false;
+                txtMail.Enabled = false;
+                txtClave.Enabled = false;
+                btnRegistrar.Enabled = false;
+                btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
+                btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
+            }
         }
 
         private void txtApellidos_TextChanged(object sender, EventArgs e)
         {
-            if (txtApellidos.Text == "") { txtApellidos.BackColor = Color.LightSalmon; txtMail.Enabled = false; }
-            else { txtApellidos.BackColor = Color.White; }
-            if (txtApellidos.Text.Length >= 5) { txtMail.Enabled = true; }
+            string apellidos = txtApellidos.Text;
+            int len = apellidos.Length;
+
+            if (apellidos != "" && len >= 3) 
+            {
+                txtMail.Enabled = true;
+                txtApellidos.BackColor = Color.White;
+
+                string tipo = cbTipoUsuario.SelectedItem.ToString();
+                string nombres = txtNombres.Text;
+                string mail = txtMail.Text;
+                string dni = txtDni.Text;
+                string clave = txtClave.Text;
+                bool claveValida = false, mailValido = false;
+                if (validarMayusculaClave(clave) && validarMinusculaClave(clave) && validarNumeroClave(clave))
+                {
+                    claveValida = true;
+                }
+                if (validarMail(mail))
+                {
+                    mailValido = true;
+                }
+
+                if (tipo != "-" && nombres.Length >= 3 && mailValido && dni.Length >= 7 && claveValida)
+                {
+                    btnRegistrar.Enabled = true;
+                    btnRegistrar.BackColor = Color.YellowGreen;
+                    btnRegistrar.ForeColor = Color.Black;
+                }
+            }
+            else 
+            {
+                txtApellidos.BackColor = Color.LightSalmon;
+                txtMail.Enabled = false;
+                txtDni.Enabled = false;
+                txtClave.Enabled = false;
+                btnRegistrar.Enabled = false;
+                btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
+                btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
+            }
         }
 
         private void txtMail_TextChanged(object sender, EventArgs e)
         {
             string mail = txtMail.Text;
             int len = mail.Length;
+            bool mailValido = validarMail(mail);
 
-            if (txtMail.Text == "") { txtMail.BackColor = Color.LightSalmon; txtDni.Enabled = false; }
-            else 
+            if (mailValido) 
             {
-                bool mailValido = validarMail(mail);
+                lblMailValido.Visible = true;
+                lblMailInvalido.Visible = false;
+                txtMail.BackColor = Color.White;
+                txtDni.Enabled = true;
 
-                if (mailValido) { lblMailValido.Visible = true; lblMailInvalido.Visible = false; }
-                else { lblMailValido.Visible = false; lblMailInvalido.Visible = true; }
-
-                if (mailValido)
+                string tipo = cbTipoUsuario.SelectedItem.ToString();
+                string nombres = txtNombres.Text;
+                string apellidos = txtApellidos.Text;
+                string dni = txtDni.Text;
+                string clave = txtClave.Text;
+                bool claveValida = false;
+                if (validarMayusculaClave(clave) && validarMinusculaClave(clave) && validarNumeroClave(clave))
                 {
-                    txtMail.BackColor = Color.White;
-                    if (len >= 5) { txtDni.Enabled = true; }
+                    claveValida = true;
                 }
-                else
+
+                if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && dni.Length >= 7 && claveValida)
                 {
-                    if (len < 5) { txtDni.Enabled = false; }
-                    txtMail.BackColor = Color.LightSalmon;
+                    btnRegistrar.Enabled = true;
+                    btnRegistrar.BackColor = Color.YellowGreen;
+                    btnRegistrar.ForeColor = Color.Black;
                 }
             }
-
+            else 
+            {
+                lblMailValido.Visible = false;
+                lblMailInvalido.Visible = true;
+                txtMail.BackColor = Color.LightSalmon;
+                txtDni.Enabled = false;
+                txtClave.Enabled = false;
+                btnRegistrar.Enabled = false;
+                btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
+                btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
+            }
         }
 
-        private void txtUsername_TextChanged(object sender, EventArgs e)
+        private void txtDni_TextChanged(object sender, EventArgs e)
         {
-            if (txtDni.Text == "") { txtDni.BackColor = Color.LightSalmon; txtClave.Enabled = false; }
-            else { txtDni.BackColor = Color.White; }
-            if (txtDni.Text.Length >= 5) { txtClave.Enabled = true; }
+            string dni = txtDni.Text;
+            int len = dni.Length;
+
+            if (dni != "" && len >= 7)
+            {
+                txtDni.BackColor = Color.White;
+                txtClave.Enabled = true;
+
+                string tipo = cbTipoUsuario.SelectedItem.ToString();
+                string nombres = txtNombres.Text;
+                string apellidos = txtApellidos.Text;
+                string mail = txtMail.Text;
+                string clave = txtClave.Text;
+                bool claveValida = false, mailValido = false;
+                if (validarMayusculaClave(clave) && validarMinusculaClave(clave) && validarNumeroClave(clave))
+                {
+                    claveValida = true;
+                }
+                if (validarMail(mail))
+                {
+                    mailValido = true;
+                }
+
+                if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && mailValido && claveValida)
+                {
+                    btnRegistrar.Enabled = true;
+                    btnRegistrar.BackColor = Color.YellowGreen;
+                    btnRegistrar.ForeColor = Color.Black;
+                }
+            }
+            else
+            {
+                txtDni.BackColor = Color.LightSalmon;
+                txtClave.Enabled = false;
+                btnRegistrar.Enabled = false;
+                btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
+                btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
+            }
         }
 
         private void txtClave_TextChanged(object sender, EventArgs e)
         {
             string clave = txtClave.Text;
             int len = clave.Length;
-            btnRegistrar.Enabled = false;
 
-            if (txtClave.Text == "") { txtClave.BackColor = Color.LightSalmon; }
+            if (txtClave.Text == "") 
+            {
+                lblCaracteres.ForeColor = Color.Red;
+                lblMayus.ForeColor = Color.Red;
+                lblMinus.ForeColor = Color.Red;
+                lblNum.ForeColor = Color.Red;
+                txtClave.BackColor = Color.LightSalmon;
+                btnRegistrar.Enabled = false;
+            }
             else 
             {
                 bool mayuscula = validarMayusculaClave(clave), 
                      minuscula = validarMinusculaClave(clave),
-                     numero = validarNumeroClave(clave);
+                     numero = validarNumeroClave(clave),
+                     claveValida = false;
                 
+                if (mayuscula && minuscula && numero && len == 8) { claveValida = true; }
+
                 if (len == 8) { lblCaracteres.ForeColor = Color.ForestGreen; }
                 else { lblCaracteres.ForeColor = Color.Red; }
                 if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; }
@@ -325,14 +474,34 @@ namespace CompuGross
                 if (numero) { lblNum.ForeColor = Color.ForestGreen; }
                 else { lblNum.ForeColor = Color.Red; }
 
-                if (mayuscula && minuscula && numero && len == 8)
+                if (claveValida)
                 {
                     txtClave.BackColor = Color.White;
-                    btnRegistrar.Enabled = true;
+
+                    string tipo = cbTipoUsuario.SelectedItem.ToString();
+                    string nombres = txtNombres.Text;
+                    string apellidos = txtApellidos.Text;
+                    string mail = txtMail.Text;
+                    string dni = txtDni.Text;
+                    bool mailValido = false;
+                    if (validarMail(mail))
+                    {
+                        mailValido = true;
+                    }
+
+                    if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && mailValido && dni.Length >= 7)
+                    {
+                        btnRegistrar.Enabled = true;
+                        btnRegistrar.BackColor = Color.YellowGreen;
+                        btnRegistrar.ForeColor = Color.Black;
+                    }
                 }
                 else
                 {
                     txtClave.BackColor = Color.LightSalmon;
+                    btnRegistrar.Enabled = false;
+                    btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
+                    btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
                 }
             }
         }
@@ -394,6 +563,7 @@ namespace CompuGross
             lblMayus.Visible = true;
             lblMinus.Visible = true;
             lblNum.Visible = true;
+            cbMostrarClave.Enabled = true;
         }
 
         private void txtClave_Leave(object sender, EventArgs e)
@@ -402,6 +572,7 @@ namespace CompuGross
             lblMayus.Visible = false;
             lblMinus.Visible = false;
             lblNum.Visible = false;
+            cbMostrarClave.Enabled = false;
         }
 
         private void txtMail_Enter(object sender, EventArgs e)
@@ -413,6 +584,71 @@ namespace CompuGross
         {
             lblMailInvalido.Visible = false;
             lblMailValido.Visible = false;
+        }
+
+        private void cbTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTipoUsuario.SelectedItem.ToString() != "-")
+            {
+                int lenNombres = txtNombres.Text.Length;
+                int lenApellidos = txtApellidos.Text.Length;
+                int lenDni = txtDni.Text.Length;
+                bool mailValido = validarMail(txtMail.Text);
+                string clave = txtClave.Text;
+                bool claveValida = false;
+                if (validarMayusculaClave(clave) && validarMinusculaClave(clave) && validarNumeroClave(clave))
+                {
+                    claveValida = true;
+                }
+
+                txtNombres.Enabled = true;
+                if (lenNombres >= 3) { txtApellidos.Enabled = true; }
+                if (lenApellidos >= 3 && lenNombres >= 3) { txtMail.Enabled = true; }
+                if (lenNombres >= 3 && lenApellidos >= 3 && mailValido) { txtDni.Enabled = true; }
+                if (lenNombres >= 3 && lenApellidos >= 3 && mailValido && lenDni >= 7) { txtClave.Enabled = true; }
+                if (lenNombres >= 3 && lenApellidos >= 3 && mailValido && lenDni >= 7 && claveValida)
+                {
+                    btnRegistrar.Enabled = true;
+                    btnRegistrar.BackColor = Color.YellowGreen;
+                    btnRegistrar.ForeColor = Color.Black;
+                }
+                else
+                {
+                    btnRegistrar.Enabled = false;
+                }
+            }
+            else
+            {
+                txtNombres.Enabled = false;
+                txtApellidos.Enabled = false;
+                txtDni.Enabled = false;
+                txtMail.Enabled = false;
+                txtClave.Enabled = false;
+            }
+        }
+
+        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.ToString() == " ")
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void cbMostrarClave_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMostrarClave.Checked)
+            {
+                txtClave.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtClave.UseSystemPasswordChar = true;
+            }
         }
     }
 }

@@ -60,6 +60,7 @@ namespace CompuGross
             this.lblNum = new System.Windows.Forms.Label();
             this.lblMailInvalido = new System.Windows.Forms.Label();
             this.lblMailValido = new System.Windows.Forms.Label();
+            this.cbMostrarClave = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.localidadesBindingSource)).BeginInit();
@@ -122,6 +123,7 @@ namespace CompuGross
             // 
             // txtMail
             // 
+            this.txtMail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(112, 153);
             this.txtMail.MaxLength = 100;
@@ -151,7 +153,7 @@ namespace CompuGross
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(315, 31);
             this.txtDni.TabIndex = 3;
-            this.txtDni.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // label5
@@ -171,12 +173,12 @@ namespace CompuGross
             this.txtClave.Location = new System.Drawing.Point(112, 249);
             this.txtClave.MaxLength = 8;
             this.txtClave.Name = "txtClave";
-            this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(315, 31);
             this.txtClave.TabIndex = 4;
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             this.txtClave.Enter += new System.EventHandler(this.txtClave_Enter);
+            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
             this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 
             // btnRegistrar
@@ -232,6 +234,7 @@ namespace CompuGross
             this.cbTipoUsuario.Name = "cbTipoUsuario";
             this.cbTipoUsuario.Size = new System.Drawing.Size(315, 32);
             this.cbTipoUsuario.TabIndex = 13;
+            this.cbTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.cbTipoUsuario_SelectedIndexChanged);
             // 
             // compuGrossDataSet1
             // 
@@ -401,6 +404,18 @@ namespace CompuGross
             this.lblMailValido.Text = "VÁLIDO";
             this.lblMailValido.UseMnemonic = false;
             // 
+            // cbMostrarClave
+            // 
+            this.cbMostrarClave.AutoSize = true;
+            this.cbMostrarClave.BackColor = System.Drawing.Color.Transparent;
+            this.cbMostrarClave.Location = new System.Drawing.Point(17, 279);
+            this.cbMostrarClave.Name = "cbMostrarClave";
+            this.cbMostrarClave.Size = new System.Drawing.Size(61, 17);
+            this.cbMostrarClave.TabIndex = 25;
+            this.cbMostrarClave.Text = "Mostrar";
+            this.cbMostrarClave.UseVisualStyleBackColor = false;
+            this.cbMostrarClave.CheckedChanged += new System.EventHandler(this.cbMostrarClave_CheckedChanged);
+            // 
             // AgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,6 +424,7 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(439, 365);
+            this.Controls.Add(this.cbMostrarClave);
             this.Controls.Add(this.lblMailValido);
             this.Controls.Add(this.lblMailInvalido);
             this.Controls.Add(this.lblNum);
@@ -479,5 +495,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblNum;
         private System.Windows.Forms.Label lblMailInvalido;
         private System.Windows.Forms.Label lblMailValido;
+        private System.Windows.Forms.CheckBox cbMostrarClave;
     }
 }

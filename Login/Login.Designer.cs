@@ -42,8 +42,9 @@ namespace CompuGross
             this.btnEnviarCodigo = new System.Windows.Forms.Button();
             this.lblCodigoRecuperacion = new System.Windows.Forms.Label();
             this.lblClaveNueva = new System.Windows.Forms.Label();
-            this.cbMostrarClave = new System.Windows.Forms.CheckBox();
+            this.cbMostrarClave2 = new System.Windows.Forms.CheckBox();
             this.lblLargoClave2 = new System.Windows.Forms.Label();
+            this.cbMostrarClave1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -71,7 +72,9 @@ namespace CompuGross
             this.txtClave.Name = "txtClave";
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
+            this.txtClave.Enter += new System.EventHandler(this.txtClave_Enter);
             this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
+            this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 
             // btnIngresar
             // 
@@ -132,13 +135,13 @@ namespace CompuGross
             this.lblClaveNueva.BackColor = System.Drawing.Color.Transparent;
             this.lblClaveNueva.Name = "lblClaveNueva";
             // 
-            // cbMostrarClave
+            // cbMostrarClave2
             // 
-            resources.ApplyResources(this.cbMostrarClave, "cbMostrarClave");
-            this.cbMostrarClave.BackColor = System.Drawing.Color.Transparent;
-            this.cbMostrarClave.Name = "cbMostrarClave";
-            this.cbMostrarClave.UseVisualStyleBackColor = false;
-            this.cbMostrarClave.CheckedChanged += new System.EventHandler(this.cbMostrarClave_CheckedChanged);
+            resources.ApplyResources(this.cbMostrarClave2, "cbMostrarClave2");
+            this.cbMostrarClave2.BackColor = System.Drawing.Color.Transparent;
+            this.cbMostrarClave2.Name = "cbMostrarClave2";
+            this.cbMostrarClave2.UseVisualStyleBackColor = false;
+            this.cbMostrarClave2.CheckedChanged += new System.EventHandler(this.cbMostrarClave_CheckedChanged);
             // 
             // lblLargoClave2
             // 
@@ -148,13 +151,22 @@ namespace CompuGross
             this.lblLargoClave2.Name = "lblLargoClave2";
             this.lblLargoClave2.UseMnemonic = false;
             // 
+            // cbMostrarClave1
+            // 
+            resources.ApplyResources(this.cbMostrarClave1, "cbMostrarClave1");
+            this.cbMostrarClave1.BackColor = System.Drawing.Color.Transparent;
+            this.cbMostrarClave1.Name = "cbMostrarClave1";
+            this.cbMostrarClave1.UseVisualStyleBackColor = false;
+            this.cbMostrarClave1.CheckedChanged += new System.EventHandler(this.cbMostrarClave1_CheckedChanged);
+            // 
             // Login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.cbMostrarClave1);
             this.Controls.Add(this.lblLargoClave2);
-            this.Controls.Add(this.cbMostrarClave);
+            this.Controls.Add(this.cbMostrarClave2);
             this.Controls.Add(this.lblClaveNueva);
             this.Controls.Add(this.lblCodigoRecuperacion);
             this.Controls.Add(this.btnEnviarCodigo);
@@ -191,7 +203,8 @@ namespace CompuGross
         private System.Windows.Forms.Button btnEnviarCodigo;
         private System.Windows.Forms.Label lblCodigoRecuperacion;
         private System.Windows.Forms.Label lblClaveNueva;
-        private System.Windows.Forms.CheckBox cbMostrarClave;
+        private System.Windows.Forms.CheckBox cbMostrarClave2;
         private System.Windows.Forms.Label lblLargoClave2;
+        private System.Windows.Forms.CheckBox cbMostrarClave1;
     }
 }

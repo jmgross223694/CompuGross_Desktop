@@ -157,7 +157,7 @@
             this.txtTelefono1.Size = new System.Drawing.Size(59, 31);
             this.txtTelefono1.TabIndex = 4;
             this.txtTelefono1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTelefono1.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono1.TextChanged += new System.EventHandler(this.txtTelefono1_TextChanged);
             this.txtTelefono1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono1_KeyPress);
             // 
             // lblMail

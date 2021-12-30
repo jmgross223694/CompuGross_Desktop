@@ -22,6 +22,7 @@ namespace CompuGross
         private void Login_Load(object sender, EventArgs e)
         {
             BindData();
+            cbMostrarClave1.Enabled = false;
         }
 
         public void BindData()
@@ -44,7 +45,8 @@ namespace CompuGross
             btnEnviarCodigo.Visible = false;
             lblCodigoRecuperacion.Visible = false;
             lblClaveNueva.Visible = false;
-            cbMostrarClave.Visible = false;
+            cbMostrarClave2.Visible = false;
+            cbMostrarClave1.Visible = true;
         }
 
         public void ClickBtnIngresar()
@@ -194,6 +196,7 @@ namespace CompuGross
             btnIngresar.Visible = false;
             btnRegistro.Visible = false;
             btnEnviarCodigo.Visible = true;
+            cbMostrarClave1.Visible = false;
         }
 
         private void btnRegistro_Click(object sender, EventArgs e)
@@ -291,7 +294,7 @@ namespace CompuGross
 
                             txtMail.UseSystemPasswordChar = true;
 
-                            cbMostrarClave.Visible = true;
+                            cbMostrarClave2.Visible = true;
 
                             lblLargoClave2.Visible = true;
 
@@ -426,7 +429,7 @@ namespace CompuGross
 
         private void cbMostrarClave_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbMostrarClave.Checked == true)
+            if (cbMostrarClave2.Checked == true)
             {
                 txtMail.UseSystemPasswordChar = false;
             }
@@ -538,6 +541,28 @@ namespace CompuGross
             [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
                 CharSet = System.Runtime.InteropServices.CharSet.Auto)]
             static extern bool SetWindowText(IntPtr hwnd, string lpString);
+        }
+
+        private void cbMostrarClave1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMostrarClave1.Checked)
+            {
+                txtClave.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtClave.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtClave_Enter(object sender, EventArgs e)
+        {
+            cbMostrarClave1.Enabled = true;
+        }
+
+        private void txtClave_Leave(object sender, EventArgs e)
+        {
+            cbMostrarClave1.Enabled = false;
         }
     }
 }

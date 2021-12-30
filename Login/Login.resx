@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtUsuario.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <metadata name="lblUsuario.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -159,16 +159,16 @@
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="lblUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 7</value>
+    <value>108, 9</value>
   </data>
   <data name="lblUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 25</value>
+    <value>47, 25</value>
   </data>
   <data name="lblUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="lblUsuario.Text" xml:space="preserve">
-    <value>Usuario</value>
+    <value>DNI</value>
   </data>
   <data name="&gt;&gt;lblUsuario.Name" xml:space="preserve">
     <value>lblUsuario</value>
@@ -180,7 +180,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblUsuario.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <metadata name="lblClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -213,7 +213,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblClave.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <metadata name="txtClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -226,9 +226,6 @@
   </data>
   <data name="txtClave.MaxLength" type="System.Int32, mscorlib">
     <value>8</value>
-  </data>
-  <data name="txtClave.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>x</value>
   </data>
   <data name="txtClave.Size" type="System.Drawing.Size, System.Drawing">
     <value>224, 31</value>
@@ -246,7 +243,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtClave.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <metadata name="btnIngresar.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -283,7 +280,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnIngresar.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <metadata name="lblRecuperarClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -313,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblRecuperarClave.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <metadata name="btnRegistro.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -352,7 +349,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnRegistro.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <metadata name="txtMail.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -385,7 +382,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtMail.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <metadata name="lblMail.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -421,7 +418,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblMail.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <metadata name="btnEnviarCodigo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -454,7 +451,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnEnviarCodigo.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <metadata name="lblCodigoRecuperacion.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -490,7 +487,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCodigoRecuperacion.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="lblClaveNueva.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -529,40 +526,40 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblClaveNueva.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
-  <metadata name="cbMostrarClave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="cbMostrarClave2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="cbMostrarClave.AutoSize" type="System.Boolean, mscorlib">
+  <data name="cbMostrarClave2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="cbMostrarClave.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="cbMostrarClave2.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 141</value>
   </data>
-  <data name="cbMostrarClave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="cbMostrarClave2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="cbMostrarClave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 17</value>
+  <data name="cbMostrarClave2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 17</value>
   </data>
-  <data name="cbMostrarClave.TabIndex" type="System.Int32, mscorlib">
+  <data name="cbMostrarClave2.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="cbMostrarClave.Text" xml:space="preserve">
-    <value>Mostrar contraseña</value>
+  <data name="cbMostrarClave2.Text" xml:space="preserve">
+    <value>Mostrar</value>
   </data>
-  <data name="&gt;&gt;cbMostrarClave.Name" xml:space="preserve">
-    <value>cbMostrarClave</value>
+  <data name="&gt;&gt;cbMostrarClave2.Name" xml:space="preserve">
+    <value>cbMostrarClave2</value>
   </data>
-  <data name="&gt;&gt;cbMostrarClave.Type" xml:space="preserve">
+  <data name="&gt;&gt;cbMostrarClave2.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbMostrarClave.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cbMostrarClave2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;cbMostrarClave.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;cbMostrarClave2.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="lblLargoClave2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -595,6 +592,42 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblLargoClave2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="cbMostrarClave1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="cbMostrarClave1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbMostrarClave1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbMostrarClave1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 156</value>
+  </data>
+  <data name="cbMostrarClave1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="cbMostrarClave1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 17</value>
+  </data>
+  <data name="cbMostrarClave1.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="cbMostrarClave1.Text" xml:space="preserve">
+    <value>Mostrar</value>
+  </data>
+  <data name="&gt;&gt;cbMostrarClave1.Name" xml:space="preserve">
+    <value>cbMostrarClave1</value>
+  </data>
+  <data name="&gt;&gt;cbMostrarClave1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbMostrarClave1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbMostrarClave1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
