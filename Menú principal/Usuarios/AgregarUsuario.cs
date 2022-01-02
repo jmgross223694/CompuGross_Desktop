@@ -572,7 +572,7 @@ namespace CompuGross
             lblMayus.Visible = false;
             lblMinus.Visible = false;
             lblNum.Visible = false;
-            cbMostrarClave.Enabled = false;
+            //cbMostrarClave.Enabled = false;
         }
 
         private void txtMail_Enter(object sender, EventArgs e)

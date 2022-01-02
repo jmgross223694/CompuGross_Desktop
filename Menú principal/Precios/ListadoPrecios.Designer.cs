@@ -45,27 +45,27 @@ namespace CompuGross
             // 
             // txtDolarOficial
             // 
-            this.txtDolarOficial.Location = new System.Drawing.Point(646, 36);
+            this.txtDolarOficial.Location = new System.Drawing.Point(723, 28);
             this.txtDolarOficial.MaxLength = 6;
             this.txtDolarOficial.Name = "txtDolarOficial";
             this.txtDolarOficial.Size = new System.Drawing.Size(64, 20);
-            this.txtDolarOficial.TabIndex = 84;
+            this.txtDolarOficial.TabIndex = 1;
             this.txtDolarOficial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtDolarInformal
             // 
-            this.txtDolarInformal.Location = new System.Drawing.Point(646, 86);
+            this.txtDolarInformal.Location = new System.Drawing.Point(723, 78);
             this.txtDolarInformal.MaxLength = 6;
             this.txtDolarInformal.Name = "txtDolarInformal";
             this.txtDolarInformal.Size = new System.Drawing.Size(64, 20);
-            this.txtDolarInformal.TabIndex = 85;
+            this.txtDolarInformal.TabIndex = 3;
             this.txtDolarInformal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblDolarOficial
             // 
             this.lblDolarOficial.AutoSize = true;
             this.lblDolarOficial.BackColor = System.Drawing.Color.Transparent;
-            this.lblDolarOficial.Location = new System.Drawing.Point(645, 20);
+            this.lblDolarOficial.Location = new System.Drawing.Point(722, 12);
             this.lblDolarOficial.Name = "lblDolarOficial";
             this.lblDolarOficial.Size = new System.Drawing.Size(64, 13);
             this.lblDolarOficial.TabIndex = 86;
@@ -76,7 +76,7 @@ namespace CompuGross
             // 
             this.lblDolarInformal.AutoSize = true;
             this.lblDolarInformal.BackColor = System.Drawing.Color.Transparent;
-            this.lblDolarInformal.Location = new System.Drawing.Point(642, 70);
+            this.lblDolarInformal.Location = new System.Drawing.Point(719, 62);
             this.lblDolarInformal.Name = "lblDolarInformal";
             this.lblDolarInformal.Size = new System.Drawing.Size(72, 13);
             this.lblDolarInformal.TabIndex = 87;
@@ -87,10 +87,10 @@ namespace CompuGross
             // 
             this.rBtnDolarOficial.AutoSize = true;
             this.rBtnDolarOficial.BackColor = System.Drawing.Color.Transparent;
-            this.rBtnDolarOficial.Location = new System.Drawing.Point(626, 39);
+            this.rBtnDolarOficial.Location = new System.Drawing.Point(703, 31);
             this.rBtnDolarOficial.Name = "rBtnDolarOficial";
             this.rBtnDolarOficial.Size = new System.Drawing.Size(14, 13);
-            this.rBtnDolarOficial.TabIndex = 88;
+            this.rBtnDolarOficial.TabIndex = 0;
             this.rBtnDolarOficial.TabStop = true;
             this.rBtnDolarOficial.UseVisualStyleBackColor = false;
             this.rBtnDolarOficial.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rBtnDolarOficial_MouseClick);
@@ -99,10 +99,10 @@ namespace CompuGross
             // 
             this.rBtnDolarInformal.AutoSize = true;
             this.rBtnDolarInformal.BackColor = System.Drawing.Color.Transparent;
-            this.rBtnDolarInformal.Location = new System.Drawing.Point(626, 89);
+            this.rBtnDolarInformal.Location = new System.Drawing.Point(703, 81);
             this.rBtnDolarInformal.Name = "rBtnDolarInformal";
             this.rBtnDolarInformal.Size = new System.Drawing.Size(14, 13);
-            this.rBtnDolarInformal.TabIndex = 89;
+            this.rBtnDolarInformal.TabIndex = 2;
             this.rBtnDolarInformal.TabStop = true;
             this.rBtnDolarInformal.UseVisualStyleBackColor = false;
             this.rBtnDolarInformal.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rBtnDolarInformal_MouseClick);
@@ -110,7 +110,6 @@ namespace CompuGross
             // listPrecios
             // 
             this.listPrecios.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listPrecios.AllowColumnReorder = true;
             this.listPrecios.BackColor = System.Drawing.Color.LightBlue;
             this.listPrecios.BackgroundImageTiled = true;
             this.listPrecios.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -119,17 +118,19 @@ namespace CompuGross
             this.colPesos,
             this.colDolares});
             this.listPrecios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.listPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listPrecios.FullRowSelect = true;
             this.listPrecios.GridLines = true;
-            this.listPrecios.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listPrecios.HideSelection = false;
             this.listPrecios.Location = new System.Drawing.Point(12, 12);
+            this.listPrecios.MultiSelect = false;
             this.listPrecios.Name = "listPrecios";
-            this.listPrecios.Size = new System.Drawing.Size(608, 510);
-            this.listPrecios.TabIndex = 90;
+            this.listPrecios.Size = new System.Drawing.Size(685, 510);
+            this.listPrecios.TabIndex = 4;
             this.listPrecios.UseCompatibleStateImageBehavior = false;
             this.listPrecios.View = System.Windows.Forms.View.Details;
+            this.listPrecios.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listPrecios_ColumnClick);
+            this.listPrecios.SelectedIndexChanged += new System.EventHandler(this.listPrecios_SelectedIndexChanged);
             // 
             // colID
             // 
@@ -160,7 +161,7 @@ namespace CompuGross
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(755, 534);
+            this.ClientSize = new System.Drawing.Size(798, 534);
             this.Controls.Add(this.listPrecios);
             this.Controls.Add(this.rBtnDolarInformal);
             this.Controls.Add(this.rBtnDolarOficial);

@@ -13,25 +13,34 @@ namespace CompuGross
 {
     public partial class ListaPrecios : Form
     {
+
+        private int sortOrder = 0;
+
         public ListaPrecios()
         {
             InitializeComponent();
         }
 
-        private void ListaPrecios_Load(object sender, EventArgs e)
+        private void ajustarAnchoColumnas()
         {
-            cargarListado();
+            listPrecios.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listPrecios.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
+            listPrecios.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listPrecios.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        private void cargarListado()
+        private void ListaPrecios_Load(object sender, EventArgs e)
+        {
+            cargarListado("select * from ListaPrecios order by ID asc");
+        }
+
+        private void cargarListado(string select)
         {
             AccesoDatos datos = new AccesoDatos();
-
-            string selectPrecios = "select ID as ID, Descripcion as Descripcion, Precio as Precio from ListaPrecios order by ID asc";
             
             try
             {
-                datos.SetearConsulta(selectPrecios);
+                datos.SetearConsulta(select);
                 datos.EjecutarLectura();
                 decimal dolarOficial = 0;
                 decimal dolarInformal = 0;
@@ -80,6 +89,7 @@ namespace CompuGross
             finally
             {
                 datos.CerrarConexion();
+                ajustarAnchoColumnas();
             }
         }
 
@@ -95,7 +105,7 @@ namespace CompuGross
 
                 listPrecios.Items.Clear();
 
-                cargarListado();
+                cargarListado("select * from ListaPrecios order by ID asc");
             }
         }
 
@@ -111,8 +121,34 @@ namespace CompuGross
 
                 listPrecios.Items.Clear();
 
-                cargarListado();
+                cargarListado("select * from ListaPrecios order by ID asc");
             }
+        }
+
+        private void listPrecios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listPrecios_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            string col;
+            if (e.Column == 0) { col = "ID"; }
+            else if (e.Column == 1) { col = "Descripcion"; }
+            else { col = "Precio"; }
+
+            string selectOrder = "select * from ListaPrecios order by " + col + " desc";
+
+            if (sortOrder == 1) { this.sortOrder = 0; }
+            else
+            {
+                selectOrder = "select * from ListaPrecios order by " + col + " asc";
+                this.sortOrder = 1;
+            }
+
+            listPrecios.Items.Clear();
+
+            cargarListado(selectOrder);
         }
     }
 }

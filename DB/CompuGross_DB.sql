@@ -1,6 +1,19 @@
 create database CompuGross
 GO
 
+/*
+--Consultar Case Sensitive en BD
+SELECT collation_name
+FROM sys.databases
+WHERE name = 'CompuGross';
+GO
+
+--Modificar Case Sensitive en BD (CI = "Case insensitive" / CS = "Case sensitive")
+ALTER DATABASE CompuGross
+COLLATE Latin1_General_CS_AS;
+GO
+*/
+
 use CompuGross
 GO
 
@@ -120,14 +133,14 @@ create table OrdenesTrabajo(
 )
 GO
 
-create view ExportClientes
+create or alter view ExportClientes
 as
 	select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, isnull(C.Direccion, '-') as Direccion,
 	isnull((select L.Descripcion from Localidades L where C.IdLocalidad = L.ID), '-') as Localidad,
 	isnull(C.IdLocalidad, '-') as IdLocalidad, isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail from Clientes C
 GO
 
-create procedure SP_NUEVO_CLIENTE(
+create or alter procedure SP_NUEVO_CLIENTE(
 	@DNI varchar(11),
 	@Nombres varchar(200),
 	@Direccion varchar(100),
@@ -196,7 +209,7 @@ insert into TiposEquipo(Descripcion) values('Consola')
 insert into TiposEquipo(Descripcion) values('Cámaras')
 GO
 
-create view ExportIngresos
+create or alter view ExportIngresos
 as
 	select isnull(count(*),0) as Cant1, 
 	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where IdTipoServicio = 1) as Ganancia1,
@@ -212,9 +225,9 @@ as
 	from OrdenesTrabajo where IdTipoServicio = 1 AND Estado = 1
 GO
 
-create view ExportOrdenesTrabajo
+create or alter view ExportOrdenesTrabajo
 as
-	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCLiente) Cliente,
+	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCliente) Cliente,
 	OT.FechaRecepcion FechaRecepcion,
 	OT.FechaDevolucion FechaDevolucion,
 	(select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,
@@ -229,7 +242,7 @@ as
 	from OrdenesTrabajo OT where Estado = 1
 GO
 
-create procedure SP_UPDATE_ORDEN_TRABAJO(
+create or alter procedure SP_UPDATE_ORDEN_TRABAJO(
 	@ID bigint,
 	@Cliente varchar(200),
 	@FechaRecepcion varchar(10),
@@ -276,7 +289,7 @@ begin
 end
 GO
 
-create procedure SP_INSERT_ORDEN_TRABAJO(
+create or alter procedure SP_INSERT_ORDEN_TRABAJO(
 	@Cliente varchar(200),
 	@FechaRecepcion varchar(10),
 	@TipoEquipo varchar(30),
@@ -336,7 +349,7 @@ begin
 end
 GO
 
-create trigger TR_BAJA_LOGICA_ORDEN_TRABAJO on OrdenesTrabajo
+create or alter trigger TR_BAJA_LOGICA_ORDEN_TRABAJO on OrdenesTrabajo
 instead of delete
 as
 begin
@@ -346,7 +359,7 @@ begin
 end
 GO
 
-create trigger TR_BAJA_LOGICA_CLIENTE on Clientes
+create or alter trigger TR_BAJA_LOGICA_CLIENTE on Clientes
 instead of delete
 as
 begin

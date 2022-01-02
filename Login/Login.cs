@@ -201,6 +201,10 @@ namespace CompuGross
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
+            txtClave.Text = "";
+            txtUsuario.Text = "";
+            txtClave.BackColor = Color.White;
+            txtUsuario.BackColor = Color.White;
             AgregarUsuario frmAgregarUsuario = new AgregarUsuario();
             this.Hide();
             frmAgregarUsuario.ShowDialog();
@@ -562,7 +566,7 @@ namespace CompuGross
 
         private void txtClave_Leave(object sender, EventArgs e)
         {
-            cbMostrarClave1.Enabled = false;
+            //cbMostrarClave1.Enabled = false;
         }
     }
 }
