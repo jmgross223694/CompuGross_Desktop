@@ -119,45 +119,88 @@ namespace CompuGross
             {
                 lblAnualMonto.Text = "$ ";
                 lblMensualMonto.Text = "$ ";
+                lblCantidad2.Text = "-";
             }
             else
             {
                 string anioElegido = cbAnios.SelectedItem.ToString();
 
-                string selectGananciasPorAnio = "select convert(int,sum(Ganancia)) as 'GananciaAnual' " +
+                string selectCantidadServiciosPorAnio = "select isnull(count(*), 0) as Cantidad " +
+                                                "from OrdenesTrabajo where year(FechaDevolucion) = " +
+                                                anioElegido;
+
+                string selectGananciasPorAnio = "select isnull(count(*), 0) as Cantidad, " +
+                                                "convert(int,sum(Ganancia)) as 'GananciaAnual' " +
                                                 "from OrdenesTrabajo where year(FechaDevolucion) = " +
                                                 anioElegido;
 
                 AccesoDatos datos = new AccesoDatos();
+                AccesoDatos datos2 = new AccesoDatos();
 
                 try
                 {
-                    datos.SetearConsulta(selectGananciasPorAnio);
-                    datos.EjecutarLectura();
+                    datos2.SetearConsulta(selectCantidadServiciosPorAnio);
+                    datos2.EjecutarLectura();
 
-                    if (datos.Lector.Read() == true)
+                    if (datos2.Lector.Read() == true)
                     {
-                        int gananciaAnual = Convert.ToInt32(datos.Lector["GananciaAnual"]);
+                        int cantidad = Convert.ToInt32(datos2.Lector["Cantidad"]);
 
-                        lblAnualMonto.Text = "$ " + Convert.ToString(gananciaAnual);
+                        if (cantidad != 0)
+                        {
+                            try
+                            {
+                                datos.SetearConsulta(selectGananciasPorAnio);
+                                datos.EjecutarLectura();
 
-                        int mesesTrabajados = 12;
+                                if (datos.Lector.Read() == true)
+                                {
+                                    int cantidad2 = Convert.ToInt32(datos.Lector["Cantidad"]);
 
-                        if (anioElegido == "2017") { mesesTrabajados = 6; }
-                        if (anioElegido == DateTime.Now.Year.ToString()) { mesesTrabajados = DateTime.Now.Month; }
+                                    int gananciaAnual = Convert.ToInt32(datos.Lector["GananciaAnual"]);
 
-                        lblMensualMonto.Text = "$ " + Convert.ToString(Convert.ToInt32(gananciaAnual / mesesTrabajados));
+                                    lblAnualMonto.Text = "$ " + Convert.ToString(gananciaAnual);
+
+                                    int mesesTrabajados = 12;
+
+                                    if (anioElegido == "2017") { mesesTrabajados = 6; }
+                                    if (anioElegido == DateTime.Now.Year.ToString()) { mesesTrabajados = DateTime.Now.Month; }
+
+                                    lblMensualMonto.Text = "$ " + Convert.ToString(Convert.ToInt32(gananciaAnual / mesesTrabajados));
+
+                                    lblCantidad2.Text = cantidad2.ToString();
+                                }
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Error en la base de datos.", "Atención !!",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            finally
+                            {
+                                datos.CerrarConexion();
+                            }
+                        }
+                        else
+                        {
+                            //MessageBox.Show("No se realizaron servicios en el año seleccionado.", "Atención !!",
+                                //MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            lblAnualMonto.Text = "$ 0";
+                            lblMensualMonto.Text = "$ 0";
+                            lblCantidad2.Text = "0";
+                        }
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Error en la base de datos.");
+                    MessageBox.Show("Error en la base de datos.", "Atención !!", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 finally
                 {
-                    datos.CerrarConexion();
+                    datos2.CerrarConexion();
                 }
-
             }
         }
 
