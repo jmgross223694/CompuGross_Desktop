@@ -52,4 +52,3 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Activación.resou
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Localidades.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.DatosDesplegables.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Backup.resources
-C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.csproj.CopyComplete

@@ -43,6 +43,7 @@ namespace CompuGross
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.lblListarTodos = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -69,9 +70,9 @@ namespace CompuGross
             this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltro.Location = new System.Drawing.Point(123, 14);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(98, 24);
+            this.lblFiltro.Size = new System.Drawing.Size(100, 24);
             this.lblFiltro.TabIndex = 0;
-            this.lblFiltro.Text = "BUSCAR:";
+            this.lblFiltro.Text = "FILTRAR:";
             this.lblFiltro.Click += new System.EventHandler(this.lblFiltro_Click);
             // 
             // txtFiltro
@@ -83,7 +84,7 @@ namespace CompuGross
             this.txtFiltro.Location = new System.Drawing.Point(223, 14);
             this.txtFiltro.MaxLength = 200;
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(359, 26);
+            this.txtFiltro.Size = new System.Drawing.Size(467, 26);
             this.txtFiltro.TabIndex = 1;
             this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
             this.txtFiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyUp);
@@ -97,7 +98,7 @@ namespace CompuGross
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBorrar.ForeColor = System.Drawing.Color.Transparent;
             this.btnBorrar.ImageKey = "(ninguno)";
-            this.btnBorrar.Location = new System.Drawing.Point(598, 7);
+            this.btnBorrar.Location = new System.Drawing.Point(716, 7);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(43, 40);
@@ -176,7 +177,7 @@ namespace CompuGross
             this.dgvClientes.ShowCellToolTips = false;
             this.dgvClientes.ShowEditingIcon = false;
             this.dgvClientes.ShowRowErrors = false;
-            this.dgvClientes.Size = new System.Drawing.Size(638, 23);
+            this.dgvClientes.Size = new System.Drawing.Size(756, 23);
             this.dgvClientes.StandardTab = true;
             this.dgvClientes.TabIndex = 7;
             // 
@@ -192,6 +193,25 @@ namespace CompuGross
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // lblListarTodos
+            // 
+            this.lblListarTodos.ActiveLinkColor = System.Drawing.Color.Black;
+            this.lblListarTodos.AutoSize = true;
+            this.lblListarTodos.BackColor = System.Drawing.Color.Transparent;
+            this.lblListarTodos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblListarTodos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblListarTodos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lblListarTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListarTodos.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lblListarTodos.LinkColor = System.Drawing.Color.Black;
+            this.lblListarTodos.Location = new System.Drawing.Point(302, 14);
+            this.lblListarTodos.Name = "lblListarTodos";
+            this.lblListarTodos.Size = new System.Drawing.Size(191, 26);
+            this.lblListarTodos.TabIndex = 9;
+            this.lblListarTodos.TabStop = true;
+            this.lblListarTodos.Text = "MOSTRAR TODOS";
+            this.lblListarTodos.Click += new System.EventHandler(this.lblListarTodos_Click);
+            // 
             // Clientes
             // 
             this.AllowDrop = true;
@@ -201,7 +221,8 @@ namespace CompuGross
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(647, 86);
+            this.ClientSize = new System.Drawing.Size(765, 86);
+            this.Controls.Add(this.lblListarTodos);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.btnBorrar);
@@ -234,6 +255,7 @@ namespace CompuGross
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.LinkLabel lblListarTodos;
     }
 }
 

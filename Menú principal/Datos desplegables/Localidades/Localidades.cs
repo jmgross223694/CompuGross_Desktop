@@ -24,7 +24,7 @@ namespace CompuGross
         {
             listLocalidades.Items.Clear();
 
-            string selectLocalidades = "select ID, Descripcion, Estado from Localidades where Estado = 1 order by ID asc";
+            string selectLocalidades = "select * from Localidades where Estado = 1 order by Descripcion asc";
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -97,7 +97,7 @@ namespace CompuGross
             
             if (localidad == "" || localidad == "-")
             {
-                MessageBox.Show("Por favor ingresa una localidad.", "Atención!", 
+                MessageBox.Show("Por favor ingresa una localidad.", "Atención!!", 
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
@@ -114,8 +114,8 @@ namespace CompuGross
                         datos.SetearConsulta(update);
                         datos.EjecutarLectura();
 
-                        MessageBox.Show("Localidad modificada correctamente.", "Atención!",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Localidad modificada correctamente.", "Atención!!",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Height = 477;
                         cargarDdlLocalidades();
@@ -135,8 +135,8 @@ namespace CompuGross
                     }
                     catch
                     {
-                        MessageBox.Show("No se pudo modificar la localidad, reintente más tarde.", "Atención!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("No se pudo modificar la localidad, reintente más tarde.", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally
                     {
@@ -155,8 +155,8 @@ namespace CompuGross
                         datos.SetearConsulta(insert);
                         datos.EjecutarLectura();
 
-                        MessageBox.Show("Localidad agregada correctamente.", "Atención!",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Localidad agregada correctamente.", "Atención!!",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Height = 477;
                         cargarDdlLocalidades();

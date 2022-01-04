@@ -23,23 +23,26 @@ namespace CompuGross
         {
             BindData();
             cbMostrarClave1.Enabled = false;
+            lblCaracteres.Visible = false;
+            lblMayus.Visible = false;
+            lblMinus.Visible = false;
+            lblNum.Visible = false;
         }
 
         public void BindData()
         {
             txtClave.Enabled = false;
             txtClave.Text = "";
-            lblMail.Visible = false;
-            txtMail.Text = "";
-            txtMail.Visible = false;
-            txtMail.MaxLength = 100;
+            lblDni.Visible = false;
+            txtDni.Text = "";
+            txtDni.Visible = false;
+            txtDni.MaxLength = 100;
             lblUsuario.Visible = true;
             txtUsuario.Visible = true;
             txtUsuario.Text = "";
             lblClave.Visible = true;
             txtClave.Visible = true;
             lblRecuperarClave.Visible = true;
-            lblLargoClave2.Visible = false;
             btnIngresar.Visible = true;
             btnRegistro.Visible = true;
             btnEnviarCodigo.Visible = false;
@@ -47,6 +50,11 @@ namespace CompuGross
             lblClaveNueva.Visible = false;
             cbMostrarClave2.Visible = false;
             cbMostrarClave1.Visible = true;
+
+            lblCaracteres.Visible = false;
+            lblMayus.Visible = false;
+            lblMinus.Visible = false;
+            lblNum.Visible = false;
         }
 
         public void ClickBtnIngresar()
@@ -56,7 +64,7 @@ namespace CompuGross
                 if (txtUsuario.Text == "")
                 {
                     MessageBox.Show("Usuario vacío.");
-                    txtUsuario.BackColor = Color.LightSalmon;
+                    txtUsuario.BackColor = Color.FromArgb(255, 236, 236);
                     txtUsuario.Focus();
                 }
                 else
@@ -66,7 +74,7 @@ namespace CompuGross
                     if (txtClave.Text == "" || txtClave.Text.Length < 8)
                     {
                         MessageBox.Show("Clave inferior a 8 caracteres.");
-                        txtClave.BackColor = Color.LightSalmon;
+                        txtClave.BackColor = Color.FromArgb(255, 236, 236);
                         txtClave.Focus();
                     }
                     else
@@ -79,7 +87,7 @@ namespace CompuGross
             {
                 AccesoDatos datos = new AccesoDatos();
 
-                string usuario = txtUsuario.Text + ".cg";
+                string usuario = txtUsuario.Text;
                 string clave = txtClave.Text;
 
                 string buscarUsuario = "select (select TU.Tipo from TiposUsuario TU where ID = IdTipo) Tipo, " +
@@ -88,7 +96,6 @@ namespace CompuGross
                     "and PWDCOMPARE('" + clave + "', Clave)=1 " +
                     "group by IdTipo, Nombre, Apellido";
 
-                int existe = 0;
                 string nombre = "";
                 string tipoUsuario = "";
                 string apellido = "";
@@ -100,12 +107,11 @@ namespace CompuGross
 
                     if (datos.Lector.Read() == true)
                     {
-                        existe = Convert.ToInt32(datos.Lector["Cantidad"]);
                         nombre = datos.Lector["Nombre"].ToString();
                         apellido = datos.Lector["Apellido"].ToString();
                         tipoUsuario = datos.Lector["Tipo"].ToString();
 
-                        MessageBox.Show("Bienvenido nuevamente "+nombre+" "+apellido, "Log-in exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Bienvenido nuevamente "+nombre+" "+apellido, "Log-in exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         txtUsuario.Text = "";
                         txtClave.Text = "";
@@ -143,7 +149,7 @@ namespace CompuGross
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "") 
-            { txtUsuario.BackColor = Color.LightSalmon; txtClave.Enabled = false; }
+            { txtUsuario.BackColor = Color.FromArgb(255, 236, 236); txtClave.Enabled = false; }
             else if (txtUsuario.Text.Length < 5) { txtUsuario.BackColor = Color.White; txtClave.Enabled = false; }
             else { txtUsuario.BackColor = Color.White; }
 
@@ -152,7 +158,7 @@ namespace CompuGross
 
         private void txtClave_TextChanged(object sender, EventArgs e)
         {
-            if (txtClave.Text == "") { txtClave.BackColor = Color.LightSalmon; }
+            if (txtClave.Text == "") { txtClave.BackColor = Color.FromArgb(255, 236, 236); }
             else { txtClave.BackColor = Color.White; }
         }
 
@@ -163,7 +169,7 @@ namespace CompuGross
                 if (txtUsuario.Text == "") 
                 {
                     MessageBox.Show("Usuario vacío.");
-                    txtUsuario.BackColor = Color.LightSalmon;
+                    txtUsuario.BackColor = Color.FromArgb(255, 236, 236);
                     txtUsuario.Focus();
                 }
                 else if (txtClave.Text == "")
@@ -178,7 +184,7 @@ namespace CompuGross
 
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter) && btnIngresar.Enabled)
             {
                 ClickBtnIngresar();
             }
@@ -186,8 +192,8 @@ namespace CompuGross
 
         private void lblRecuperarClave_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            lblMail.Visible = true;
-            txtMail.Visible = true;
+            lblDni.Visible = true;
+            txtDni.Visible = true;
             lblUsuario.Visible = false;
             txtUsuario.Visible = false;
             lblClave.Visible = false;
@@ -215,29 +221,29 @@ namespace CompuGross
         {
             if (btnEnviarCodigo.Text == "Cambiar Clave")
             {
-                if (txtMail.Text == "")
+                bool claveValida = false;
+                string claveNueva = txtDni.Text;
+                int len = claveNueva.Length;
+
+                if (claveNueva == "")
                 {
                     MessageBox.Show("Clave nueva vacía.");
-                    txtMail.BackColor = Color.LightSalmon;
-                    txtMail.Focus();
-                }
-                else if (txtMail.Text.Length < 8)
-                {
-                    MessageBox.Show("La clave no puede ser menor a 8 caracteres.");
-                    txtMail.BackColor = Color.LightSalmon;
-                    txtMail.Focus();
-                }
-                else if (txtMail.Text.Length > 8)
-                {
-                    MessageBox.Show("La clave no puede ser mayor a 8 caracteres.");
-                    txtMail.BackColor = Color.LightSalmon;
-                    txtMail.Focus();
+                    txtDni.BackColor = Color.FromArgb(255, 236, 236);
+                    txtDni.Focus();
                 }
                 else
                 {
+                    bool mayuscula = validarMayusculaClave(claveNueva),
+                     minuscula = validarMinusculaClave(claveNueva),
+                     numero = validarNumeroClave(claveNueva);
+
+                    if (mayuscula && minuscula && numero && len == 8) { claveValida = true; }
+                }
+                if (claveValida)
+                {
                     int IdUsuario = Convert.ToInt32(txtClave.Text);
-                    string ClaveNueva = txtMail.Text;
-                    string updateClaveUsuario = "update Usuarios set CodigoRecuperarClave = 0, Clave = PWDENCRYPT('" + ClaveNueva + "') where ID = " + IdUsuario;
+                    string updateClaveUsuario = "update Usuarios set CodigoRecuperarClave = 0, " +
+                        "Clave = PWDENCRYPT('" + claveNueva + "') where ID = " + IdUsuario;
 
                     AccesoDatos datos = new AccesoDatos();
 
@@ -262,18 +268,18 @@ namespace CompuGross
             }
             else if (btnEnviarCodigo.Text == "Validar")
             {
-                if (txtMail.Text == "")
+                if (txtDni.Text == "")
                 {
                     MessageBox.Show("Código de recuperación vacío.");
-                    txtMail.BackColor = Color.LightSalmon;
-                    txtMail.Focus();
+                    txtDni.BackColor = Color.FromArgb(255, 236, 236);
+                    txtDni.Focus();
                 }
                 else
                 {
                     int ID = 0, Cantidad = 0;
                     string mailUsuario = txtUsuario.Text;
                     string selectCodigoMail = "select count(*) as CANTIDAD, ID as ID from Usuarios where Mail = '" + mailUsuario +
-                        "' AND CodigoRecuperarClave = " + txtMail.Text + "group by ID";
+                        "' AND CodigoRecuperarClave = " + txtDni.Text + "group by ID";
 
                     AccesoDatos datos2 = new AccesoDatos();
                     try
@@ -294,15 +300,13 @@ namespace CompuGross
                             lblCodigoRecuperacion.Visible = false;
                             lblClaveNueva.Visible = true;
                             btnEnviarCodigo.Text = "Cambiar Clave";
-                            txtMail.Text = "";
+                            txtDni.Text = "";
 
-                            txtMail.UseSystemPasswordChar = true;
+                            txtDni.UseSystemPasswordChar = true;
 
                             cbMostrarClave2.Visible = true;
 
-                            lblLargoClave2.Visible = true;
-
-                            txtMail.MaxLength = 8;
+                            txtDni.MaxLength = 8;
                         }
                         else
                         {
@@ -321,18 +325,20 @@ namespace CompuGross
             }
             else
             {
-                txtMail.UseSystemPasswordChar = false;
-                if (txtMail.Text == "")
+                txtDni.UseSystemPasswordChar = false;
+                if (txtDni.Text == "")
                 {
-                    MessageBox.Show("Mail vacío.");
-                    txtMail.BackColor = Color.LightSalmon;
-                    txtMail.Focus();
+                    MessageBox.Show("DNI vacío.");
+                    txtDni.BackColor = Color.FromArgb(255, 236, 236);
+                    txtDni.Focus();
                 }
                 else
                 {
+                    string dni = txtDni.Text;
                     int existe = 0, IdUsuario = 0;
                     string mailDestino = "";
-                    string selectMail = "select Count(*) as CANTIDAD, Mail as MAIL, ID as ID from Usuarios where Mail = '" + txtMail.Text + "' group by Mail, ID";
+                    string selectMail = "select Count(*) Cantidad, Mail, ID from Usuarios " +
+                        "where Username = '" + dni + "' group by Mail, ID";
 
                     AccesoDatos datos = new AccesoDatos();
 
@@ -343,8 +349,8 @@ namespace CompuGross
 
                         if (datos.Lector.Read() == true)
                         {
-                            existe = Convert.ToInt32(datos.Lector["CANTIDAD"]);
-                            mailDestino = datos.Lector["MAIL"].ToString();
+                            existe = Convert.ToInt32(datos.Lector["Cantidad"]);
+                            mailDestino = datos.Lector["Mail"].ToString();
                             IdUsuario = Convert.ToInt32(datos.Lector["ID"]);
                             txtUsuario.Text = mailDestino;
                         }
@@ -357,9 +363,9 @@ namespace CompuGross
                             if (codigoMail < 0) { codigoMail = codigoMail * (-1); }
 
                             string asunto = "COMPUGROSS - RECUPERAR CONTRASEÑA (" + DateTime.Now.ToShortDateString() + ", " + DateTime.Now.ToShortTimeString() + " hs)";
-                            string cuerpo = "Este mail ha sido enviado debido a que olvidaste tu clave.\n\n" +
+                            string cuerpo = "Este mail ha sido enviado debido a que solicitaste un cambio de clave.\n\n" +
                                 "Si no has sido tú, ponte en contacto con nosotros de manera inmediata.\n\n" +
-                                "Si has sido tú, debes ingresar este código para poder crear una nueva clave: '" + codigoMail + "'\n\n\n" +
+                                "Debes ingresar este código para poder crear una nueva clave: '" + codigoMail + "'\n\n\n" +
                                 "Saludos cordiales.\n\nCompuGross";
 
                             EmailService mail = new EmailService();
@@ -388,8 +394,8 @@ namespace CompuGross
                                 datos3.SetearConsulta(updateCodigoRecuperacion);
                                 datos3.EjecutarLectura();
 
-                                txtMail.Text = "";
-                                lblMail.Visible = false;
+                                txtDni.Text = "";
+                                lblDni.Visible = false;
                                 lblCodigoRecuperacion.Visible = true;
                                 btnEnviarCodigo.Text = "Validar";
                             }
@@ -404,7 +410,8 @@ namespace CompuGross
                         }
                         else
                         {
-                            MessageBox.Show("El mail " + txtMail.Text + " no existe en el sistema.");
+                            MessageBox.Show("El DNI " + dni + " no existe en el sistema.", "Atención!!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     catch (Exception ex)
@@ -421,7 +428,7 @@ namespace CompuGross
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (txtMail.Visible == true)
+            if (txtDni.Visible == true)
             {
                 BindData();
             }
@@ -435,11 +442,11 @@ namespace CompuGross
         {
             if (cbMostrarClave2.Checked == true)
             {
-                txtMail.UseSystemPasswordChar = false;
+                txtDni.UseSystemPasswordChar = false;
             }
             else
             {
-                txtMail.UseSystemPasswordChar = true;
+                txtDni.UseSystemPasswordChar = true;
             }
         }
 
@@ -567,6 +574,151 @@ namespace CompuGross
         private void txtClave_Leave(object sender, EventArgs e)
         {
             //cbMostrarClave1.Enabled = false;
+        }
+
+        private bool validarMinusculaClave(string clave)
+        {
+            bool resultado = false;
+            string claveMinuscula = clave.ToLower();
+            int minuscula = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (!char.IsDigit(clave[i]) && clave[i] == claveMinuscula[i])
+                {
+                    minuscula++;
+                }
+            }
+
+            if (minuscula > 0) { resultado = true; }
+
+            return resultado;
+        }
+
+        private bool validarMayusculaClave(string clave)
+        {
+            bool resultado = false;
+            string claveMayuscula = clave.ToUpper();
+            int mayuscula = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (!char.IsDigit(clave[i]) && clave[i] == claveMayuscula[i])
+                {
+                    mayuscula++;
+                }
+            }
+
+            if (mayuscula > 0) { resultado = true; }
+
+            return resultado;
+        }
+
+        private bool validarNumeroClave(string clave)
+        {
+            bool resultado = false;
+            int numero = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (char.IsNumber(clave, i))
+                {
+                    numero++;
+                }
+            }
+
+            if (numero > 0) { resultado = true; }
+
+            return resultado;
+        }
+
+        private void txtMail_TextChanged(object sender, EventArgs e)
+        {
+            if (btnEnviarCodigo.Text == "Cambiar Clave")
+            {
+                string claveNueva = txtDni.Text;
+
+                if (claveNueva == "")
+                {
+                    lblCaracteres.Visible = true;
+                    lblMayus.Visible = true;
+                    lblMinus.Visible = true;
+                    lblNum.Visible = true;
+                }
+                else
+                {
+                    int len = claveNueva.Length;
+
+                    bool mayuscula = validarMayusculaClave(claveNueva),
+                         minuscula = validarMinusculaClave(claveNueva),
+                         numero = validarNumeroClave(claveNueva);
+
+                    if (len >= 8) { lblCaracteres.Visible = false; }
+                    else { lblCaracteres.Visible = true; }
+
+                    if (mayuscula) { lblMayus.Visible = false; }
+                    else { lblMayus.Visible = true; }
+
+                    if (minuscula) { lblMinus.Visible = false; }
+                    else { lblMinus.Visible = true; }
+
+                    if (numero) { lblNum.Visible = false; }
+                    else { lblNum.Visible = true; }
+                }
+            }
+        }
+
+        private void txtMail_Enter(object sender, EventArgs e)
+        {
+            if (btnEnviarCodigo.Text == "Cambiar Clave")
+            {
+                string claveNueva = txtDni.Text;
+
+                if (claveNueva == "")
+                {
+                    lblCaracteres.Visible = true;
+                    lblMayus.Visible = true;
+                    lblMinus.Visible = true;
+                    lblNum.Visible = true;
+                }
+                else
+                {
+                    int len = claveNueva.Length;
+
+                    bool mayuscula = validarMayusculaClave(claveNueva),
+                         minuscula = validarMinusculaClave(claveNueva),
+                         numero = validarNumeroClave(claveNueva);
+
+                    if (len >= 8) { lblCaracteres.Visible = false; }
+                    else { lblCaracteres.Visible = true; }
+
+                    if (mayuscula) { lblMayus.Visible = false; }
+                    else { lblMayus.Visible = true; }
+
+                    if (minuscula) { lblMinus.Visible = false; }
+                    else { lblMinus.Visible = true; }
+
+                    if (numero) { lblNum.Visible = false; }
+                    else { lblNum.Visible = true; }
+                }
+            }
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (btnEnviarCodigo.Text == "Enviar Código")
+            {
+                txtDni.MaxLength = 8;
+                soloNumeros(sender, e);
+            }
+            else if (btnEnviarCodigo.Text == "Validar")
+            {
+                txtDni.MaxLength = 6;
+            }
+            else if (btnEnviarCodigo.Text == "Cambiar Clave")
+            {
+                txtDni.MaxLength = 15;
+            }
         }
     }
 }

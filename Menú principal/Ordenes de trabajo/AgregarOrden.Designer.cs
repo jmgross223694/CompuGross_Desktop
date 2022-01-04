@@ -651,8 +651,8 @@ namespace CompuGross
             this.ddlCdDvd.Items.AddRange(new object[] {
             "-",
             "Lectora CD",
-            "Lectora CD / DVD",
-            "Lectograbadora CD / DVD",
+            "Lectora CD/DVD",
+            "Lectograbadora CD/DVD",
             "No tiene",
             "No aplica"});
             this.ddlCdDvd.Location = new System.Drawing.Point(12, 274);

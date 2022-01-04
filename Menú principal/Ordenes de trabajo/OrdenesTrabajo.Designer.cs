@@ -40,6 +40,7 @@ namespace CompuGross
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvOrdenesTrabajo = new System.Windows.Forms.DataGridView();
+            this.lblListarTodas = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesTrabajo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,9 +51,9 @@ namespace CompuGross
             this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltro.Location = new System.Drawing.Point(117, 17);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(98, 24);
+            this.lblFiltro.Size = new System.Drawing.Size(100, 24);
             this.lblFiltro.TabIndex = 0;
-            this.lblFiltro.Text = "BUSCAR:";
+            this.lblFiltro.Text = "FILTRAR:";
             this.lblFiltro.Click += new System.EventHandler(this.lblFiltro_Click);
             // 
             // txtFiltro
@@ -61,7 +62,7 @@ namespace CompuGross
             this.txtFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltro.Location = new System.Drawing.Point(213, 16);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(804, 26);
+            this.txtFiltro.Size = new System.Drawing.Size(855, 26);
             this.txtFiltro.TabIndex = 1;
             this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
             this.txtFiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyUp);
@@ -175,6 +176,23 @@ namespace CompuGross
             this.dgvOrdenesTrabajo.StandardTab = true;
             this.dgvOrdenesTrabajo.TabIndex = 7;
             // 
+            // lblListarTodas
+            // 
+            this.lblListarTodas.ActiveLinkColor = System.Drawing.Color.Black;
+            this.lblListarTodas.AutoSize = true;
+            this.lblListarTodas.BackColor = System.Drawing.Color.Transparent;
+            this.lblListarTodas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblListarTodas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListarTodas.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lblListarTodas.LinkColor = System.Drawing.Color.Black;
+            this.lblListarTodas.Location = new System.Drawing.Point(540, 16);
+            this.lblListarTodas.Name = "lblListarTodas";
+            this.lblListarTodas.Size = new System.Drawing.Size(189, 26);
+            this.lblListarTodas.TabIndex = 8;
+            this.lblListarTodas.TabStop = true;
+            this.lblListarTodas.Text = "MOSTRAR TODAS";
+            this.lblListarTodas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblListarTodas_LinkClicked);
+            // 
             // OrdenesTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +201,7 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1143, 86);
+            this.Controls.Add(this.lblListarTodas);
             this.Controls.Add(this.dgvOrdenesTrabajo);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEditar);
@@ -208,5 +227,6 @@ namespace CompuGross
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dgvOrdenesTrabajo;
+        private System.Windows.Forms.LinkLabel lblListarTodas;
     }
 }

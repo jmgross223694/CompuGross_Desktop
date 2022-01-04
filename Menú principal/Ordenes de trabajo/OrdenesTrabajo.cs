@@ -15,17 +15,30 @@ namespace CompuGross
     public partial class OrdenesTrabajo : Form
     {
         private List<OrdenTrabajo> listaOrdenes;
+        private bool bandera = false;
+
         public OrdenesTrabajo()
         {
             InitializeComponent();
+            btnEditar.Enabled = false;
+            btnBorrar.Enabled = false;
+            txtFiltro.Enabled = false;
+            txtFiltro.Visible = false;
+            lblFiltro.Visible = false;
+            lblListarTodas.Visible = true;
+            this.Height = 125;
+        }
+
+        public OrdenesTrabajo(bool bandera)
+        {
+            InitializeComponent();
+            this.bandera = bandera;
+            if (this.bandera) { listarTodas(); }
         }
 
         private void OrdenesTrabajo_Load(object sender, EventArgs e)
         {
-            btnEditar.Enabled = false;
-            btnBorrar.Enabled = false;
-            txtFiltro.Enabled = false;
-            this.Height = 125;
+            
         }
 
         private void cargarListado()
@@ -227,11 +240,19 @@ namespace CompuGross
 
         private void lblFiltro_Click(object sender, EventArgs e)
         {
+             
+        }
+
+        private void listarTodas()
+        {
             this.Height = 800;
             this.CenterToScreen();
 
+            lblListarTodas.Visible = false;
             btnEditar.Enabled = true;
             btnBorrar.Enabled = true;
+            lblFiltro.Visible = true;
+            txtFiltro.Visible = true;
             txtFiltro.Enabled = true;
 
             if (dgvOrdenesTrabajo.DataSource == null)
@@ -250,7 +271,7 @@ namespace CompuGross
 
         private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
         {
-            if (txtFiltro.Text != "" && e.KeyCode.Equals(Keys.Enter))
+            if (e.KeyCode.Equals(Keys.Enter))
             {
                 if (dgvOrdenesTrabajo.DataSource == null)
                 {
@@ -263,6 +284,11 @@ namespace CompuGross
 
                 BuscarFiltro();
             }
+        }
+
+        private void lblListarTodas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            listarTodas();
         }
     }
 }

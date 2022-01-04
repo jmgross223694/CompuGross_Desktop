@@ -68,30 +68,30 @@ namespace CompuGross
 
                 if (cbTipoUsuario.SelectedItem.ToString() == "-")
                 {
-                    cbTipoUsuario.BackColor = Color.LightSalmon;
+                    cbTipoUsuario.BackColor = Color.FromArgb(255, 236, 236);
                 }
                 if (txtNombres.Text == "")
                 {
-                    txtNombres.BackColor = Color.LightSalmon;
+                    txtNombres.BackColor = Color.FromArgb(255, 236, 236);
                 }
                 if (txtApellidos.Text == "")
                 {
-                    txtApellidos.BackColor = Color.LightSalmon;
+                    txtApellidos.BackColor = Color.FromArgb(255, 236, 236);
                 }
                 if (txtMail.Text == "")
                 {
-                    txtMail.BackColor = Color.LightSalmon;
+                    txtMail.BackColor = Color.FromArgb(255, 236, 236);
                 }
                 if (!txtMail.Text.Contains("@") && !txtMail.Text.Contains(".com"))
                 {
                     MessageBox.Show("Mail inválido.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    txtMail.BackColor = Color.LightSalmon;
+                    txtMail.BackColor = Color.FromArgb(255, 236, 236);
                 }
                 if (txtDni.Text == "")
                 {
-                    txtDni.BackColor = Color.LightSalmon;
+                    txtDni.BackColor = Color.FromArgb(255, 236, 236);
                 }
                 if (txtClave.Text == "" || txtClave.Text.Length < 8)
                 {
@@ -100,12 +100,12 @@ namespace CompuGross
                         MessageBox.Show("La clave es menor a 8 caracteres.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    txtClave.BackColor = Color.LightSalmon;
+                    txtClave.BackColor = Color.FromArgb(255, 236, 236);
                 }
             }
             else
             {
-                DialogResult result2 = MessageBox.Show("¿ Confirma los datos ingresados ?", "Confirmar",
+                DialogResult result2 = MessageBox.Show("¿Confirma los datos ingresados?", "Confirmar",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result2 == DialogResult.Yes)
@@ -128,7 +128,7 @@ namespace CompuGross
                         AccesoDatos datos = new AccesoDatos();
 
                         string tipo = cbTipoUsuario.SelectedItem.ToString(), nombres = txtNombres.Text,
-                            apellidos = txtApellidos.Text, mail = txtMail.Text, usuario = txtDni.Text + ".cg",
+                            apellidos = txtApellidos.Text, mail = txtMail.Text, usuario = txtDni.Text,
                             clave = txtClave.Text;
 
                         string insertUsuario = "insert into Usuarios(IdTipo, Nombre, Apellido, Mail, Username, Clave) " +
@@ -145,7 +145,7 @@ namespace CompuGross
                             MessageBox.Show("Usuario creado correctamente.", "Atención!!",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            DialogResult result = MessageBox.Show("¿ Desea agregar otro usuario ?", "Confirmar",
+                            DialogResult result = MessageBox.Show("¿Desea agregar otro usuario?", "Confirmar",
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                             if (result == DialogResult.No)
@@ -191,7 +191,7 @@ namespace CompuGross
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
-                        txtClave.BackColor = Color.LightSalmon;
+                        txtClave.BackColor = Color.FromArgb(255, 236, 236);
                         txtClave.Focus();
                     }
                 }
@@ -301,7 +301,7 @@ namespace CompuGross
             }
             else 
             {
-                txtNombres.BackColor = Color.LightSalmon;
+                txtNombres.BackColor = Color.FromArgb(255, 236, 236);
                 txtApellidos.Enabled = false;
                 txtDni.Enabled = false;
                 txtMail.Enabled = false;
@@ -346,7 +346,7 @@ namespace CompuGross
             }
             else 
             {
-                txtApellidos.BackColor = Color.LightSalmon;
+                txtApellidos.BackColor = Color.FromArgb(255, 236, 236);
                 txtMail.Enabled = false;
                 txtDni.Enabled = false;
                 txtClave.Enabled = false;
@@ -391,7 +391,7 @@ namespace CompuGross
             {
                 lblMailValido.Visible = false;
                 lblMailInvalido.Visible = true;
-                txtMail.BackColor = Color.LightSalmon;
+                txtMail.BackColor = Color.FromArgb(255, 236, 236);
                 txtDni.Enabled = false;
                 txtClave.Enabled = false;
                 btnRegistrar.Enabled = false;
@@ -434,7 +434,7 @@ namespace CompuGross
             }
             else
             {
-                txtDni.BackColor = Color.LightSalmon;
+                txtDni.BackColor = Color.FromArgb(255, 236, 236);
                 txtClave.Enabled = false;
                 btnRegistrar.Enabled = false;
                 btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
@@ -450,10 +450,14 @@ namespace CompuGross
             if (txtClave.Text == "") 
             {
                 lblCaracteres.ForeColor = Color.Red;
+                lblCaracteres.Visible = true;
                 lblMayus.ForeColor = Color.Red;
+                lblMayus.Visible = true;
                 lblMinus.ForeColor = Color.Red;
+                lblMinus.Visible = true;
                 lblNum.ForeColor = Color.Red;
-                txtClave.BackColor = Color.LightSalmon;
+                lblNum.Visible = true;
+                txtClave.BackColor = Color.FromArgb(255, 236, 236);
                 btnRegistrar.Enabled = false;
             }
             else 
@@ -465,14 +469,17 @@ namespace CompuGross
                 
                 if (mayuscula && minuscula && numero && len == 8) { claveValida = true; }
 
-                if (len == 8) { lblCaracteres.ForeColor = Color.ForestGreen; }
-                else { lblCaracteres.ForeColor = Color.Red; }
-                if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; }
-                else { lblMayus.ForeColor = Color.Red; }
-                if (minuscula) { lblMinus.ForeColor = Color.ForestGreen; }
-                else { lblMinus.ForeColor = Color.Red; }
-                if (numero) { lblNum.ForeColor = Color.ForestGreen; }
-                else { lblNum.ForeColor = Color.Red; }
+                if (len >= 8) { lblCaracteres.ForeColor = Color.ForestGreen; lblCaracteres.Visible = false; }
+                else { lblCaracteres.ForeColor = Color.Red; lblCaracteres.Visible = true; }
+
+                if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; lblMayus.Visible = false; }
+                else { lblMayus.ForeColor = Color.Red; lblMayus.Visible = true; }
+
+                if (minuscula) { lblMinus.ForeColor = Color.ForestGreen; lblMinus.Visible = false; }
+                else { lblMinus.ForeColor = Color.Red; lblMinus.Visible = true; }
+
+                if (numero) { lblNum.ForeColor = Color.ForestGreen; lblNum.Visible = false; }
+                else { lblNum.ForeColor = Color.Red; lblNum.Visible = true; }
 
                 if (claveValida)
                 {
@@ -498,7 +505,7 @@ namespace CompuGross
                 }
                 else
                 {
-                    txtClave.BackColor = Color.LightSalmon;
+                    txtClave.BackColor = Color.FromArgb(255, 236, 236);
                     btnRegistrar.Enabled = false;
                     btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
                     btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
@@ -559,10 +566,28 @@ namespace CompuGross
 
         private void txtClave_Enter(object sender, EventArgs e)
         {
-            lblCaracteres.Visible = true;
-            lblMayus.Visible = true;
-            lblMinus.Visible = true;
-            lblNum.Visible = true;
+            string clave = txtClave.Text;
+            int len = clave.Length;
+            bool mayuscula = validarMayusculaClave(clave),
+                     minuscula = validarMinusculaClave(clave),
+                     numero = validarNumeroClave(clave);
+
+            if (len >= 8) { lblCaracteres.ForeColor = Color.ForestGreen; lblCaracteres.Visible = false; }
+            else { lblCaracteres.ForeColor = Color.Red; lblCaracteres.Visible = true; }
+
+            if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; lblMayus.Visible = false; }
+            else { lblMayus.ForeColor = Color.Red; lblMayus.Visible = true; }
+
+            if (minuscula) { lblMinus.ForeColor = Color.ForestGreen; lblMinus.Visible = false; }
+            else { lblMinus.ForeColor = Color.Red; lblMinus.Visible = true; }
+
+            if (numero) { lblNum.ForeColor = Color.ForestGreen; lblNum.Visible = false; }
+            else { lblNum.ForeColor = Color.Red; lblNum.Visible = true; }
+
+            //lblCaracteres.Visible = true;
+            //lblMayus.Visible = true;
+            //lblMinus.Visible = true;
+            //lblNum.Visible = true;
             cbMostrarClave.Enabled = true;
         }
 
@@ -572,7 +597,6 @@ namespace CompuGross
             lblMayus.Visible = false;
             lblMinus.Visible = false;
             lblNum.Visible = false;
-            //cbMostrarClave.Enabled = false;
         }
 
         private void txtMail_Enter(object sender, EventArgs e)

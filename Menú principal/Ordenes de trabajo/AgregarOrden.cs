@@ -476,7 +476,9 @@ namespace CompuGross
 
                         MessageBox.Show("Se guardaron los cambios en la Orden de trabajo N°" + orden.ID + ".");
 
-                        this.Close();
+                        OrdenesTrabajo frmOrdenesTrabajo = new OrdenesTrabajo(true);
+                        this.Hide();
+                        frmOrdenesTrabajo.ShowDialog();
                     }
                     catch (Exception)
                     {

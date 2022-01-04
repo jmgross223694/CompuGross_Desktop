@@ -47,14 +47,14 @@ namespace CompuGross
             txtTelefono3.TextAlign = HorizontalAlignment.Center;
             if (txtNombres.Text == "")
             {
-                txtNombres.BackColor = Color.LightSalmon;
+                txtNombres.BackColor = Color.FromArgb(255, 236, 236);
                 btnConfirmar.Enabled = false;
             }
             if (txtTelefono1.Text == "" || txtTelefono2.Text == "" || txtTelefono3.Text == "")
             {
-                txtTelefono1.BackColor = Color.LightSalmon;
-                txtTelefono2.BackColor = Color.LightSalmon;
-                txtTelefono3.BackColor = Color.LightSalmon;
+                txtTelefono1.BackColor = Color.FromArgb(255, 236, 236);
+                txtTelefono2.BackColor = Color.FromArgb(255, 236, 236);
+                txtTelefono3.BackColor = Color.FromArgb(255, 236, 236);
                 btnConfirmar.Enabled = false;
                 txtTelefono2.Enabled = false;
                 txtTelefono3.Enabled = false;
@@ -98,7 +98,8 @@ namespace CompuGross
 
         private void cargarDdlLocalidades()
         {
-            string selectLocalidades = "select ID, Descripcion, Estado from Localidades where Estado = 1 order by ID asc";
+            string selectLocalidades = "select ID, Descripcion, Estado from Localidades where Estado = 1 " +
+                                       "order by Descripcion asc";
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -130,7 +131,7 @@ namespace CompuGross
                 {
                     MessageBox.Show("Apellido y Nombre sin completar.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNombres.BackColor = Color.LightSalmon;
+                    txtNombres.BackColor = Color.FromArgb(255, 236, 236);
                     txtNombres.Focus();
                 }
                 else if (txtTelefonoEditar.Text == "")
@@ -139,56 +140,29 @@ namespace CompuGross
 
                     MessageBox.Show("Teléfono sin completar.", "Atención!!", 
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtTelefonoEditar.BackColor = Color.LightSalmon;
+                    txtTelefonoEditar.BackColor = Color.FromArgb(255, 236, 236);
                     txtTelefonoEditar.Focus();
                 }
                 else
                 {
                     txtTelefonoEditar.BackColor = Color.White;
+                    string mail = txtMail.Text;
 
-                    if (txtMail.Text != "" && txtMail.Text != "-")
+                    if (mail != "" && mail != "-")
                     {
-                        if (!txtMail.Text.Contains("@") && !txtMail.Text.Contains(".com"))
+                        if (!validarMail(mail))
                         {
                             MessageBox.Show("El mail ingresado es inválido.", "Atención!!",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtMail.BackColor = Color.LightSalmon;
+                            txtMail.BackColor = Color.FromArgb(255, 236, 236);
                             txtMail.Focus();
                         }
-                    }
-                    else
-                    {
-                        txtMail.BackColor = Color.White;
-
-                        ClienteDB clienteDB = new ClienteDB();
-
-                        Cliente cliente = new Cliente();
-
-                        cliente.Id = Convert.ToInt64(txtId.Text);
-                        cliente.Nombres = txtNombres.Text;
-                        cliente.DNI = txtDni.Text;
-                        cliente.Direccion = txtDireccion.Text;
-                        cliente.Localidad = ddlLocalidad.SelectedItem.ToString();
-                        cliente.Telefono = txtTelefonoEditar.Text;
-                        cliente.Mail = txtMail.Text;
-
-                        try
+                        else
                         {
-                            int clienteModificado = 0;
-                            clienteModificado = clienteDB.ModificarCliente(cliente);
-
-                            if (clienteModificado == 1)
-                            {
-                                MessageBox.Show("Cliente modificado con éxito!");
-                                Form.ActiveForm.Close();
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Se produjo un error y no se modificó el cliente.", "Atención!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            modificarMail();
                         }
                     }
+                    else { modificarMail(); }
                 }
             }
             else
@@ -197,28 +171,28 @@ namespace CompuGross
                 {
                     MessageBox.Show("Apellido y Nombre sin completar.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNombres.BackColor = Color.LightSalmon;
+                    txtNombres.BackColor = Color.FromArgb(255, 236, 236);
                     txtNombres.Focus();
                 }
                 else if (txtTelefono1.Text == "")
                 {
                     MessageBox.Show("Código de Área sin completar.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtTelefono1.BackColor = Color.LightSalmon;
+                    txtTelefono1.BackColor = Color.FromArgb(255, 236, 236);
                     txtTelefono1.Focus();
                 }
                 else if (txtTelefono2.Text == "")
                 {
                     MessageBox.Show("Prefijo del teléfono sin completar.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtTelefono2.BackColor = Color.LightSalmon;
+                    txtTelefono2.BackColor = Color.FromArgb(255, 236, 236);
                     txtTelefono2.Focus();
                 }
                 else if (txtTelefono3.Text == "")
                 {
                     MessageBox.Show("Sufijo del teléfono sin completar.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtTelefono3.BackColor = Color.LightSalmon;
+                    txtTelefono3.BackColor = Color.FromArgb(255, 236, 236);
                     txtTelefono3.Focus();
                 }
                 else
@@ -265,6 +239,43 @@ namespace CompuGross
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
+            }
+        }
+
+        private void modificarMail()
+        {
+            txtMail.BackColor = Color.White;
+
+            ClienteDB clienteDB = new ClienteDB();
+
+            Cliente cliente = new Cliente();
+
+            cliente.Id = Convert.ToInt64(txtId.Text);
+            cliente.Nombres = txtNombres.Text;
+            cliente.DNI = txtDni.Text;
+            cliente.Direccion = txtDireccion.Text;
+            cliente.Localidad = ddlLocalidad.SelectedItem.ToString();
+            cliente.Telefono = txtTelefonoEditar.Text;
+            cliente.Mail = txtMail.Text;
+
+            try
+            {
+                int clienteModificado = 0;
+                clienteModificado = clienteDB.ModificarCliente(cliente);
+
+                if (clienteModificado == 1)
+                {
+                    MessageBox.Show("Cliente modificado con éxito!", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Clientes frmClientes = new Clientes(true);
+                    this.Hide();
+                    frmClientes.ShowDialog();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Se produjo un error y no se modificó el cliente.", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -321,7 +332,7 @@ namespace CompuGross
             }
             else
             {
-                txtNombres.BackColor = Color.LightSalmon;
+                txtNombres.BackColor = Color.FromArgb(255, 236, 236);
                 txtTelefono1.Enabled = false;
                 txtTelefono2.Enabled = false;
                 txtTelefono3.Enabled = false;
@@ -341,7 +352,7 @@ namespace CompuGross
             }
             else
             {
-                txtTelefono1.BackColor = Color.LightSalmon;
+                txtTelefono1.BackColor = Color.FromArgb(255, 236, 236);
                 txtTelefono2.Enabled = false;
                 txtTelefono3.Enabled = false;
                 btnConfirmar.Enabled = false;
@@ -360,7 +371,7 @@ namespace CompuGross
             }
             else
             {
-                txtTelefono2.BackColor = Color.LightSalmon;
+                txtTelefono2.BackColor = Color.FromArgb(255, 236, 236);
                 txtTelefono3.Enabled = false;
                 btnConfirmar.Enabled = false;
             }
@@ -394,7 +405,7 @@ namespace CompuGross
             }
             else
             {
-                txtTelefono3.BackColor = Color.LightSalmon;
+                txtTelefono3.BackColor = Color.FromArgb(255, 236, 236);
                 btnConfirmar.Enabled = false;
             }
         }
@@ -451,7 +462,7 @@ namespace CompuGross
                 { 
                     lblMailValido.Visible = false; 
                     lblMailInvalido.Visible = true;
-                    txtMail.BackColor = Color.LightCoral;
+                    txtMail.BackColor = Color.FromArgb(255, 236, 236);
                     btnConfirmar.Enabled = false;
                 }
             }
@@ -464,7 +475,10 @@ namespace CompuGross
 
         private void txtMail_Enter(object sender, EventArgs e)
         {
-            lblMailInvalido.Visible = true;
+            string mail = txtMail.Text;
+
+            if (validarMail(mail)) { lblMailValido.Visible = true; lblMailInvalido.Visible = false; }
+            else { lblMailValido.Visible = false; lblMailInvalido.Visible = true; }
         }
 
         private void txtMail_Leave(object sender, EventArgs e)

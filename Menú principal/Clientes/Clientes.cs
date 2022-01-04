@@ -15,18 +15,57 @@ namespace CompuGross
     public partial class Clientes : Form
     {
         private List<Cliente> listaClientes;
+        private bool bandera = false;
 
         public Clientes()
         {
             InitializeComponent();
+            btnEditar.Enabled = false;
+            btnBorrar.Enabled = false;
+            txtFiltro.Enabled = false;
+            lblFiltro.Visible = false;
+            txtFiltro.Visible = false;
+            this.Height = 125;
+        }
+
+        public Clientes(bool bandera)
+        {
+            InitializeComponent();
+            this.bandera = bandera;
+            if (this.bandera) { listarTodos(); }
+        }
+
+        private void listarTodos()
+        {
+            this.Height = 800;
+            //this.Width = 800;
+            this.CenterToScreen();
+
+            btnEditar.Enabled = true;
+            btnBorrar.Enabled = true;
+            txtFiltro.Visible = true;
+            lblFiltro.Visible = true;
+            txtFiltro.Enabled = true;
+            lblListarTodos.Visible = false;
+
+            if (dgvClientes.DataSource == null)
+            {
+                cargarListado();
+                ocultarColumnas();
+                alinearColumnas();
+                cambiarTitulosColumnas();
+                ordenarColumnas();
+            }
+            else if (txtFiltro.Text != "")
+            {
+                BuscarFiltro();
+            }
+            txtFiltro.Focus();
         }
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            btnEditar.Enabled = false;
-            btnBorrar.Enabled = false;
-            txtFiltro.Enabled = false;
-            this.Height = 125;
+            
         }
 
         private void alinearColumnas()
@@ -148,7 +187,7 @@ namespace CompuGross
 
             try
             {
-                if (MessageBox.Show("¿ Seguro que desea eliminar al cliente " + seleccionado.Nombres + " ?", "Atención!", 
+                if (MessageBox.Show("¿Seguro que desea eliminar al cliente " + seleccionado.Nombres + "?", "Atención!", 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     clienteDB.EliminarCliente(seleccionado.Nombres, seleccionado.Telefono);
@@ -171,31 +210,12 @@ namespace CompuGross
 
         private void lblFiltro_Click(object sender, EventArgs e)
         {
-            this.Height = 800;
-            this.CenterToScreen();
-
-            btnEditar.Enabled = true;
-            btnBorrar.Enabled = true;
-            txtFiltro.Enabled = true;
-
-            if (dgvClientes.DataSource == null)
-            {
-                cargarListado();
-                ocultarColumnas();
-                alinearColumnas();
-                cambiarTitulosColumnas();
-                ordenarColumnas();
-            }
-            else if (txtFiltro.Text != "")
-            {
-                BuscarFiltro();
-            }
-            txtFiltro.Focus();
+            
         }
 
         private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
         {
-            if (txtFiltro.Text != "" && e.KeyCode.Equals(Keys.Enter))
+            if (e.KeyCode.Equals(Keys.Enter))
             {
                 if (dgvClientes.DataSource == null)
                 {
@@ -235,6 +255,11 @@ namespace CompuGross
             {
 
             }
+        }
+
+        private void lblListarTodos_Click(object sender, EventArgs e)
+        {
+            listarTodos();
         }
     }
 }

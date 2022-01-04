@@ -37,14 +37,17 @@ namespace CompuGross
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblRecuperarClave = new System.Windows.Forms.LinkLabel();
             this.btnRegistro = new System.Windows.Forms.Button();
-            this.txtMail = new System.Windows.Forms.TextBox();
-            this.lblMail = new System.Windows.Forms.Label();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.lblDni = new System.Windows.Forms.Label();
             this.btnEnviarCodigo = new System.Windows.Forms.Button();
             this.lblCodigoRecuperacion = new System.Windows.Forms.Label();
             this.lblClaveNueva = new System.Windows.Forms.Label();
             this.cbMostrarClave2 = new System.Windows.Forms.CheckBox();
-            this.lblLargoClave2 = new System.Windows.Forms.Label();
             this.cbMostrarClave1 = new System.Windows.Forms.CheckBox();
+            this.lblCaracteres = new System.Windows.Forms.Label();
+            this.lblMayus = new System.Windows.Forms.Label();
+            this.lblMinus = new System.Windows.Forms.Label();
+            this.lblNum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -104,16 +107,19 @@ namespace CompuGross
             this.btnRegistro.UseVisualStyleBackColor = false;
             this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
             // 
-            // txtMail
+            // txtDni
             // 
-            resources.ApplyResources(this.txtMail, "txtMail");
-            this.txtMail.Name = "txtMail";
+            resources.ApplyResources(this.txtDni, "txtDni");
+            this.txtDni.Name = "txtDni";
+            this.txtDni.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
+            this.txtDni.Enter += new System.EventHandler(this.txtMail_Enter);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
-            // lblMail
+            // lblDni
             // 
-            resources.ApplyResources(this.lblMail, "lblMail");
-            this.lblMail.BackColor = System.Drawing.Color.Transparent;
-            this.lblMail.Name = "lblMail";
+            resources.ApplyResources(this.lblDni, "lblDni");
+            this.lblDni.BackColor = System.Drawing.Color.Transparent;
+            this.lblDni.Name = "lblDni";
             // 
             // btnEnviarCodigo
             // 
@@ -143,14 +149,6 @@ namespace CompuGross
             this.cbMostrarClave2.UseVisualStyleBackColor = false;
             this.cbMostrarClave2.CheckedChanged += new System.EventHandler(this.cbMostrarClave_CheckedChanged);
             // 
-            // lblLargoClave2
-            // 
-            resources.ApplyResources(this.lblLargoClave2, "lblLargoClave2");
-            this.lblLargoClave2.BackColor = System.Drawing.Color.Transparent;
-            this.lblLargoClave2.ForeColor = System.Drawing.Color.Red;
-            this.lblLargoClave2.Name = "lblLargoClave2";
-            this.lblLargoClave2.UseMnemonic = false;
-            // 
             // cbMostrarClave1
             // 
             resources.ApplyResources(this.cbMostrarClave1, "cbMostrarClave1");
@@ -159,26 +157,61 @@ namespace CompuGross
             this.cbMostrarClave1.UseVisualStyleBackColor = false;
             this.cbMostrarClave1.CheckedChanged += new System.EventHandler(this.cbMostrarClave1_CheckedChanged);
             // 
+            // lblCaracteres
+            // 
+            resources.ApplyResources(this.lblCaracteres, "lblCaracteres");
+            this.lblCaracteres.BackColor = System.Drawing.Color.Transparent;
+            this.lblCaracteres.ForeColor = System.Drawing.Color.Red;
+            this.lblCaracteres.Name = "lblCaracteres";
+            this.lblCaracteres.UseMnemonic = false;
+            // 
+            // lblMayus
+            // 
+            resources.ApplyResources(this.lblMayus, "lblMayus");
+            this.lblMayus.BackColor = System.Drawing.Color.Transparent;
+            this.lblMayus.ForeColor = System.Drawing.Color.Red;
+            this.lblMayus.Name = "lblMayus";
+            this.lblMayus.UseMnemonic = false;
+            // 
+            // lblMinus
+            // 
+            resources.ApplyResources(this.lblMinus, "lblMinus");
+            this.lblMinus.BackColor = System.Drawing.Color.Transparent;
+            this.lblMinus.ForeColor = System.Drawing.Color.Red;
+            this.lblMinus.Name = "lblMinus";
+            this.lblMinus.UseMnemonic = false;
+            // 
+            // lblNum
+            // 
+            resources.ApplyResources(this.lblNum, "lblNum");
+            this.lblNum.BackColor = System.Drawing.Color.Transparent;
+            this.lblNum.ForeColor = System.Drawing.Color.Red;
+            this.lblNum.Name = "lblNum";
+            this.lblNum.UseMnemonic = false;
+            // 
             // Login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.lblNum);
+            this.Controls.Add(this.lblMinus);
+            this.Controls.Add(this.lblMayus);
             this.Controls.Add(this.cbMostrarClave1);
-            this.Controls.Add(this.lblLargoClave2);
             this.Controls.Add(this.cbMostrarClave2);
-            this.Controls.Add(this.lblClaveNueva);
-            this.Controls.Add(this.lblCodigoRecuperacion);
             this.Controls.Add(this.btnEnviarCodigo);
-            this.Controls.Add(this.lblMail);
-            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.lblRecuperarClave);
             this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.txtClave);
             this.Controls.Add(this.lblClave);
             this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblCaracteres);
+            this.Controls.Add(this.lblClaveNueva);
+            this.Controls.Add(this.lblCodigoRecuperacion);
+            this.Controls.Add(this.lblDni);
             this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.txtDni);
+            this.Controls.Add(this.txtClave);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -198,13 +231,16 @@ namespace CompuGross
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.LinkLabel lblRecuperarClave;
         private System.Windows.Forms.Button btnRegistro;
-        private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.Label lblMail;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Button btnEnviarCodigo;
         private System.Windows.Forms.Label lblCodigoRecuperacion;
         private System.Windows.Forms.Label lblClaveNueva;
         private System.Windows.Forms.CheckBox cbMostrarClave2;
-        private System.Windows.Forms.Label lblLargoClave2;
         private System.Windows.Forms.CheckBox cbMostrarClave1;
+        private System.Windows.Forms.Label lblCaracteres;
+        private System.Windows.Forms.Label lblMayus;
+        private System.Windows.Forms.Label lblMinus;
+        private System.Windows.Forms.Label lblNum;
     }
 }

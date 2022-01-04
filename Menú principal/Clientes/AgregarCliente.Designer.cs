@@ -384,6 +384,7 @@
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(698, 606);
+            this.Controls.Add(this.txtTelefonoEditar);
             this.Controls.Add(this.lblMailValido);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblTel2);
@@ -407,7 +408,6 @@
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.txtDni);
-            this.Controls.Add(this.txtTelefonoEditar);
             this.Controls.Add(this.lblMailInvalido);
             this.Controls.Add(this.txtMail);
             this.DoubleBuffered = true;

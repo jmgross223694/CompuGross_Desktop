@@ -171,7 +171,7 @@ namespace CompuGross
             // 
             this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClave.Location = new System.Drawing.Point(112, 249);
-            this.txtClave.MaxLength = 8;
+            this.txtClave.MaxLength = 15;
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(315, 31);
             this.txtClave.TabIndex = 4;
@@ -203,9 +203,9 @@ namespace CompuGross
             this.lblCaracteres.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblCaracteres.Location = new System.Drawing.Point(109, 283);
             this.lblCaracteres.Name = "lblCaracteres";
-            this.lblCaracteres.Size = new System.Drawing.Size(76, 13);
+            this.lblCaracteres.Size = new System.Drawing.Size(91, 13);
             this.lblCaracteres.TabIndex = 11;
-            this.lblCaracteres.Text = "* 8 caracteres,";
+            this.lblCaracteres.Text = "* 8-15 caracteres,";
             this.lblCaracteres.UseMnemonic = false;
             // 
             // lblTipoUsuario
@@ -345,11 +345,11 @@ namespace CompuGross
             this.lblMayus.BackColor = System.Drawing.Color.Transparent;
             this.lblMayus.ForeColor = System.Drawing.Color.Red;
             this.lblMayus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblMayus.Location = new System.Drawing.Point(183, 283);
+            this.lblMayus.Location = new System.Drawing.Point(212, 283);
             this.lblMayus.Name = "lblMayus";
-            this.lblMayus.Size = new System.Drawing.Size(73, 13);
+            this.lblMayus.Size = new System.Drawing.Size(77, 13);
             this.lblMayus.TabIndex = 20;
-            this.lblMayus.Text = "1 Mayúscula, ";
+            this.lblMayus.Text = "*1 Mayúscula, ";
             this.lblMayus.UseMnemonic = false;
             // 
             // lblMinus
@@ -358,11 +358,11 @@ namespace CompuGross
             this.lblMinus.BackColor = System.Drawing.Color.Transparent;
             this.lblMinus.ForeColor = System.Drawing.Color.Red;
             this.lblMinus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblMinus.Location = new System.Drawing.Point(251, 283);
+            this.lblMinus.Location = new System.Drawing.Point(295, 283);
             this.lblMinus.Name = "lblMinus";
-            this.lblMinus.Size = new System.Drawing.Size(70, 13);
+            this.lblMinus.Size = new System.Drawing.Size(71, 13);
             this.lblMinus.TabIndex = 21;
-            this.lblMinus.Text = "1 Minúscula  ";
+            this.lblMinus.Text = "*1 Minúscula.";
             this.lblMinus.UseMnemonic = false;
             // 
             // lblNum
@@ -371,11 +371,11 @@ namespace CompuGross
             this.lblNum.BackColor = System.Drawing.Color.Transparent;
             this.lblNum.ForeColor = System.Drawing.Color.Red;
             this.lblNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblNum.Location = new System.Drawing.Point(315, 283);
+            this.lblNum.Location = new System.Drawing.Point(372, 283);
             this.lblNum.Name = "lblNum";
-            this.lblNum.Size = new System.Drawing.Size(115, 13);
+            this.lblNum.Size = new System.Drawing.Size(60, 13);
             this.lblNum.TabIndex = 22;
-            this.lblNum.Text = "y un Número al menos.";
+            this.lblNum.Text = "*1 Número.";
             this.lblNum.UseMnemonic = false;
             // 
             // lblMailInvalido
