@@ -80,6 +80,7 @@ namespace CompuGross
             this.lblAsterisco3 = new System.Windows.Forms.Label();
             this.cbFechaDevolucion = new System.Windows.Forms.CheckBox();
             this.ddlCdDvd = new System.Windows.Forms.ComboBox();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -520,7 +521,7 @@ namespace CompuGross
             this.dgvClientes.ShowCellToolTips = false;
             this.dgvClientes.ShowEditingIcon = false;
             this.dgvClientes.ShowRowErrors = false;
-            this.dgvClientes.Size = new System.Drawing.Size(504, 471);
+            this.dgvClientes.Size = new System.Drawing.Size(498, 399);
             this.dgvClientes.StandardTab = true;
             this.dgvClientes.TabIndex = 23;
             // 
@@ -531,7 +532,7 @@ namespace CompuGross
             this.txtBuscarCliente.Location = new System.Drawing.Point(310, 28);
             this.txtBuscarCliente.MaxLength = 50;
             this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.Size = new System.Drawing.Size(206, 26);
+            this.txtBuscarCliente.Size = new System.Drawing.Size(200, 26);
             this.txtBuscarCliente.TabIndex = 50;
             this.txtBuscarCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarCliente_KeyUp);
             // 
@@ -660,6 +661,20 @@ namespace CompuGross
             this.ddlCdDvd.Size = new System.Drawing.Size(167, 23);
             this.ddlCdDvd.TabIndex = 52;
             // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Location = new System.Drawing.Point(483, 506);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(40, 39);
+            this.btnAtras.TabIndex = 53;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // AgregarOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,7 +682,8 @@ namespace CompuGross
             this.AutoSize = true;
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(528, 557);
+            this.ClientSize = new System.Drawing.Size(528, 549);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.ddlCdDvd);
             this.Controls.Add(this.cbFechaDevolucion);
             this.Controls.Add(this.lblAsterisco3);
@@ -715,11 +731,13 @@ namespace CompuGross
             this.Controls.Add(this.fechaRecepcion);
             this.Controls.Add(this.fechaDevolucion);
             this.Controls.Add(this.dgvClientes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AgregarOrden";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Orden";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AgregarOrden_FormClosed);
             this.Load += new System.EventHandler(this.AgregarOrden_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
@@ -775,5 +793,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblAsterisco3;
         private System.Windows.Forms.CheckBox cbFechaDevolucion;
         private System.Windows.Forms.ComboBox ddlCdDvd;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

@@ -61,6 +61,7 @@ namespace CompuGross
             this.lblMailInvalido = new System.Windows.Forms.Label();
             this.lblMailValido = new System.Windows.Forms.Label();
             this.cbMostrarClave = new System.Windows.Forms.CheckBox();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.localidadesBindingSource)).BeginInit();
@@ -416,6 +417,20 @@ namespace CompuGross
             this.cbMostrarClave.UseVisualStyleBackColor = false;
             this.cbMostrarClave.CheckedChanged += new System.EventHandler(this.cbMostrarClave_CheckedChanged);
             // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Location = new System.Drawing.Point(395, 323);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(40, 39);
+            this.btnAtras.TabIndex = 26;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // AgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +439,7 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(439, 365);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.cbMostrarClave);
             this.Controls.Add(this.lblMailValido);
             this.Controls.Add(this.lblMailInvalido);
@@ -450,6 +466,7 @@ namespace CompuGross
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtApellidos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AgregarUsuario";
@@ -496,5 +513,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblMailInvalido;
         private System.Windows.Forms.Label lblMailValido;
         private System.Windows.Forms.CheckBox cbMostrarClave;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

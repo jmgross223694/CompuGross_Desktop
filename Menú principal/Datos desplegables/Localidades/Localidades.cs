@@ -248,5 +248,20 @@ namespace CompuGross
 
             txtLocalidad.Text = localidad;
         }
+
+        private void Localidades_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login frmLogin = new Login();
+            frmLogin.borrarUsuarioLogueado();
+
+            Application.Exit();
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            DatosDesplegables frmDatosDesplegables = new DatosDesplegables();
+            this.Hide();
+            frmDatosDesplegables.ShowDialog();
+        }
     }
 }

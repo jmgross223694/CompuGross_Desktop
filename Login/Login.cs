@@ -21,6 +21,7 @@ namespace CompuGross
 
         private void Login_Load(object sender, EventArgs e)
         {
+            borrarUsuarioLogueado();
             BindData();
             cbMostrarClave1.Enabled = false;
             lblCaracteres.Visible = false;
@@ -59,6 +60,8 @@ namespace CompuGross
 
         public void ClickBtnIngresar()
         {
+            bool ingreso = false;
+
             if (txtUsuario.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
             {
                 if (txtUsuario.Text == "")
@@ -86,6 +89,7 @@ namespace CompuGross
             else
             {
                 AccesoDatos datos = new AccesoDatos();
+                AccesoDatos datos2 = new AccesoDatos();
 
                 string usuario = txtUsuario.Text;
                 string clave = txtClave.Text;
@@ -119,11 +123,7 @@ namespace CompuGross
                         txtClave.BackColor = Color.White;
                         txtClave.Enabled = false;
 
-                        MenuPrincipal frmInicio = new MenuPrincipal(nombre+" "+apellido, tipoUsuario);
-
-                        this.Hide();
-                        frmInicio.ShowDialog();
-                        this.Show();
+                        ingreso = true;
                     }
                     else 
                     {
@@ -137,6 +137,36 @@ namespace CompuGross
                 finally
                 {
                     datos.CerrarConexion();
+                }
+
+                string updateUsuarioLogueado = "update UsuarioLogueado set Username = '" + nombre + " " + apellido + "', " +
+                    "Tipo = '" + tipoUsuario + "' where ID = 1";
+
+                try
+                {
+                    datos2.SetearConsulta(updateUsuarioLogueado);
+                    datos2.EjecutarLectura();
+
+                    //MessageBox.Show("Usuario logueado actualizado correctamente.", "Atención !!",
+                      //  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                catch
+                {
+                    MessageBox.Show("No se pudo actualizar el usuario logueado.", "Atención !!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                finally
+                {
+                    datos2.CerrarConexion();
+                }
+
+                if (ingreso)
+                {
+                    MenuPrincipal frmInicio = new MenuPrincipal();
+
+                    this.Hide();
+                    frmInicio.ShowDialog();
+                    this.Show();
                 }
             }
         }
@@ -211,7 +241,7 @@ namespace CompuGross
             txtUsuario.Text = "";
             txtClave.BackColor = Color.White;
             txtUsuario.BackColor = Color.White;
-            AgregarUsuario frmAgregarUsuario = new AgregarUsuario();
+            AgregarUsuario frmAgregarUsuario = new AgregarUsuario("test", "test");
             this.Hide();
             frmAgregarUsuario.ShowDialog();
             this.Show();
@@ -426,6 +456,23 @@ namespace CompuGross
             }
         }
 
+        public void borrarUsuarioLogueado()
+        {
+            string updateUsuarioLogueado = "update UsuarioLogueado set Username = 'test', Tipo = 'test' " +
+                "where ID = 1";
+
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta(updateUsuarioLogueado);
+                datos.EjecutarLectura();
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo quitar el usuario logueado de la DB.");
+            }
+        }
+
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (txtDni.Visible == true)
@@ -434,6 +481,8 @@ namespace CompuGross
             }
             else
             {
+                borrarUsuarioLogueado();
+
                 Application.Exit();
             }
         }

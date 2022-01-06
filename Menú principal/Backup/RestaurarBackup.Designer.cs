@@ -41,6 +41,7 @@ namespace CompuGross
             this.lblTabla = new System.Windows.Forms.Label();
             this.btnMostrarArchivo = new System.Windows.Forms.Button();
             this.btnCargarArchivo = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContenidoExcel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@ namespace CompuGross
             this.dgvContenidoExcel.ShowCellToolTips = false;
             this.dgvContenidoExcel.ShowEditingIcon = false;
             this.dgvContenidoExcel.ShowRowErrors = false;
-            this.dgvContenidoExcel.Size = new System.Drawing.Size(631, 547);
+            this.dgvContenidoExcel.Size = new System.Drawing.Size(631, 490);
             this.dgvContenidoExcel.StandardTab = true;
             this.dgvContenidoExcel.TabIndex = 5;
             // 
@@ -186,6 +187,20 @@ namespace CompuGross
             this.btnCargarArchivo.UseVisualStyleBackColor = false;
             this.btnCargarArchivo.Click += new System.EventHandler(this.btnCargarArchivo_Click);
             // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Location = new System.Drawing.Point(594, 628);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(40, 39);
+            this.btnAtras.TabIndex = 6;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // RestaurarBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,6 +208,7 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(637, 669);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnCargarArchivo);
             this.Controls.Add(this.btnMostrarArchivo);
             this.Controls.Add(this.lblTabla);
@@ -201,10 +217,13 @@ namespace CompuGross
             this.Controls.Add(this.txtArchivo);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvContenidoExcel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "RestaurarBackup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Backup";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RestaurarBackup_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContenidoExcel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,5 +240,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblTabla;
         private System.Windows.Forms.Button btnMostrarArchivo;
         private System.Windows.Forms.Button btnCargarArchivo;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

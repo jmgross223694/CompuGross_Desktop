@@ -204,6 +204,21 @@ namespace CompuGross
             }
         }
 
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal frmMenu = new MenuPrincipal();
+            this.Hide();
+            frmMenu.ShowDialog();
+        }
+
+        private void Ingresos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login frmLogin = new Login();
+            frmLogin.borrarUsuarioLogueado();
+
+            Application.Exit();
+        }
+
         /*private void button1_Click(object sender, EventArgs e)
         {
             //minimizar el formulario para que no aparezca en la captura

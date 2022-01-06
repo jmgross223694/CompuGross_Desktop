@@ -35,6 +35,7 @@ namespace CompuGross
             this.txtPath = new System.Windows.Forms.TextBox();
             this.lblPath = new System.Windows.Forms.Label();
             this.btnPath = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnHacerBackup
@@ -107,14 +108,29 @@ namespace CompuGross
             this.btnPath.UseVisualStyleBackColor = false;
             this.btnPath.Click += new System.EventHandler(this.btnPath_Click);
             // 
-            // HacerBackup
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Location = new System.Drawing.Point(236, 256);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(40, 39);
+            this.btnAtras.TabIndex = 5;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // Backup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(278, 247);
+            this.ClientSize = new System.Drawing.Size(278, 297);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnPath);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.txtPath);
@@ -124,9 +140,10 @@ namespace CompuGross
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "HacerBackup";
+            this.Name = "Backup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Backup";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Backup_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +156,6 @@ namespace CompuGross
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.Button btnPath;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

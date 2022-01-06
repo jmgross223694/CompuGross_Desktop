@@ -13,9 +13,13 @@ namespace CompuGross
 {
     public partial class AgregarUsuario : Form
     {
-        public AgregarUsuario()
+        private string user = "", tipo = "";
+
+        public AgregarUsuario(string user, string tipo)
         {
             InitializeComponent();
+            this.user = user;
+            this.tipo = tipo;
         }
 
         private void AgregarUsuario_Load(object sender, EventArgs e)
@@ -660,6 +664,22 @@ namespace CompuGross
             else
             {
                 e.Handled = false;
+            }
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            if (this.user != "test" && this.tipo != "test")
+            {
+                MenuPrincipal frmMenu = new MenuPrincipal();
+                this.Hide();
+                frmMenu.ShowDialog();
+            }
+            else
+            {
+                Login frmLogin = new Login();
+                this.Hide();
+                frmLogin.ShowDialog();
             }
         }
 

@@ -120,5 +120,20 @@ namespace CompuGross
                 }
             }
         }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            Backup frmBackup = new Backup();
+            this.Hide();
+            frmBackup.ShowDialog();
+        }
+
+        private void RestaurarBackup_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login frmLogin = new Login();
+            frmLogin.borrarUsuarioLogueado();
+
+            Application.Exit();
+        }
     }
 }

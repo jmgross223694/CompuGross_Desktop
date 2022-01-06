@@ -44,6 +44,7 @@ namespace CompuGross
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblListarTodos = new System.Windows.Forms.LinkLabel();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -84,7 +85,7 @@ namespace CompuGross
             this.txtFiltro.Location = new System.Drawing.Point(223, 14);
             this.txtFiltro.MaxLength = 200;
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(467, 26);
+            this.txtFiltro.Size = new System.Drawing.Size(385, 26);
             this.txtFiltro.TabIndex = 1;
             this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
             this.txtFiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyUp);
@@ -98,7 +99,7 @@ namespace CompuGross
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBorrar.ForeColor = System.Drawing.Color.Transparent;
             this.btnBorrar.ImageKey = "(ninguno)";
-            this.btnBorrar.Location = new System.Drawing.Point(716, 7);
+            this.btnBorrar.Location = new System.Drawing.Point(629, 6);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(43, 40);
@@ -212,6 +213,20 @@ namespace CompuGross
             this.lblListarTodos.Text = "MOSTRAR TODOS";
             this.lblListarTodos.Click += new System.EventHandler(this.lblListarTodos_Click);
             // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Location = new System.Drawing.Point(719, 6);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(40, 39);
+            this.btnAtras.TabIndex = 10;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // Clientes
             // 
             this.AllowDrop = true;
@@ -222,6 +237,7 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(765, 86);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.lblListarTodos);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lblFiltro);
@@ -231,10 +247,12 @@ namespace CompuGross
             this.Controls.Add(this.dgvClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Clientes";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Clientes_FormClosed);
             this.Load += new System.EventHandler(this.Clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
@@ -256,6 +274,7 @@ namespace CompuGross
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.LinkLabel lblListarTodos;
+        private System.Windows.Forms.Button btnAtras;
     }
 }
 

@@ -503,5 +503,20 @@ namespace CompuGross
 
             return resultado;
         }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            Clientes frmClientes = new Clientes();
+            this.Hide();
+            frmClientes.ShowDialog();
+        }
+
+        private void AgregarCliente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login frmLogin = new Login();
+            frmLogin.borrarUsuarioLogueado();
+
+            Application.Exit();
+        }
     }
 }

@@ -41,6 +41,7 @@ namespace CompuGross
             this.lblUser = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDatosDesplegables = new System.Windows.Forms.Button();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClientes
@@ -211,6 +212,20 @@ namespace CompuGross
             this.btnDatosDesplegables.UseVisualStyleBackColor = false;
             this.btnDatosDesplegables.Click += new System.EventHandler(this.btnDatosDesplegables_Click);
             // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.BackgroundImage = global::CompuGross.Properties.Resources.logout;
+            this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(461, 241);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(38, 43);
+            this.btnCerrarSesion.TabIndex = 19;
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
             // MenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -222,6 +237,7 @@ namespace CompuGross
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(503, 287);
+            this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnDatosDesplegables);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.label2);
@@ -234,6 +250,7 @@ namespace CompuGross
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
@@ -260,5 +277,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDatosDesplegables;
+        private System.Windows.Forms.Button btnCerrarSesion;
     }
 }

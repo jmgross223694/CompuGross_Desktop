@@ -59,6 +59,7 @@ namespace CompuGross
             this.lblGananciasAnios = new System.Windows.Forms.Label();
             this.lblCantidad1 = new System.Windows.Forms.Label();
             this.lblCantidad2 = new System.Windows.Forms.Label();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTipoServicio
@@ -95,6 +96,7 @@ namespace CompuGross
             this.txtTipoServicio1.Size = new System.Drawing.Size(177, 26);
             this.txtTipoServicio1.TabIndex = 5;
             this.txtTipoServicio1.Text = "Armado de gabinete";
+            this.txtTipoServicio1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTipoServicio2
             // 
@@ -107,6 +109,7 @@ namespace CompuGross
             this.txtTipoServicio2.Size = new System.Drawing.Size(177, 26);
             this.txtTipoServicio2.TabIndex = 6;
             this.txtTipoServicio2.Text = "Cámaras de seguridad";
+            this.txtTipoServicio2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtxTipoServicio3
             // 
@@ -119,6 +122,7 @@ namespace CompuGross
             this.txtxTipoServicio3.Size = new System.Drawing.Size(176, 26);
             this.txtxTipoServicio3.TabIndex = 7;
             this.txtxTipoServicio3.Text = "Servicio técnico";
+            this.txtxTipoServicio3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtGanancia3
             // 
@@ -310,7 +314,7 @@ namespace CompuGross
             this.cbAnios.FormattingEnabled = true;
             this.cbAnios.Items.AddRange(new object[] {
             "Año"});
-            this.cbAnios.Location = new System.Drawing.Point(319, 245);
+            this.cbAnios.Location = new System.Drawing.Point(319, 249);
             this.cbAnios.MaxDropDownItems = 100;
             this.cbAnios.Name = "cbAnios";
             this.cbAnios.Size = new System.Drawing.Size(121, 28);
@@ -321,7 +325,7 @@ namespace CompuGross
             // 
             this.lblAnual.AutoSize = true;
             this.lblAnual.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnual.Location = new System.Drawing.Point(316, 283);
+            this.lblAnual.Location = new System.Drawing.Point(316, 287);
             this.lblAnual.Name = "lblAnual";
             this.lblAnual.Size = new System.Drawing.Size(54, 13);
             this.lblAnual.TabIndex = 25;
@@ -331,7 +335,7 @@ namespace CompuGross
             // 
             this.lblMensual.AutoSize = true;
             this.lblMensual.BackColor = System.Drawing.Color.Transparent;
-            this.lblMensual.Location = new System.Drawing.Point(316, 299);
+            this.lblMensual.Location = new System.Drawing.Point(316, 303);
             this.lblMensual.Name = "lblMensual";
             this.lblMensual.Size = new System.Drawing.Size(67, 13);
             this.lblMensual.TabIndex = 26;
@@ -341,7 +345,7 @@ namespace CompuGross
             // 
             this.lblAnualMonto.AutoSize = true;
             this.lblAnualMonto.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnualMonto.Location = new System.Drawing.Point(380, 283);
+            this.lblAnualMonto.Location = new System.Drawing.Point(380, 287);
             this.lblAnualMonto.Name = "lblAnualMonto";
             this.lblAnualMonto.Size = new System.Drawing.Size(19, 13);
             this.lblAnualMonto.TabIndex = 27;
@@ -351,7 +355,7 @@ namespace CompuGross
             // 
             this.lblMensualMonto.AutoSize = true;
             this.lblMensualMonto.BackColor = System.Drawing.Color.Transparent;
-            this.lblMensualMonto.Location = new System.Drawing.Point(380, 299);
+            this.lblMensualMonto.Location = new System.Drawing.Point(380, 303);
             this.lblMensualMonto.Name = "lblMensualMonto";
             this.lblMensualMonto.Size = new System.Drawing.Size(19, 13);
             this.lblMensualMonto.TabIndex = 28;
@@ -363,7 +367,7 @@ namespace CompuGross
             this.lblGananciasAnios.AutoSize = true;
             this.lblGananciasAnios.BackColor = System.Drawing.Color.Transparent;
             this.lblGananciasAnios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGananciasAnios.Location = new System.Drawing.Point(317, 230);
+            this.lblGananciasAnios.Location = new System.Drawing.Point(317, 234);
             this.lblGananciasAnios.Name = "lblGananciasAnios";
             this.lblGananciasAnios.Size = new System.Drawing.Size(100, 13);
             this.lblGananciasAnios.TabIndex = 30;
@@ -374,7 +378,7 @@ namespace CompuGross
             // 
             this.lblCantidad1.AutoSize = true;
             this.lblCantidad1.BackColor = System.Drawing.Color.Transparent;
-            this.lblCantidad1.Location = new System.Drawing.Point(317, 315);
+            this.lblCantidad1.Location = new System.Drawing.Point(317, 319);
             this.lblCantidad1.Name = "lblCantidad1";
             this.lblCantidad1.Size = new System.Drawing.Size(58, 13);
             this.lblCantidad1.TabIndex = 31;
@@ -384,11 +388,25 @@ namespace CompuGross
             // 
             this.lblCantidad2.AutoSize = true;
             this.lblCantidad2.BackColor = System.Drawing.Color.Transparent;
-            this.lblCantidad2.Location = new System.Drawing.Point(380, 315);
+            this.lblCantidad2.Location = new System.Drawing.Point(380, 319);
             this.lblCantidad2.Name = "lblCantidad2";
             this.lblCantidad2.Size = new System.Drawing.Size(19, 13);
             this.lblCantidad2.TabIndex = 32;
             this.lblCantidad2.Text = "***";
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Location = new System.Drawing.Point(408, 348);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(40, 39);
+            this.btnAtras.TabIndex = 33;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // Ingresos
             // 
@@ -396,7 +414,8 @@ namespace CompuGross
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(452, 335);
+            this.ClientSize = new System.Drawing.Size(452, 390);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.lblCantidad2);
             this.Controls.Add(this.lblCantidad1);
             this.Controls.Add(this.lblGananciasAnios);
@@ -426,10 +445,13 @@ namespace CompuGross
             this.Controls.Add(this.txtTipoServicio1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTipoServicio);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Ingresos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Ingresos_FormClosed);
             this.Load += new System.EventHandler(this.Ingresos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -467,5 +489,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblGananciasAnios;
         private System.Windows.Forms.Label lblCantidad1;
         private System.Windows.Forms.Label lblCantidad2;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

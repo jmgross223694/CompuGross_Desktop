@@ -18,10 +18,14 @@ use CompuGross
 GO
 
 create table credencialesMail(
+	ID int not null primary key identity(1,1),
 	mail varchar(100), 
 	pass varchar(20)
 )
 GO
+
+insert into credencialesMail(mail, pass)
+values('compugross02.05.13@gmail.com', 'y8?B$$3Gte+kv/j')
 
 create table Licencias(
 	ID int not null primary key identity(347862,13),
@@ -66,6 +70,16 @@ create table Usuarios(
 	Clave varbinary(max) not null,
 	CodigoRecuperarClave int not null default(0)
 )
+GO
+
+create table UsuarioLogueado(
+	ID int not null primary key identity(1,1),
+	Username varchar(30) null,
+	Tipo varchar(10) null
+)
+GO
+
+insert into UsuarioLogueado(Username, Tipo) values('test', 'test')
 GO
 
 create table Localidades(

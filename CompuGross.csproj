@@ -311,5 +311,11 @@
   <ItemGroup>
     <None Include="img\tildeVerde.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="img\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\volver.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

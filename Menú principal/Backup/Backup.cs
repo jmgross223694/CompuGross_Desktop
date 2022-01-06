@@ -133,5 +133,20 @@ namespace CompuGross
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK) txtPath.Text = fbd.SelectedPath;
         }
+
+        private void Backup_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login frmLogin = new Login();
+            frmLogin.borrarUsuarioLogueado();
+
+            Application.Exit();
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal frmMenu = new MenuPrincipal();
+            this.Hide();
+            frmMenu.ShowDialog();
+        }
     }
 }

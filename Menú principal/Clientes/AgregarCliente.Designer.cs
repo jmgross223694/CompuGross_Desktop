@@ -56,6 +56,7 @@
             this.compuGrossDataSet1 = new CompuGross.CompuGrossDataSet();
             this.lblMailValido = new System.Windows.Forms.Label();
             this.lblMailInvalido = new System.Windows.Forms.Label();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -242,7 +243,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(545, 574);
+            this.label1.Location = new System.Drawing.Point(5, 581);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 16);
             this.label1.TabIndex = 22;
@@ -375,6 +376,20 @@
             this.lblMailInvalido.Text = "INVÁLIDO";
             this.lblMailInvalido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Location = new System.Drawing.Point(654, 562);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(40, 39);
+            this.btnAtras.TabIndex = 33;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // AgregarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -384,6 +399,7 @@
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(698, 606);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.txtTelefonoEditar);
             this.Controls.Add(this.lblMailValido);
             this.Controls.Add(this.txtId);
@@ -412,12 +428,14 @@
             this.Controls.Add(this.txtMail);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "AgregarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Cliente";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AgregarCliente_FormClosed);
             this.Load += new System.EventHandler(this.Agregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).EndInit();
             this.ResumeLayout(false);
@@ -454,5 +472,6 @@
         private CompuGrossDataSet compuGrossDataSet1;
         private System.Windows.Forms.Label lblMailValido;
         private System.Windows.Forms.Label lblMailInvalido;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

@@ -41,6 +41,7 @@ namespace CompuGross
             this.colDescripcion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPesos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colDolares = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAtras = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtDolarOficial
@@ -155,6 +156,20 @@ namespace CompuGross
             this.colDolares.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colDolares.Width = 93;
             // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Location = new System.Drawing.Point(754, 491);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(40, 39);
+            this.btnAtras.TabIndex = 88;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // ListaPrecios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,6 +177,7 @@ namespace CompuGross
             this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(798, 534);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.listPrecios);
             this.Controls.Add(this.rBtnDolarInformal);
             this.Controls.Add(this.rBtnDolarOficial);
@@ -169,11 +185,14 @@ namespace CompuGross
             this.Controls.Add(this.lblDolarOficial);
             this.Controls.Add(this.txtDolarInformal);
             this.Controls.Add(this.txtDolarOficial);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "ListaPrecios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de precios vigentes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListaPrecios_FormClosed);
             this.Load += new System.EventHandler(this.ListaPrecios_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,5 +211,6 @@ namespace CompuGross
         private System.Windows.Forms.ColumnHeader colPesos;
         private System.Windows.Forms.ColumnHeader colDolares;
         private System.Windows.Forms.ColumnHeader colDescripcion;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

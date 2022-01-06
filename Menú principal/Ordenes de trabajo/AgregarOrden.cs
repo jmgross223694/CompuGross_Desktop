@@ -649,5 +649,20 @@ namespace CompuGross
         {
             soloNumeros(sender, e);
         }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            OrdenesTrabajo frmOrdenesTrabajo = new OrdenesTrabajo();
+            this.Hide();
+            frmOrdenesTrabajo.ShowDialog();
+        }
+
+        private void AgregarOrden_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login frmLogin = new Login();
+            frmLogin.borrarUsuarioLogueado();
+
+            Application.Exit();
+        }
     }
 }
