@@ -139,14 +139,18 @@ namespace CompuGross
             this.cbTabla.FormattingEnabled = true;
             this.cbTabla.Items.AddRange(new object[] {
             "-",
+            "Activado",
             "Clientes",
-            "OrdenesTrabajo",
+            "credencialesMail",
+            "Licencias",
             "ListaPrecios",
             "Localidades",
-            "TiposServicio",
+            "OrdenesTrabajo",
             "TiposEquipo",
-            "Usuarios",
-            "TiposUsuario"});
+            "TiposServicio",
+            "TiposUsuario",
+            "UsuarioLogueado",
+            "Usuarios"});
             this.cbTabla.Location = new System.Drawing.Point(513, 28);
             this.cbTabla.Name = "cbTabla";
             this.cbTabla.Size = new System.Drawing.Size(121, 23);

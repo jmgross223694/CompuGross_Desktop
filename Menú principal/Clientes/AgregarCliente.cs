@@ -62,8 +62,6 @@ namespace CompuGross
 
             if (cliente != null)
             {
-                lblMailValido.Visible = true;
-
                 btnConfirmar.Enabled = true;
                 btnConfirmar.Text = "Confirmar cambios";
                 txtId.Text = Convert.ToString(cliente.Id);
@@ -89,11 +87,8 @@ namespace CompuGross
                 txtMail.Text = cliente.Mail;
                 if (txtMail.Text == "-") { txtMail.Text = ""; }
             }
-            else
-            {
-                lblMailValido.Visible = false;
-                lblMailInvalido.Visible = false;
-            }
+            lblMailValido.Visible = false;
+            lblMailInvalido.Visible = false;
         }
 
         private void cargarDdlLocalidades()
@@ -513,10 +508,9 @@ namespace CompuGross
 
         private void AgregarCliente_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Login frmLogin = new Login();
-            frmLogin.borrarUsuarioLogueado();
-
-            Application.Exit();
+            Clientes frmClientes = new Clientes();
+            this.Hide();
+            frmClientes.ShowDialog();
         }
     }
 }

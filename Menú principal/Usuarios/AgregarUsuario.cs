@@ -683,6 +683,13 @@ namespace CompuGross
             }
         }
 
+        private void AgregarUsuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MenuPrincipal frmMenu = new MenuPrincipal();
+            this.Hide();
+            frmMenu.ShowDialog();
+        }
+
         private void cbMostrarClave_CheckedChanged(object sender, EventArgs e)
         {
             if (cbMostrarClave.Checked)

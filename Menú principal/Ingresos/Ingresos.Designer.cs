@@ -94,7 +94,7 @@ namespace CompuGross
             this.txtTipoServicio1.Name = "txtTipoServicio1";
             this.txtTipoServicio1.ReadOnly = true;
             this.txtTipoServicio1.Size = new System.Drawing.Size(177, 26);
-            this.txtTipoServicio1.TabIndex = 5;
+            this.txtTipoServicio1.TabIndex = 3;
             this.txtTipoServicio1.Text = "Armado de gabinete";
             this.txtTipoServicio1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -120,7 +120,7 @@ namespace CompuGross
             this.txtxTipoServicio3.Name = "txtxTipoServicio3";
             this.txtxTipoServicio3.ReadOnly = true;
             this.txtxTipoServicio3.Size = new System.Drawing.Size(176, 26);
-            this.txtxTipoServicio3.TabIndex = 7;
+            this.txtxTipoServicio3.TabIndex = 9;
             this.txtxTipoServicio3.Text = "Servicio técnico";
             this.txtxTipoServicio3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -145,7 +145,7 @@ namespace CompuGross
             this.txtGanancia2.Name = "txtGanancia2";
             this.txtGanancia2.ReadOnly = true;
             this.txtGanancia2.Size = new System.Drawing.Size(99, 26);
-            this.txtGanancia2.TabIndex = 9;
+            this.txtGanancia2.TabIndex = 7;
             this.txtGanancia2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtGanancia1
@@ -158,7 +158,7 @@ namespace CompuGross
             this.txtGanancia1.Name = "txtGanancia1";
             this.txtGanancia1.ReadOnly = true;
             this.txtGanancia1.Size = new System.Drawing.Size(99, 26);
-            this.txtGanancia1.TabIndex = 8;
+            this.txtGanancia1.TabIndex = 4;
             this.txtGanancia1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblGananciaTotal1
@@ -203,7 +203,7 @@ namespace CompuGross
             this.txtCantidad3.Name = "txtCantidad3";
             this.txtCantidad3.ReadOnly = true;
             this.txtCantidad3.Size = new System.Drawing.Size(99, 26);
-            this.txtCantidad3.TabIndex = 16;
+            this.txtCantidad3.TabIndex = 8;
             this.txtCantidad3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCantidad2
@@ -215,7 +215,7 @@ namespace CompuGross
             this.txtCantidad2.Name = "txtCantidad2";
             this.txtCantidad2.ReadOnly = true;
             this.txtCantidad2.Size = new System.Drawing.Size(99, 26);
-            this.txtCantidad2.TabIndex = 15;
+            this.txtCantidad2.TabIndex = 5;
             this.txtCantidad2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCantidad1
@@ -228,7 +228,7 @@ namespace CompuGross
             this.txtCantidad1.Name = "txtCantidad1";
             this.txtCantidad1.ReadOnly = true;
             this.txtCantidad1.Size = new System.Drawing.Size(99, 26);
-            this.txtCantidad1.TabIndex = 14;
+            this.txtCantidad1.TabIndex = 2;
             this.txtCantidad1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblPromedioGananciaAnual1
@@ -318,7 +318,7 @@ namespace CompuGross
             this.cbAnios.MaxDropDownItems = 100;
             this.cbAnios.Name = "cbAnios";
             this.cbAnios.Size = new System.Drawing.Size(121, 28);
-            this.cbAnios.TabIndex = 24;
+            this.cbAnios.TabIndex = 0;
             this.cbAnios.SelectedIndexChanged += new System.EventHandler(this.cbAnios_SelectedIndexChanged);
             // 
             // lblAnual
@@ -404,7 +404,7 @@ namespace CompuGross
             this.btnAtras.Location = new System.Drawing.Point(408, 348);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(40, 39);
-            this.btnAtras.TabIndex = 33;
+            this.btnAtras.TabIndex = 1;
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 

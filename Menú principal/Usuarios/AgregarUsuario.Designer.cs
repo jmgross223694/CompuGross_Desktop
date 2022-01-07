@@ -472,6 +472,7 @@ namespace CompuGross
             this.Name = "AgregarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Usuario";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AgregarUsuario_FormClosed);
             this.Load += new System.EventHandler(this.AgregarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1BindingSource)).EndInit();

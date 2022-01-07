@@ -75,7 +75,7 @@ namespace CompuGross
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(147, 46);
-            this.btnUsuarios.TabIndex = 10;
+            this.btnUsuarios.TabIndex = 5;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = false;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
@@ -93,7 +93,7 @@ namespace CompuGross
             this.btnIngresos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnIngresos.Name = "btnIngresos";
             this.btnIngresos.Size = new System.Drawing.Size(147, 46);
-            this.btnIngresos.TabIndex = 2;
+            this.btnIngresos.TabIndex = 3;
             this.btnIngresos.Text = "Ingresos";
             this.btnIngresos.UseVisualStyleBackColor = false;
             this.btnIngresos.Click += new System.EventHandler(this.btnIngresos_Click);
@@ -122,7 +122,7 @@ namespace CompuGross
             this.btnPrecios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrecios.Name = "btnPrecios";
             this.btnPrecios.Size = new System.Drawing.Size(147, 46);
-            this.btnPrecios.TabIndex = 4;
+            this.btnPrecios.TabIndex = 2;
             this.btnPrecios.Text = "Precios";
             this.btnPrecios.UseVisualStyleBackColor = false;
             this.btnPrecios.Click += new System.EventHandler(this.btnPrecios_Click);
@@ -140,7 +140,7 @@ namespace CompuGross
             this.btnOrdenesTrabajo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOrdenesTrabajo.Name = "btnOrdenesTrabajo";
             this.btnOrdenesTrabajo.Size = new System.Drawing.Size(147, 46);
-            this.btnOrdenesTrabajo.TabIndex = 13;
+            this.btnOrdenesTrabajo.TabIndex = 1;
             this.btnOrdenesTrabajo.Text = "Órdenes de trabajo";
             this.btnOrdenesTrabajo.UseVisualStyleBackColor = false;
             this.btnOrdenesTrabajo.Click += new System.EventHandler(this.btnOrdenesTrabajo_Click);
@@ -158,7 +158,7 @@ namespace CompuGross
             this.btnBackup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(147, 46);
-            this.btnBackup.TabIndex = 14;
+            this.btnBackup.TabIndex = 4;
             this.btnBackup.Text = "Backup";
             this.btnBackup.UseVisualStyleBackColor = false;
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
@@ -207,7 +207,7 @@ namespace CompuGross
             this.btnDatosDesplegables.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDatosDesplegables.Name = "btnDatosDesplegables";
             this.btnDatosDesplegables.Size = new System.Drawing.Size(147, 46);
-            this.btnDatosDesplegables.TabIndex = 18;
+            this.btnDatosDesplegables.TabIndex = 6;
             this.btnDatosDesplegables.Text = "Datos desplegables";
             this.btnDatosDesplegables.UseVisualStyleBackColor = false;
             this.btnDatosDesplegables.Click += new System.EventHandler(this.btnDatosDesplegables_Click);
@@ -222,7 +222,7 @@ namespace CompuGross
             this.btnCerrarSesion.Location = new System.Drawing.Point(461, 241);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(38, 43);
-            this.btnCerrarSesion.TabIndex = 19;
+            this.btnCerrarSesion.TabIndex = 7;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 

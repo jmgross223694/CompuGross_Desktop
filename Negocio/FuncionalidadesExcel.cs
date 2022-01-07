@@ -70,6 +70,7 @@ namespace Negocio
                         s.ColumnMappings.Add("IdLocalidad", "IdLocalidad");
                         s.ColumnMappings.Add("Telefono", "Telefono");
                         s.ColumnMappings.Add("Mail", "Mail");
+                        s.ColumnMappings.Add("Estado", "Estado");
                     }
 
                     if (tablaSeleccionada == "Localidades")
@@ -86,10 +87,36 @@ namespace Negocio
                         s.ColumnMappings.Add("Username", "Username");
                         s.ColumnMappings.Add("Mail", "Mail");
                         s.ColumnMappings.Add("Clave", "Clave");
+                        s.ColumnMappings.Add("CodigoRecuperarClave", "CodigoRecuperarClave");
                     }
 
                     if (tablaSeleccionada == "TiposUsuario")
                     {
+                        s.ColumnMappings.Add("Tipo", "Tipo");
+                    }
+
+                    if (tablaSeleccionada == "Activado")
+                    {
+                        s.ColumnMappings.Add("IdLicencia", "IdLicencia");
+                        s.ColumnMappings.Add("Estado", "Estado");
+                        s.ColumnMappings.Add("Validez", "Validez");
+                    }
+
+                    if (tablaSeleccionada == "credencialesMail")
+                    {
+                        s.ColumnMappings.Add("mail", "mail");
+                        s.ColumnMappings.Add("pass", "pass");
+                    }
+
+                    if (tablaSeleccionada == "Licencias")
+                    {
+                        s.ColumnMappings.Add("Serial", "Serial");
+                        s.ColumnMappings.Add("Estado", "Estado");
+                    }
+
+                    if (tablaSeleccionada == "UsuarioLogueado")
+                    {
+                        s.ColumnMappings.Add("Username", "Username");
                         s.ColumnMappings.Add("Tipo", "Tipo");
                     }
 

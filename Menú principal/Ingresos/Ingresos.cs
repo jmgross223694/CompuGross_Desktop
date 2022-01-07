@@ -16,6 +16,7 @@ namespace CompuGross
         public Ingresos()
         {
             InitializeComponent();
+            cbAnios.Focus();
         }
 
         private void Ingresos_Load(object sender, EventArgs e)

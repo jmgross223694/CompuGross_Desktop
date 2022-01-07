@@ -475,10 +475,6 @@ namespace CompuGross
                         ordenDb.ModificarOrden(orden);
 
                         MessageBox.Show("Se guardaron los cambios en la Orden de trabajo N°" + orden.ID + ".");
-
-                        OrdenesTrabajo frmOrdenesTrabajo = new OrdenesTrabajo(true);
-                        this.Hide();
-                        frmOrdenesTrabajo.ShowDialog();
                     }
                     catch (Exception)
                     {
@@ -659,10 +655,9 @@ namespace CompuGross
 
         private void AgregarOrden_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Login frmLogin = new Login();
-            frmLogin.borrarUsuarioLogueado();
-
-            Application.Exit();
+            OrdenesTrabajo frmOrdenesTrabajo = new OrdenesTrabajo();
+            this.Hide();
+            frmOrdenesTrabajo.ShowDialog();
         }
     }
 }
