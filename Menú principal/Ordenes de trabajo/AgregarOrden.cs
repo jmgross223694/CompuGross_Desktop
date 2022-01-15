@@ -475,6 +475,8 @@ namespace CompuGross
                         ordenDb.ModificarOrden(orden);
 
                         MessageBox.Show("Se guardaron los cambios en la Orden de trabajo N°" + orden.ID + ".");
+
+                        this.Close();
                     }
                     catch (Exception)
                     {
