@@ -12,11 +12,14 @@ using Dominio;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using System.IO;
+using ExcelDataReader;
 
 namespace CompuGross
 {
     public partial class Backup : Form
     {
+        private DataSet dtsTablas = new DataSet();
+
         public Backup()
         {
             InitializeComponent();
@@ -54,8 +57,11 @@ namespace CompuGross
 
                     try
                     {
-                        //INICIAMOS CONEXICON
-                        con = new SqlConnection("Data source=localhost\\SQLEXPRESS;Initial Catalog=CompuGross;Trusted_Connection=true");
+                        //INICIAMOS CONEXION
+                        string strConLocal = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
+                        string strConLan = "Server=AMD-FX-8320\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
+
+                        con = new SqlConnection(strConLan);
 
                         con.Open();
 
@@ -126,31 +132,151 @@ namespace CompuGross
 
         private void btnRestaurarBackup_Click(object sender, EventArgs e)
         {
-            RestaurarBackup frmRestaurarBackup = new RestaurarBackup();
-            this.Hide();
-            frmRestaurarBackup.ShowDialog();
-            this.Show();
+            //ocultar controles para realizar backup
+            btnSeleccionarCarpeta.Visible = false;
+            btnHacerBackup.Visible = false;
+            btnRestaurarBackup.Visible = false;
+            txtPath.Visible = false;
+            pbRealizarBackup.Visible = false;
+            pbRestaurarBackup.Visible = false;
+
+            //mostrar controles para restaurar backup
+            btnElegirArchivo.Visible = true;
+            txtArchivoSeleccionado.Visible = true;
+            btnMostrarArchivo.Visible = true;
+            btnCargarArchivo.Visible = true;
+            lblSeleccionarTabla.Visible = true;
+            ddlTablas.Visible = true;
+            dgvArchivo.Visible = true;
+            btnVolver.Visible = true;
+
+            //borrar contenido de controles
+            ddlTablas.SelectedItem = "-";
+            txtArchivoSeleccionado.Text = "";
+            dgvArchivo.DataSource = null;
         }
 
-        private void btnPath_Click(object sender, EventArgs e)
+        private void btnSeleccionarCarpeta_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK) txtPath.Text = fbd.SelectedPath;
         }
 
-        private void Backup_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnVolver_Click(object sender, EventArgs e)
         {
-            Login frmLogin = new Login();
-            frmLogin.borrarUsuarioLogueado();
+            //mostrar controles para realizar backup
+            btnSeleccionarCarpeta.Visible = true;
+            btnHacerBackup.Visible = true;
+            btnRestaurarBackup.Visible = true;
+            txtPath.Visible = true;
+            pbRealizarBackup.Visible = true;
+            pbRestaurarBackup.Visible = true;
 
-            Application.Exit();
+            //ocultar controles para restaurar backup
+            btnElegirArchivo.Visible = false;
+            txtArchivoSeleccionado.Visible = false;
+            btnMostrarArchivo.Visible = false;
+            btnCargarArchivo.Visible = false;
+            lblSeleccionarTabla.Visible = false;
+            ddlTablas.Visible = false;
+            dgvArchivo.Visible = false;
+            btnVolver.Visible = false;
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
+        private void btnElegirArchivo_Click(object sender, EventArgs e)
         {
-            MenuPrincipal frmMenu = new MenuPrincipal();
-            this.Hide();
-            frmMenu.ShowDialog();
+            //configuracion de ventana para seleccionar un archivo
+            OpenFileDialog oOpenFileDialog = new OpenFileDialog();
+            oOpenFileDialog.Filter = "Excel Worbook|*.xlsx";
+
+            if (oOpenFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                dgvArchivo.DataSource = null;
+
+                txtArchivoSeleccionado.Text = oOpenFileDialog.FileName;
+
+                //FileStream nos permite leer, escribir, abrir y cerrar archivos en un sistema de archivos, como matrices de bytes
+                FileStream fsSource = new FileStream(oOpenFileDialog.FileName, FileMode.Open, FileAccess.Read);
+
+
+                //ExcelReaderFactory.CreateBinaryReader = formato XLS
+                //ExcelReaderFactory.CreateOpenXmlReader = formato XLSX
+                //ExcelReaderFactory.CreateReader = XLS o XLSX
+                IExcelDataReader reader = ExcelReaderFactory.CreateReader(fsSource);
+
+                //convierte todas las hojas a un DataSet
+                dtsTablas = reader.AsDataSet(new ExcelDataSetConfiguration()
+                {
+                    ConfigureDataTable = (tableReader) => new ExcelDataTableConfiguration()
+                    {
+                        UseHeaderRow = true
+                    }
+                });
+
+                //obtenemos las tablas y añadimos sus nombres en el desplegable de hojas
+                //foreach (DataTable tabla in dtsTablas.Tables)
+                //{
+                //    cboHojas.Items.Add(tabla.TableName);
+                //}
+                //cboHojas.SelectedIndex = 0;
+
+                reader.Close();
+            }
+        }
+
+        private void btnMostrarArchivo_Click(object sender, EventArgs e)
+        {
+            if (txtArchivoSeleccionado.Text == "")
+            {
+                MessageBox.Show("No hay ningún archivo seleccionado.");
+            }
+            else if (ddlTablas.SelectedItem.ToString() == "-")
+            {
+                MessageBox.Show("No ha seleccionado una tabla.");
+            }
+            else
+            {
+                try
+                {
+                    dgvArchivo.DataSource = dtsTablas.Tables[0];
+                }
+                catch
+                {
+                    MessageBox.Show("Se produjo un error al intentar mostrar el archivo seleccionado.");
+                }
+            }
+        }
+
+        private void btnCargarArchivo_Click(object sender, EventArgs e)
+        {
+            if (txtArchivoSeleccionado.Text == "")
+            {
+                MessageBox.Show("No hay ningún archivo seleccionado.");
+            }
+            else if (ddlTablas.SelectedItem.ToString() == "-")
+            {
+                MessageBox.Show("No ha seleccionado una tabla.");
+            }
+            else
+            {
+
+                DataTable data = (DataTable)(dgvArchivo.DataSource);
+
+                bool resultado = new FuncionalidadesExcel().CargarDatos(data, ddlTablas.SelectedItem.ToString());
+
+                if (resultado)
+                {
+                    MessageBox.Show("El archivo se importó correctamente.");
+
+                    dgvArchivo.DataSource = null;
+                    txtArchivoSeleccionado.Text = "";
+                    ddlTablas.SelectedItem = "-";
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error y no se importó el archivo.");
+                }
+            }
         }
     }
 }

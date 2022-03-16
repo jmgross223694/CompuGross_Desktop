@@ -115,7 +115,7 @@ namespace CompuGross
                         apellido = datos.Lector["Apellido"].ToString();
                         tipoUsuario = datos.Lector["Tipo"].ToString();
 
-                        //MessageBox.Show("Bienvenido nuevamente "+nombre+" "+apellido, "Log-in exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Bienvenid@ "+nombre+" "+apellido, "Log-in exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         txtUsuario.Text = "";
                         txtClave.Text = "";
@@ -162,11 +162,10 @@ namespace CompuGross
 
                 if (ingreso)
                 {
-                    MenuPrincipal frmInicio = new MenuPrincipal();
+                    MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
 
                     this.Hide();
-                    frmInicio.ShowDialog();
-                    this.Show();
+                    frmMenuPrincipal.ShowDialog();
                 }
             }
         }
@@ -244,7 +243,6 @@ namespace CompuGross
             AgregarUsuario frmAgregarUsuario = new AgregarUsuario("test", "test");
             this.Hide();
             frmAgregarUsuario.ShowDialog();
-            this.Show();
         }
 
         private void btnEnviarCodigo_Click(object sender, EventArgs e)

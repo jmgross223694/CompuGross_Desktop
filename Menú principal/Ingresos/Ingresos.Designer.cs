@@ -59,17 +59,18 @@ namespace CompuGross
             this.lblGananciasAnios = new System.Windows.Forms.Label();
             this.lblCantidad1 = new System.Windows.Forms.Label();
             this.lblCantidad2 = new System.Windows.Forms.Label();
-            this.btnAtras = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTipoServicio
             // 
             this.lblTipoServicio.AutoSize = true;
             this.lblTipoServicio.BackColor = System.Drawing.Color.Transparent;
-            this.lblTipoServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoServicio.Location = new System.Drawing.Point(145, 9);
+            this.lblTipoServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoServicio.ForeColor = System.Drawing.Color.White;
+            this.lblTipoServicio.Location = new System.Drawing.Point(155, 76);
             this.lblTipoServicio.Name = "lblTipoServicio";
-            this.lblTipoServicio.Size = new System.Drawing.Size(167, 25);
+            this.lblTipoServicio.Size = new System.Drawing.Size(114, 18);
             this.lblTipoServicio.TabIndex = 3;
             this.lblTipoServicio.Text = "Tipo de Servicio";
             // 
@@ -77,10 +78,11 @@ namespace CompuGross
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(340, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(313, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 25);
+            this.label1.Size = new System.Drawing.Size(71, 18);
             this.label1.TabIndex = 4;
             this.label1.Text = "Ganancia";
             // 
@@ -90,7 +92,7 @@ namespace CompuGross
             this.txtTipoServicio1.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtTipoServicio1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipoServicio1.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtTipoServicio1.Location = new System.Drawing.Point(138, 50);
+            this.txtTipoServicio1.Location = new System.Drawing.Point(113, 97);
             this.txtTipoServicio1.Name = "txtTipoServicio1";
             this.txtTipoServicio1.ReadOnly = true;
             this.txtTipoServicio1.Size = new System.Drawing.Size(177, 26);
@@ -103,7 +105,7 @@ namespace CompuGross
             this.txtTipoServicio2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.txtTipoServicio2.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtTipoServicio2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoServicio2.Location = new System.Drawing.Point(138, 98);
+            this.txtTipoServicio2.Location = new System.Drawing.Point(113, 127);
             this.txtTipoServicio2.Name = "txtTipoServicio2";
             this.txtTipoServicio2.ReadOnly = true;
             this.txtTipoServicio2.Size = new System.Drawing.Size(177, 26);
@@ -116,7 +118,7 @@ namespace CompuGross
             this.txtxTipoServicio3.BackColor = System.Drawing.Color.Gold;
             this.txtxTipoServicio3.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtxTipoServicio3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtxTipoServicio3.Location = new System.Drawing.Point(139, 145);
+            this.txtxTipoServicio3.Location = new System.Drawing.Point(113, 157);
             this.txtxTipoServicio3.Name = "txtxTipoServicio3";
             this.txtxTipoServicio3.ReadOnly = true;
             this.txtxTipoServicio3.Size = new System.Drawing.Size(176, 26);
@@ -129,7 +131,7 @@ namespace CompuGross
             this.txtGanancia3.BackColor = System.Drawing.Color.Gold;
             this.txtGanancia3.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtGanancia3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGanancia3.Location = new System.Drawing.Point(342, 145);
+            this.txtGanancia3.Location = new System.Drawing.Point(294, 157);
             this.txtGanancia3.Name = "txtGanancia3";
             this.txtGanancia3.ReadOnly = true;
             this.txtGanancia3.Size = new System.Drawing.Size(99, 26);
@@ -141,7 +143,7 @@ namespace CompuGross
             this.txtGanancia2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.txtGanancia2.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtGanancia2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGanancia2.Location = new System.Drawing.Point(341, 98);
+            this.txtGanancia2.Location = new System.Drawing.Point(294, 127);
             this.txtGanancia2.Name = "txtGanancia2";
             this.txtGanancia2.ReadOnly = true;
             this.txtGanancia2.Size = new System.Drawing.Size(99, 26);
@@ -154,7 +156,7 @@ namespace CompuGross
             this.txtGanancia1.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtGanancia1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGanancia1.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtGanancia1.Location = new System.Drawing.Point(341, 50);
+            this.txtGanancia1.Location = new System.Drawing.Point(294, 97);
             this.txtGanancia1.Name = "txtGanancia1";
             this.txtGanancia1.ReadOnly = true;
             this.txtGanancia1.Size = new System.Drawing.Size(99, 26);
@@ -165,10 +167,11 @@ namespace CompuGross
             // 
             this.lblGananciaTotal1.AutoSize = true;
             this.lblGananciaTotal1.BackColor = System.Drawing.Color.Transparent;
-            this.lblGananciaTotal1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGananciaTotal1.Location = new System.Drawing.Point(158, 190);
+            this.lblGananciaTotal1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGananciaTotal1.ForeColor = System.Drawing.Color.White;
+            this.lblGananciaTotal1.Location = new System.Drawing.Point(12, 215);
             this.lblGananciaTotal1.Name = "lblGananciaTotal1";
-            this.lblGananciaTotal1.Size = new System.Drawing.Size(157, 25);
+            this.lblGananciaTotal1.Size = new System.Drawing.Size(107, 18);
             this.lblGananciaTotal1.TabIndex = 11;
             this.lblGananciaTotal1.Text = "Ganancia total:";
             // 
@@ -176,10 +179,11 @@ namespace CompuGross
             // 
             this.lblGananciaTotal2.AutoSize = true;
             this.lblGananciaTotal2.BackColor = System.Drawing.Color.Transparent;
-            this.lblGananciaTotal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGananciaTotal2.Location = new System.Drawing.Point(315, 190);
+            this.lblGananciaTotal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGananciaTotal2.ForeColor = System.Drawing.Color.White;
+            this.lblGananciaTotal2.Location = new System.Drawing.Point(169, 215);
             this.lblGananciaTotal2.Name = "lblGananciaTotal2";
-            this.lblGananciaTotal2.Size = new System.Drawing.Size(36, 25);
+            this.lblGananciaTotal2.Size = new System.Drawing.Size(26, 18);
             this.lblGananciaTotal2.TabIndex = 12;
             this.lblGananciaTotal2.Text = "***";
             // 
@@ -187,10 +191,11 @@ namespace CompuGross
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.BackColor = System.Drawing.Color.Transparent;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(12, 9);
+            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.ForeColor = System.Drawing.Color.White;
+            this.lblCantidad.Location = new System.Drawing.Point(28, 76);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(98, 25);
+            this.lblCantidad.Size = new System.Drawing.Size(66, 18);
             this.lblCantidad.TabIndex = 13;
             this.lblCantidad.Text = "Cantidad";
             // 
@@ -199,7 +204,7 @@ namespace CompuGross
             this.txtCantidad3.BackColor = System.Drawing.Color.Gold;
             this.txtCantidad3.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtCantidad3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad3.Location = new System.Drawing.Point(13, 145);
+            this.txtCantidad3.Location = new System.Drawing.Point(10, 157);
             this.txtCantidad3.Name = "txtCantidad3";
             this.txtCantidad3.ReadOnly = true;
             this.txtCantidad3.Size = new System.Drawing.Size(99, 26);
@@ -211,7 +216,7 @@ namespace CompuGross
             this.txtCantidad2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.txtCantidad2.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtCantidad2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad2.Location = new System.Drawing.Point(12, 98);
+            this.txtCantidad2.Location = new System.Drawing.Point(10, 127);
             this.txtCantidad2.Name = "txtCantidad2";
             this.txtCantidad2.ReadOnly = true;
             this.txtCantidad2.Size = new System.Drawing.Size(99, 26);
@@ -224,7 +229,7 @@ namespace CompuGross
             this.txtCantidad1.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtCantidad1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad1.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtCantidad1.Location = new System.Drawing.Point(12, 50);
+            this.txtCantidad1.Location = new System.Drawing.Point(10, 97);
             this.txtCantidad1.Name = "txtCantidad1";
             this.txtCantidad1.ReadOnly = true;
             this.txtCantidad1.Size = new System.Drawing.Size(99, 26);
@@ -235,7 +240,8 @@ namespace CompuGross
             // 
             this.lblPromedioGananciaAnual1.AutoSize = true;
             this.lblPromedioGananciaAnual1.BackColor = System.Drawing.Color.Transparent;
-            this.lblPromedioGananciaAnual1.Location = new System.Drawing.Point(9, 234);
+            this.lblPromedioGananciaAnual1.ForeColor = System.Drawing.Color.White;
+            this.lblPromedioGananciaAnual1.Location = new System.Drawing.Point(8, 260);
             this.lblPromedioGananciaAnual1.Name = "lblPromedioGananciaAnual1";
             this.lblPromedioGananciaAnual1.Size = new System.Drawing.Size(139, 13);
             this.lblPromedioGananciaAnual1.TabIndex = 17;
@@ -245,7 +251,8 @@ namespace CompuGross
             // 
             this.lblPromedioGananciaAnual2.AutoSize = true;
             this.lblPromedioGananciaAnual2.BackColor = System.Drawing.Color.Transparent;
-            this.lblPromedioGananciaAnual2.Location = new System.Drawing.Point(163, 234);
+            this.lblPromedioGananciaAnual2.ForeColor = System.Drawing.Color.White;
+            this.lblPromedioGananciaAnual2.Location = new System.Drawing.Point(162, 260);
             this.lblPromedioGananciaAnual2.Name = "lblPromedioGananciaAnual2";
             this.lblPromedioGananciaAnual2.Size = new System.Drawing.Size(19, 13);
             this.lblPromedioGananciaAnual2.TabIndex = 18;
@@ -255,7 +262,8 @@ namespace CompuGross
             // 
             this.lblServicioDias2.AutoSize = true;
             this.lblServicioDias2.BackColor = System.Drawing.Color.Transparent;
-            this.lblServicioDias2.Location = new System.Drawing.Point(149, 285);
+            this.lblServicioDias2.ForeColor = System.Drawing.Color.White;
+            this.lblServicioDias2.Location = new System.Drawing.Point(148, 311);
             this.lblServicioDias2.Name = "lblServicioDias2";
             this.lblServicioDias2.Size = new System.Drawing.Size(19, 13);
             this.lblServicioDias2.TabIndex = 20;
@@ -265,7 +273,8 @@ namespace CompuGross
             // 
             this.lblServicioDias1.AutoSize = true;
             this.lblServicioDias1.BackColor = System.Drawing.Color.Transparent;
-            this.lblServicioDias1.Location = new System.Drawing.Point(8, 285);
+            this.lblServicioDias1.ForeColor = System.Drawing.Color.White;
+            this.lblServicioDias1.Location = new System.Drawing.Point(7, 311);
             this.lblServicioDias1.Name = "lblServicioDias1";
             this.lblServicioDias1.Size = new System.Drawing.Size(140, 13);
             this.lblServicioDias1.TabIndex = 19;
@@ -275,7 +284,8 @@ namespace CompuGross
             // 
             this.lblServicioDias3.AutoSize = true;
             this.lblServicioDias3.BackColor = System.Drawing.Color.Transparent;
-            this.lblServicioDias3.Location = new System.Drawing.Point(170, 285);
+            this.lblServicioDias3.ForeColor = System.Drawing.Color.White;
+            this.lblServicioDias3.Location = new System.Drawing.Point(169, 311);
             this.lblServicioDias3.Name = "lblServicioDias3";
             this.lblServicioDias3.Size = new System.Drawing.Size(28, 13);
             this.lblServicioDias3.TabIndex = 21;
@@ -285,7 +295,8 @@ namespace CompuGross
             // 
             this.lblPromedioGananciaMensual2.AutoSize = true;
             this.lblPromedioGananciaMensual2.BackColor = System.Drawing.Color.Transparent;
-            this.lblPromedioGananciaMensual2.Location = new System.Drawing.Point(163, 260);
+            this.lblPromedioGananciaMensual2.ForeColor = System.Drawing.Color.White;
+            this.lblPromedioGananciaMensual2.Location = new System.Drawing.Point(162, 286);
             this.lblPromedioGananciaMensual2.Name = "lblPromedioGananciaMensual2";
             this.lblPromedioGananciaMensual2.Size = new System.Drawing.Size(19, 13);
             this.lblPromedioGananciaMensual2.TabIndex = 23;
@@ -295,7 +306,8 @@ namespace CompuGross
             // 
             this.lblPromedioGananciaMensual1.AutoSize = true;
             this.lblPromedioGananciaMensual1.BackColor = System.Drawing.Color.Transparent;
-            this.lblPromedioGananciaMensual1.Location = new System.Drawing.Point(8, 260);
+            this.lblPromedioGananciaMensual1.ForeColor = System.Drawing.Color.White;
+            this.lblPromedioGananciaMensual1.Location = new System.Drawing.Point(7, 286);
             this.lblPromedioGananciaMensual1.Name = "lblPromedioGananciaMensual1";
             this.lblPromedioGananciaMensual1.Size = new System.Drawing.Size(152, 13);
             this.lblPromedioGananciaMensual1.TabIndex = 22;
@@ -303,18 +315,16 @@ namespace CompuGross
             // 
             // cbAnios
             // 
-            this.cbAnios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbAnios.BackColor = System.Drawing.SystemColors.Menu;
+            this.cbAnios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.cbAnios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAnios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAnios.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbAnios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAnios.ForeColor = System.Drawing.Color.White;
             this.cbAnios.FormattingEnabled = true;
             this.cbAnios.Items.AddRange(new object[] {
             "Año"});
-            this.cbAnios.Location = new System.Drawing.Point(319, 249);
+            this.cbAnios.Location = new System.Drawing.Point(272, 241);
             this.cbAnios.MaxDropDownItems = 100;
             this.cbAnios.Name = "cbAnios";
             this.cbAnios.Size = new System.Drawing.Size(121, 28);
@@ -325,7 +335,8 @@ namespace CompuGross
             // 
             this.lblAnual.AutoSize = true;
             this.lblAnual.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnual.Location = new System.Drawing.Point(316, 287);
+            this.lblAnual.ForeColor = System.Drawing.Color.White;
+            this.lblAnual.Location = new System.Drawing.Point(269, 279);
             this.lblAnual.Name = "lblAnual";
             this.lblAnual.Size = new System.Drawing.Size(54, 13);
             this.lblAnual.TabIndex = 25;
@@ -335,7 +346,8 @@ namespace CompuGross
             // 
             this.lblMensual.AutoSize = true;
             this.lblMensual.BackColor = System.Drawing.Color.Transparent;
-            this.lblMensual.Location = new System.Drawing.Point(316, 303);
+            this.lblMensual.ForeColor = System.Drawing.Color.White;
+            this.lblMensual.Location = new System.Drawing.Point(269, 295);
             this.lblMensual.Name = "lblMensual";
             this.lblMensual.Size = new System.Drawing.Size(67, 13);
             this.lblMensual.TabIndex = 26;
@@ -345,7 +357,8 @@ namespace CompuGross
             // 
             this.lblAnualMonto.AutoSize = true;
             this.lblAnualMonto.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnualMonto.Location = new System.Drawing.Point(380, 287);
+            this.lblAnualMonto.ForeColor = System.Drawing.Color.White;
+            this.lblAnualMonto.Location = new System.Drawing.Point(333, 279);
             this.lblAnualMonto.Name = "lblAnualMonto";
             this.lblAnualMonto.Size = new System.Drawing.Size(19, 13);
             this.lblAnualMonto.TabIndex = 27;
@@ -355,7 +368,8 @@ namespace CompuGross
             // 
             this.lblMensualMonto.AutoSize = true;
             this.lblMensualMonto.BackColor = System.Drawing.Color.Transparent;
-            this.lblMensualMonto.Location = new System.Drawing.Point(380, 303);
+            this.lblMensualMonto.ForeColor = System.Drawing.Color.White;
+            this.lblMensualMonto.Location = new System.Drawing.Point(333, 295);
             this.lblMensualMonto.Name = "lblMensualMonto";
             this.lblMensualMonto.Size = new System.Drawing.Size(19, 13);
             this.lblMensualMonto.TabIndex = 28;
@@ -367,7 +381,8 @@ namespace CompuGross
             this.lblGananciasAnios.AutoSize = true;
             this.lblGananciasAnios.BackColor = System.Drawing.Color.Transparent;
             this.lblGananciasAnios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGananciasAnios.Location = new System.Drawing.Point(317, 234);
+            this.lblGananciasAnios.ForeColor = System.Drawing.Color.White;
+            this.lblGananciasAnios.Location = new System.Drawing.Point(270, 226);
             this.lblGananciasAnios.Name = "lblGananciasAnios";
             this.lblGananciasAnios.Size = new System.Drawing.Size(100, 13);
             this.lblGananciasAnios.TabIndex = 30;
@@ -378,7 +393,8 @@ namespace CompuGross
             // 
             this.lblCantidad1.AutoSize = true;
             this.lblCantidad1.BackColor = System.Drawing.Color.Transparent;
-            this.lblCantidad1.Location = new System.Drawing.Point(317, 319);
+            this.lblCantidad1.ForeColor = System.Drawing.Color.White;
+            this.lblCantidad1.Location = new System.Drawing.Point(270, 311);
             this.lblCantidad1.Name = "lblCantidad1";
             this.lblCantidad1.Size = new System.Drawing.Size(58, 13);
             this.lblCantidad1.TabIndex = 31;
@@ -388,34 +404,31 @@ namespace CompuGross
             // 
             this.lblCantidad2.AutoSize = true;
             this.lblCantidad2.BackColor = System.Drawing.Color.Transparent;
-            this.lblCantidad2.Location = new System.Drawing.Point(380, 319);
+            this.lblCantidad2.ForeColor = System.Drawing.Color.White;
+            this.lblCantidad2.Location = new System.Drawing.Point(333, 311);
             this.lblCantidad2.Name = "lblCantidad2";
             this.lblCantidad2.Size = new System.Drawing.Size(19, 13);
             this.lblCantidad2.TabIndex = 32;
             this.lblCantidad2.Text = "***";
             // 
-            // btnAtras
+            // label2
             // 
-            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
-            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
-            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAtras.Location = new System.Drawing.Point(408, 348);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(40, 39);
-            this.btnAtras.TabIndex = 1;
-            this.btnAtras.UseVisualStyleBackColor = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(160, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 27);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "INGRESOS";
             // 
             // Ingresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(452, 390);
-            this.Controls.Add(this.btnAtras);
+            this.ClientSize = new System.Drawing.Size(405, 355);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCantidad2);
             this.Controls.Add(this.lblCantidad1);
             this.Controls.Add(this.lblGananciasAnios);
@@ -445,13 +458,13 @@ namespace CompuGross
             this.Controls.Add(this.txtTipoServicio1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTipoServicio);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Ingresos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Ingresos";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Ingresos_FormClosed);
             this.Load += new System.EventHandler(this.Ingresos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -489,6 +502,6 @@ namespace CompuGross
         private System.Windows.Forms.Label lblGananciasAnios;
         private System.Windows.Forms.Label lblCantidad1;
         private System.Windows.Forms.Label lblCantidad2;
-        private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.Label label2;
     }
 }

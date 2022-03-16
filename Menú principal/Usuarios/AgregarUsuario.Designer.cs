@@ -61,7 +61,6 @@ namespace CompuGross
             this.lblMailInvalido = new System.Windows.Forms.Label();
             this.lblMailValido = new System.Windows.Forms.Label();
             this.cbMostrarClave = new System.Windows.Forms.CheckBox();
-            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.localidadesBindingSource)).BeginInit();
@@ -69,7 +68,9 @@ namespace CompuGross
             // 
             // txtApellidos
             // 
+            this.txtApellidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidos.ForeColor = System.Drawing.Color.White;
             this.txtApellidos.Location = new System.Drawing.Point(112, 105);
             this.txtApellidos.MaxLength = 50;
             this.txtApellidos.Name = "txtApellidos";
@@ -83,6 +84,7 @@ namespace CompuGross
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 25);
@@ -94,6 +96,7 @@ namespace CompuGross
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 25);
@@ -102,7 +105,9 @@ namespace CompuGross
             // 
             // txtNombres
             // 
+            this.txtNombres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombres.ForeColor = System.Drawing.Color.White;
             this.txtNombres.Location = new System.Drawing.Point(112, 57);
             this.txtNombres.MaxLength = 50;
             this.txtNombres.Name = "txtNombres";
@@ -116,6 +121,7 @@ namespace CompuGross
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(12, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 25);
@@ -124,8 +130,10 @@ namespace CompuGross
             // 
             // txtMail
             // 
+            this.txtMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtMail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMail.ForeColor = System.Drawing.Color.White;
             this.txtMail.Location = new System.Drawing.Point(112, 153);
             this.txtMail.MaxLength = 100;
             this.txtMail.Name = "txtMail";
@@ -140,6 +148,7 @@ namespace CompuGross
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(12, 204);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 25);
@@ -148,7 +157,9 @@ namespace CompuGross
             // 
             // txtDni
             // 
+            this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.ForeColor = System.Drawing.Color.White;
             this.txtDni.Location = new System.Drawing.Point(112, 201);
             this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
@@ -162,6 +173,7 @@ namespace CompuGross
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(12, 252);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 25);
@@ -170,7 +182,9 @@ namespace CompuGross
             // 
             // txtClave
             // 
+            this.txtClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClave.ForeColor = System.Drawing.Color.White;
             this.txtClave.Location = new System.Drawing.Point(112, 249);
             this.txtClave.MaxLength = 15;
             this.txtClave.Name = "txtClave";
@@ -200,7 +214,7 @@ namespace CompuGross
             // 
             this.lblCaracteres.AutoSize = true;
             this.lblCaracteres.BackColor = System.Drawing.Color.Transparent;
-            this.lblCaracteres.ForeColor = System.Drawing.Color.Red;
+            this.lblCaracteres.ForeColor = System.Drawing.Color.LightCoral;
             this.lblCaracteres.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblCaracteres.Location = new System.Drawing.Point(109, 283);
             this.lblCaracteres.Name = "lblCaracteres";
@@ -214,6 +228,7 @@ namespace CompuGross
             this.lblTipoUsuario.AutoSize = true;
             this.lblTipoUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoUsuario.ForeColor = System.Drawing.Color.White;
             this.lblTipoUsuario.Location = new System.Drawing.Point(12, 12);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
             this.lblTipoUsuario.Size = new System.Drawing.Size(54, 25);
@@ -222,10 +237,12 @@ namespace CompuGross
             // 
             // cbTipoUsuario
             // 
+            this.cbTipoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.cbTipoUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoUsuario.ForeColor = System.Drawing.Color.White;
             this.cbTipoUsuario.FormattingEnabled = true;
             this.cbTipoUsuario.Items.AddRange(new object[] {
             "-",
@@ -261,7 +278,7 @@ namespace CompuGross
             this.lblAsterisco1.AutoSize = true;
             this.lblAsterisco1.BackColor = System.Drawing.Color.Transparent;
             this.lblAsterisco1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco1.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco1.ForeColor = System.Drawing.Color.LightCoral;
             this.lblAsterisco1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAsterisco1.Location = new System.Drawing.Point(0, 12);
             this.lblAsterisco1.Name = "lblAsterisco1";
@@ -275,7 +292,7 @@ namespace CompuGross
             this.lblAsterisco2.AutoSize = true;
             this.lblAsterisco2.BackColor = System.Drawing.Color.Transparent;
             this.lblAsterisco2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco2.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco2.ForeColor = System.Drawing.Color.LightCoral;
             this.lblAsterisco2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAsterisco2.Location = new System.Drawing.Point(0, 59);
             this.lblAsterisco2.Name = "lblAsterisco2";
@@ -289,7 +306,7 @@ namespace CompuGross
             this.lblAsterisco3.AutoSize = true;
             this.lblAsterisco3.BackColor = System.Drawing.Color.Transparent;
             this.lblAsterisco3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco3.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco3.ForeColor = System.Drawing.Color.LightCoral;
             this.lblAsterisco3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAsterisco3.Location = new System.Drawing.Point(0, 108);
             this.lblAsterisco3.Name = "lblAsterisco3";
@@ -303,7 +320,7 @@ namespace CompuGross
             this.lblAsterisco4.AutoSize = true;
             this.lblAsterisco4.BackColor = System.Drawing.Color.Transparent;
             this.lblAsterisco4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco4.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco4.ForeColor = System.Drawing.Color.LightCoral;
             this.lblAsterisco4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAsterisco4.Location = new System.Drawing.Point(0, 155);
             this.lblAsterisco4.Name = "lblAsterisco4";
@@ -317,7 +334,7 @@ namespace CompuGross
             this.lblAsterisco5.AutoSize = true;
             this.lblAsterisco5.BackColor = System.Drawing.Color.Transparent;
             this.lblAsterisco5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco5.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco5.ForeColor = System.Drawing.Color.LightCoral;
             this.lblAsterisco5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAsterisco5.Location = new System.Drawing.Point(0, 204);
             this.lblAsterisco5.Name = "lblAsterisco5";
@@ -331,7 +348,7 @@ namespace CompuGross
             this.lblAsterisco6.AutoSize = true;
             this.lblAsterisco6.BackColor = System.Drawing.Color.Transparent;
             this.lblAsterisco6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco6.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisco6.ForeColor = System.Drawing.Color.LightCoral;
             this.lblAsterisco6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAsterisco6.Location = new System.Drawing.Point(0, 252);
             this.lblAsterisco6.Name = "lblAsterisco6";
@@ -344,7 +361,7 @@ namespace CompuGross
             // 
             this.lblMayus.AutoSize = true;
             this.lblMayus.BackColor = System.Drawing.Color.Transparent;
-            this.lblMayus.ForeColor = System.Drawing.Color.Red;
+            this.lblMayus.ForeColor = System.Drawing.Color.LightCoral;
             this.lblMayus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblMayus.Location = new System.Drawing.Point(212, 283);
             this.lblMayus.Name = "lblMayus";
@@ -357,7 +374,7 @@ namespace CompuGross
             // 
             this.lblMinus.AutoSize = true;
             this.lblMinus.BackColor = System.Drawing.Color.Transparent;
-            this.lblMinus.ForeColor = System.Drawing.Color.Red;
+            this.lblMinus.ForeColor = System.Drawing.Color.LightCoral;
             this.lblMinus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblMinus.Location = new System.Drawing.Point(295, 283);
             this.lblMinus.Name = "lblMinus";
@@ -370,7 +387,7 @@ namespace CompuGross
             // 
             this.lblNum.AutoSize = true;
             this.lblNum.BackColor = System.Drawing.Color.Transparent;
-            this.lblNum.ForeColor = System.Drawing.Color.Red;
+            this.lblNum.ForeColor = System.Drawing.Color.LightCoral;
             this.lblNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblNum.Location = new System.Drawing.Point(372, 283);
             this.lblNum.Name = "lblNum";
@@ -409,6 +426,8 @@ namespace CompuGross
             // 
             this.cbMostrarClave.AutoSize = true;
             this.cbMostrarClave.BackColor = System.Drawing.Color.Transparent;
+            this.cbMostrarClave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbMostrarClave.ForeColor = System.Drawing.Color.White;
             this.cbMostrarClave.Location = new System.Drawing.Point(17, 279);
             this.cbMostrarClave.Name = "cbMostrarClave";
             this.cbMostrarClave.Size = new System.Drawing.Size(61, 17);
@@ -417,29 +436,14 @@ namespace CompuGross
             this.cbMostrarClave.UseVisualStyleBackColor = false;
             this.cbMostrarClave.CheckedChanged += new System.EventHandler(this.cbMostrarClave_CheckedChanged);
             // 
-            // btnAtras
-            // 
-            this.btnAtras.BackColor = System.Drawing.Color.Transparent;
-            this.btnAtras.BackgroundImage = global::CompuGross.Properties.Resources.volver;
-            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAtras.Location = new System.Drawing.Point(395, 323);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(40, 39);
-            this.btnAtras.TabIndex = 26;
-            this.btnAtras.UseVisualStyleBackColor = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
             // AgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(439, 365);
-            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.cbMostrarClave);
             this.Controls.Add(this.lblMailValido);
             this.Controls.Add(this.lblMailInvalido);
@@ -466,7 +470,7 @@ namespace CompuGross
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtApellidos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AgregarUsuario";
@@ -514,6 +518,5 @@ namespace CompuGross
         private System.Windows.Forms.Label lblMailInvalido;
         private System.Windows.Forms.Label lblMailValido;
         private System.Windows.Forms.CheckBox cbMostrarClave;
-        private System.Windows.Forms.Button btnAtras;
     }
 }

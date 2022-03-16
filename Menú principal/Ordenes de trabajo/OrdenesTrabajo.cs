@@ -208,7 +208,6 @@ namespace CompuGross
             AgregarOrden frmAgregar = new AgregarOrden();
             this.Hide();
             frmAgregar.ShowDialog();
-            this.Show();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -224,7 +223,6 @@ namespace CompuGross
                     AgregarOrden frmModificar = new AgregarOrden(seleccionado);
                     this.Hide();
                     frmModificar.ShowDialog();
-                    this.Show();
                 }
                 else
                 {

@@ -23,7 +23,6 @@ namespace CompuGross
             Localidades frmLocalidades = new Localidades();
             this.Hide();
             frmLocalidades.ShowDialog();
-            this.Show();
         }
         
         private void btnVolver_Click(object sender, EventArgs e)

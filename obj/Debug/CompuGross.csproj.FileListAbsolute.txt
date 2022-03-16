@@ -31,7 +31,6 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.AgregarCliente.re
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.AgregarUsuario.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Clientes.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Ingresos.resources
-C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.ListaPrecios.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.MenuPrincipal.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Login.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Properties.Resources.resources
@@ -47,9 +46,12 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.pdb
 C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.xml
 C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.DataSet.xml
-C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.RestaurarBackup.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Activación.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Localidades.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.DatosDesplegables.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Backup.resources
-C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.csproj.CopyComplete
+C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\CompuGross.exe.manifest
+C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\CompuGross.application
+C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.exe.manifest
+C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.application
+C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.ListadoPrecios.resources
