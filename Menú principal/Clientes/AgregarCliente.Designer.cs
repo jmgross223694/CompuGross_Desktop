@@ -55,10 +55,9 @@
             this.compuGrossDataSet1 = new CompuGross.CompuGrossDataSet();
             this.lblMailValido = new System.Windows.Forms.Label();
             this.lblMailInvalido = new System.Windows.Forms.Label();
-            this.btnConfirmar = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfirmar)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDni
@@ -242,6 +241,7 @@
             // ddlLocalidad
             // 
             this.ddlLocalidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.ddlLocalidad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlLocalidad.DisplayMember = "ID";
             this.ddlLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlLocalidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -404,20 +404,6 @@
             this.lblMailInvalido.Text = "INVÁLIDO";
             this.lblMailInvalido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirmar.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.Image")));
-            this.btnConfirmar.Location = new System.Drawing.Point(665, 468);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(50, 50);
-            this.btnConfirmar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnConfirmar.TabIndex = 33;
-            this.btnConfirmar.TabStop = false;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
-            this.btnConfirmar.MouseLeave += new System.EventHandler(this.btnConfirmar_MouseLeave);
-            this.btnConfirmar.MouseHover += new System.EventHandler(this.btnConfirmar_MouseHover);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -429,6 +415,21 @@
             this.label4.TabIndex = 34;
             this.label4.Text = "Nuevo cliente";
             // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.BackgroundImage")));
+            this.btnConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmar.FlatAppearance.BorderSize = 0;
+            this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmar.Location = new System.Drawing.Point(665, 468);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(50, 50);
+            this.btnConfirmar.TabIndex = 35;
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
             // AgregarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -437,8 +438,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(905, 531);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblMailValido);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblTel2);
@@ -475,7 +476,6 @@
             this.Text = "Nuevo Cliente";
             this.Load += new System.EventHandler(this.Agregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfirmar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,7 +509,7 @@
         private CompuGrossDataSet compuGrossDataSet1;
         private System.Windows.Forms.Label lblMailValido;
         private System.Windows.Forms.Label lblMailInvalido;
-        private System.Windows.Forms.PictureBox btnConfirmar;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnConfirmar;
     }
 }

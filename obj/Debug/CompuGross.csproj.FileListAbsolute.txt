@@ -55,3 +55,4 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\CompuGross.application
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.exe.manifest
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.application
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.ListadoPrecios.resources
+C:\Users\JuanMa\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.csproj.CopyComplete
