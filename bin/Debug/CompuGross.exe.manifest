@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompuGross.exe" size="11097040">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompuGross.exe" size="11097552">
       <assemblyIdentity name="CompuGross" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GWGoTB5BISRY61N/C90P1y16cR1kIiUuEIPXJXWIau8=</dsig:DigestValue>
+        <dsig:DigestValue>Dm6ZPk6jUX4ch22gqL2UUX3H4JV2u+loWP6g0jg72qY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o/5sTKIbFP5JzfRDXiBOpXmYvh857RHoNAkcF0eItys=</dsig:DigestValue>
+        <dsig:DigestValue>bzoHVRJwx6/RB0hBb/9/+d1bHBE6V0k/y364RvxFn/M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VHK9v+BjnhYo/eFOR5abV6Mimc+MFbpNkcvtUf5ROFs=</dsig:DigestValue>
+        <dsig:DigestValue>C4KYz7CxeQYZloGN0F+3sc1td+hNIU3VMAuhvtrHg/U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

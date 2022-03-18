@@ -15,6 +15,7 @@ namespace CompuGross
     public partial class Clientes : Form
     {
         private List<Cliente> listaClientes;
+        private Cliente cliente = new Cliente();
 
         public Clientes()
         {
@@ -24,10 +25,6 @@ namespace CompuGross
 
         private void listarTodos()
         {
-            //this.Height = 800;
-            //this.Width = 800;
-            //this.CenterToScreen();
-
             txtFiltro.Visible = true;
             txtFiltro.Enabled = true;
 
@@ -233,6 +230,9 @@ namespace CompuGross
             dgvClientes.Visible = true;
             txtFiltro.Text = "";
             txtFiltro.Focus();
+
+            MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -271,10 +271,10 @@ namespace CompuGross
                 if (dgvClientes.CurrentRow != null)
                 {
                     txtFiltro.Text = "";
+                    cargarDdlLocalidades();
+                    this.cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
 
-                    Cliente cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-
-                    cargarCamposCliente(cliente);
+                    cargarCamposCliente(this.cliente);
 
                     //ocultar campos de busqueda
                     menuStrip1.Visible = false;
@@ -309,6 +309,7 @@ namespace CompuGross
                 txtDni.Visible = true;
                 lblNombres.Visible = true;
                 txtNombres.Visible = true;
+                lblAsteriscoNombres.Visible = true;
                 lblDirección.Visible = true;
                 txtDireccion.Visible = true;
                 lblLocalidad.Visible = true;
@@ -317,6 +318,7 @@ namespace CompuGross
                 txtTelefono.Visible = true;
                 lblMail.Visible = true;
                 txtMail.Visible = true;
+                lblAsteriscoTelefono.Visible = true;
                 lblCamposObligatorios.Visible = true;
                 btnConfirmar.Visible = true;
             }
@@ -328,6 +330,7 @@ namespace CompuGross
                 txtDni.Visible = false;
                 lblNombres.Visible = false;
                 txtNombres.Visible = false;
+                lblAsteriscoNombres.Visible = false;
                 lblDirección.Visible = false;
                 txtDireccion.Visible = false;
                 lblLocalidad.Visible = false;
@@ -336,6 +339,7 @@ namespace CompuGross
                 txtTelefono.Visible = false;
                 lblMail.Visible = false;
                 txtMail.Visible = false;
+                lblAsteriscoTelefono.Visible = false;
                 lblCamposObligatorios.Visible = false;
                 btnConfirmar.Visible = false;
             }
@@ -375,19 +379,16 @@ namespace CompuGross
             {
                 MessageBox.Show("Apellido y Nombre sin completar.", "Atención!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 txtNombres.Focus();
             }
             else if (txtTelefono.Text == "")
             {
                 MessageBox.Show("Teléfono sin completar.", "Atención!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTelefono.BackColor = Color.FromArgb(255, 236, 236);
                 txtTelefono.Focus();
             }
             else
             {
-                txtTelefono.BackColor = Color.White;
                 string mail = txtMail.Text;
 
                 if (mail != "" && mail != "-")
@@ -396,52 +397,67 @@ namespace CompuGross
                     {
                         MessageBox.Show("El mail ingresado es inválido.", "Atención!!",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtMail.BackColor = Color.FromArgb(255, 236, 236);
                         txtMail.Focus();
                     }
                     else
                     {
-                        modificarMail();
+                        modificarCliente();
+                        visibilidadCamposModificarCliente("hide");
+                        cargarListado();
+                        menuStrip1.Visible = true;
+                        btnBuscar.Visible = true;
+                        txtFiltro.Visible = true;
+                        lblCantidadClientes.Visible = true;
+                        dgvClientes.Visible = true;
+                        txtFiltro.Text = "";
                     }
                 }
-                else { modificarMail(); }
+                else 
+                { 
+                    modificarCliente();
+                    visibilidadCamposModificarCliente("hide");
+                    cargarListado();
+                    menuStrip1.Visible = true;
+                    btnBuscar.Visible = true;
+                    txtFiltro.Visible = true;
+                    lblCantidadClientes.Visible = true;
+                    dgvClientes.Visible = true;
+                    txtFiltro.Text = "";
+                }
             }
         }
 
-        private void modificarMail()
+        private void modificarCliente()
         {
-            txtMail.BackColor = Color.White;
-
             ClienteDB clienteDB = new ClienteDB();
 
-            Cliente cliente = new Cliente();
-
-            cliente.Id = Convert.ToInt64(txtFiltro.Text);
-            cliente.Nombres = txtNombres.Text;
-            cliente.DNI = txtDni.Text;
-            cliente.Direccion = txtDireccion.Text;
-            cliente.Localidad = ddlLocalidades.SelectedItem.ToString();
-            cliente.Telefono = txtTelefono.Text;
-            cliente.Mail = txtMail.Text;
+            this.cliente.Id = Convert.ToInt64(txtFiltro.Text);
+            this.cliente.Nombres = txtNombres.Text;
+            this.cliente.DNI = txtDni.Text;
+            this.cliente.Direccion = txtDireccion.Text;
+            this.cliente.Localidad = ddlLocalidades.SelectedItem.ToString();
+            this.cliente.Telefono = txtTelefono.Text;
+            this.cliente.Mail = txtMail.Text;
 
             try
             {
                 int clienteModificado = 0;
-                clienteModificado = clienteDB.ModificarCliente(cliente);
+                clienteModificado = clienteDB.ModificarCliente(this.cliente);
 
                 if (clienteModificado == 1)
                 {
-                    //MessageBox.Show("Cliente modificado con éxito!", "Atención!!",
-                    //    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //Clientes frmClientes = new Clientes();
-                    //this.Hide();
-                    //frmClientes.ShowDialog();
+                    MessageBox.Show("¡Cliente " + this.cliente.Nombres + " modificado/a con éxito!", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
             {
-                MessageBox.Show("Se produjo un error y no se modificó el cliente.", "Atención!!",
+                MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.cliente = null;
             }
         }
 

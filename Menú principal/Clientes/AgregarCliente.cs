@@ -74,8 +74,6 @@ namespace CompuGross
 
         private void modificarMail()
         {
-            txtMail.BackColor = Color.White;
-
             ClienteDB clienteDB = new ClienteDB();
 
             Cliente cliente = new Cliente();
@@ -277,19 +275,16 @@ namespace CompuGross
                 { 
                     lblMailValido.Visible = true; 
                     lblMailInvalido.Visible = false;
-                    txtMail.BackColor = Color.White;
                     btnConfirmar.Enabled = true;
                 }
                 else 
                 { 
                     lblMailValido.Visible = false; 
                     lblMailInvalido.Visible = true;
-                    txtMail.BackColor = Color.FromArgb(255, 236, 236);
                 }
             }
             else
             {
-                txtMail.BackColor = Color.White;
                 btnConfirmar.Enabled = true;
             }
         }
