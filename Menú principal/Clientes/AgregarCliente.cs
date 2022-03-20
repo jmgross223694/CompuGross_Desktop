@@ -23,8 +23,6 @@ namespace CompuGross
         private void Agregar_Load(object sender, EventArgs e)
         {
             cargarDdlLocalidades();
-            txtTelefonoEditar.Visible = false;
-            txtTelefonoEditar.Enabled = false;
             lblTel1.Visible = true;
             lblTel2.Visible = true;
             txtTelefono1.Visible = true;
@@ -69,41 +67,6 @@ namespace CompuGross
             finally
             {
                 datos.CerrarConexion();
-            }
-        }
-
-        private void modificarMail()
-        {
-            ClienteDB clienteDB = new ClienteDB();
-
-            Cliente cliente = new Cliente();
-
-            cliente.Id = Convert.ToInt64(txtId.Text);
-            cliente.Nombres = txtNombres.Text;
-            cliente.DNI = txtDni.Text;
-            cliente.Direccion = txtDireccion.Text;
-            cliente.Localidad = ddlLocalidad.SelectedItem.ToString();
-            cliente.Telefono = txtTelefonoEditar.Text;
-            cliente.Mail = txtMail.Text;
-
-            try
-            {
-                int clienteModificado = 0;
-                clienteModificado = clienteDB.ModificarCliente(cliente);
-
-                if (clienteModificado == 1)
-                {
-                    //MessageBox.Show("Cliente modificado con éxito!", "Atención!!",
-                    //    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //Clientes frmClientes = new Clientes();
-                    //this.Hide();
-                    //frmClientes.ShowDialog();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Se produjo un error y no se modificó el cliente.", "Atención!!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -235,18 +198,6 @@ namespace CompuGross
             soloLetras(sender, e);
         }
 
-        private void txtTelefonoEditar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == '-')
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
         private void txtTelefono1_KeyPress(object sender, KeyPressEventArgs e)
         {
             soloNumeros(sender, e);
@@ -267,7 +218,6 @@ namespace CompuGross
             if (txtMail.Text != "" && txtMail.Text != "-")
             {
                 string mail = txtMail.Text;
-                int len = mail.Length;
 
                 bool mailValido = validarMail(mail);
 
@@ -293,8 +243,16 @@ namespace CompuGross
         {
             string mail = txtMail.Text;
 
-            if (validarMail(mail)) { lblMailValido.Visible = true; lblMailInvalido.Visible = false; }
-            else { lblMailValido.Visible = false; lblMailInvalido.Visible = true; }
+            if (mail != "")
+            {
+                if (validarMail(mail)) { lblMailValido.Visible = true; lblMailInvalido.Visible = false; }
+                else { lblMailValido.Visible = false; lblMailInvalido.Visible = true; }
+            }
+            else
+            {
+                lblMailValido.Visible = false;
+                lblMailInvalido.Visible = false;
+            }
         }
 
         private void txtMail_Leave(object sender, EventArgs e)

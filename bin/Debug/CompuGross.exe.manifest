@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompuGross.exe" size="11097552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompuGross.exe" size="11105232">
       <assemblyIdentity name="CompuGross" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Dm6ZPk6jUX4ch22gqL2UUX3H4JV2u+loWP6g0jg72qY=</dsig:DigestValue>
+        <dsig:DigestValue>aEbyRybRkT0XwS5DDRtD3h0kLN9S+GIN6GIh5MCu1jE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

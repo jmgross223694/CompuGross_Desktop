@@ -50,7 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblTel1 = new System.Windows.Forms.Label();
             this.lblTel2 = new System.Windows.Forms.Label();
-            this.txtTelefonoEditar = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.compuGrossDataSet1 = new CompuGross.CompuGrossDataSet();
             this.lblMailValido = new System.Windows.Forms.Label();
@@ -348,20 +347,6 @@
             this.lblTel2.TabIndex = 28;
             this.lblTel2.Text = "Sin \'0\'";
             // 
-            // txtTelefonoEditar
-            // 
-            this.txtTelefonoEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.txtTelefonoEditar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTelefonoEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoEditar.ForeColor = System.Drawing.Color.White;
-            this.txtTelefonoEditar.Location = new System.Drawing.Point(132, 345);
-            this.txtTelefonoEditar.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTelefonoEditar.MaxLength = 50;
-            this.txtTelefonoEditar.Name = "txtTelefonoEditar";
-            this.txtTelefonoEditar.Size = new System.Drawing.Size(466, 24);
-            this.txtTelefonoEditar.TabIndex = 29;
-            this.txtTelefonoEditar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoEditar_KeyPress);
-            // 
             // txtId
             // 
             this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
@@ -464,7 +449,6 @@
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.lblMailInvalido);
             this.Controls.Add(this.txtMail);
-            this.Controls.Add(this.txtTelefonoEditar);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -504,7 +488,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTel1;
         private System.Windows.Forms.Label lblTel2;
-        private System.Windows.Forms.TextBox txtTelefonoEditar;
         private System.Windows.Forms.TextBox txtId;
         private CompuGrossDataSet compuGrossDataSet1;
         private System.Windows.Forms.Label lblMailValido;

@@ -31,9 +31,9 @@ namespace CompuGross
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.compuGrossDataSet = new CompuGross.CompuGrossDataSet();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new CompuGross.CompuGrossDataSetTableAdapters.ClientesTableAdapter();
@@ -98,7 +98,7 @@ namespace CompuGross
             this.txtFiltro.MaxLength = 200;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(517, 26);
-            this.txtFiltro.TabIndex = 1;
+            this.txtFiltro.TabIndex = 0;
             this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
             this.txtFiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyUp);
             // 
@@ -137,6 +137,7 @@ namespace CompuGross
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
             this.modificarToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
+            this.modificarToolStripMenuItem.ToolTipText = "Modificar cliente";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
@@ -147,6 +148,7 @@ namespace CompuGross
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.ToolTipText = "Eliminar cliente";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // lblCantidadClientes
@@ -176,7 +178,7 @@ namespace CompuGross
             this.lblDni.AutoSize = true;
             this.lblDni.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDni.ForeColor = System.Drawing.Color.White;
-            this.lblDni.Location = new System.Drawing.Point(43, 91);
+            this.lblDni.Location = new System.Drawing.Point(112, 91);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(76, 17);
             this.lblDni.TabIndex = 13;
@@ -187,9 +189,9 @@ namespace CompuGross
             // 
             this.lblNombres.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombres.ForeColor = System.Drawing.Color.White;
-            this.lblNombres.Location = new System.Drawing.Point(30, 119);
+            this.lblNombres.Location = new System.Drawing.Point(352, 79);
             this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(76, 41);
+            this.lblNombres.Size = new System.Drawing.Size(154, 41);
             this.lblNombres.TabIndex = 14;
             this.lblNombres.Text = "apellido y nombre";
             this.lblNombres.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -200,7 +202,7 @@ namespace CompuGross
             this.lblMail.AutoSize = true;
             this.lblMail.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMail.ForeColor = System.Drawing.Color.White;
-            this.lblMail.Location = new System.Drawing.Point(56, 296);
+            this.lblMail.Location = new System.Drawing.Point(401, 255);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(39, 17);
             this.lblMail.TabIndex = 16;
@@ -212,7 +214,7 @@ namespace CompuGross
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono.ForeColor = System.Drawing.Color.White;
-            this.lblTelefono.Location = new System.Drawing.Point(43, 255);
+            this.lblTelefono.Location = new System.Drawing.Point(109, 255);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(74, 17);
             this.lblTelefono.TabIndex = 17;
@@ -224,7 +226,7 @@ namespace CompuGross
             this.lblLocalidad.AutoSize = true;
             this.lblLocalidad.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocalidad.ForeColor = System.Drawing.Color.White;
-            this.lblLocalidad.Location = new System.Drawing.Point(43, 211);
+            this.lblLocalidad.Location = new System.Drawing.Point(386, 167);
             this.lblLocalidad.Name = "lblLocalidad";
             this.lblLocalidad.Size = new System.Drawing.Size(81, 17);
             this.lblLocalidad.TabIndex = 18;
@@ -236,7 +238,7 @@ namespace CompuGross
             this.lblDirección.AutoSize = true;
             this.lblDirección.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDirección.ForeColor = System.Drawing.Color.White;
-            this.lblDirección.Location = new System.Drawing.Point(43, 169);
+            this.lblDirección.Location = new System.Drawing.Point(109, 167);
             this.lblDirección.Name = "lblDirección";
             this.lblDirección.Size = new System.Drawing.Size(79, 17);
             this.lblDirección.TabIndex = 19;
@@ -247,81 +249,98 @@ namespace CompuGross
             // 
             this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtDni.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.ForeColor = System.Drawing.Color.White;
-            this.txtDni.Location = new System.Drawing.Point(125, 87);
+            this.txtDni.Location = new System.Drawing.Point(12, 119);
+            this.txtDni.MaxLength = 9;
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(391, 24);
-            this.txtDni.TabIndex = 20;
+            this.txtDni.Size = new System.Drawing.Size(254, 24);
+            this.txtDni.TabIndex = 2;
+            this.txtDni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDni.Visible = false;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // txtNombres
             // 
             this.txtNombres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtNombres.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombres.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombres.ForeColor = System.Drawing.Color.White;
-            this.txtNombres.Location = new System.Drawing.Point(124, 125);
+            this.txtNombres.Location = new System.Drawing.Point(302, 119);
+            this.txtNombres.MaxLength = 200;
             this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(391, 24);
-            this.txtNombres.TabIndex = 21;
+            this.txtNombres.Size = new System.Drawing.Size(252, 24);
+            this.txtNombres.TabIndex = 3;
+            this.txtNombres.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombres.Visible = false;
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.ForeColor = System.Drawing.Color.White;
-            this.txtDireccion.Location = new System.Drawing.Point(124, 165);
+            this.txtDireccion.Location = new System.Drawing.Point(12, 197);
+            this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(391, 24);
-            this.txtDireccion.TabIndex = 22;
+            this.txtDireccion.Size = new System.Drawing.Size(254, 24);
+            this.txtDireccion.TabIndex = 4;
+            this.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDireccion.Visible = false;
             // 
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.ForeColor = System.Drawing.Color.White;
-            this.txtTelefono.Location = new System.Drawing.Point(125, 252);
+            this.txtTelefono.Location = new System.Drawing.Point(12, 285);
+            this.txtTelefono.MaxLength = 50;
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(391, 24);
-            this.txtTelefono.TabIndex = 24;
+            this.txtTelefono.Size = new System.Drawing.Size(254, 24);
+            this.txtTelefono.TabIndex = 6;
             this.txtTelefono.Visible = false;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtMail
             // 
             this.txtMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtMail.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.ForeColor = System.Drawing.Color.White;
-            this.txtMail.Location = new System.Drawing.Point(124, 293);
+            this.txtMail.Location = new System.Drawing.Point(302, 285);
+            this.txtMail.MaxLength = 100;
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(391, 24);
-            this.txtMail.TabIndex = 25;
+            this.txtMail.Size = new System.Drawing.Size(252, 24);
+            this.txtMail.TabIndex = 7;
             this.txtMail.Visible = false;
+            this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
+            this.txtMail.Enter += new System.EventHandler(this.txtMail_Enter);
+            this.txtMail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMail_KeyPress);
+            this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
             // 
             // ddlLocalidades
             // 
             this.ddlLocalidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.ddlLocalidades.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlLocalidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlLocalidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ddlLocalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlLocalidades.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlLocalidades.ForeColor = System.Drawing.Color.White;
             this.ddlLocalidades.FormattingEnabled = true;
-            this.ddlLocalidades.Location = new System.Drawing.Point(125, 206);
+            this.ddlLocalidades.Location = new System.Drawing.Point(302, 194);
             this.ddlLocalidades.Name = "ddlLocalidades";
-            this.ddlLocalidades.Size = new System.Drawing.Size(391, 28);
-            this.ddlLocalidades.TabIndex = 26;
+            this.ddlLocalidades.Size = new System.Drawing.Size(252, 27);
+            this.ddlLocalidades.TabIndex = 5;
             this.ddlLocalidades.Visible = false;
             // 
             // lblAsteriscoNombres
             // 
             this.lblAsteriscoNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsteriscoNombres.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsteriscoNombres.Location = new System.Drawing.Point(521, 126);
+            this.lblAsteriscoNombres.Location = new System.Drawing.Point(341, 91);
             this.lblAsteriscoNombres.Name = "lblAsteriscoNombres";
             this.lblAsteriscoNombres.Size = new System.Drawing.Size(14, 23);
             this.lblAsteriscoNombres.TabIndex = 27;
@@ -332,7 +351,7 @@ namespace CompuGross
             // 
             this.lblAsteriscoTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsteriscoTelefono.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsteriscoTelefono.Location = new System.Drawing.Point(521, 255);
+            this.lblAsteriscoTelefono.Location = new System.Drawing.Point(91, 255);
             this.lblAsteriscoTelefono.Name = "lblAsteriscoTelefono";
             this.lblAsteriscoTelefono.Size = new System.Drawing.Size(14, 23);
             this.lblAsteriscoTelefono.TabIndex = 28;
@@ -343,7 +362,7 @@ namespace CompuGross
             // 
             this.lblCamposObligatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCamposObligatorios.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblCamposObligatorios.Location = new System.Drawing.Point(34, 360);
+            this.lblCamposObligatorios.Location = new System.Drawing.Point(9, 371);
             this.lblCamposObligatorios.Name = "lblCamposObligatorios";
             this.lblCamposObligatorios.Size = new System.Drawing.Size(144, 23);
             this.lblCamposObligatorios.TabIndex = 29;
@@ -353,28 +372,29 @@ namespace CompuGross
             // btnConfirmar
             // 
             this.btnConfirmar.AutoSize = true;
-            this.btnConfirmar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.BackgroundImage")));
             this.btnConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmar.Location = new System.Drawing.Point(466, 333);
+            this.btnConfirmar.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmar.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.Image")));
+            this.btnConfirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirmar.Location = new System.Drawing.Point(442, 344);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(50, 50);
-            this.btnConfirmar.TabIndex = 30;
+            this.btnConfirmar.Size = new System.Drawing.Size(112, 50);
+            this.btnConfirmar.TabIndex = 8;
+            this.btnConfirmar.Text = "CONFIRMAR";
+            this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Visible = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // lblMailValido
             // 
-            this.lblMailValido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMailValido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMailValido.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblMailValido.Location = new System.Drawing.Point(124, 320);
+            this.lblMailValido.Location = new System.Drawing.Point(301, 310);
             this.lblMailValido.Name = "lblMailValido";
             this.lblMailValido.Size = new System.Drawing.Size(54, 16);
             this.lblMailValido.TabIndex = 31;
@@ -383,12 +403,9 @@ namespace CompuGross
             // 
             // lblMailInvalido
             // 
-            this.lblMailInvalido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMailInvalido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMailInvalido.ForeColor = System.Drawing.Color.Red;
-            this.lblMailInvalido.Location = new System.Drawing.Point(124, 320);
+            this.lblMailInvalido.Location = new System.Drawing.Point(301, 310);
             this.lblMailInvalido.Name = "lblMailInvalido";
             this.lblMailInvalido.Size = new System.Drawing.Size(77, 16);
             this.lblMailInvalido.TabIndex = 32;
@@ -399,7 +416,7 @@ namespace CompuGross
             // 
             this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
-            this.btnAtras.Location = new System.Drawing.Point(466, 15);
+            this.btnAtras.Location = new System.Drawing.Point(504, 15);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(50, 50);
             this.btnAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -422,25 +439,25 @@ namespace CompuGross
             this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClientes.ColumnHeadersHeight = 30;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.Location = new System.Drawing.Point(12, 91);
@@ -450,12 +467,12 @@ namespace CompuGross
             this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.ShowCellErrors = false;
             this.dgvClientes.ShowCellToolTips = false;
@@ -463,7 +480,7 @@ namespace CompuGross
             this.dgvClientes.ShowRowErrors = false;
             this.dgvClientes.Size = new System.Drawing.Size(544, 454);
             this.dgvClientes.StandardTab = true;
-            this.dgvClientes.TabIndex = 7;
+            this.dgvClientes.TabIndex = 1;
             // 
             // Clientes
             // 

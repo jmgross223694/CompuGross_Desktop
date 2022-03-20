@@ -21,6 +21,7 @@ namespace CompuGross
         {
             InitializeComponent();
             listarTodos();
+            cargarDdlLocalidades();
         }
 
         private void listarTodos()
@@ -271,7 +272,6 @@ namespace CompuGross
                 if (dgvClientes.CurrentRow != null)
                 {
                     txtFiltro.Text = "";
-                    cargarDdlLocalidades();
                     this.cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
 
                     cargarCamposCliente(this.cliente);
@@ -476,6 +476,162 @@ namespace CompuGross
             }
 
             return resultado;
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(sender, e);
+        }
+
+        private void soloNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void soloLetras(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ' ')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '-')
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloLetras(sender, e);
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == '-')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMail_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMail.Text != "" && txtMail.Text != "-")
+            {
+                string mail = txtMail.Text;
+                int len = mail.Length;
+
+                bool mailValido = validarMail(mail);
+
+                if (mailValido)
+                {
+                    lblMailValido.Visible = true;
+                    lblMailInvalido.Visible = false;
+                }
+                else
+                {
+                    lblMailValido.Visible = false;
+                    lblMailInvalido.Visible = true;
+                }
+            }
+            else
+            {
+                lblMailValido.Visible = false;
+                lblMailInvalido.Visible = false;
+            }
+        }
+
+        private void txtMail_Enter(object sender, EventArgs e)
+        {
+            string mail = txtMail.Text;
+
+            if (mail != "")
+            {
+                if (validarMail(mail)) { lblMailValido.Visible = true; lblMailInvalido.Visible = false; }
+                else { lblMailValido.Visible = false; lblMailInvalido.Visible = true; }
+            }
+            else
+            {
+                lblMailValido.Visible = false;
+                lblMailInvalido.Visible = false;
+            }
+        }
+
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            lblMailInvalido.Visible = false;
+            lblMailValido.Visible = false;
+        }
+
+        private void txtMail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string mail = txtMail.Text;
+
+            if (mail.Length <3  && e.KeyChar == '@')
+            {
+                e.Handled = true;
+            }
+            else if (mail.Contains("@") && mail.Contains(".com"))
+            {
+                e.Handled = true;
+
+                if (Char.IsControl(e.KeyChar))
+                {
+                    if (e.KeyChar == (char)Keys.Delete)
+                    {
+                        e.Handled = true;
+                    }
+                    else
+                    {
+                        e.Handled = false;
+                    }
+                }
+            }
+            else if (mail.Contains("@"))
+            {
+                if (Char.IsLetter(e.KeyChar) || e.KeyChar == '.')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || e.KeyChar == '_' || 
+                e.KeyChar == '-' || e.KeyChar == '.' || e.KeyChar == '@' || Char.IsLetter(e.KeyChar))
+            {
+                if (e.KeyChar != 'ñ')
+                {
+                    e.Handled = false;
+                }
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

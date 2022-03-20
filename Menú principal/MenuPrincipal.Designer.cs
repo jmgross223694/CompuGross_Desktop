@@ -558,6 +558,7 @@ namespace CompuGross
             this.btnAgregarServicio.Text = "Agregar nuevo";
             this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarServicio.UseVisualStyleBackColor = false;
+            this.btnAgregarServicio.Click += new System.EventHandler(this.btnAgregarServicio_Click);
             // 
             // pnSubMenuClientes
             // 

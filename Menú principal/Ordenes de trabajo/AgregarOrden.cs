@@ -32,8 +32,9 @@ namespace CompuGross
             lblBuscarCliente.Visible = false;
             txtBuscarCliente.Visible = false;
             fechaDevolucion.Enabled = false;
-            this.Height = 120;
-            this.Width = 270;
+            lblSeleccionarCliente.Text = "Seleccionar Cliente";
+            lblSeleccionarCliente.Visible = true;
+            lblFechaDevolucion.ForeColor = Color.FromArgb(26, 26, 29);
 
             ddlTiposEquipo.SelectedValue = "-";
             ddlTiposServicio.SelectedValue = "-";
@@ -135,6 +136,7 @@ namespace CompuGross
             lblAsterisco3.Visible = false;
             lblAsterisco4.Visible = false;
             lblAsterisco5.Visible = false;
+            lblCamposObligatorios.Visible = false;
 
             cbFechaDevolucion.Visible = false;
         }
@@ -184,6 +186,7 @@ namespace CompuGross
             lblAsterisco3.Visible = true;
             lblAsterisco4.Visible = true;
             lblAsterisco5.Visible = true;
+            lblCamposObligatorios.Visible = true;
 
             cbFechaDevolucion.Visible = true;
         }
@@ -360,11 +363,6 @@ namespace CompuGross
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            this.Height = 596;
-            this.Width = 544;
-
-            this.CenterToScreen();
-
             if (dgvClientes.Visible == false)
             {
                 ocultarCampos();
@@ -374,6 +372,7 @@ namespace CompuGross
 
                 lblBuscarCliente.Visible = true;
                 txtBuscarCliente.Visible = true;
+                lblSeleccionarCliente.Text = "Confirmar Cliente";
             }
             else
             {
@@ -388,37 +387,22 @@ namespace CompuGross
                 lblBuscarCliente.Visible = false;
                 txtBuscarCliente.Visible = false;
                 txtBuscarCliente.Text = "";
+                lblSeleccionarCliente.Text = "Seleccionar Cliente";
+                lblSeleccionarCliente.Visible = false;
             }
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            ddlTiposServicio.BackColor = Color.White;
-            ddlTiposEquipo.BackColor = Color.White;
-            txtMarcaModelo.BackColor = Color.White;
-            txtCostoManoObra.BackColor = Color.White;
-            txtDescripcion.BackColor = Color.White;
-
             if (ddlTiposEquipo.SelectedItem.ToString() == "-"
                || txtMarcaModelo.Text == "" || ddlTiposServicio.SelectedItem.ToString() == "-"
                || txtCostoManoObra.Text == "" || txtDescripcion.Text == "")
             {
                 MessageBox.Show("Faltan completar campos obligatorios !!");
-                if (ddlTiposServicio.SelectedItem.ToString() == "-")
-                { ddlTiposServicio.BackColor = Color.FromArgb(255, 175, 158); }
-                if (ddlTiposEquipo.SelectedItem.ToString() == "-")
-                { ddlTiposEquipo.BackColor = Color.FromArgb(255, 175, 158); }
-                if (txtMarcaModelo.Text == "")
-                { txtMarcaModelo.BackColor = Color.FromArgb(255, 175, 158); }
-                if (txtCostoManoObra.Text == "")
-                { txtCostoManoObra.BackColor = Color.FromArgb(255, 175, 158); }
-                if (txtDescripcion.Text == "")
-                { txtDescripcion.BackColor = Color.FromArgb(255, 175, 158); }
             }
             else if (txtDescripcion.Text.Contains("-"))
             {
                 MessageBox.Show("La descripción no puede contener '-'.");
-                txtDescripcion.BackColor = Color.FromArgb(255, 175, 158);
             }
             else
             {
@@ -581,8 +565,16 @@ namespace CompuGross
 
         private void cbFechaDevolucion_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbFechaDevolucion.Checked == true) { fechaDevolucion.Enabled = true; }
-            else { fechaDevolucion.Enabled = false; }
+            if (cbFechaDevolucion.Checked == true) 
+            { 
+                fechaDevolucion.Enabled = true;
+                lblFechaDevolucion.ForeColor = Color.White;
+            }
+            else 
+            { 
+                fechaDevolucion.Enabled = false;
+                lblFechaDevolucion.ForeColor = Color.FromArgb(26,26,29);
+            }
         }
 
         private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
@@ -648,18 +640,66 @@ namespace CompuGross
             soloNumeros(sender, e);
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
+        private void lblSeleccionarCliente_Click(object sender, EventArgs e)
         {
-            OrdenesTrabajo frmOrdenesTrabajo = new OrdenesTrabajo();
-            this.Hide();
-            frmOrdenesTrabajo.ShowDialog();
+            if (dgvClientes.Visible == false)
+            {
+                ocultarCampos();
+
+                dgvClientes.Visible = true;
+                ocultarColumnasClientes();
+
+                lblBuscarCliente.Visible = true;
+                txtBuscarCliente.Visible = true;
+                lblSeleccionarCliente.Text = "Confirmar Cliente";
+            }
+            else
+            {
+                Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+
+                mostrarCampos();
+
+                txtCliente.Text = seleccionado.Nombres;
+
+                dgvClientes.Visible = false;
+
+                lblBuscarCliente.Visible = false;
+                txtBuscarCliente.Visible = false;
+                txtBuscarCliente.Text = "";
+                lblSeleccionarCliente.Text = "Seleccionar Cliente";
+                lblSeleccionarCliente.Visible = false;
+            }
         }
 
-        private void AgregarOrden_FormClosed(object sender, FormClosedEventArgs e)
+        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            OrdenesTrabajo frmOrdenesTrabajo = new OrdenesTrabajo();
-            this.Hide();
-            frmOrdenesTrabajo.ShowDialog();
+            if (dgvClientes.Visible == false)
+            {
+                ocultarCampos();
+
+                dgvClientes.Visible = true;
+                ocultarColumnasClientes();
+
+                lblBuscarCliente.Visible = true;
+                txtBuscarCliente.Visible = true;
+                lblSeleccionarCliente.Text = "Confirmar Cliente";
+            }
+            else
+            {
+                Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+
+                mostrarCampos();
+
+                txtCliente.Text = seleccionado.Nombres;
+
+                dgvClientes.Visible = false;
+
+                lblBuscarCliente.Visible = false;
+                txtBuscarCliente.Visible = false;
+                txtBuscarCliente.Text = "";
+                lblSeleccionarCliente.Text = "Seleccionar Cliente";
+                lblSeleccionarCliente.Visible = false;
+            }
         }
     }
 }
