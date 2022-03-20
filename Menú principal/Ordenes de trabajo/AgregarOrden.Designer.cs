@@ -143,7 +143,7 @@ namespace CompuGross
             this.ddlTiposEquipo.ItemHeight = 13;
             this.ddlTiposEquipo.Items.AddRange(new object[] {
             "-"});
-            this.ddlTiposEquipo.Location = new System.Drawing.Point(12, 122);
+            this.ddlTiposEquipo.Location = new System.Drawing.Point(12, 123);
             this.ddlTiposEquipo.MaxDropDownItems = 15;
             this.ddlTiposEquipo.Name = "ddlTiposEquipo";
             this.ddlTiposEquipo.Size = new System.Drawing.Size(146, 21);
@@ -155,7 +155,7 @@ namespace CompuGross
             this.txtPlacaMadre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPlacaMadre.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlacaMadre.ForeColor = System.Drawing.Color.White;
-            this.txtPlacaMadre.Location = new System.Drawing.Point(358, 167);
+            this.txtPlacaMadre.Location = new System.Drawing.Point(358, 166);
             this.txtPlacaMadre.MaxLength = 50;
             this.txtPlacaMadre.Name = "txtPlacaMadre";
             this.txtPlacaMadre.Size = new System.Drawing.Size(150, 20);
@@ -778,7 +778,7 @@ namespace CompuGross
             this.lblSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblSeleccionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeleccionarCliente.ForeColor = System.Drawing.Color.White;
-            this.lblSeleccionarCliente.Location = new System.Drawing.Point(12, 46);
+            this.lblSeleccionarCliente.Location = new System.Drawing.Point(13, 46);
             this.lblSeleccionarCliente.Name = "lblSeleccionarCliente";
             this.lblSeleccionarCliente.Size = new System.Drawing.Size(198, 25);
             this.lblSeleccionarCliente.TabIndex = 54;
@@ -794,6 +794,7 @@ namespace CompuGross
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(529, 381);
+            this.Controls.Add(this.lblSeleccionarCliente);
             this.Controls.Add(this.lblCamposObligatorios);
             this.Controls.Add(this.ddlCdDvd);
             this.Controls.Add(this.cbFechaDevolucion);
@@ -841,7 +842,6 @@ namespace CompuGross
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.txtBuscarCliente);
             this.Controls.Add(this.lblBuscarCliente);
-            this.Controls.Add(this.lblSeleccionarCliente);
             this.Controls.Add(this.txtCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

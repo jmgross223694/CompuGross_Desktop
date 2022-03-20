@@ -15,30 +15,20 @@ namespace CompuGross
     public partial class OrdenesTrabajo : Form
     {
         private List<OrdenTrabajo> listaOrdenes;
-        private bool bandera = false;
 
         public OrdenesTrabajo()
         {
             InitializeComponent();
-            btnEditar.Enabled = false;
-            btnBorrar.Enabled = false;
-            txtFiltro.Enabled = false;
-            txtFiltro.Visible = false;
-            lblFiltro.Visible = false;
-            lblListarTodas.Visible = true;
-            this.Height = 125;
         }
 
         public OrdenesTrabajo(bool bandera)
         {
             InitializeComponent();
-            this.bandera = bandera;
-            if (this.bandera) { listarTodas(); }
         }
 
         private void OrdenesTrabajo_Load(object sender, EventArgs e)
         {
-            
+            listarTodas();
         }
 
         private void cargarListado()
@@ -128,29 +118,6 @@ namespace CompuGross
             dgvOrdenesTrabajo.Columns["Ganancia"].DisplayIndex = 8;
         }
 
-        private void btnBorrar_Click(object sender, EventArgs e)
-        {
-            OrdenTrabajo seleccionado = (OrdenTrabajo)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
-            OrdenTrabajoDB ordentTrabajoDB = new OrdenTrabajoDB();
-
-            try
-            {
-                if (MessageBox.Show("¿Está seguro de eliminar la Orden N° " + seleccionado.ID + " del cliente " + 
-                                    seleccionado.Cliente + "?", "Atención!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    ordentTrabajoDB.EliminarOrden(seleccionado.ID);
-                    MessageBox.Show("La Orden N° " + seleccionado.ID + ", del cliente " + seleccionado.Cliente + 
-                                    ", se ha eliminado correctamente");
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
         private void BuscarFiltro()
         {
             cargarListado();
@@ -203,39 +170,6 @@ namespace CompuGross
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            AgregarOrden frmAgregar = new AgregarOrden();
-            this.Hide();
-            frmAgregar.ShowDialog();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvOrdenesTrabajo.CurrentRow != null)
-                {
-                    txtFiltro.Text = "";
-                    
-                    OrdenTrabajo seleccionado = (OrdenTrabajo)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
-
-                    AgregarOrden frmModificar = new AgregarOrden(seleccionado);
-                    this.Hide();
-                    frmModificar.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("No se ha seleccionado ninguna orden.", "Atención!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch
-            {
-                
-            }
-        }
-
         private void lblFiltro_Click(object sender, EventArgs e)
         {
              
@@ -243,16 +177,6 @@ namespace CompuGross
 
         private void listarTodas()
         {
-            this.Height = 800;
-            this.CenterToScreen();
-
-            lblListarTodas.Visible = false;
-            btnEditar.Enabled = true;
-            btnBorrar.Enabled = true;
-            lblFiltro.Visible = true;
-            txtFiltro.Visible = true;
-            txtFiltro.Enabled = true;
-
             if (dgvOrdenesTrabajo.DataSource == null)
             {
                 cargarListado();
@@ -284,24 +208,55 @@ namespace CompuGross
             }
         }
 
-        private void lblListarTodas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            listarTodas();
-        }
-
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            MenuPrincipal frmMenu = new MenuPrincipal();
-            this.Hide();
-            frmMenu.ShowDialog();
+            
         }
 
-        private void OrdenesTrabajo_FormClosed(object sender, FormClosedEventArgs e)
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Login frmLogin = new Login();
-            frmLogin.borrarUsuarioLogueado();
+            try
+            {
+                if (dgvOrdenesTrabajo.CurrentRow != null)
+                {
+                    txtFiltro.Text = "";
+                    OrdenTrabajo seleccionado = (OrdenTrabajo)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
 
-            Application.Exit();
+                    MessageBox.Show("Orden seleccionada correctamente");
+                    //cargar campos orden
+                }
+                else
+                {
+                    MessageBox.Show("No se ha seleccionado ninguna orden.", "Atención!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrdenTrabajo seleccionado = (OrdenTrabajo)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
+            OrdenTrabajoDB ordentTrabajoDB = new OrdenTrabajoDB();
+
+            try
+            {
+                if (MessageBox.Show("¿Está seguro de eliminar la Orden N° " + seleccionado.ID + " del cliente " +
+                                    seleccionado.Cliente + "?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ordentTrabajoDB.EliminarOrden(seleccionado.ID);
+                    MessageBox.Show("La Orden N° " + seleccionado.ID + ", del cliente " + seleccionado.Cliente +
+                                    ", se ha eliminado correctamente");
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

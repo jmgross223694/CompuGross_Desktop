@@ -457,6 +457,7 @@ namespace CompuGross
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(844, 594);
             this.contentPanel.TabIndex = 20;
+            this.contentPanel.Click += new System.EventHandler(this.contentPanel_Click);
             // 
             // imgAgregarCliente
             // 
@@ -540,6 +541,7 @@ namespace CompuGross
             this.btnModificarServicio.Text = "Modificar";
             this.btnModificarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificarServicio.UseVisualStyleBackColor = false;
+            this.btnModificarServicio.Click += new System.EventHandler(this.btnModificarServicio_Click);
             // 
             // btnAgregarServicio
             // 

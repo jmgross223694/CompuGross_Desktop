@@ -221,21 +221,6 @@ namespace CompuGross
             Application.Exit();
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            visibilidadCamposModificarCliente("hide");
-            menuStrip1.Visible = true;
-            btnBuscar.Visible = true;
-            txtFiltro.Visible = true;
-            lblCantidadClientes.Visible = true;
-            dgvClientes.Visible = true;
-            txtFiltro.Text = "";
-            txtFiltro.Focus();
-
-            MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             BuscarFiltro();
@@ -277,7 +262,8 @@ namespace CompuGross
                     cargarCamposCliente(this.cliente);
 
                     //ocultar campos de busqueda
-                    menuStrip1.Visible = false;
+                    btnCancelar.Visible = true;
+                    btnModificar.Visible = false;
                     btnBuscar.Visible = false;
                     txtFiltro.Visible = false;
                     lblCantidadClientes.Visible = false;
@@ -303,8 +289,6 @@ namespace CompuGross
         {
             if (aux == "show")
             {
-                lblTitulo.Visible = true;
-                btnAtras.Visible = true;
                 lblDni.Visible = true;
                 txtDni.Visible = true;
                 lblNombres.Visible = true;
@@ -324,8 +308,6 @@ namespace CompuGross
             }
             else if (aux == "hide")
             {
-                lblTitulo.Visible = false;
-                btnAtras.Visible = false;
                 lblDni.Visible = false;
                 txtDni.Visible = false;
                 lblNombres.Visible = false;
@@ -404,7 +386,8 @@ namespace CompuGross
                         modificarCliente();
                         visibilidadCamposModificarCliente("hide");
                         cargarListado();
-                        menuStrip1.Visible = true;
+                        btnModificar.Visible = true;
+                        btnCancelar.Visible = false;
                         btnBuscar.Visible = true;
                         txtFiltro.Visible = true;
                         lblCantidadClientes.Visible = true;
@@ -417,7 +400,8 @@ namespace CompuGross
                     modificarCliente();
                     visibilidadCamposModificarCliente("hide");
                     cargarListado();
-                    menuStrip1.Visible = true;
+                    btnModificar.Visible = true;
+                    btnCancelar.Visible = false;
                     btnBuscar.Visible = true;
                     txtFiltro.Visible = true;
                     lblCantidadClientes.Visible = true;
@@ -632,6 +616,22 @@ namespace CompuGross
             {
                 e.Handled = true;
             }
+        }
+
+        private void cancelarEdiciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            visibilidadCamposModificarCliente("hide");
+            btnCancelar.Visible = false;
+            btnModificar.Visible = true;
+            btnBuscar.Visible = true;
+            txtFiltro.Visible = true;
+            lblCantidadClientes.Visible = true;
+            dgvClientes.Visible = true;
+            txtFiltro.Text = "";
+            txtFiltro.Focus();
+
+            MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

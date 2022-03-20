@@ -249,6 +249,19 @@ namespace CompuGross
             abrirFormHijo(new AgregarOrden());
         }
 
+        private void btnModificarServicio_Click(object sender, EventArgs e)
+        {
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+            abrirFormHijo(new OrdenesTrabajo());
+        }
+
+        private void contentPanel_Click(object sender, EventArgs e)
+        {
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+        }
+
         public void abrirFormHijo(object formHijo)
         {
             if (this.contentPanel.Controls.Count > 3)
