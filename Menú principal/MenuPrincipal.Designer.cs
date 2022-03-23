@@ -33,7 +33,7 @@ namespace CompuGross
             this.lblCompuGross = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUserTipo = new System.Windows.Forms.Label();
-            this.labelUser1 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.titleBar = new System.Windows.Forms.Panel();
             this.btnMaximize = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
@@ -50,13 +50,23 @@ namespace CompuGross
             this.pnBtnClientes = new System.Windows.Forms.Panel();
             this.iconoCG = new System.Windows.Forms.PictureBox();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.btnOrdenesTrabajo = new System.Windows.Forms.Button();
-            this.btnDatosDesplegables = new System.Windows.Forms.Button();
+            this.btnServicios = new System.Windows.Forms.Button();
+            this.btnLocalidades = new System.Windows.Forms.Button();
             this.btnPrecios = new System.Windows.Forms.Button();
             this.btnIngresos = new System.Windows.Forms.Button();
             this.btnBackup = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnIngresar = new System.Windows.Forms.Button();
+            this.btnEnviarCodigo = new System.Windows.Forms.Button();
+            this.cbMostrarClave1 = new System.Windows.Forms.CheckBox();
+            this.cbMostrarClave2 = new System.Windows.Forms.CheckBox();
+            this.lblClave = new System.Windows.Forms.Label();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.txtRecuperarClave = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.imgAgregarCliente = new System.Windows.Forms.PictureBox();
             this.pnSubMenuServicios = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -71,6 +81,13 @@ namespace CompuGross
             this.btnModificarCliente = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
+            this.lblIngreseCodigo = new System.Windows.Forms.Label();
+            this.lblClaveNueva = new System.Windows.Forms.Label();
+            this.lblCaracteres = new System.Windows.Forms.Label();
+            this.lblMayuscula = new System.Windows.Forms.Label();
+            this.lblMinuscula = new System.Windows.Forms.Label();
+            this.lblNumero = new System.Windows.Forms.Label();
+            this.lblRecuperarClave = new System.Windows.Forms.LinkLabel();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -121,18 +138,18 @@ namespace CompuGross
             this.lblUserTipo.TabIndex = 16;
             this.lblUserTipo.Text = "User (tipo)";
             // 
-            // labelUser1
+            // lblUsuario
             // 
-            this.labelUser1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelUser1.AutoSize = true;
-            this.labelUser1.BackColor = System.Drawing.Color.Transparent;
-            this.labelUser1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUser1.ForeColor = System.Drawing.Color.Silver;
-            this.labelUser1.Location = new System.Drawing.Point(4, 576);
-            this.labelUser1.Name = "labelUser1";
-            this.labelUser1.Size = new System.Drawing.Size(46, 13);
-            this.labelUser1.TabIndex = 17;
-            this.labelUser1.Text = "Usuario:";
+            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.Silver;
+            this.lblUsuario.Location = new System.Drawing.Point(4, 576);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.TabIndex = 17;
+            this.lblUsuario.Text = "Usuario:";
             // 
             // titleBar
             // 
@@ -210,11 +227,11 @@ namespace CompuGross
             this.leftPanel.Controls.Add(this.pnBtnClientes);
             this.leftPanel.Controls.Add(this.iconoCG);
             this.leftPanel.Controls.Add(this.btnClientes);
-            this.leftPanel.Controls.Add(this.btnOrdenesTrabajo);
+            this.leftPanel.Controls.Add(this.btnServicios);
             this.leftPanel.Controls.Add(this.lblUserTipo);
-            this.leftPanel.Controls.Add(this.btnDatosDesplegables);
+            this.leftPanel.Controls.Add(this.btnLocalidades);
             this.leftPanel.Controls.Add(this.btnPrecios);
-            this.leftPanel.Controls.Add(this.labelUser1);
+            this.leftPanel.Controls.Add(this.lblUsuario);
             this.leftPanel.Controls.Add(this.btnIngresos);
             this.leftPanel.Controls.Add(this.btnBackup);
             this.leftPanel.Controls.Add(this.btnUsuarios);
@@ -332,43 +349,43 @@ namespace CompuGross
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // btnOrdenesTrabajo
+            // btnServicios
             // 
-            this.btnOrdenesTrabajo.BackColor = System.Drawing.Color.Transparent;
-            this.btnOrdenesTrabajo.FlatAppearance.BorderSize = 0;
-            this.btnOrdenesTrabajo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnOrdenesTrabajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrdenesTrabajo.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrdenesTrabajo.ForeColor = System.Drawing.Color.Silver;
-            this.btnOrdenesTrabajo.Image = ((System.Drawing.Image)(resources.GetObject("btnOrdenesTrabajo.Image")));
-            this.btnOrdenesTrabajo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrdenesTrabajo.Location = new System.Drawing.Point(4, 246);
-            this.btnOrdenesTrabajo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOrdenesTrabajo.Name = "btnOrdenesTrabajo";
-            this.btnOrdenesTrabajo.Size = new System.Drawing.Size(183, 30);
-            this.btnOrdenesTrabajo.TabIndex = 1;
-            this.btnOrdenesTrabajo.Text = "Servicios";
-            this.btnOrdenesTrabajo.UseVisualStyleBackColor = false;
-            this.btnOrdenesTrabajo.Click += new System.EventHandler(this.btnOrdenesTrabajo_Click);
+            this.btnServicios.BackColor = System.Drawing.Color.Transparent;
+            this.btnServicios.FlatAppearance.BorderSize = 0;
+            this.btnServicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServicios.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServicios.ForeColor = System.Drawing.Color.Silver;
+            this.btnServicios.Image = ((System.Drawing.Image)(resources.GetObject("btnServicios.Image")));
+            this.btnServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServicios.Location = new System.Drawing.Point(4, 246);
+            this.btnServicios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnServicios.Name = "btnServicios";
+            this.btnServicios.Size = new System.Drawing.Size(183, 30);
+            this.btnServicios.TabIndex = 1;
+            this.btnServicios.Text = "Servicios";
+            this.btnServicios.UseVisualStyleBackColor = false;
+            this.btnServicios.Click += new System.EventHandler(this.btnOrdenesTrabajo_Click);
             // 
-            // btnDatosDesplegables
+            // btnLocalidades
             // 
-            this.btnDatosDesplegables.BackColor = System.Drawing.Color.Transparent;
-            this.btnDatosDesplegables.FlatAppearance.BorderSize = 0;
-            this.btnDatosDesplegables.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnDatosDesplegables.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDatosDesplegables.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDatosDesplegables.ForeColor = System.Drawing.Color.Silver;
-            this.btnDatosDesplegables.Image = ((System.Drawing.Image)(resources.GetObject("btnDatosDesplegables.Image")));
-            this.btnDatosDesplegables.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDatosDesplegables.Location = new System.Drawing.Point(4, 326);
-            this.btnDatosDesplegables.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDatosDesplegables.Name = "btnDatosDesplegables";
-            this.btnDatosDesplegables.Size = new System.Drawing.Size(183, 30);
-            this.btnDatosDesplegables.TabIndex = 6;
-            this.btnDatosDesplegables.Text = "Localidades";
-            this.btnDatosDesplegables.UseVisualStyleBackColor = false;
-            this.btnDatosDesplegables.Click += new System.EventHandler(this.btnDatosDesplegables_Click);
+            this.btnLocalidades.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocalidades.FlatAppearance.BorderSize = 0;
+            this.btnLocalidades.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnLocalidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLocalidades.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocalidades.ForeColor = System.Drawing.Color.Silver;
+            this.btnLocalidades.Image = ((System.Drawing.Image)(resources.GetObject("btnLocalidades.Image")));
+            this.btnLocalidades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLocalidades.Location = new System.Drawing.Point(4, 326);
+            this.btnLocalidades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLocalidades.Name = "btnLocalidades";
+            this.btnLocalidades.Size = new System.Drawing.Size(183, 30);
+            this.btnLocalidades.TabIndex = 6;
+            this.btnLocalidades.Text = "Localidades";
+            this.btnLocalidades.UseVisualStyleBackColor = false;
+            this.btnLocalidades.Click += new System.EventHandler(this.btnDatosDesplegables_Click);
             // 
             // btnPrecios
             // 
@@ -449,15 +466,213 @@ namespace CompuGross
             // contentPanel
             // 
             this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.contentPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contentPanel.BackgroundImage")));
+            this.contentPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.contentPanel.Controls.Add(this.lblRecuperarClave);
+            this.contentPanel.Controls.Add(this.lblNumero);
+            this.contentPanel.Controls.Add(this.lblMinuscula);
+            this.contentPanel.Controls.Add(this.lblMayuscula);
+            this.contentPanel.Controls.Add(this.lblCaracteres);
+            this.contentPanel.Controls.Add(this.lblTitulo);
+            this.contentPanel.Controls.Add(this.btnIngresar);
+            this.contentPanel.Controls.Add(this.btnEnviarCodigo);
+            this.contentPanel.Controls.Add(this.cbMostrarClave1);
+            this.contentPanel.Controls.Add(this.cbMostrarClave2);
+            this.contentPanel.Controls.Add(this.lblClave);
+            this.contentPanel.Controls.Add(this.lblDni);
+            this.contentPanel.Controls.Add(this.txtClave);
+            this.contentPanel.Controls.Add(this.txtRecuperarClave);
+            this.contentPanel.Controls.Add(this.txtDni);
             this.contentPanel.Controls.Add(this.imgAgregarCliente);
             this.contentPanel.Controls.Add(this.pnSubMenuServicios);
             this.contentPanel.Controls.Add(this.pnSubMenuClientes);
+            this.contentPanel.Controls.Add(this.lblIngreseCodigo);
+            this.contentPanel.Controls.Add(this.lblClaveNueva);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(200, 38);
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(844, 594);
             this.contentPanel.TabIndex = 20;
             this.contentPanel.Click += new System.EventHandler(this.contentPanel_Click);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitulo.Cursor = System.Windows.Forms.Cursors.No;
+            this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTitulo.Font = new System.Drawing.Font("Showcard Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(209, 46);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(437, 36);
+            this.lblTitulo.TabIndex = 38;
+            this.lblTitulo.Text = "BIENVENIDO A COMPUGROSS";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulo.Visible = false;
+            // 
+            // btnIngresar
+            // 
+            this.btnIngresar.AutoSize = true;
+            this.btnIngresar.BackColor = System.Drawing.Color.Transparent;
+            this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngresar.FlatAppearance.BorderSize = 0;
+            this.btnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresar.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.Color.White;
+            this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
+            this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIngresar.Location = new System.Drawing.Point(364, 406);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(124, 36);
+            this.btnIngresar.TabIndex = 36;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Visible = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            // 
+            // btnEnviarCodigo
+            // 
+            this.btnEnviarCodigo.AutoSize = true;
+            this.btnEnviarCodigo.BackColor = System.Drawing.Color.Transparent;
+            this.btnEnviarCodigo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnviarCodigo.FlatAppearance.BorderSize = 0;
+            this.btnEnviarCodigo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnEnviarCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviarCodigo.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviarCodigo.ForeColor = System.Drawing.Color.White;
+            this.btnEnviarCodigo.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarCodigo.Image")));
+            this.btnEnviarCodigo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnviarCodigo.Location = new System.Drawing.Point(342, 366);
+            this.btnEnviarCodigo.Name = "btnEnviarCodigo";
+            this.btnEnviarCodigo.Size = new System.Drawing.Size(175, 36);
+            this.btnEnviarCodigo.TabIndex = 37;
+            this.btnEnviarCodigo.Text = "ENVIAR CÓDIGO";
+            this.btnEnviarCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEnviarCodigo.UseVisualStyleBackColor = false;
+            this.btnEnviarCodigo.Visible = false;
+            this.btnEnviarCodigo.Click += new System.EventHandler(this.btnEnviarCodigo_Click);
+            // 
+            // cbMostrarClave1
+            // 
+            this.cbMostrarClave1.AutoSize = true;
+            this.cbMostrarClave1.BackColor = System.Drawing.Color.Transparent;
+            this.cbMostrarClave1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbMostrarClave1.FlatAppearance.BorderSize = 0;
+            this.cbMostrarClave1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.cbMostrarClave1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbMostrarClave1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMostrarClave1.ForeColor = System.Drawing.Color.White;
+            this.cbMostrarClave1.Location = new System.Drawing.Point(317, 361);
+            this.cbMostrarClave1.Name = "cbMostrarClave1";
+            this.cbMostrarClave1.Size = new System.Drawing.Size(65, 19);
+            this.cbMostrarClave1.TabIndex = 35;
+            this.cbMostrarClave1.Text = "Mostrar";
+            this.cbMostrarClave1.UseVisualStyleBackColor = false;
+            this.cbMostrarClave1.Visible = false;
+            this.cbMostrarClave1.CheckedChanged += new System.EventHandler(this.cbMostrarClave1_CheckedChanged);
+            // 
+            // cbMostrarClave2
+            // 
+            this.cbMostrarClave2.AutoSize = true;
+            this.cbMostrarClave2.BackColor = System.Drawing.Color.Transparent;
+            this.cbMostrarClave2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbMostrarClave2.FlatAppearance.BorderSize = 0;
+            this.cbMostrarClave2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.cbMostrarClave2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbMostrarClave2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMostrarClave2.ForeColor = System.Drawing.Color.White;
+            this.cbMostrarClave2.Location = new System.Drawing.Point(317, 314);
+            this.cbMostrarClave2.Name = "cbMostrarClave2";
+            this.cbMostrarClave2.Size = new System.Drawing.Size(65, 19);
+            this.cbMostrarClave2.TabIndex = 34;
+            this.cbMostrarClave2.Text = "Mostrar";
+            this.cbMostrarClave2.UseVisualStyleBackColor = false;
+            this.cbMostrarClave2.Visible = false;
+            this.cbMostrarClave2.CheckedChanged += new System.EventHandler(this.cbMostrarClave2_CheckedChanged);
+            // 
+            // lblClave
+            // 
+            this.lblClave.AutoSize = true;
+            this.lblClave.BackColor = System.Drawing.Color.Transparent;
+            this.lblClave.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClave.ForeColor = System.Drawing.Color.White;
+            this.lblClave.Location = new System.Drawing.Point(360, 291);
+            this.lblClave.Name = "lblClave";
+            this.lblClave.Size = new System.Drawing.Size(141, 27);
+            this.lblClave.TabIndex = 31;
+            this.lblClave.Text = "CONTRASEÑA";
+            this.lblClave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClave.Visible = false;
+            // 
+            // lblDni
+            // 
+            this.lblDni.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDni.AutoSize = true;
+            this.lblDni.BackColor = System.Drawing.Color.Transparent;
+            this.lblDni.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDni.ForeColor = System.Drawing.Color.White;
+            this.lblDni.Location = new System.Drawing.Point(408, 188);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(47, 27);
+            this.lblDni.TabIndex = 30;
+            this.lblDni.Text = "DNI";
+            this.lblDni.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDni.Visible = false;
+            // 
+            // txtClave
+            // 
+            this.txtClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtClave.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClave.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClave.ForeColor = System.Drawing.Color.White;
+            this.txtClave.Location = new System.Drawing.Point(317, 322);
+            this.txtClave.MaxLength = 15;
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(224, 33);
+            this.txtClave.TabIndex = 29;
+            this.txtClave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtClave.Visible = false;
+            this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
+            this.txtClave.Enter += new System.EventHandler(this.txtClave_Enter);
+            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
+            this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
+            // 
+            // txtRecuperarClave
+            // 
+            this.txtRecuperarClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtRecuperarClave.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRecuperarClave.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRecuperarClave.ForeColor = System.Drawing.Color.White;
+            this.txtRecuperarClave.Location = new System.Drawing.Point(317, 274);
+            this.txtRecuperarClave.MaxLength = 15;
+            this.txtRecuperarClave.Name = "txtRecuperarClave";
+            this.txtRecuperarClave.Size = new System.Drawing.Size(224, 33);
+            this.txtRecuperarClave.TabIndex = 28;
+            this.txtRecuperarClave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRecuperarClave.Visible = false;
+            this.txtRecuperarClave.TextChanged += new System.EventHandler(this.txtRecuperarClave_TextChanged);
+            this.txtRecuperarClave.Enter += new System.EventHandler(this.txtRecuperarClave_Enter);
+            this.txtRecuperarClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRecuperarClave_KeyPress);
+            // 
+            // txtDni
+            // 
+            this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDni.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.ForeColor = System.Drawing.Color.White;
+            this.txtDni.Location = new System.Drawing.Point(317, 217);
+            this.txtDni.MaxLength = 11;
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(224, 33);
+            this.txtDni.TabIndex = 27;
+            this.txtDni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDni.Visible = false;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // imgAgregarCliente
             // 
@@ -642,6 +857,99 @@ namespace CompuGross
             this.btnAgregarCliente.UseVisualStyleBackColor = false;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
+            // lblIngreseCodigo
+            // 
+            this.lblIngreseCodigo.AutoSize = true;
+            this.lblIngreseCodigo.BackColor = System.Drawing.Color.Transparent;
+            this.lblIngreseCodigo.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngreseCodigo.ForeColor = System.Drawing.Color.White;
+            this.lblIngreseCodigo.Location = new System.Drawing.Point(342, 244);
+            this.lblIngreseCodigo.Name = "lblIngreseCodigo";
+            this.lblIngreseCodigo.Size = new System.Drawing.Size(177, 27);
+            this.lblIngreseCodigo.TabIndex = 33;
+            this.lblIngreseCodigo.Text = "INGRESE CÓDIGO";
+            this.lblIngreseCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblIngreseCodigo.Visible = false;
+            // 
+            // lblClaveNueva
+            // 
+            this.lblClaveNueva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblClaveNueva.AutoSize = true;
+            this.lblClaveNueva.BackColor = System.Drawing.Color.Transparent;
+            this.lblClaveNueva.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClaveNueva.ForeColor = System.Drawing.Color.White;
+            this.lblClaveNueva.Location = new System.Drawing.Point(322, 243);
+            this.lblClaveNueva.Name = "lblClaveNueva";
+            this.lblClaveNueva.Size = new System.Drawing.Size(212, 27);
+            this.lblClaveNueva.TabIndex = 32;
+            this.lblClaveNueva.Text = "NUEVA CONTRASEÑA";
+            this.lblClaveNueva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClaveNueva.Visible = false;
+            // 
+            // lblCaracteres
+            // 
+            this.lblCaracteres.AutoSize = true;
+            this.lblCaracteres.BackColor = System.Drawing.Color.Transparent;
+            this.lblCaracteres.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCaracteres.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblCaracteres.Location = new System.Drawing.Point(547, 274);
+            this.lblCaracteres.Name = "lblCaracteres";
+            this.lblCaracteres.Size = new System.Drawing.Size(85, 13);
+            this.lblCaracteres.TabIndex = 39;
+            this.lblCaracteres.Text = "*8-15 caracteres";
+            // 
+            // lblMayuscula
+            // 
+            this.lblMayuscula.AutoSize = true;
+            this.lblMayuscula.BackColor = System.Drawing.Color.Transparent;
+            this.lblMayuscula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMayuscula.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblMayuscula.Location = new System.Drawing.Point(547, 293);
+            this.lblMayuscula.Name = "lblMayuscula";
+            this.lblMayuscula.Size = new System.Drawing.Size(71, 13);
+            this.lblMayuscula.TabIndex = 40;
+            this.lblMayuscula.Text = "*1 Mayúscula";
+            // 
+            // lblMinuscula
+            // 
+            this.lblMinuscula.AutoSize = true;
+            this.lblMinuscula.BackColor = System.Drawing.Color.Transparent;
+            this.lblMinuscula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMinuscula.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblMinuscula.Location = new System.Drawing.Point(647, 274);
+            this.lblMinuscula.Name = "lblMinuscula";
+            this.lblMinuscula.Size = new System.Drawing.Size(68, 13);
+            this.lblMinuscula.TabIndex = 41;
+            this.lblMinuscula.Text = "*1 Minúscula";
+            // 
+            // lblNumero
+            // 
+            this.lblNumero.AutoSize = true;
+            this.lblNumero.BackColor = System.Drawing.Color.Transparent;
+            this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumero.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblNumero.Location = new System.Drawing.Point(647, 293);
+            this.lblNumero.Name = "lblNumero";
+            this.lblNumero.Size = new System.Drawing.Size(57, 13);
+            this.lblNumero.TabIndex = 42;
+            this.lblNumero.Text = "*1 Número";
+            // 
+            // lblRecuperarClave
+            // 
+            this.lblRecuperarClave.AutoSize = true;
+            this.lblRecuperarClave.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecuperarClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecuperarClave.ForeColor = System.Drawing.Color.White;
+            this.lblRecuperarClave.LinkColor = System.Drawing.Color.White;
+            this.lblRecuperarClave.Location = new System.Drawing.Point(547, 333);
+            this.lblRecuperarClave.Name = "lblRecuperarClave";
+            this.lblRecuperarClave.Size = new System.Drawing.Size(106, 13);
+            this.lblRecuperarClave.TabIndex = 43;
+            this.lblRecuperarClave.TabStop = true;
+            this.lblRecuperarClave.Text = "Olvidé mi contraseña";
+            this.lblRecuperarClave.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRecuperarClave_LinkClicked);
+            // 
             // MenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -675,6 +983,7 @@ namespace CompuGross
             this.leftPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoCG)).EndInit();
             this.contentPanel.ResumeLayout(false);
+            this.contentPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAgregarCliente)).EndInit();
             this.pnSubMenuServicios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgModificarServicio)).EndInit();
@@ -693,12 +1002,12 @@ namespace CompuGross
         private System.Windows.Forms.Button btnIngresos;
         private System.Windows.Forms.Label lblCompuGross;
         private System.Windows.Forms.Button btnPrecios;
-        private System.Windows.Forms.Button btnOrdenesTrabajo;
+        private System.Windows.Forms.Button btnServicios;
         private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUserTipo;
-        private System.Windows.Forms.Label labelUser1;
-        private System.Windows.Forms.Button btnDatosDesplegables;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Button btnLocalidades;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Panel titleBar;
         private System.Windows.Forms.Panel leftPanel;
@@ -729,5 +1038,22 @@ namespace CompuGross
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnModificarServicio;
         private System.Windows.Forms.Button btnAgregarServicio;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.TextBox txtRecuperarClave;
+        private System.Windows.Forms.Label lblDni;
+        private System.Windows.Forms.Label lblClave;
+        private System.Windows.Forms.Label lblClaveNueva;
+        private System.Windows.Forms.Label lblIngreseCodigo;
+        private System.Windows.Forms.CheckBox cbMostrarClave1;
+        private System.Windows.Forms.CheckBox cbMostrarClave2;
+        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Button btnEnviarCodigo;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblCaracteres;
+        private System.Windows.Forms.Label lblNumero;
+        private System.Windows.Forms.Label lblMinuscula;
+        private System.Windows.Forms.Label lblMayuscula;
+        private System.Windows.Forms.LinkLabel lblRecuperarClave;
     }
 }

@@ -25,18 +25,12 @@ namespace CompuGross
         {
             listPrecios.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
             listPrecios.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
-            listPrecios.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
-            listPrecios.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
+            //listPrecios.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
+            //listPrecios.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         private void ListaPrecios_Load(object sender, EventArgs e)
         {
-            rBtnDolarInformal.Visible = false;
-            rBtnDolarOficial.Visible = false;
-            lblDolarInformal.Visible = false;
-            lblDolarOficial.Visible = false;
-            txtDolarInformal.Visible = false;
-            txtDolarOficial.Visible = false;
             listPrecios.Visible = false;
             txtDolar.Focus();
         }
@@ -50,14 +44,6 @@ namespace CompuGross
                 datos.SetearConsulta(select);
                 datos.EjecutarLectura();
                 decimal dolarHoy = Convert.ToDecimal(txtDolar.Text);
-                //decimal dolarOficial = 0;
-                //decimal dolarInformal = 0;
-
-                /*if (txtDolarOficial.Text != "") 
-                { dolarOficial = Convert.ToDecimal(txtDolarOficial.Text); }
-
-                if (txtDolarInformal.Text != "") 
-                { dolarInformal = Convert.ToDecimal(txtDolarInformal.Text); }*/
 
                 while (datos.Lector.Read() == true)
                 {
@@ -69,21 +55,6 @@ namespace CompuGross
                     ListViewItem registro = new ListViewItem(ID.ToString());
 
                     registro.SubItems.Add(Descripcion);
-
-                    /*if (dolarOficial == 0 && dolarInformal == 0) { registro.SubItems.Add("$ 0"); }
-                    else
-                    {
-                        if (rBtnDolarOficial.Checked == true && txtDolarOficial.Text != "")
-                        {
-                            PrecioPesos = PrecioDolar * dolarOficial;
-                        }
-                        else if (rBtnDolarInformal.Checked == true)
-                        {
-                            PrecioPesos = PrecioDolar * dolarInformal;
-                        }
-
-                        registro.SubItems.Add("$ " + PrecioPesos.ToString());
-                    }*/
 
                     registro.SubItems.Add("$ " + PrecioPesos.ToString());
 
@@ -101,49 +72,6 @@ namespace CompuGross
                 datos.CerrarConexion();
                 ajustarAnchoColumnas();
             }
-        }
-
-        private void rBtnDolarOficial_MouseClick(object sender, MouseEventArgs e)
-        {
-            rBtnDolarInformal.Checked = false;
-
-            listPrecios.Items.Clear();
-
-            cargarListado("select * from ListaPrecios order by ID asc");
-
-            if (txtDolarOficial.Text != "")
-            {
-                txtDolarOficial.BackColor = Color.White;
-            }
-            else
-            {
-                txtDolarOficial.BackColor = Color.FromArgb(255, 236, 236);
-                txtDolarOficial.Focus();
-            }
-        }
-
-        private void rBtnDolarInformal_MouseClick(object sender, MouseEventArgs e)
-        {
-            rBtnDolarOficial.Checked = false;
-
-            listPrecios.Items.Clear();
-
-            cargarListado("select * from ListaPrecios order by ID asc");
-            
-            if (txtDolarInformal.Text != "")
-            {
-                txtDolarInformal.BackColor = Color.White;
-            }
-            else
-            {
-                txtDolarInformal.BackColor = Color.FromArgb(255,236,236);
-                txtDolarInformal.Focus();
-            }
-        }
-
-        private void listPrecios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void listPrecios_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -165,59 +93,6 @@ namespace CompuGross
             listPrecios.Items.Clear();
 
             cargarListado(selectOrder);
-        }
-
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            MenuPrincipal frmMenu = new MenuPrincipal();
-            this.Hide();
-            frmMenu.ShowDialog();
-        }
-
-        private void ListaPrecios_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Login frmLogin = new Login();
-            frmLogin.borrarUsuarioLogueado();
-
-            Application.Exit();
-        }
-
-        private void txtDolarOficial_TextChanged(object sender, EventArgs e)
-        {
-            if (txtDolarOficial.Text != "")
-            {
-                txtDolarOficial.BackColor = Color.White;
-            }
-            else
-            {
-                listPrecios.Items.Clear();
-
-                cargarListado("select * from ListaPrecios order by ID asc");
-
-                txtDolarOficial.BackColor = Color.FromArgb(255, 236, 236);
-            }
-        }
-
-        private void txtDolarInformal_TextChanged(object sender, EventArgs e)
-        {
-            if (txtDolarInformal.Text != "")
-            {
-                txtDolarInformal.BackColor = Color.White;
-            }
-            else
-            {
-                txtDolarInformal.BackColor = Color.FromArgb(255, 236, 236);
-            }
-        }
-
-        private void txtDolarOficial_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            soloNumerosEnteros_Y_Decimales(sender, e);
-        }
-
-        private void txtDolarInformal_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            soloNumerosEnteros_Y_Decimales(sender, e);
         }
 
         private void soloNumerosEnteros_Y_Decimales(object sender, KeyPressEventArgs e)
@@ -247,13 +122,11 @@ namespace CompuGross
             if (txtDolar.Text != "")
             {
                 listPrecios.Visible = true;
-                txtDolar.BackColor = Color.White;
                 cargarListado("select * from ListaPrecios order by ID asc");
             }
             else
             {
                 listPrecios.Visible = false;
-                txtDolar.BackColor = Color.FromArgb(255, 236, 236);
             }
         }
     }

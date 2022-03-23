@@ -620,18 +620,23 @@ namespace CompuGross
 
         private void cancelarEdiciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            visibilidadCamposModificarCliente("hide");
-            btnCancelar.Visible = false;
-            btnModificar.Visible = true;
-            btnBuscar.Visible = true;
-            txtFiltro.Visible = true;
-            lblCantidadClientes.Visible = true;
-            dgvClientes.Visible = true;
-            txtFiltro.Text = "";
-            txtFiltro.Focus();
+            if (MessageBox.Show("¿Seguro que desea cancelar la edición?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
 
-            MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                visibilidadCamposModificarCliente("hide");
+                btnCancelar.Visible = false;
+                btnModificar.Visible = true;
+                btnBuscar.Visible = true;
+                txtFiltro.Visible = true;
+                lblCantidadClientes.Visible = true;
+                dgvClientes.Visible = true;
+                txtFiltro.Text = "";
+                txtFiltro.Focus();
+
+                /*MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+            }
         }
     }
 }

@@ -52,11 +52,165 @@ namespace CompuGross
             }
         }
 
+        public void ClickBtnIngresar()
+        {
+            bool ingreso = false;
+
+            if (txtDni.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
+            {
+                if (txtDni.Text == "")
+                {
+                    MessageBox.Show("Usuario vacío.");
+                    txtDni.Focus();
+                }
+                else
+                {
+                    txtDni.BackColor = Color.White;
+
+                    if (txtClave.Text == "" || txtClave.Text.Length < 8)
+                    {
+                        MessageBox.Show("Clave inferior a 8 caracteres.");
+                        txtClave.Focus();
+                    }
+                }
+            }
+            else
+            {
+                AccesoDatos datos = new AccesoDatos();
+                AccesoDatos datos2 = new AccesoDatos();
+
+                string usuario = txtDni.Text;
+                string clave = txtClave.Text;
+
+                string buscarUsuario = "select (select TU.Tipo from TiposUsuario TU where ID = IdTipo) Tipo, " +
+                    "Nombre, Apellido, Count(*) as Cantidad " +
+                    "from Usuarios where Username = '" + usuario + "' " +
+                    "and PWDCOMPARE('" + clave + "', Clave)=1 " +
+                    "group by IdTipo, Nombre, Apellido";
+
+                string nombre = "";
+                string tipoUsuario = "";
+                string apellido = "";
+
+                try
+                {
+                    datos.SetearConsulta(buscarUsuario);
+                    datos.EjecutarLectura();
+
+                    if (datos.Lector.Read() == true)
+                    {
+                        nombre = datos.Lector["Nombre"].ToString();
+                        apellido = datos.Lector["Apellido"].ToString();
+                        tipoUsuario = datos.Lector["Tipo"].ToString();
+
+                        //MessageBox.Show("Bienvenid@ "+nombre+" "+apellido, "Log-in exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        txtDni.Text = "";
+                        txtClave.Text = "";
+                        txtClave.Enabled = false;
+
+                        ingreso = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Credenciales inválidas.");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Credenciales inválidas.");
+                }
+                finally
+                {
+                    datos.CerrarConexion();
+                }
+
+                string updateUsuarioLogueado = "update UsuarioLogueado set Username = '" + nombre + " " + apellido + "', " +
+                    "Tipo = '" + tipoUsuario + "' where ID = 1";
+
+                try
+                {
+                    datos2.SetearConsulta(updateUsuarioLogueado);
+                    datos2.EjecutarLectura();
+
+                    //MessageBox.Show("Usuario logueado actualizado correctamente.", "Atención !!",
+                    //  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                catch
+                {
+                    MessageBox.Show("No se pudo actualizar el usuario logueado.", "Atención !!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                finally
+                {
+                    datos2.CerrarConexion();
+                }
+
+                if (ingreso)
+                {
+                    //mostrar Controles MenuPrincipal
+                    btnClientes.Visible = false;
+                    btnServicios.Visible = false;
+                    btnPrecios.Visible = false;
+                    btnLocalidades.Visible = false;
+                    btnIngresos.Visible = false;
+                    btnBackup.Visible = false;
+                    btnUsuarios.Visible = false;
+                    btnCerrarSesion.Visible = false;
+                    lblUsuario.Visible = false;
+                    lblUserTipo.Visible = false;
+
+                    lblDni.Visible = false;
+                    lblClave.Visible = false;
+                    txtDni.Visible = false;
+                    txtClave.Visible = false;
+                    btnIngresar.Visible = false;
+                    btnIngresar.Enabled = false;
+                    lblTitulo.Visible = true;
+                    lblTitulo.Text = "¡Login exitoso!";
+                    txtRecuperarClave.Visible = false;
+                    lblClaveNueva.Visible = false;
+                    cbMostrarClave1.Enabled = false;
+                    cbMostrarClave2.Visible = false;
+                    lblRecuperarClave.Visible = false;
+                    lblMayuscula.Visible = false;
+                    lblMinuscula.Visible = false;
+                    lblNumero.Visible = false;
+                    lblCaracteres.Visible = false;
+                }
+            }
+        }
+
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            borrarUsuarioLogueado();
+
+            //Campos Login
+            lblDni.Visible = true;
+            lblClave.Visible = true;
+            txtDni.Visible = true;
+            txtClave.Visible = true;
+            btnIngresar.Visible = true;
+            btnIngresar.Enabled = false;
+            lblTitulo.Visible = true;
+            cbMostrarClave1.Enabled = false;
+            BindData();
+
+            //Controles menuPrincipal
+            btnClientes.Visible = false;
+            btnServicios.Visible = false;
+            btnPrecios.Visible = false;
+            btnLocalidades.Visible = false;
+            btnIngresos.Visible = false;
+            btnBackup.Visible = false;
+            btnUsuarios.Visible = false;
+            btnCerrarSesion.Visible = false;
+            lblUsuario.Visible = false;
+            lblUserTipo.Visible = false;
+
             //cargarUsuarioLogueado();
 
-            lblUserTipo.Text = this.usuario + " (" + this.tipoUsuario + ")";
+            /*lblUserTipo.Text = this.usuario + " (" + this.tipoUsuario + ")";
 
             if (this.tipoUsuario != "admin")
             {
@@ -66,7 +220,7 @@ namespace CompuGross
                 pnBtnBackup.Visible = false;
                 pnBtnUsuarios.Visible = false;
                 pnBtnIngresos.Visible = false;
-            }
+            }*/
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -74,6 +228,47 @@ namespace CompuGross
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
 
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void BindData()
+        {
+            txtClave.Enabled = false;
+            txtClave.Text = "";
+            txtDni.Text = "";
+            txtDni.Visible = false;
+            lblUsuario.Visible = true;
+            txtDni.Visible = true;
+            txtDni.Text = "";
+            lblClave.Visible = true;
+            txtClave.Visible = true;
+            lblRecuperarClave.Visible = true;
+            btnIngresar.Visible = true;
+            btnEnviarCodigo.Visible = false;
+            lblClaveNueva.Visible = false;
+            lblClaveNueva.Visible = false;
+            cbMostrarClave2.Visible = false;
+            cbMostrarClave1.Visible = true;
+            lblCaracteres.Visible = false;
+            lblMayuscula.Visible = false;
+            lblMinuscula.Visible = false;
+            lblNumero.Visible = false;
+        }
+
+        public void borrarUsuarioLogueado()
+        {
+            string updateUsuarioLogueado = "update UsuarioLogueado set Username = 'test', Tipo = 'test' " +
+                "where ID = 1";
+
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta(updateUsuarioLogueado);
+                datos.EjecutarLectura();
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo quitar el usuario logueado de la DB.");
+            }
+        }
 
         private void visibilidadPanelSubMenuClientes(string aux)
         {
@@ -131,16 +326,16 @@ namespace CompuGross
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            AgregarUsuario frmAgregarUsuario = new AgregarUsuario(this.usuario, this.tipoUsuario);
-            this.Hide();
-            frmAgregarUsuario.ShowDialog();
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+            abrirFormHijo(new AgregarUsuario(this.usuario, this.tipoUsuario));
         }
 
         private void btnPrecios_Click(object sender, EventArgs e)
         {
-            ListadoPrecios frmListadoPrecios = new ListadoPrecios();
-            this.Hide();
-            frmListadoPrecios.ShowDialog();
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+            abrirFormHijo(new ListadoPrecios());
         }
 
         private void btnIngresos_Click(object sender, EventArgs e)
@@ -173,9 +368,10 @@ namespace CompuGross
 
         private void btnDatosDesplegables_Click(object sender, EventArgs e)
         {
-            DatosDesplegables frmDd = new DatosDesplegables();
-            this.Hide();
-            frmDd.ShowDialog();
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+            //abrirFormHijo(new DatosDesplegables());
+            abrirFormHijo(new Localidades());
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -262,6 +458,347 @@ namespace CompuGross
             visibilidadPanelSubMenuServicios("hide");
         }
 
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            ClickBtnIngresar();
+        }
+
+        private bool validarMinusculaClave(string clave)
+        {
+            bool resultado = false;
+            string claveMinuscula = clave.ToLower();
+            int minuscula = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (!char.IsDigit(clave[i]) && clave[i] == claveMinuscula[i])
+                {
+                    minuscula++;
+                }
+            }
+
+            if (minuscula > 0) { resultado = true; }
+
+            return resultado;
+        }
+
+        private bool validarMayusculaClave(string clave)
+        {
+            bool resultado = false;
+            string claveMayuscula = clave.ToUpper();
+            int mayuscula = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (!char.IsDigit(clave[i]) && clave[i] == claveMayuscula[i])
+                {
+                    mayuscula++;
+                }
+            }
+
+            if (mayuscula > 0) { resultado = true; }
+
+            return resultado;
+        }
+
+        private bool validarNumeroClave(string clave)
+        {
+            bool resultado = false;
+            int numero = 0;
+
+            for (int i = 0; i < clave.Length; i++)
+            {
+                if (char.IsNumber(clave, i))
+                {
+                    numero++;
+                }
+            }
+
+            if (numero > 0) { resultado = true; }
+
+            return resultado;
+        }
+
+        private void btnEnviarCodigo_Click(object sender, EventArgs e)
+        {
+            if (btnEnviarCodigo.Text == "Cambiar Clave")
+            {
+                bool claveValida = false;
+                string claveNueva = txtRecuperarClave.Text;
+                int len = claveNueva.Length;
+
+                if (claveNueva == "")
+                {
+                    MessageBox.Show("Clave nueva vacía.");
+                    txtRecuperarClave.Focus();
+                }
+                else
+                {
+                    bool mayuscula = validarMayusculaClave(claveNueva),
+                     minuscula = validarMinusculaClave(claveNueva),
+                     numero = validarNumeroClave(claveNueva);
+
+                    if (mayuscula && minuscula && numero && len == 8) { claveValida = true; }
+                }
+                if (claveValida)
+                {
+                    int IdUsuario = Convert.ToInt32(txtClave.Text);
+                    string updateClaveUsuario = "update Usuarios set CodigoRecuperarClave = 0, " +
+                        "Clave = PWDENCRYPT('" + claveNueva + "') where ID = " + IdUsuario;
+
+                    AccesoDatos datos = new AccesoDatos();
+
+                    try
+                    {
+                        datos.SetearConsulta(updateClaveUsuario);
+                        datos.EjecutarLectura();
+
+                        MessageBox.Show("Clave actualizada correctamente.");
+
+                        BindData();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error al intentar actualizar la clave.");
+                    }
+                    finally
+                    {
+                        datos.CerrarConexion();
+                    }
+                }
+            }
+            else if (btnEnviarCodigo.Text == "Validar")
+            {
+                if (txtRecuperarClave.Text == "")
+                {
+                    MessageBox.Show("Código de recuperación vacío.");
+                    txtRecuperarClave.BackColor = Color.FromArgb(255, 236, 236);
+                    txtRecuperarClave.Focus();
+                }
+                else
+                {
+                    int ID = 0, Cantidad = 0;
+                    string mailUsuario = txtDni.Text;
+                    string selectCodigoMail = "select count(*) as CANTIDAD, ID as ID from Usuarios where Mail = '" + mailUsuario +
+                        "' AND CodigoRecuperarClave = " + txtDni.Text + "group by ID";
+
+                    AccesoDatos datos2 = new AccesoDatos();
+                    try
+                    {
+                        datos2.SetearConsulta(selectCodigoMail);
+                        datos2.EjecutarLectura();
+
+                        if (datos2.Lector.Read() == true)
+                        {
+                            ID = Convert.ToInt32(datos2.Lector["ID"]);
+                            Cantidad = Convert.ToInt32(datos2.Lector["CANTIDAD"]);
+                        }
+                        if (ID != 0 && Cantidad != 0)
+                        {
+                            MessageBox.Show("Código correcto. En el próximo paso deberás ingresar tu nueva clave.");
+
+                            txtClave.Text = ID.ToString();
+                            lblClaveNueva.Visible = false;
+                            lblClaveNueva.Visible = true;
+                            btnEnviarCodigo.Text = "Cambiar Clave";
+                            txtRecuperarClave.Text = "";
+
+                            txtDni.UseSystemPasswordChar = true;
+
+                            cbMostrarClave2.Visible = true;
+
+                            txtRecuperarClave.MaxLength = 8;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Código de recuperación incorrecto.");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error en la Base de datos.");
+                    }
+                    finally
+                    {
+                        datos2.CerrarConexion();
+                    }
+                }
+            }
+            else
+            {
+                txtRecuperarClave.UseSystemPasswordChar = false;
+                if (txtRecuperarClave.Text == "")
+                {
+                    MessageBox.Show("DNI vacío.");
+                    txtRecuperarClave.BackColor = Color.FromArgb(255, 236, 236);
+                    txtRecuperarClave.Focus();
+                }
+                else
+                {
+                    string dni = txtRecuperarClave.Text;
+                    int existe = 0, IdUsuario = 0;
+                    string mailDestino = "";
+                    string selectMail = "select Count(*) Cantidad, Mail, ID from Usuarios " +
+                        "where Username = '" + dni + "' group by Mail, ID";
+
+                    AccesoDatos datos = new AccesoDatos();
+
+                    try
+                    {
+                        datos.SetearConsulta(selectMail);
+                        datos.EjecutarLectura();
+
+                        if (datos.Lector.Read() == true)
+                        {
+                            existe = Convert.ToInt32(datos.Lector["Cantidad"]);
+                            mailDestino = datos.Lector["Mail"].ToString();
+                            IdUsuario = Convert.ToInt32(datos.Lector["ID"]);
+                            txtRecuperarClave.Text = mailDestino;
+                        }
+                        if (existe != 0 && mailDestino != "")
+                        {
+                            Random numRandom = new Random();
+
+                            int codigoMail = numRandom.Next(100000, 999999);
+
+                            if (codigoMail < 0) { codigoMail = codigoMail * (-1); }
+
+                            string asunto = "COMPUGROSS - RECUPERAR CONTRASEÑA (" + DateTime.Now.ToShortDateString() + ", " + DateTime.Now.ToShortTimeString() + " hs)";
+                            string cuerpo = "Este mail ha sido enviado debido a que solicitaste un cambio de clave.\n\n" +
+                                "Si no has sido tú, ponte en contacto con nosotros de manera inmediata.\n\n" +
+                                "Debes ingresar este código para poder crear una nueva clave: '" + codigoMail + "'\n\n\n" +
+                                "Saludos cordiales.\n\nCompuGross";
+
+                            EmailService mail = new EmailService();
+
+                            try
+                            {
+                                MessageBoxTemporal.Show("Se está enviando un código de recuperación al mail '" + mailDestino + "'\n\n" +
+                                        "Por favor aguarde unos instantes...",
+                                        "Envío de mail", 3, true);
+
+                                mail.armarCorreo(mailDestino, asunto, cuerpo);
+                                mail.enviarEmail();
+                                MessageBox.Show("Revisa tu mail, se ha enviado un código para que puedas recuperar tu clave.");
+
+                                string updateCodigoRecuperacion = "update Usuarios set CodigoRecuperarClave = " + codigoMail + " where ID = " + IdUsuario;
+
+                                AccesoDatos datos3 = new AccesoDatos();
+
+                                try
+                                {
+                                    datos3.SetearConsulta(updateCodigoRecuperacion);
+                                    datos3.EjecutarLectura();
+
+                                    txtDni.Text = "";
+                                    lblDni.Visible = false;
+                                    lblClaveNueva.Visible = true;
+                                    btnEnviarCodigo.Text = "Validar";
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Error al agregar el código de recuperación a la Base de datos.");
+                                }
+                                finally
+                                {
+                                    datos3.CerrarConexion();
+                                }
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Error al intentar enviar el mail.");
+                                txtRecuperarClave.Text = "";
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El DNI " + dni + " no existe en el sistema.", "Atención!!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        datos.CerrarConexion();
+                    }
+                }
+            }
+        }
+
+        private void cbMostrarClave2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMostrarClave2.Checked == true)
+            {
+                txtRecuperarClave.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtRecuperarClave.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void cbMostrarClave1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMostrarClave1.Checked)
+            {
+                txtClave.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtClave.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void lblRecuperarClave_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lblDni.Visible = true;
+            txtRecuperarClave.Visible = true;
+            lblUsuario.Visible = false;
+            txtDni.Visible = false;
+            lblClave.Visible = false;
+            txtClave.Visible = false;
+            lblRecuperarClave.Visible = false;
+            btnIngresar.Visible = false;
+            btnEnviarCodigo.Visible = true;
+            cbMostrarClave1.Visible = false;
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDni.Text == "")
+            { txtClave.Enabled = false; }
+            else if (txtDni.Text.Length < 5) { txtClave.Enabled = false; }
+
+            if (txtDni.Text.Length >= 5) { txtClave.Enabled = true; }
+        }
+
+        private void txtClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (txtDni.Text == "")
+                {
+                    MessageBox.Show("Usuario vacío.");
+                    txtDni.Focus();
+                }
+                else if (txtClave.Text == "")
+                {
+                    txtClave.Focus();
+                }
+                else { ClickBtnIngresar(); }
+            }
+
+            soloNumeros(sender, e);
+        }
+
         public void abrirFormHijo(object formHijo)
         {
             if (this.contentPanel.Controls.Count > 3)
@@ -274,6 +811,217 @@ namespace CompuGross
             this.contentPanel.Controls.Add(fH);
             this.contentPanel.Tag = fH;
             fH.Show();
+        }
+
+        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter) && btnIngresar.Enabled)
+            {
+                ClickBtnIngresar();
+            }
+        }
+
+        private void soloNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtClave_Enter(object sender, EventArgs e)
+        {
+            cbMostrarClave1.Enabled = true;
+        }
+
+        private void txtClave_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRecuperarClave_TextChanged(object sender, EventArgs e)
+        {
+            if (btnEnviarCodigo.Text == "Cambiar Clave")
+            {
+                string claveNueva = txtRecuperarClave.Text;
+
+                if (claveNueva == "")
+                {
+                    lblCaracteres.Visible = true;
+                    lblMayuscula.Visible = true;
+                    lblMinuscula.Visible = true;
+                    lblNumero.Visible = true;
+                }
+                else
+                {
+                    int len = claveNueva.Length;
+
+                    bool mayuscula = validarMayusculaClave(claveNueva),
+                         minuscula = validarMinusculaClave(claveNueva),
+                         numero = validarNumeroClave(claveNueva);
+
+                    if (len >= 8) { lblCaracteres.Visible = false; }
+                    else { lblCaracteres.Visible = true; }
+
+                    if (mayuscula) { lblMayuscula.Visible = false; }
+                    else { lblMayuscula.Visible = true; }
+
+                    if (minuscula) { lblMinuscula.Visible = false; }
+                    else { lblMinuscula.Visible = true; }
+
+                    if (numero) { lblNumero.Visible = false; }
+                    else { lblNumero.Visible = true; }
+                }
+            }
+        }
+
+        private void txtRecuperarClave_Enter(object sender, EventArgs e)
+        {
+            if (btnEnviarCodigo.Text == "Cambiar Clave")
+            {
+                string claveNueva = txtRecuperarClave.Text;
+
+                if (claveNueva == "")
+                {
+                    lblCaracteres.Visible = true;
+                    lblMayuscula.Visible = true;
+                    lblMinuscula.Visible = true;
+                    lblNumero.Visible = true;
+                }
+                else
+                {
+                    int len = claveNueva.Length;
+
+                    bool mayuscula = validarMayusculaClave(claveNueva),
+                         minuscula = validarMinusculaClave(claveNueva),
+                         numero = validarNumeroClave(claveNueva);
+
+                    if (len >= 8) { lblCaracteres.Visible = false; }
+                    else { lblCaracteres.Visible = true; }
+
+                    if (mayuscula) { lblMayuscula.Visible = false; }
+                    else { lblMayuscula.Visible = true; }
+
+                    if (minuscula) { lblMinuscula.Visible = false; }
+                    else { lblMinuscula.Visible = true; }
+
+                    if (numero) { lblNumero.Visible = false; }
+                    else { lblNumero.Visible = true; }
+                }
+            }
+        }
+
+        private void txtRecuperarClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (btnEnviarCodigo.Text == "Enviar Código")
+            {
+                txtRecuperarClave.MaxLength = 8;
+                soloNumeros(sender, e);
+            }
+            else if (btnEnviarCodigo.Text == "Validar")
+            {
+                txtRecuperarClave.MaxLength = 6;
+            }
+            else if (btnEnviarCodigo.Text == "Cambiar Clave")
+            {
+                txtRecuperarClave.MaxLength = 15;
+            }
+        }
+
+        public class MessageBoxTemporal
+        {
+            System.Threading.Timer IntervaloTiempo;
+            string TituloMessageBox;
+            string TextoMessageBox;
+            int TiempoMaximo;
+            IntPtr hndLabel = IntPtr.Zero;
+            bool MostrarContador;
+
+            MessageBoxTemporal(string texto, string titulo, int tiempo, bool contador)
+            {
+                TituloMessageBox = titulo;
+                TiempoMaximo = tiempo;
+                TextoMessageBox = texto;
+                MostrarContador = contador;
+
+                if (TiempoMaximo > 99) return; //Máximo 99 segundos
+                IntervaloTiempo = new System.Threading.Timer(EjecutaCada1Segundo,
+                    null, 1000, 1000);
+                if (contador)
+                {
+                    DialogResult ResultadoMensaje = MessageBox.Show(texto, titulo);
+                    if (ResultadoMensaje == DialogResult.None) IntervaloTiempo.Dispose();
+                }
+                else
+                {
+                    DialogResult ResultadoMensaje = MessageBox.Show(texto, titulo);
+                    if (ResultadoMensaje == DialogResult.None) IntervaloTiempo.Dispose();
+                }
+            }
+            public static void Show(string texto, string titulo, int tiempo, bool contador)
+            {
+                new MessageBoxTemporal(texto, titulo, tiempo, contador);
+            }
+            void EjecutaCada1Segundo(object state)
+            {
+                TiempoMaximo--;
+                if (TiempoMaximo <= 0)
+                {
+                    IntPtr hndMBox = FindWindow(null, TituloMessageBox);
+                    if (hndMBox != IntPtr.Zero)
+                    {
+                        SendMessage(hndMBox, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+                        IntervaloTiempo.Dispose();
+                    }
+                }
+                else if (MostrarContador)
+                {
+                    // Ha pasado un intervalo de 1 seg:
+                    if (hndLabel != IntPtr.Zero)
+                    {
+                        SetWindowText(hndLabel, TextoMessageBox +
+                            "\r\nEste mensaje se cerrará dentro de " +
+                            TiempoMaximo.ToString("00") + " segundos");
+                    }
+                    else
+                    {
+                        IntPtr hndMBox = FindWindow(null, TituloMessageBox);
+                        if (hndMBox != IntPtr.Zero)
+                        {
+                            // Ha encontrado el MessageBox, busca ahora el texto
+                            hndLabel = FindWindowEx(hndMBox, IntPtr.Zero, "Static", null);
+                            if (hndLabel != IntPtr.Zero)
+                            {
+                                // Ha encontrado el texto porque el MessageBox
+                                // solo tiene un control "Static".
+                                SetWindowText(hndLabel, TextoMessageBox +
+                                    "\r\nEste mensaje se cerrará dentro de " +
+                                    TiempoMaximo.ToString("00") + " segundos");
+                            }
+                        }
+                    }
+                }
+            }
+            const int WM_CLOSE = 0x0010;
+            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+            static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+            [System.Runtime.InteropServices.DllImport("user32.dll",
+                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
+                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter,
+                string lpszClass, string lpszWindow);
+            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
+                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            static extern bool SetWindowText(IntPtr hwnd, string lpString);
         }
     }
 }

@@ -24,10 +24,6 @@ namespace CompuGross
             borrarUsuarioLogueado();
             BindData();
             cbMostrarClave1.Enabled = false;
-            lblCaracteres.Visible = false;
-            lblMayus.Visible = false;
-            lblMinus.Visible = false;
-            lblNum.Visible = false;
         }
 
         public void BindData()
@@ -67,7 +63,6 @@ namespace CompuGross
                 if (txtUsuario.Text == "")
                 {
                     MessageBox.Show("Usuario vacío.");
-                    txtUsuario.BackColor = Color.FromArgb(255, 236, 236);
                     txtUsuario.Focus();
                 }
                 else
@@ -77,12 +72,7 @@ namespace CompuGross
                     if (txtClave.Text == "" || txtClave.Text.Length < 8)
                     {
                         MessageBox.Show("Clave inferior a 8 caracteres.");
-                        txtClave.BackColor = Color.FromArgb(255, 236, 236);
                         txtClave.Focus();
-                    }
-                    else
-                    {
-                        txtClave.BackColor = Color.White;
                     }
                 }
             }
@@ -119,8 +109,6 @@ namespace CompuGross
 
                         txtUsuario.Text = "";
                         txtClave.Text = "";
-                        txtUsuario.BackColor = Color.White;
-                        txtClave.BackColor = Color.White;
                         txtClave.Enabled = false;
 
                         ingreso = true;
@@ -162,10 +150,7 @@ namespace CompuGross
 
                 if (ingreso)
                 {
-                    MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
-
-                    this.Hide();
-                    frmMenuPrincipal.ShowDialog();
+                    //mostrar Controles MenuPrincipal
                 }
             }
         }
@@ -187,8 +172,7 @@ namespace CompuGross
 
         private void txtClave_TextChanged(object sender, EventArgs e)
         {
-            if (txtClave.Text == "") { txtClave.BackColor = Color.FromArgb(255, 236, 236); }
-            else { txtClave.BackColor = Color.White; }
+           
         }
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
@@ -198,7 +182,6 @@ namespace CompuGross
                 if (txtUsuario.Text == "") 
                 {
                     MessageBox.Show("Usuario vacío.");
-                    txtUsuario.BackColor = Color.FromArgb(255, 236, 236);
                     txtUsuario.Focus();
                 }
                 else if (txtClave.Text == "")
@@ -232,17 +215,6 @@ namespace CompuGross
             btnRegistro.Visible = false;
             btnEnviarCodigo.Visible = true;
             cbMostrarClave1.Visible = false;
-        }
-
-        private void btnRegistro_Click(object sender, EventArgs e)
-        {
-            txtClave.Text = "";
-            txtUsuario.Text = "";
-            txtClave.BackColor = Color.White;
-            txtUsuario.BackColor = Color.White;
-            AgregarUsuario frmAgregarUsuario = new AgregarUsuario("test", "test");
-            this.Hide();
-            frmAgregarUsuario.ShowDialog();
         }
 
         private void btnEnviarCodigo_Click(object sender, EventArgs e)
@@ -468,20 +440,6 @@ namespace CompuGross
             catch
             {
                 MessageBox.Show("No se pudo quitar el usuario logueado de la DB.");
-            }
-        }
-
-        private void Login_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (txtDni.Visible == true)
-            {
-                BindData();
-            }
-            else
-            {
-                borrarUsuarioLogueado();
-
-                Application.Exit();
             }
         }
 

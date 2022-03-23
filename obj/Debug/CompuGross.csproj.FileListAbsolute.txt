@@ -48,7 +48,6 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\ExcelDataReader.DataSet.xml
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Activación.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Localidades.resources
-C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.DatosDesplegables.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Backup.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\CompuGross.exe.manifest
 C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\CompuGross.application

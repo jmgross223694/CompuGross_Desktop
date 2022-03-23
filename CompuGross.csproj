@@ -110,12 +110,6 @@
     <Compile Include="Activación\Activación.Designer.cs">
       <DependentUpon>Activación.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menú principal\Datos desplegables\DatosDesplegables.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menú principal\Datos desplegables\DatosDesplegables.Designer.cs">
-      <DependentUpon>DatosDesplegables.cs</DependentUpon>
-    </Compile>
     <Compile Include="Menú principal\Backup\Backup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Usuarios\AgregarUsuario.resx">
       <DependentUpon>AgregarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menú principal\Datos desplegables\DatosDesplegables.resx">
-      <DependentUpon>DatosDesplegables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Backup\Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>

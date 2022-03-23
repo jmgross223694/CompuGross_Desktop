@@ -52,7 +52,10 @@ namespace CompuGross
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtUsuario, "txtUsuario");
+            this.txtUsuario.ForeColor = System.Drawing.Color.White;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
@@ -61,17 +64,22 @@ namespace CompuGross
             // 
             resources.ApplyResources(this.lblUsuario, "lblUsuario");
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuario.ForeColor = System.Drawing.Color.White;
             this.lblUsuario.Name = "lblUsuario";
             // 
             // lblClave
             // 
             resources.ApplyResources(this.lblClave, "lblClave");
             this.lblClave.BackColor = System.Drawing.Color.Transparent;
+            this.lblClave.ForeColor = System.Drawing.Color.White;
             this.lblClave.Name = "lblClave";
             // 
             // txtClave
             // 
+            this.txtClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtClave.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtClave, "txtClave");
+            this.txtClave.ForeColor = System.Drawing.Color.White;
             this.txtClave.Name = "txtClave";
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
@@ -81,10 +89,12 @@ namespace CompuGross
             // 
             // btnIngresar
             // 
-            this.btnIngresar.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             resources.ApplyResources(this.btnIngresar, "btnIngresar");
             this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIngresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnIngresar.FlatAppearance.BorderSize = 0;
+            this.btnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
@@ -93,23 +103,28 @@ namespace CompuGross
             // 
             resources.ApplyResources(this.lblRecuperarClave, "lblRecuperarClave");
             this.lblRecuperarClave.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecuperarClave.LinkColor = System.Drawing.Color.Cyan;
             this.lblRecuperarClave.Name = "lblRecuperarClave";
             this.lblRecuperarClave.TabStop = true;
             this.lblRecuperarClave.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRecuperarClave_LinkClicked);
             // 
             // btnRegistro
             // 
-            this.btnRegistro.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             resources.ApplyResources(this.btnRegistro, "btnRegistro");
             this.btnRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRegistro.FlatAppearance.BorderSize = 0;
+            this.btnRegistro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnRegistro.ForeColor = System.Drawing.Color.White;
             this.btnRegistro.Name = "btnRegistro";
             this.btnRegistro.UseVisualStyleBackColor = false;
-            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
             // 
             // txtDni
             // 
+            this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtDni, "txtDni");
+            this.txtDni.ForeColor = System.Drawing.Color.White;
             this.txtDni.Name = "txtDni";
             this.txtDni.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
             this.txtDni.Enter += new System.EventHandler(this.txtMail_Enter);
@@ -123,8 +138,11 @@ namespace CompuGross
             // 
             // btnEnviarCodigo
             // 
-            this.btnEnviarCodigo.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnEnviarCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnEnviarCodigo.FlatAppearance.BorderSize = 0;
+            this.btnEnviarCodigo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             resources.ApplyResources(this.btnEnviarCodigo, "btnEnviarCodigo");
+            this.btnEnviarCodigo.ForeColor = System.Drawing.Color.White;
             this.btnEnviarCodigo.Name = "btnEnviarCodigo";
             this.btnEnviarCodigo.UseVisualStyleBackColor = false;
             this.btnEnviarCodigo.Click += new System.EventHandler(this.btnEnviarCodigo_Click);
@@ -133,18 +151,23 @@ namespace CompuGross
             // 
             resources.ApplyResources(this.lblCodigoRecuperacion, "lblCodigoRecuperacion");
             this.lblCodigoRecuperacion.BackColor = System.Drawing.Color.Transparent;
+            this.lblCodigoRecuperacion.ForeColor = System.Drawing.Color.White;
             this.lblCodigoRecuperacion.Name = "lblCodigoRecuperacion";
             // 
             // lblClaveNueva
             // 
             resources.ApplyResources(this.lblClaveNueva, "lblClaveNueva");
             this.lblClaveNueva.BackColor = System.Drawing.Color.Transparent;
+            this.lblClaveNueva.ForeColor = System.Drawing.Color.White;
             this.lblClaveNueva.Name = "lblClaveNueva";
             // 
             // cbMostrarClave2
             // 
             resources.ApplyResources(this.cbMostrarClave2, "cbMostrarClave2");
-            this.cbMostrarClave2.BackColor = System.Drawing.Color.Transparent;
+            this.cbMostrarClave2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.cbMostrarClave2.FlatAppearance.BorderSize = 0;
+            this.cbMostrarClave2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.cbMostrarClave2.ForeColor = System.Drawing.Color.White;
             this.cbMostrarClave2.Name = "cbMostrarClave2";
             this.cbMostrarClave2.UseVisualStyleBackColor = false;
             this.cbMostrarClave2.CheckedChanged += new System.EventHandler(this.cbMostrarClave_CheckedChanged);
@@ -152,7 +175,10 @@ namespace CompuGross
             // cbMostrarClave1
             // 
             resources.ApplyResources(this.cbMostrarClave1, "cbMostrarClave1");
-            this.cbMostrarClave1.BackColor = System.Drawing.Color.Transparent;
+            this.cbMostrarClave1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.cbMostrarClave1.FlatAppearance.BorderSize = 0;
+            this.cbMostrarClave1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.cbMostrarClave1.ForeColor = System.Drawing.Color.White;
             this.cbMostrarClave1.Name = "cbMostrarClave1";
             this.cbMostrarClave1.UseVisualStyleBackColor = false;
             this.cbMostrarClave1.CheckedChanged += new System.EventHandler(this.cbMostrarClave1_CheckedChanged);
@@ -161,7 +187,7 @@ namespace CompuGross
             // 
             resources.ApplyResources(this.lblCaracteres, "lblCaracteres");
             this.lblCaracteres.BackColor = System.Drawing.Color.Transparent;
-            this.lblCaracteres.ForeColor = System.Drawing.Color.Red;
+            this.lblCaracteres.ForeColor = System.Drawing.Color.LightCoral;
             this.lblCaracteres.Name = "lblCaracteres";
             this.lblCaracteres.UseMnemonic = false;
             // 
@@ -169,7 +195,7 @@ namespace CompuGross
             // 
             resources.ApplyResources(this.lblMayus, "lblMayus");
             this.lblMayus.BackColor = System.Drawing.Color.Transparent;
-            this.lblMayus.ForeColor = System.Drawing.Color.Red;
+            this.lblMayus.ForeColor = System.Drawing.Color.LightCoral;
             this.lblMayus.Name = "lblMayus";
             this.lblMayus.UseMnemonic = false;
             // 
@@ -177,7 +203,7 @@ namespace CompuGross
             // 
             resources.ApplyResources(this.lblMinus, "lblMinus");
             this.lblMinus.BackColor = System.Drawing.Color.Transparent;
-            this.lblMinus.ForeColor = System.Drawing.Color.Red;
+            this.lblMinus.ForeColor = System.Drawing.Color.LightCoral;
             this.lblMinus.Name = "lblMinus";
             this.lblMinus.UseMnemonic = false;
             // 
@@ -185,7 +211,7 @@ namespace CompuGross
             // 
             resources.ApplyResources(this.lblNum, "lblNum");
             this.lblNum.BackColor = System.Drawing.Color.Transparent;
-            this.lblNum.ForeColor = System.Drawing.Color.Red;
+            this.lblNum.ForeColor = System.Drawing.Color.LightCoral;
             this.lblNum.Name = "lblNum";
             this.lblNum.UseMnemonic = false;
             // 
@@ -193,7 +219,7 @@ namespace CompuGross
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.Controls.Add(this.lblNum);
             this.Controls.Add(this.lblMinus);
             this.Controls.Add(this.lblMayus);
@@ -212,10 +238,10 @@ namespace CompuGross
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.txtClave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "Login";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

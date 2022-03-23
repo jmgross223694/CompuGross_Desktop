@@ -82,6 +82,7 @@ namespace CompuGross
             this.ddlCdDvd = new System.Windows.Forms.ComboBox();
             this.lblCamposObligatorios = new System.Windows.Forms.Label();
             this.lblSeleccionarCliente = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@ namespace CompuGross
             this.txtCliente.Cursor = System.Windows.Forms.Cursors.No;
             this.txtCliente.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCliente.ForeColor = System.Drawing.Color.White;
-            this.txtCliente.Location = new System.Drawing.Point(63, 30);
+            this.txtCliente.Location = new System.Drawing.Point(63, 47);
             this.txtCliente.MaxLength = 200;
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.ReadOnly = true;
@@ -107,7 +108,7 @@ namespace CompuGross
             this.txtRam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRam.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRam.ForeColor = System.Drawing.Color.White;
-            this.txtRam.Location = new System.Drawing.Point(358, 123);
+            this.txtRam.Location = new System.Drawing.Point(358, 140);
             this.txtRam.MaxLength = 10;
             this.txtRam.Name = "txtRam";
             this.txtRam.Size = new System.Drawing.Size(150, 20);
@@ -118,14 +119,14 @@ namespace CompuGross
             this.ddlTiposServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.ddlTiposServicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlTiposServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlTiposServicio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlTiposServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlTiposServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlTiposServicio.ForeColor = System.Drawing.Color.White;
             this.ddlTiposServicio.FormattingEnabled = true;
             this.ddlTiposServicio.ItemHeight = 15;
             this.ddlTiposServicio.Items.AddRange(new object[] {
             "-"});
-            this.ddlTiposServicio.Location = new System.Drawing.Point(346, 79);
+            this.ddlTiposServicio.Location = new System.Drawing.Point(346, 96);
             this.ddlTiposServicio.MaxDropDownItems = 10;
             this.ddlTiposServicio.Name = "ddlTiposServicio";
             this.ddlTiposServicio.Size = new System.Drawing.Size(161, 23);
@@ -143,7 +144,7 @@ namespace CompuGross
             this.ddlTiposEquipo.ItemHeight = 13;
             this.ddlTiposEquipo.Items.AddRange(new object[] {
             "-"});
-            this.ddlTiposEquipo.Location = new System.Drawing.Point(12, 123);
+            this.ddlTiposEquipo.Location = new System.Drawing.Point(12, 140);
             this.ddlTiposEquipo.MaxDropDownItems = 15;
             this.ddlTiposEquipo.Name = "ddlTiposEquipo";
             this.ddlTiposEquipo.Size = new System.Drawing.Size(146, 21);
@@ -155,7 +156,7 @@ namespace CompuGross
             this.txtPlacaMadre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPlacaMadre.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlacaMadre.ForeColor = System.Drawing.Color.White;
-            this.txtPlacaMadre.Location = new System.Drawing.Point(358, 166);
+            this.txtPlacaMadre.Location = new System.Drawing.Point(358, 183);
             this.txtPlacaMadre.MaxLength = 50;
             this.txtPlacaMadre.Name = "txtPlacaMadre";
             this.txtPlacaMadre.Size = new System.Drawing.Size(150, 20);
@@ -167,7 +168,7 @@ namespace CompuGross
             this.txtMarcaModelo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMarcaModelo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarcaModelo.ForeColor = System.Drawing.Color.White;
-            this.txtMarcaModelo.Location = new System.Drawing.Point(164, 123);
+            this.txtMarcaModelo.Location = new System.Drawing.Point(164, 140);
             this.txtMarcaModelo.MaxLength = 50;
             this.txtMarcaModelo.Name = "txtMarcaModelo";
             this.txtMarcaModelo.Size = new System.Drawing.Size(188, 20);
@@ -179,7 +180,7 @@ namespace CompuGross
             this.txtMicroprocesador.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMicroprocesador.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMicroprocesador.ForeColor = System.Drawing.Color.White;
-            this.txtMicroprocesador.Location = new System.Drawing.Point(12, 166);
+            this.txtMicroprocesador.Location = new System.Drawing.Point(12, 183);
             this.txtMicroprocesador.MaxLength = 50;
             this.txtMicroprocesador.Name = "txtMicroprocesador";
             this.txtMicroprocesador.Size = new System.Drawing.Size(158, 20);
@@ -191,7 +192,7 @@ namespace CompuGross
             this.txtAlmacenamiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAlmacenamiento.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAlmacenamiento.ForeColor = System.Drawing.Color.White;
-            this.txtAlmacenamiento.Location = new System.Drawing.Point(185, 166);
+            this.txtAlmacenamiento.Location = new System.Drawing.Point(185, 183);
             this.txtAlmacenamiento.MaxLength = 50;
             this.txtAlmacenamiento.Name = "txtAlmacenamiento";
             this.txtAlmacenamiento.Size = new System.Drawing.Size(161, 20);
@@ -203,7 +204,7 @@ namespace CompuGross
             this.txtFuente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFuente.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFuente.ForeColor = System.Drawing.Color.White;
-            this.txtFuente.Location = new System.Drawing.Point(12, 208);
+            this.txtFuente.Location = new System.Drawing.Point(12, 225);
             this.txtFuente.MaxLength = 50;
             this.txtFuente.Name = "txtFuente";
             this.txtFuente.Size = new System.Drawing.Size(158, 20);
@@ -215,7 +216,7 @@ namespace CompuGross
             this.txtAdicionales.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAdicionales.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAdicionales.ForeColor = System.Drawing.Color.White;
-            this.txtAdicionales.Location = new System.Drawing.Point(185, 208);
+            this.txtAdicionales.Location = new System.Drawing.Point(185, 225);
             this.txtAdicionales.MaxLength = 50;
             this.txtAdicionales.Name = "txtAdicionales";
             this.txtAdicionales.Size = new System.Drawing.Size(161, 20);
@@ -227,7 +228,7 @@ namespace CompuGross
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.ForeColor = System.Drawing.Color.White;
-            this.txtDescripcion.Location = new System.Drawing.Point(358, 208);
+            this.txtDescripcion.Location = new System.Drawing.Point(358, 225);
             this.txtDescripcion.MaxLength = 1000;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -241,7 +242,7 @@ namespace CompuGross
             this.txtNumSerie.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumSerie.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumSerie.ForeColor = System.Drawing.Color.White;
-            this.txtNumSerie.Location = new System.Drawing.Point(12, 254);
+            this.txtNumSerie.Location = new System.Drawing.Point(12, 271);
             this.txtNumSerie.MaxLength = 100;
             this.txtNumSerie.Name = "txtNumSerie";
             this.txtNumSerie.Size = new System.Drawing.Size(167, 20);
@@ -254,7 +255,7 @@ namespace CompuGross
             this.txtCostoRepuestos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCostoRepuestos.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostoRepuestos.ForeColor = System.Drawing.Color.White;
-            this.txtCostoRepuestos.Location = new System.Drawing.Point(12, 306);
+            this.txtCostoRepuestos.Location = new System.Drawing.Point(12, 323);
             this.txtCostoRepuestos.MaxLength = 10;
             this.txtCostoRepuestos.Name = "txtCostoRepuestos";
             this.txtCostoRepuestos.Size = new System.Drawing.Size(109, 20);
@@ -268,7 +269,7 @@ namespace CompuGross
             this.txtCostoManoObra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCostoManoObra.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostoManoObra.ForeColor = System.Drawing.Color.White;
-            this.txtCostoManoObra.Location = new System.Drawing.Point(139, 306);
+            this.txtCostoManoObra.Location = new System.Drawing.Point(139, 323);
             this.txtCostoManoObra.MaxLength = 10;
             this.txtCostoManoObra.Name = "txtCostoManoObra";
             this.txtCostoManoObra.Size = new System.Drawing.Size(104, 20);
@@ -282,7 +283,7 @@ namespace CompuGross
             this.txtCostoTerceros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCostoTerceros.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostoTerceros.ForeColor = System.Drawing.Color.White;
-            this.txtCostoTerceros.Location = new System.Drawing.Point(258, 306);
+            this.txtCostoTerceros.Location = new System.Drawing.Point(258, 323);
             this.txtCostoTerceros.MaxLength = 10;
             this.txtCostoTerceros.Name = "txtCostoTerceros";
             this.txtCostoTerceros.Size = new System.Drawing.Size(92, 20);
@@ -296,7 +297,7 @@ namespace CompuGross
             this.lblCliente.BackColor = System.Drawing.Color.Transparent;
             this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCliente.ForeColor = System.Drawing.Color.White;
-            this.lblCliente.Location = new System.Drawing.Point(60, 14);
+            this.lblCliente.Location = new System.Drawing.Point(60, 31);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(49, 16);
             this.lblCliente.TabIndex = 22;
@@ -308,7 +309,7 @@ namespace CompuGross
             this.lblFechaRecepcion.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaRecepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaRecepcion.ForeColor = System.Drawing.Color.White;
-            this.lblFechaRecepcion.Location = new System.Drawing.Point(9, 63);
+            this.lblFechaRecepcion.Location = new System.Drawing.Point(9, 80);
             this.lblFechaRecepcion.Name = "lblFechaRecepcion";
             this.lblFechaRecepcion.Size = new System.Drawing.Size(109, 16);
             this.lblFechaRecepcion.TabIndex = 23;
@@ -320,11 +321,11 @@ namespace CompuGross
             this.lblRam.BackColor = System.Drawing.Color.Transparent;
             this.lblRam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRam.ForeColor = System.Drawing.Color.White;
-            this.lblRam.Location = new System.Drawing.Point(355, 103);
+            this.lblRam.Location = new System.Drawing.Point(355, 120);
             this.lblRam.Name = "lblRam";
-            this.lblRam.Size = new System.Drawing.Size(68, 16);
+            this.lblRam.Size = new System.Drawing.Size(94, 16);
             this.lblRam.TabIndex = 24;
-            this.lblRam.Text = "RAM (GB)";
+            this.lblRam.Text = "Memoria RAM";
             // 
             // lblTipoServicio
             // 
@@ -332,7 +333,7 @@ namespace CompuGross
             this.lblTipoServicio.BackColor = System.Drawing.Color.Transparent;
             this.lblTipoServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoServicio.ForeColor = System.Drawing.Color.White;
-            this.lblTipoServicio.Location = new System.Drawing.Point(343, 62);
+            this.lblTipoServicio.Location = new System.Drawing.Point(343, 79);
             this.lblTipoServicio.Name = "lblTipoServicio";
             this.lblTipoServicio.Size = new System.Drawing.Size(108, 16);
             this.lblTipoServicio.TabIndex = 25;
@@ -344,7 +345,7 @@ namespace CompuGross
             this.lblTipoEquipo.BackColor = System.Drawing.Color.Transparent;
             this.lblTipoEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoEquipo.ForeColor = System.Drawing.Color.White;
-            this.lblTipoEquipo.Location = new System.Drawing.Point(9, 103);
+            this.lblTipoEquipo.Location = new System.Drawing.Point(9, 120);
             this.lblTipoEquipo.Name = "lblTipoEquipo";
             this.lblTipoEquipo.Size = new System.Drawing.Size(100, 16);
             this.lblTipoEquipo.TabIndex = 26;
@@ -356,7 +357,7 @@ namespace CompuGross
             this.lblPlacaMadre.BackColor = System.Drawing.Color.Transparent;
             this.lblPlacaMadre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlacaMadre.ForeColor = System.Drawing.Color.White;
-            this.lblPlacaMadre.Location = new System.Drawing.Point(355, 147);
+            this.lblPlacaMadre.Location = new System.Drawing.Point(355, 164);
             this.lblPlacaMadre.Name = "lblPlacaMadre";
             this.lblPlacaMadre.Size = new System.Drawing.Size(85, 16);
             this.lblPlacaMadre.TabIndex = 27;
@@ -368,7 +369,7 @@ namespace CompuGross
             this.lblMarca.BackColor = System.Drawing.Color.Transparent;
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.White;
-            this.lblMarca.Location = new System.Drawing.Point(161, 103);
+            this.lblMarca.Location = new System.Drawing.Point(161, 120);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(105, 16);
             this.lblMarca.TabIndex = 28;
@@ -380,7 +381,7 @@ namespace CompuGross
             this.lblMicroProcesador.BackColor = System.Drawing.Color.Transparent;
             this.lblMicroProcesador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMicroProcesador.ForeColor = System.Drawing.Color.White;
-            this.lblMicroProcesador.Location = new System.Drawing.Point(9, 147);
+            this.lblMicroProcesador.Location = new System.Drawing.Point(9, 164);
             this.lblMicroProcesador.Name = "lblMicroProcesador";
             this.lblMicroProcesador.Size = new System.Drawing.Size(111, 16);
             this.lblMicroProcesador.TabIndex = 29;
@@ -392,7 +393,7 @@ namespace CompuGross
             this.lblAlmacenamiento.BackColor = System.Drawing.Color.Transparent;
             this.lblAlmacenamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlmacenamiento.ForeColor = System.Drawing.Color.White;
-            this.lblAlmacenamiento.Location = new System.Drawing.Point(182, 147);
+            this.lblAlmacenamiento.Location = new System.Drawing.Point(182, 164);
             this.lblAlmacenamiento.Name = "lblAlmacenamiento";
             this.lblAlmacenamiento.Size = new System.Drawing.Size(109, 16);
             this.lblAlmacenamiento.TabIndex = 30;
@@ -404,7 +405,7 @@ namespace CompuGross
             this.lblCdDvd.BackColor = System.Drawing.Color.Transparent;
             this.lblCdDvd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCdDvd.ForeColor = System.Drawing.Color.White;
-            this.lblCdDvd.Location = new System.Drawing.Point(182, 235);
+            this.lblCdDvd.Location = new System.Drawing.Point(182, 252);
             this.lblCdDvd.Name = "lblCdDvd";
             this.lblCdDvd.Size = new System.Drawing.Size(66, 16);
             this.lblCdDvd.TabIndex = 31;
@@ -416,7 +417,7 @@ namespace CompuGross
             this.lblFuente.BackColor = System.Drawing.Color.Transparent;
             this.lblFuente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFuente.ForeColor = System.Drawing.Color.White;
-            this.lblFuente.Location = new System.Drawing.Point(9, 235);
+            this.lblFuente.Location = new System.Drawing.Point(9, 252);
             this.lblFuente.Name = "lblFuente";
             this.lblFuente.Size = new System.Drawing.Size(49, 16);
             this.lblFuente.TabIndex = 32;
@@ -428,7 +429,7 @@ namespace CompuGross
             this.lblAdicionales.BackColor = System.Drawing.Color.Transparent;
             this.lblAdicionales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdicionales.ForeColor = System.Drawing.Color.White;
-            this.lblAdicionales.Location = new System.Drawing.Point(182, 188);
+            this.lblAdicionales.Location = new System.Drawing.Point(182, 205);
             this.lblAdicionales.Name = "lblAdicionales";
             this.lblAdicionales.Size = new System.Drawing.Size(79, 16);
             this.lblAdicionales.TabIndex = 33;
@@ -440,7 +441,7 @@ namespace CompuGross
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(355, 188);
+            this.lblDescripcion.Location = new System.Drawing.Point(355, 205);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(80, 16);
             this.lblDescripcion.TabIndex = 34;
@@ -452,7 +453,7 @@ namespace CompuGross
             this.lblNumSerie.BackColor = System.Drawing.Color.Transparent;
             this.lblNumSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumSerie.ForeColor = System.Drawing.Color.White;
-            this.lblNumSerie.Location = new System.Drawing.Point(9, 190);
+            this.lblNumSerie.Location = new System.Drawing.Point(9, 207);
             this.lblNumSerie.Name = "lblNumSerie";
             this.lblNumSerie.Size = new System.Drawing.Size(57, 16);
             this.lblNumSerie.TabIndex = 35;
@@ -464,11 +465,11 @@ namespace CompuGross
             this.lblCostoRepuestos.BackColor = System.Drawing.Color.Transparent;
             this.lblCostoRepuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCostoRepuestos.ForeColor = System.Drawing.Color.White;
-            this.lblCostoRepuestos.Location = new System.Drawing.Point(9, 287);
+            this.lblCostoRepuestos.Location = new System.Drawing.Point(9, 304);
             this.lblCostoRepuestos.Name = "lblCostoRepuestos";
-            this.lblCostoRepuestos.Size = new System.Drawing.Size(112, 16);
+            this.lblCostoRepuestos.Size = new System.Drawing.Size(106, 16);
             this.lblCostoRepuestos.TabIndex = 36;
-            this.lblCostoRepuestos.Text = "Costo Repuestos";
+            this.lblCostoRepuestos.Text = "Costo repuestos";
             // 
             // lblManoObra
             // 
@@ -476,7 +477,7 @@ namespace CompuGross
             this.lblManoObra.BackColor = System.Drawing.Color.Transparent;
             this.lblManoObra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManoObra.ForeColor = System.Drawing.Color.White;
-            this.lblManoObra.Location = new System.Drawing.Point(136, 287);
+            this.lblManoObra.Location = new System.Drawing.Point(136, 304);
             this.lblManoObra.Name = "lblManoObra";
             this.lblManoObra.Size = new System.Drawing.Size(92, 16);
             this.lblManoObra.TabIndex = 37;
@@ -488,7 +489,7 @@ namespace CompuGross
             this.lblCostoTerceros.BackColor = System.Drawing.Color.Transparent;
             this.lblCostoTerceros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCostoTerceros.ForeColor = System.Drawing.Color.White;
-            this.lblCostoTerceros.Location = new System.Drawing.Point(255, 288);
+            this.lblCostoTerceros.Location = new System.Drawing.Point(255, 305);
             this.lblCostoTerceros.Name = "lblCostoTerceros";
             this.lblCostoTerceros.Size = new System.Drawing.Size(95, 16);
             this.lblCostoTerceros.TabIndex = 38;
@@ -500,7 +501,7 @@ namespace CompuGross
             this.lblFechaDevolucion.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaDevolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaDevolucion.ForeColor = System.Drawing.Color.White;
-            this.lblFechaDevolucion.Location = new System.Drawing.Point(161, 63);
+            this.lblFechaDevolucion.Location = new System.Drawing.Point(161, 80);
             this.lblFechaDevolucion.Name = "lblFechaDevolucion";
             this.lblFechaDevolucion.Size = new System.Drawing.Size(115, 16);
             this.lblFechaDevolucion.TabIndex = 39;
@@ -518,12 +519,11 @@ namespace CompuGross
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
             this.btnConfirmar.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.Image")));
             this.btnConfirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirmar.Location = new System.Drawing.Point(370, 332);
+            this.btnConfirmar.Location = new System.Drawing.Point(370, 349);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(138, 36);
             this.btnConfirmar.TabIndex = 19;
             this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
@@ -537,7 +537,7 @@ namespace CompuGross
             this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
             this.btnBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.Image")));
             this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(12, 13);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(12, 30);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(30, 30);
             this.btnBuscarCliente.TabIndex = 0;
@@ -581,7 +581,7 @@ namespace CompuGross
             this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvClientes.Location = new System.Drawing.Point(12, 62);
+            this.dgvClientes.Location = new System.Drawing.Point(12, 79);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
@@ -599,7 +599,7 @@ namespace CompuGross
             this.dgvClientes.ShowCellToolTips = false;
             this.dgvClientes.ShowEditingIcon = false;
             this.dgvClientes.ShowRowErrors = false;
-            this.dgvClientes.Size = new System.Drawing.Size(499, 292);
+            this.dgvClientes.Size = new System.Drawing.Size(499, 312);
             this.dgvClientes.StandardTab = true;
             this.dgvClientes.TabIndex = 23;
             this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
@@ -611,7 +611,7 @@ namespace CompuGross
             this.txtBuscarCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBuscarCliente.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarCliente.ForeColor = System.Drawing.Color.White;
-            this.txtBuscarCliente.Location = new System.Drawing.Point(113, 22);
+            this.txtBuscarCliente.Location = new System.Drawing.Point(113, 39);
             this.txtBuscarCliente.MaxLength = 50;
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(385, 20);
@@ -625,7 +625,7 @@ namespace CompuGross
             this.lblBuscarCliente.BackColor = System.Drawing.Color.Transparent;
             this.lblBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscarCliente.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarCliente.Location = new System.Drawing.Point(67, 22);
+            this.lblBuscarCliente.Location = new System.Drawing.Point(67, 39);
             this.lblBuscarCliente.Name = "lblBuscarCliente";
             this.lblBuscarCliente.Size = new System.Drawing.Size(50, 20);
             this.lblBuscarCliente.TabIndex = 42;
@@ -642,7 +642,7 @@ namespace CompuGross
             this.fechaRecepcion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fechaRecepcion.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaRecepcion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaRecepcion.Location = new System.Drawing.Point(12, 79);
+            this.fechaRecepcion.Location = new System.Drawing.Point(12, 96);
             this.fechaRecepcion.Name = "fechaRecepcion";
             this.fechaRecepcion.Size = new System.Drawing.Size(135, 22);
             this.fechaRecepcion.TabIndex = 2;
@@ -658,7 +658,7 @@ namespace CompuGross
             this.fechaDevolucion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fechaDevolucion.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaDevolucion.Location = new System.Drawing.Point(164, 79);
+            this.fechaDevolucion.Location = new System.Drawing.Point(164, 96);
             this.fechaDevolucion.Name = "fechaDevolucion";
             this.fechaDevolucion.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.fechaDevolucion.Size = new System.Drawing.Size(165, 22);
@@ -668,11 +668,11 @@ namespace CompuGross
             // 
             this.lblAsterisco5.AutoSize = true;
             this.lblAsterisco5.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsterisco5.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco5.Location = new System.Drawing.Point(408, 186);
+            this.lblAsterisco5.Location = new System.Drawing.Point(408, 203);
             this.lblAsterisco5.Name = "lblAsterisco5";
-            this.lblAsterisco5.Size = new System.Drawing.Size(15, 20);
+            this.lblAsterisco5.Size = new System.Drawing.Size(17, 19);
             this.lblAsterisco5.TabIndex = 46;
             this.lblAsterisco5.Text = "*";
             // 
@@ -680,11 +680,11 @@ namespace CompuGross
             // 
             this.lblAsterisco4.AutoSize = true;
             this.lblAsterisco4.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsterisco4.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco4.Location = new System.Drawing.Point(196, 284);
+            this.lblAsterisco4.Location = new System.Drawing.Point(196, 301);
             this.lblAsterisco4.Name = "lblAsterisco4";
-            this.lblAsterisco4.Size = new System.Drawing.Size(15, 20);
+            this.lblAsterisco4.Size = new System.Drawing.Size(17, 19);
             this.lblAsterisco4.TabIndex = 47;
             this.lblAsterisco4.Text = "*";
             // 
@@ -692,11 +692,11 @@ namespace CompuGross
             // 
             this.lblAsterisco1.AutoSize = true;
             this.lblAsterisco1.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsterisco1.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco1.Location = new System.Drawing.Point(414, 59);
+            this.lblAsterisco1.Location = new System.Drawing.Point(414, 76);
             this.lblAsterisco1.Name = "lblAsterisco1";
-            this.lblAsterisco1.Size = new System.Drawing.Size(15, 20);
+            this.lblAsterisco1.Size = new System.Drawing.Size(17, 19);
             this.lblAsterisco1.TabIndex = 48;
             this.lblAsterisco1.Text = "*";
             // 
@@ -704,11 +704,11 @@ namespace CompuGross
             // 
             this.lblAsterisco2.AutoSize = true;
             this.lblAsterisco2.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsterisco2.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco2.Location = new System.Drawing.Point(76, 101);
+            this.lblAsterisco2.Location = new System.Drawing.Point(76, 118);
             this.lblAsterisco2.Name = "lblAsterisco2";
-            this.lblAsterisco2.Size = new System.Drawing.Size(15, 20);
+            this.lblAsterisco2.Size = new System.Drawing.Size(17, 19);
             this.lblAsterisco2.TabIndex = 49;
             this.lblAsterisco2.Text = "*";
             // 
@@ -716,11 +716,11 @@ namespace CompuGross
             // 
             this.lblAsterisco3.AutoSize = true;
             this.lblAsterisco3.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsterisco3.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco3.Location = new System.Drawing.Point(234, 100);
+            this.lblAsterisco3.Location = new System.Drawing.Point(234, 117);
             this.lblAsterisco3.Name = "lblAsterisco3";
-            this.lblAsterisco3.Size = new System.Drawing.Size(15, 20);
+            this.lblAsterisco3.Size = new System.Drawing.Size(17, 19);
             this.lblAsterisco3.TabIndex = 50;
             this.lblAsterisco3.Text = "*";
             // 
@@ -732,7 +732,7 @@ namespace CompuGross
             this.cbFechaDevolucion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.cbFechaDevolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFechaDevolucion.ForeColor = System.Drawing.Color.White;
-            this.cbFechaDevolucion.Location = new System.Drawing.Point(317, 65);
+            this.cbFechaDevolucion.Location = new System.Drawing.Point(317, 82);
             this.cbFechaDevolucion.Name = "cbFechaDevolucion";
             this.cbFechaDevolucion.Size = new System.Drawing.Size(12, 11);
             this.cbFechaDevolucion.TabIndex = 51;
@@ -755,7 +755,7 @@ namespace CompuGross
             "Lectograbadora CD/DVD",
             "No tiene",
             "No aplica"});
-            this.ddlCdDvd.Location = new System.Drawing.Point(185, 253);
+            this.ddlCdDvd.Location = new System.Drawing.Point(185, 270);
             this.ddlCdDvd.Name = "ddlCdDvd";
             this.ddlCdDvd.Size = new System.Drawing.Size(167, 21);
             this.ddlCdDvd.TabIndex = 52;
@@ -765,7 +765,7 @@ namespace CompuGross
             this.lblCamposObligatorios.AutoSize = true;
             this.lblCamposObligatorios.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCamposObligatorios.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblCamposObligatorios.Location = new System.Drawing.Point(8, 341);
+            this.lblCamposObligatorios.Location = new System.Drawing.Point(8, 358);
             this.lblCamposObligatorios.Name = "lblCamposObligatorios";
             this.lblCamposObligatorios.Size = new System.Drawing.Size(154, 19);
             this.lblCamposObligatorios.TabIndex = 53;
@@ -774,17 +774,31 @@ namespace CompuGross
             // lblSeleccionarCliente
             // 
             this.lblSeleccionarCliente.AutoSize = true;
+            this.lblSeleccionarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.lblSeleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblSeleccionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeleccionarCliente.ForeColor = System.Drawing.Color.White;
-            this.lblSeleccionarCliente.Location = new System.Drawing.Point(13, 46);
+            this.lblSeleccionarCliente.Location = new System.Drawing.Point(13, 61);
             this.lblSeleccionarCliente.Name = "lblSeleccionarCliente";
             this.lblSeleccionarCliente.Size = new System.Drawing.Size(198, 25);
             this.lblSeleccionarCliente.TabIndex = 54;
             this.lblSeleccionarCliente.Text = "Seleccionar Cliente";
             this.lblSeleccionarCliente.Visible = false;
             this.lblSeleccionarCliente.Click += new System.EventHandler(this.lblSeleccionarCliente_Click);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitulo.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(12, 6);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(499, 25);
+            this.lblTitulo.TabIndex = 55;
+            this.lblTitulo.Text = "NUEVO SERVICIO";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AgregarOrden
             // 
@@ -793,7 +807,8 @@ namespace CompuGross
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(529, 381);
+            this.ClientSize = new System.Drawing.Size(529, 401);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblSeleccionarCliente);
             this.Controls.Add(this.lblCamposObligatorios);
             this.Controls.Add(this.ddlCdDvd);
@@ -906,5 +921,6 @@ namespace CompuGross
         private System.Windows.Forms.ComboBox ddlCdDvd;
         private System.Windows.Forms.Label lblCamposObligatorios;
         private System.Windows.Forms.Label lblSeleccionarCliente;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

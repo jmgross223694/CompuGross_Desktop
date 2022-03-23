@@ -27,8 +27,6 @@ namespace CompuGross
             // TODO: esta línea de código carga datos en la tabla 'compuGrossDataSet1.Localidades' Puede moverla o quitarla según sea necesario.
             //this.localidadesTableAdapter.Fill(this.compuGrossDataSet1.Localidades);
             btnRegistrar.Enabled = false;
-            btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
-            btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
 
             //cbTipoUsuario.Enabled = false;
             txtNombres.Enabled = false;
@@ -43,12 +41,6 @@ namespace CompuGross
             txtMail.Text = "";
             txtDni.Text = "";
             txtClave.Text = "";
-
-            txtNombres.BackColor = Color.White;
-            txtApellidos.BackColor = Color.White;
-            txtMail.BackColor = Color.White;
-            txtDni.BackColor = Color.White;
-            txtClave.BackColor = Color.White;
 
             lblMailInvalido.Visible = false;
             lblMailValido.Visible = false;
@@ -69,33 +61,11 @@ namespace CompuGross
             {
                 MessageBox.Show("Hay datos inválidos o sin completar.", "Atención!!", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                if (cbTipoUsuario.SelectedItem.ToString() == "-")
-                {
-                    cbTipoUsuario.BackColor = Color.FromArgb(255, 236, 236);
-                }
-                if (txtNombres.Text == "")
-                {
-                    txtNombres.BackColor = Color.FromArgb(255, 236, 236);
-                }
-                if (txtApellidos.Text == "")
-                {
-                    txtApellidos.BackColor = Color.FromArgb(255, 236, 236);
-                }
-                if (txtMail.Text == "")
-                {
-                    txtMail.BackColor = Color.FromArgb(255, 236, 236);
-                }
+                
                 if (!txtMail.Text.Contains("@") && !txtMail.Text.Contains(".com"))
                 {
                     MessageBox.Show("Mail inválido.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    txtMail.BackColor = Color.FromArgb(255, 236, 236);
-                }
-                if (txtDni.Text == "")
-                {
-                    txtDni.BackColor = Color.FromArgb(255, 236, 236);
                 }
                 if (txtClave.Text == "" || txtClave.Text.Length < 8)
                 {
@@ -104,7 +74,6 @@ namespace CompuGross
                         MessageBox.Show("La clave es menor a 8 caracteres.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    txtClave.BackColor = Color.FromArgb(255, 236, 236);
                 }
             }
             else
@@ -114,13 +83,6 @@ namespace CompuGross
 
                 if (result2 == DialogResult.Yes)
                 {
-                    cbTipoUsuario.BackColor = Color.White;
-                    txtNombres.BackColor = Color.White;
-                    txtApellidos.BackColor = Color.White;
-                    txtMail.BackColor = Color.White;
-                    txtDni.BackColor = Color.White;
-                    txtClave.BackColor = Color.White;
-
                     bool mayuscula = validarMayusculaClave(txtClave.Text);
 
                     bool numero = validarNumeroClave(txtClave.Text);
@@ -149,27 +111,11 @@ namespace CompuGross
                             MessageBox.Show("Usuario creado correctamente.", "Atención!!",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            DialogResult result = MessageBox.Show("¿Desea agregar otro usuario?", "Confirmar",
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                            if (result == DialogResult.No)
-                            {
-                                this.Close();
-                            }
-                            else
-                            {
-                                txtNombres.Text = "";
-                                txtApellidos.Text = "";
-                                txtMail.Text = "";
-                                txtDni.Text = "";
-                                txtClave.Text = "";
-
-                                txtNombres.BackColor = Color.White;
-                                txtApellidos.BackColor = Color.White;
-                                txtMail.BackColor = Color.White;
-                                txtDni.BackColor = Color.White;
-                                txtClave.BackColor = Color.White;
-                            }
+                            txtNombres.Text = "";
+                            txtApellidos.Text = "";
+                            txtMail.Text = "";
+                            txtDni.Text = "";
+                            txtClave.Text = "";
                         }
                         catch
                         {
@@ -195,7 +141,6 @@ namespace CompuGross
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
-                        txtClave.BackColor = Color.FromArgb(255, 236, 236);
                         txtClave.Focus();
                     }
                 }
@@ -279,7 +224,6 @@ namespace CompuGross
             if (nombres != "" && len >= 3) 
             {
                 txtApellidos.Enabled = true;
-                txtNombres.BackColor = Color.White;
 
                 string tipo = cbTipoUsuario.SelectedItem.ToString();
                 string apellidos = txtApellidos.Text;
@@ -299,20 +243,15 @@ namespace CompuGross
                 if (tipo != "-" && apellidos.Length >= 3 && mailValido && dni.Length >= 7 && claveValida)
                 {
                     btnRegistrar.Enabled = true;
-                    btnRegistrar.BackColor = Color.YellowGreen;
-                    btnRegistrar.ForeColor = Color.Black;
                 }
             }
             else 
             {
-                txtNombres.BackColor = Color.FromArgb(255, 236, 236);
                 txtApellidos.Enabled = false;
                 txtDni.Enabled = false;
                 txtMail.Enabled = false;
                 txtClave.Enabled = false;
                 btnRegistrar.Enabled = false;
-                btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
-                btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
             }
         }
 
@@ -324,7 +263,6 @@ namespace CompuGross
             if (apellidos != "" && len >= 3) 
             {
                 txtMail.Enabled = true;
-                txtApellidos.BackColor = Color.White;
 
                 string tipo = cbTipoUsuario.SelectedItem.ToString();
                 string nombres = txtNombres.Text;
@@ -344,19 +282,14 @@ namespace CompuGross
                 if (tipo != "-" && nombres.Length >= 3 && mailValido && dni.Length >= 7 && claveValida)
                 {
                     btnRegistrar.Enabled = true;
-                    btnRegistrar.BackColor = Color.YellowGreen;
-                    btnRegistrar.ForeColor = Color.Black;
                 }
             }
             else 
             {
-                txtApellidos.BackColor = Color.FromArgb(255, 236, 236);
                 txtMail.Enabled = false;
                 txtDni.Enabled = false;
                 txtClave.Enabled = false;
                 btnRegistrar.Enabled = false;
-                btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
-                btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
             }
         }
 
@@ -370,7 +303,6 @@ namespace CompuGross
             {
                 lblMailValido.Visible = true;
                 lblMailInvalido.Visible = false;
-                txtMail.BackColor = Color.White;
                 txtDni.Enabled = true;
 
                 string tipo = cbTipoUsuario.SelectedItem.ToString();
@@ -387,20 +319,15 @@ namespace CompuGross
                 if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && dni.Length >= 7 && claveValida)
                 {
                     btnRegistrar.Enabled = true;
-                    btnRegistrar.BackColor = Color.YellowGreen;
-                    btnRegistrar.ForeColor = Color.Black;
                 }
             }
             else 
             {
                 lblMailValido.Visible = false;
                 lblMailInvalido.Visible = true;
-                txtMail.BackColor = Color.FromArgb(255, 236, 236);
                 txtDni.Enabled = false;
                 txtClave.Enabled = false;
                 btnRegistrar.Enabled = false;
-                btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
-                btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
             }
         }
 
@@ -411,7 +338,6 @@ namespace CompuGross
 
             if (dni != "" && len >= 7)
             {
-                txtDni.BackColor = Color.White;
                 txtClave.Enabled = true;
 
                 string tipo = cbTipoUsuario.SelectedItem.ToString();
@@ -432,17 +358,12 @@ namespace CompuGross
                 if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && mailValido && claveValida)
                 {
                     btnRegistrar.Enabled = true;
-                    btnRegistrar.BackColor = Color.YellowGreen;
-                    btnRegistrar.ForeColor = Color.Black;
                 }
             }
             else
             {
-                txtDni.BackColor = Color.FromArgb(255, 236, 236);
                 txtClave.Enabled = false;
                 btnRegistrar.Enabled = false;
-                btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
-                btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
             }
         }
 
@@ -461,7 +382,6 @@ namespace CompuGross
                 lblMinus.Visible = true;
                 lblNum.ForeColor = Color.Red;
                 lblNum.Visible = true;
-                txtClave.BackColor = Color.FromArgb(255, 236, 236);
                 btnRegistrar.Enabled = false;
             }
             else 
@@ -487,8 +407,6 @@ namespace CompuGross
 
                 if (claveValida)
                 {
-                    txtClave.BackColor = Color.White;
-
                     string tipo = cbTipoUsuario.SelectedItem.ToString();
                     string nombres = txtNombres.Text;
                     string apellidos = txtApellidos.Text;
@@ -503,16 +421,11 @@ namespace CompuGross
                     if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && mailValido && dni.Length >= 7)
                     {
                         btnRegistrar.Enabled = true;
-                        btnRegistrar.BackColor = Color.YellowGreen;
-                        btnRegistrar.ForeColor = Color.Black;
                     }
                 }
                 else
                 {
-                    txtClave.BackColor = Color.FromArgb(255, 236, 236);
                     btnRegistrar.Enabled = false;
-                    btnRegistrar.BackColor = Color.FromArgb(207, 221, 178);
-                    btnRegistrar.ForeColor = Color.FromArgb(127, 116, 116);
                 }
             }
         }
@@ -588,10 +501,6 @@ namespace CompuGross
             if (numero) { lblNum.ForeColor = Color.ForestGreen; lblNum.Visible = false; }
             else { lblNum.ForeColor = Color.Red; lblNum.Visible = true; }
 
-            //lblCaracteres.Visible = true;
-            //lblMayus.Visible = true;
-            //lblMinus.Visible = true;
-            //lblNum.Visible = true;
             cbMostrarClave.Enabled = true;
         }
 
@@ -637,8 +546,6 @@ namespace CompuGross
                 if (lenNombres >= 3 && lenApellidos >= 3 && mailValido && lenDni >= 7 && claveValida)
                 {
                     btnRegistrar.Enabled = true;
-                    btnRegistrar.BackColor = Color.YellowGreen;
-                    btnRegistrar.ForeColor = Color.Black;
                 }
                 else
                 {
@@ -667,27 +574,53 @@ namespace CompuGross
             }
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
+        private void txtMail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (this.user != "test" && this.tipo != "test")
+            string mail = txtMail.Text;
+
+            if (mail.Length < 3 && e.KeyChar == '@')
             {
-                MenuPrincipal frmMenu = new MenuPrincipal();
-                this.Hide();
-                frmMenu.ShowDialog();
+                e.Handled = true;
+            }
+            else if (mail.Contains("@") && mail.Contains(".com"))
+            {
+                e.Handled = true;
+
+                if (Char.IsControl(e.KeyChar))
+                {
+                    if (e.KeyChar == (char)Keys.Delete)
+                    {
+                        e.Handled = true;
+                    }
+                    else
+                    {
+                        e.Handled = false;
+                    }
+                }
+            }
+            else if (mail.Contains("@"))
+            {
+                if (Char.IsLetter(e.KeyChar) || e.KeyChar == '.')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || e.KeyChar == '_' ||
+                e.KeyChar == '-' || e.KeyChar == '.' || e.KeyChar == '@' || Char.IsLetter(e.KeyChar))
+            {
+                if (e.KeyChar != 'ñ')
+                {
+                    e.Handled = false;
+                }
             }
             else
             {
-                Login frmLogin = new Login();
-                this.Hide();
-                frmLogin.ShowDialog();
+                e.Handled = true;
             }
-        }
-
-        private void AgregarUsuario_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            MenuPrincipal frmMenu = new MenuPrincipal();
-            this.Hide();
-            frmMenu.ShowDialog();
         }
 
         private void cbMostrarClave_CheckedChanged(object sender, EventArgs e)

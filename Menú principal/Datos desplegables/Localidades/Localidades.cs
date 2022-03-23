@@ -20,6 +20,100 @@ namespace CompuGross
             InitializeComponent();
         }
 
+        private void btnGuardarClick()
+        {
+            string localidad = txtLocalidad.Text;
+
+            if (localidad == "" || localidad == "-")
+            {
+                MessageBox.Show("Localidad vacía.", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtLocalidad.Focus();
+            }
+            else
+            {   //Modificar Localidad
+                if (lblLocalidad.Text != "Nueva Localidad" &&
+                    MessageBox.Show("¿Confirma la modificación?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string update = "update Localidades set Descripcion = '" + localidad + "' " +
+                    "where Descripcion = '" + this.LocalidadSeleccionada + "'";
+
+                    AccesoDatos datos = new AccesoDatos();
+
+                    try
+                    {
+                        datos.SetearConsulta(update);
+                        datos.EjecutarLectura();
+
+                        MessageBox.Show("Localidad modificada correctamente.", "Atención!!",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        cargarDdlLocalidades();
+                        btnCancelar.Visible = false;
+                        btnConfirmar.Visible = false;
+                        lblLocalidad.Visible = false;
+                        txtLocalidad.Visible = false;
+                        listLocalidades.Visible = true;
+                        btnEliminar.Visible = true;
+                        btnAgregar.Visible = true;
+                        btnModificar.Visible = true;
+
+                        txtLocalidad.Text = "";
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se pudo modificar la localidad, reintente más tarde.", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        datos.CerrarConexion();
+                    }
+                }
+                else //Agregar Nueva Localidad
+                {
+                    if (MessageBox.Show("¿Confirma la nueva Localidad?", "Atención!",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string insert = "insert into Localidades(Descripcion) values('" + localidad + "')";
+
+                        AccesoDatos datos = new AccesoDatos();
+
+                        try
+                        {
+                            datos.SetearConsulta(insert);
+                            datos.EjecutarLectura();
+
+                            MessageBox.Show("Localidad agregada correctamente.", "Atención!!",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            cargarDdlLocalidades();
+                            btnCancelar.Visible = false;
+                            btnConfirmar.Visible = false;
+                            lblLocalidad.Visible = false;
+                            txtLocalidad.Visible = false;
+                            listLocalidades.Visible = true;
+                            btnEliminar.Visible = true;
+                            btnAgregar.Visible = true;
+                            btnModificar.Visible = true;
+
+                            txtLocalidad.Text = "";
+                        }
+                        catch
+                        {
+                            MessageBox.Show("La localidad ya existe en el sistema.", "Atención!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        finally
+                        {
+                            datos.CerrarConexion();
+                        }
+                    }
+                }
+            }
+        }
+
         private void cargarDdlLocalidades()
         {
             listLocalidades.Items.Clear();
@@ -49,11 +143,11 @@ namespace CompuGross
             {
                 datos.CerrarConexion();
             }
+            listLocalidades.Focus();
         }
 
         private void Localidades_Load(object sender, EventArgs e)
         {
-            this.Height = 477;
             cargarDdlLocalidades();
             btnCancelar.Visible = false;
             btnConfirmar.Visible = false;
@@ -62,136 +156,70 @@ namespace CompuGross
             listLocalidades.Visible = true;
             btnEliminar.Enabled = true;
             btnAgregar.Enabled = true;
-            btnEditar.Enabled = true;
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            this.Height = 225;
-            btnCancelar.Visible = true;
-            btnConfirmar.Visible = true;
-            lblLocalidad.Visible = true;
-            txtLocalidad.Visible = true;
-            listLocalidades.Visible = false;
-            btnEliminar.Enabled = false;
-            btnAgregar.Enabled = false;
-            btnEditar.Enabled = false;
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Height = 477;
-            btnCancelar.Visible = false;
-            btnConfirmar.Visible = false;
-            lblLocalidad.Visible = false;
-            txtLocalidad.Visible = false;
-            listLocalidades.Visible = true;
-            btnEliminar.Enabled = true;
-            btnAgregar.Enabled = true;
-            btnEditar.Enabled = true;
+            btnModificar.Enabled = true;
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            string localidad = txtLocalidad.Text;
-            
-            if (localidad == "" || localidad == "-")
-            {
-                MessageBox.Show("Por favor ingresa una localidad.", "Atención!!", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                if (btnConfirmar.Text == "Guardar") //Modificar Localidad
-                {
-                    string update = "update Localidades set Descripcion = '" + localidad + "' " +
-                        "where Descripcion = '" + this.LocalidadSeleccionada + "'";
+            btnGuardarClick();
+        }
 
-                    AccesoDatos datos = new AccesoDatos();
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            btnAgregarClick();
+        }
 
-                    try
-                    {
-                        datos.SetearConsulta(update);
-                        datos.EjecutarLectura();
+        private void btnAgregarClick()
+        {
+            btnCancelar.Visible = true;
+            btnConfirmar.Visible = true;
+            lblLocalidad.Visible = true;
+            lblLocalidad.Text = "Nueva Localidad";
+            txtLocalidad.Visible = true;
+            txtLocalidad.Text = "";
+            listLocalidades.Visible = false;
+            btnEliminar.Visible = false;
+            btnAgregar.Visible = false;
+            btnModificar.Visible = false;
+        }
 
-                        MessageBox.Show("Localidad modificada correctamente.", "Atención!!",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            btnModificarClick();
+        }
 
-                        this.Height = 477;
-                        cargarDdlLocalidades();
-                        btnCancelar.Visible = false;
-                        btnConfirmar.Visible = false;
-                        lblLocalidad.Visible = false;
-                        txtLocalidad.Visible = false;
-                        listLocalidades.Visible = true;
-                        btnEliminar.Enabled = true;
-                        btnAgregar.Enabled = true;
-                        btnEditar.Enabled = true;
+        private void btnModificarClick()
+        {
+            string localidad = listLocalidades.SelectedItem.ToString();
 
-                        txtLocalidad.Text = "";
+            btnCancelar.Visible = true;
+            btnConfirmar.Visible = true;
+            btnConfirmar.Text = "Guardar";
+            lblLocalidad.Visible = true;
+            lblLocalidad.Text = "Modificando la Localidad   '" + localidad.ToUpper() + "'";
+            txtLocalidad.Visible = true;
+            listLocalidades.Visible = false;
+            btnEliminar.Visible = true;
+            btnAgregar.Visible = false;
+            btnModificar.Visible = false;
 
-                        btnConfirmar.Text = "Confirmar";
-                        lblLocalidad.Text = "Ingrese la nueva localidad";
-                    }
-                    catch
-                    {
-                        MessageBox.Show("No se pudo modificar la localidad, reintente más tarde.", "Atención!!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        datos.CerrarConexion();
-                    }
-                }
-                else //Agregar nueva Localidad
-                {
+            this.LocalidadSeleccionada = localidad;
 
-                    string insert = "insert into Localidades(Descripcion) values('" + localidad + "')";
-
-                    AccesoDatos datos = new AccesoDatos();
-
-                    try
-                    {
-                        datos.SetearConsulta(insert);
-                        datos.EjecutarLectura();
-
-                        MessageBox.Show("Localidad agregada correctamente.", "Atención!!",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        this.Height = 477;
-                        cargarDdlLocalidades();
-                        btnCancelar.Visible = false;
-                        btnConfirmar.Visible = false;
-                        lblLocalidad.Visible = false;
-                        txtLocalidad.Visible = false;
-                        listLocalidades.Visible = true;
-                        btnEliminar.Enabled = true;
-                        btnAgregar.Enabled = true;
-                        btnEditar.Enabled = true;
-
-                        txtLocalidad.Text = "";
-                    }
-                    catch
-                    {
-                        MessageBox.Show("La localidad ya existe en el sistema.", "Atención!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                    finally
-                    {
-                        datos.CerrarConexion();
-                    }
-                }
-            }
+            txtLocalidad.Text = localidad;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            var confirmacion = MessageBox.Show("La localidad ya existe en el sistema.", "Atención!",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            btnEliminarClick();
+        }
 
-            if (confirmacion.ToString() != "No")
+        private void btnEliminarClick()
+        {
+            string localidad = listLocalidades.SelectedItem.ToString();
+
+            if (MessageBox.Show("¿Seguro que desea eliminar la Localidad " + localidad.ToUpper() + "?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string localidad = listLocalidades.SelectedItem.ToString();
                 string delete = "delete from Localidades where Descripcion = '" + localidad + "'";
 
                 AccesoDatos datos = new AccesoDatos();
@@ -201,24 +229,23 @@ namespace CompuGross
                     datos.SetearConsulta(delete);
                     datos.EjecutarLectura();
 
-                    MessageBox.Show("Localidad eliminada correctamente.", "Atención!",
+                    MessageBox.Show("Se ha eliminado la Localidad " + localidad.ToUpper(), "Atención!",
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                    this.Height = 477;
                     cargarDdlLocalidades();
                     btnCancelar.Visible = false;
                     btnConfirmar.Visible = false;
                     lblLocalidad.Visible = false;
                     txtLocalidad.Visible = false;
+                    txtLocalidad.Text = "";
                     listLocalidades.Visible = true;
-                    btnEliminar.Enabled = true;
-                    btnAgregar.Enabled = true;
-                    btnEditar.Enabled = true;
+                    btnEliminar.Visible = true;
+                    btnAgregar.Visible = true;
+                    btnModificar.Visible = true;
                 }
                 catch
                 {
-                    MessageBox.Show("La localidad no se puede eliminar, " +
-                        "ya que esta asociada a uno o más clientes.", "Atención!",
+                    MessageBox.Show("La localidad se encuentra asignada a uno o más clientes.", "Atención!",
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 finally
@@ -228,40 +255,57 @@ namespace CompuGross
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnCancelarClick()
         {
-            this.Height = 225;
-            btnCancelar.Visible = true;
-            btnConfirmar.Visible = true;
-            btnConfirmar.Text = "Guardar";
-            lblLocalidad.Visible = true;
-            lblLocalidad.Text = "Modifique la localidad";
-            txtLocalidad.Visible = true;
-            listLocalidades.Visible = false;
-            btnEliminar.Enabled = false;
-            btnAgregar.Enabled = false;
-            btnEditar.Enabled = false;
+            MessageBox.Show("Se canceló la operación.", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            string localidad = listLocalidades.SelectedItem.ToString();
-
-            this.LocalidadSeleccionada = localidad;
-
-            txtLocalidad.Text = localidad;
+            btnCancelar.Visible = false;
+            btnConfirmar.Visible = false;
+            lblLocalidad.Visible = false;
+            txtLocalidad.Visible = false;
+            txtLocalidad.Text = "";
+            listLocalidades.Visible = true;
+            btnEliminar.Visible = true;
+            btnAgregar.Visible = true;
+            btnModificar.Visible = true;
         }
 
-        private void Localidades_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Login frmLogin = new Login();
-            frmLogin.borrarUsuarioLogueado();
-
-            Application.Exit();
+            btnCancelarClick();
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
+        private void txtLocalidad_KeyDown(object sender, KeyEventArgs e)
         {
-            DatosDesplegables frmDatosDesplegables = new DatosDesplegables();
-            this.Hide();
-            frmDatosDesplegables.ShowDialog();
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                btnGuardarClick();
+            }
+            if (e.KeyCode.Equals(Keys.Escape))
+            {
+                btnCancelarClick();
+            }
+            if (e.KeyCode.Equals(Keys.Delete))
+            {
+                btnEliminarClick();
+            }
+        }
+
+        private void listLocalidades_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                btnModificarClick();
+            }
+            if (e.KeyCode.Equals(Keys.Oemplus) || e.KeyCode.Equals(Keys.Add))
+            {
+                btnAgregarClick();
+            }
+            if (e.KeyCode.Equals(Keys.Delete))
+            {
+                btnEliminarClick();
+            }
         }
     }
 }
