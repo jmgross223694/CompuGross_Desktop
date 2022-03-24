@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FuncionalidadesExcel.cs" />
-    <Compile Include="OrdenTrabajoDB.cs" />
+    <Compile Include="ServicioDB.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="ClienteDB.cs" />
     <Compile Include="AccesoDatos.cs" />

@@ -14,7 +14,7 @@ namespace CompuGross
 {
     public partial class OrdenesTrabajo : Form
     {
-        private List<OrdenTrabajo> listaOrdenes;
+        private List<Servicio> listaOrdenes;
         private List<Cliente> listaClientes;
 
         public OrdenesTrabajo()
@@ -43,7 +43,7 @@ namespace CompuGross
 
         private void cargarListado()
         {
-            OrdenTrabajoDB ordenTrabajoDB = new OrdenTrabajoDB();
+            ServicioDB ordenTrabajoDB = new ServicioDB();
 
             try
             {
@@ -137,7 +137,7 @@ namespace CompuGross
             ordenarColumnas();
             cambiarTitulos();
 
-            List<OrdenTrabajo> filtro;
+            List<Servicio> filtro;
             if (txtFiltro.Text != "")
             {
                 filtro = listaOrdenes.FindAll(Art => Art.ID.ToString().Contains(txtFiltro.Text.ToUpper()) ||
@@ -230,7 +230,7 @@ namespace CompuGross
                 if (dgvOrdenesTrabajo.CurrentRow != null)
                 {
                     txtFiltro.Text = "";
-                    OrdenTrabajo servicio = (OrdenTrabajo)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
+                    Servicio servicio = (Servicio)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
 
                     btnBuscarOrden.Visible = false;
                     txtFiltro.Visible = false;
@@ -255,7 +255,7 @@ namespace CompuGross
             }
         }
 
-        private void completarCamposOrden(OrdenTrabajo servicio)
+        private void completarCamposOrden(Servicio servicio)
         {
             txtFiltro.Text = servicio.ID.ToString();
             txtCliente.Text = servicio.Cliente;
@@ -337,8 +337,8 @@ namespace CompuGross
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OrdenTrabajo seleccionado = (OrdenTrabajo)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
-            OrdenTrabajoDB ordentTrabajoDB = new OrdenTrabajoDB();
+            Servicio seleccionado = (Servicio)dgvOrdenesTrabajo.CurrentRow.DataBoundItem;
+            ServicioDB ordentTrabajoDB = new ServicioDB();
 
             try
             {
@@ -605,8 +605,8 @@ namespace CompuGross
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            OrdenTrabajoDB ordenDb = new OrdenTrabajoDB();
-            OrdenTrabajo orden = new OrdenTrabajo();
+            ServicioDB ordenDb = new ServicioDB();
+            Servicio orden = new Servicio();
 
             orden.ID = Convert.ToInt64(txtFiltro.Text);
 

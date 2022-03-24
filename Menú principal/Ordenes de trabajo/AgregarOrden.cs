@@ -340,8 +340,8 @@ namespace CompuGross
             }
             else
             {
-               OrdenTrabajoDB ordenDb = new OrdenTrabajoDB();
-               OrdenTrabajo orden = new OrdenTrabajo();
+               ServicioDB ordenDb = new ServicioDB();
+               Servicio orden = new Servicio();
 
                orden.Cliente = txtCliente.Text;
                orden.FechaRecepcion = fechaRecepcion.Text;

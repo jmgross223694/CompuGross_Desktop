@@ -15,6 +15,7 @@ namespace CompuGross
     public partial class MenuPrincipal : Form
     {
         private string usuario = "", tipoUsuario = "";
+        private Form formActual = null;
 
         public MenuPrincipal()
         {
@@ -276,7 +277,6 @@ namespace CompuGross
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            //abrirFormHijo(new Clientes());
             if (pnSubMenuClientes.Visible == false)
             {
                 visibilidadPanelSubMenuClientes("show");
@@ -390,6 +390,11 @@ namespace CompuGross
 
             if (confirmResult.ToString() != "No")
             {
+                if (formActual != null)
+                {
+                    this.contentPanel.Controls.Remove(formActual);
+                }
+
                 borrarUsuarioLogueado();
 
                 //ocultar Campos Menu
@@ -451,12 +456,6 @@ namespace CompuGross
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             abrirFormHijo(new OrdenesTrabajo());
-        }
-
-        private void contentPanel_Click(object sender, EventArgs e)
-        {
-            visibilidadPanelSubMenuClientes("hide");
-            visibilidadPanelSubMenuServicios("hide");
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -628,8 +627,6 @@ namespace CompuGross
                     string mailUsuario = txtClave.Text;
                     string selectCodigoMail = "select count(*) as CANTIDAD, ID as ID from Usuarios where Mail = '" + mailUsuario +
                         "' AND CodigoRecuperarClave = " + txtRecuperarClave.Text + "group by ID";
-
-                    txtClave.Text = "";
 
                     AccesoDatos datos2 = new AccesoDatos();
                     try
@@ -863,16 +860,18 @@ namespace CompuGross
 
         public void abrirFormHijo(object formHijo)
         {
-            if (this.contentPanel.Controls.Count > 3)
+            if (formActual != null)
             {
-                this.contentPanel.Controls.RemoveAt(3);
+                this.contentPanel.Controls.Remove(formActual);
             }
+
             Form fH = formHijo as Form;
             fH.TopLevel = false;
             fH.Dock = DockStyle.Fill;
             this.contentPanel.Controls.Add(fH);
             this.contentPanel.Tag = fH;
             fH.Show();
+            formActual = fH as Form;
         }
 
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)

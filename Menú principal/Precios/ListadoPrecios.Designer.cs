@@ -44,9 +44,8 @@ namespace CompuGross
             // 
             this.listPrecios.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listPrecios.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.listPrecios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listPrecios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listPrecios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.listPrecios.BackgroundImageTiled = true;
             this.listPrecios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -64,7 +63,7 @@ namespace CompuGross
             this.listPrecios.Location = new System.Drawing.Point(10, 59);
             this.listPrecios.MultiSelect = false;
             this.listPrecios.Name = "listPrecios";
-            this.listPrecios.Size = new System.Drawing.Size(685, 334);
+            this.listPrecios.Size = new System.Drawing.Size(618, 334);
             this.listPrecios.TabIndex = 1;
             this.listPrecios.UseCompatibleStateImageBehavior = false;
             this.listPrecios.View = System.Windows.Forms.View.Details;

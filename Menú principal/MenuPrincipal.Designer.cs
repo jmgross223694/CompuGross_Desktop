@@ -163,7 +163,7 @@ namespace CompuGross
             this.titleBar.Location = new System.Drawing.Point(0, 0);
             this.titleBar.Name = "titleBar";
             this.titleBar.Size = new System.Drawing.Size(1044, 38);
-            this.titleBar.TabIndex = 18;
+            this.titleBar.TabIndex = 0;
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
             // 
             // btnMaximize
@@ -239,7 +239,7 @@ namespace CompuGross
             this.leftPanel.Location = new System.Drawing.Point(0, 38);
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(200, 594);
-            this.leftPanel.TabIndex = 19;
+            this.leftPanel.TabIndex = 1;
             // 
             // btnCerrarSesion
             // 
@@ -466,6 +466,7 @@ namespace CompuGross
             // contentPanel
             // 
             this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.contentPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contentPanel.BackgroundImage")));
             this.contentPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.contentPanel.Controls.Add(this.lblRecuperarClave);
             this.contentPanel.Controls.Add(this.lblNumero);
@@ -491,8 +492,7 @@ namespace CompuGross
             this.contentPanel.Location = new System.Drawing.Point(200, 38);
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(844, 594);
-            this.contentPanel.TabIndex = 20;
-            this.contentPanel.Click += new System.EventHandler(this.contentPanel_Click);
+            this.contentPanel.TabIndex = 2;
             // 
             // lblRecuperarClave
             // 
@@ -614,10 +614,9 @@ namespace CompuGross
             this.btnEnviarCodigo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEnviarCodigo.Location = new System.Drawing.Point(322, 365);
             this.btnEnviarCodigo.Name = "btnEnviarCodigo";
-            this.btnEnviarCodigo.Size = new System.Drawing.Size(175, 36);
+            this.btnEnviarCodigo.Size = new System.Drawing.Size(199, 36);
             this.btnEnviarCodigo.TabIndex = 37;
             this.btnEnviarCodigo.Text = "ENVIAR CÓDIGO";
-            this.btnEnviarCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEnviarCodigo.UseVisualStyleBackColor = false;
             this.btnEnviarCodigo.Visible = false;
             this.btnEnviarCodigo.Click += new System.EventHandler(this.btnEnviarCodigo_Click);
@@ -625,18 +624,19 @@ namespace CompuGross
             // cbMostrarClave1
             // 
             this.cbMostrarClave1.AutoSize = true;
-            this.cbMostrarClave1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.cbMostrarClave1.BackColor = System.Drawing.Color.Transparent;
             this.cbMostrarClave1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbMostrarClave1.FlatAppearance.BorderSize = 0;
             this.cbMostrarClave1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.cbMostrarClave1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbMostrarClave1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMostrarClave1.ForeColor = System.Drawing.Color.White;
+            this.cbMostrarClave1.ForeColor = System.Drawing.Color.Black;
             this.cbMostrarClave1.Location = new System.Drawing.Point(297, 360);
             this.cbMostrarClave1.Name = "cbMostrarClave1";
             this.cbMostrarClave1.Size = new System.Drawing.Size(65, 19);
             this.cbMostrarClave1.TabIndex = 35;
             this.cbMostrarClave1.Text = "Mostrar";
+            this.cbMostrarClave1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbMostrarClave1.UseVisualStyleBackColor = false;
             this.cbMostrarClave1.Visible = false;
             this.cbMostrarClave1.CheckedChanged += new System.EventHandler(this.cbMostrarClave1_CheckedChanged);
@@ -644,18 +644,19 @@ namespace CompuGross
             // cbMostrarClave2
             // 
             this.cbMostrarClave2.AutoSize = true;
-            this.cbMostrarClave2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.cbMostrarClave2.BackColor = System.Drawing.Color.Transparent;
             this.cbMostrarClave2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbMostrarClave2.FlatAppearance.BorderSize = 0;
             this.cbMostrarClave2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.cbMostrarClave2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbMostrarClave2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMostrarClave2.ForeColor = System.Drawing.Color.White;
+            this.cbMostrarClave2.ForeColor = System.Drawing.Color.Black;
             this.cbMostrarClave2.Location = new System.Drawing.Point(297, 313);
             this.cbMostrarClave2.Name = "cbMostrarClave2";
             this.cbMostrarClave2.Size = new System.Drawing.Size(65, 19);
             this.cbMostrarClave2.TabIndex = 34;
             this.cbMostrarClave2.Text = "Mostrar";
+            this.cbMostrarClave2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbMostrarClave2.UseVisualStyleBackColor = false;
             this.cbMostrarClave2.Visible = false;
             this.cbMostrarClave2.CheckedChanged += new System.EventHandler(this.cbMostrarClave2_CheckedChanged);
