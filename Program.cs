@@ -16,8 +16,7 @@ namespace CompuGross
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Activación());
-            Application.Run(new MenuPrincipal("Juan Manuel Gross", "admin"));
+            Application.Run(new Activación());
         }
     }
 }

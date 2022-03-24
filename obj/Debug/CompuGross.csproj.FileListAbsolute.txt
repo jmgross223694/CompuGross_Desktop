@@ -32,7 +32,6 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.AgregarUsuario.re
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Clientes.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Ingresos.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.MenuPrincipal.resources
-C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Login.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.Properties.Resources.resources
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.csproj.GenerateResource.cache
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.csproj.CoreCompileInputs.cache

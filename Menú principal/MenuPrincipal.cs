@@ -21,13 +21,6 @@ namespace CompuGross
             InitializeComponent();
         }
 
-        public MenuPrincipal(string usuario, string tipoUsuario)
-        {
-            InitializeComponent();
-            this.usuario = usuario;
-            this.tipoUsuario = tipoUsuario;
-        }
-
         private void cargarUsuarioLogueado()
         {
             AccesoDatos datos = new AccesoDatos();
@@ -43,6 +36,17 @@ namespace CompuGross
                 {
                     this.usuario = datos.Lector["Username"].ToString();
                     this.tipoUsuario = datos.Lector["Tipo"].ToString();
+                    lblUserTipo.Text = this.usuario+" ("+this.tipoUsuario+")";
+                }
+
+                if (this.tipoUsuario != "admin")
+                {
+                    btnBackup.Visible = false;
+                    btnUsuarios.Visible = false;
+                    btnIngresos.Visible = false;
+                    pnBtnBackup.Visible = false;
+                    pnBtnUsuarios.Visible = false;
+                    pnBtnIngresos.Visible = false;
                 }
             }
             catch
@@ -52,32 +56,50 @@ namespace CompuGross
             }
         }
 
+        private void actualizarUsuarioLogueado(string nombre, string apellido, string tipoUsuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string updateUsuarioLogueado = "update UsuarioLogueado set Username = '" + nombre + " " + apellido + "', " +
+                    "Tipo = '" + tipoUsuario + "' where ID = 1";
+
+            try
+            {
+                datos.SetearConsulta(updateUsuarioLogueado);
+                datos.EjecutarLectura();
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo actualizar el usuario logueado.", "Atención !!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
         public void ClickBtnIngresar()
         {
             bool ingreso = false;
 
-            if (txtDni.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
+            if (txtDni.Text == "" || txtDni.Text.Length < 7)
             {
-                if (txtDni.Text == "")
-                {
-                    MessageBox.Show("Usuario vacío.");
-                    txtDni.Focus();
-                }
-                else
-                {
-                    txtDni.BackColor = Color.White;
-
-                    if (txtClave.Text == "" || txtClave.Text.Length < 8)
-                    {
-                        MessageBox.Show("Clave inferior a 8 caracteres.");
-                        txtClave.Focus();
-                    }
-                }
+                MessageBox.Show("DNI inválido.");
+                txtDni.Focus();
+            }
+            else if (txtClave.Text == "")
+            {
+                MessageBox.Show("Contraseña vacía.");
+                txtClave.Focus();
+            }
+            else if (txtClave.Text.Length < 8)
+            {
+                MessageBox.Show("La contraseña debe tener entre 8-15 caracteres.");
+                txtClave.Focus();
             }
             else
             {
                 AccesoDatos datos = new AccesoDatos();
-                AccesoDatos datos2 = new AccesoDatos();
 
                 string usuario = txtDni.Text;
                 string clave = txtClave.Text;
@@ -103,12 +125,6 @@ namespace CompuGross
                         apellido = datos.Lector["Apellido"].ToString();
                         tipoUsuario = datos.Lector["Tipo"].ToString();
 
-                        //MessageBox.Show("Bienvenid@ "+nombre+" "+apellido, "Log-in exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        txtDni.Text = "";
-                        txtClave.Text = "";
-                        txtClave.Enabled = false;
-
                         ingreso = true;
                     }
                     else
@@ -125,102 +141,78 @@ namespace CompuGross
                     datos.CerrarConexion();
                 }
 
-                string updateUsuarioLogueado = "update UsuarioLogueado set Username = '" + nombre + " " + apellido + "', " +
-                    "Tipo = '" + tipoUsuario + "' where ID = 1";
-
-                try
-                {
-                    datos2.SetearConsulta(updateUsuarioLogueado);
-                    datos2.EjecutarLectura();
-
-                    //MessageBox.Show("Usuario logueado actualizado correctamente.", "Atención !!",
-                    //  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                catch
-                {
-                    MessageBox.Show("No se pudo actualizar el usuario logueado.", "Atención !!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                finally
-                {
-                    datos2.CerrarConexion();
-                }
+                actualizarUsuarioLogueado(nombre, apellido, tipoUsuario);
 
                 if (ingreso)
                 {
                     //mostrar Controles MenuPrincipal
-                    btnClientes.Visible = false;
-                    btnServicios.Visible = false;
-                    btnPrecios.Visible = false;
-                    btnLocalidades.Visible = false;
-                    btnIngresos.Visible = false;
-                    btnBackup.Visible = false;
-                    btnUsuarios.Visible = false;
-                    btnCerrarSesion.Visible = false;
-                    lblUsuario.Visible = false;
-                    lblUserTipo.Visible = false;
+                    btnClientes.Visible = true;
+                    pnBtnClientes.Visible = true;
+                    btnServicios.Visible = true;
+                    pnBtnServicios.Visible = true;
+                    btnPrecios.Visible = true;
+                    pnBtnPrecios.Visible = true;
+                    btnLocalidades.Visible = true;
+                    pnBtnLocalidades.Visible = true;
+                    btnIngresos.Visible = true;
+                    pnBtnIngresos.Visible = true;
+                    btnBackup.Visible = true;
+                    pnBtnBackup.Visible = true;
+                    btnUsuarios.Visible = true;
+                    pnBtnUsuarios.Visible = true;
+                    btnCerrarSesion.Visible = true;
+                    lblUsuario.Visible = true;
+                    lblUserTipo.Visible = true;
 
+                    cargarUsuarioLogueado();
+
+                    //ocultar Controles Login
                     lblDni.Visible = false;
                     lblClave.Visible = false;
                     txtDni.Visible = false;
                     txtClave.Visible = false;
-                    btnIngresar.Visible = false;
-                    btnIngresar.Enabled = false;
-                    lblTitulo.Visible = true;
-                    lblTitulo.Text = "¡Login exitoso!";
-                    txtRecuperarClave.Visible = false;
-                    lblClaveNueva.Visible = false;
-                    cbMostrarClave1.Enabled = false;
-                    cbMostrarClave2.Visible = false;
                     lblRecuperarClave.Visible = false;
-                    lblMayuscula.Visible = false;
-                    lblMinuscula.Visible = false;
-                    lblNumero.Visible = false;
-                    lblCaracteres.Visible = false;
+                    btnIngresar.Visible = false;
+                    lblTitulo.Visible = false;
+                    cbMostrarClave1.Visible = false;
                 }
             }
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            borrarUsuarioLogueado();
-
-            //Campos Login
+            //mostrar Campos Login
+            txtDni.Text = "";
+            txtClave.Text = "";
+            txtRecuperarClave.Text = "";
             lblDni.Visible = true;
             lblClave.Visible = true;
             txtDni.Visible = true;
             txtClave.Visible = true;
+            txtClave.Enabled = false;
+            lblRecuperarClave.Visible = true;
             btnIngresar.Visible = true;
             btnIngresar.Enabled = false;
             lblTitulo.Visible = true;
-            cbMostrarClave1.Enabled = false;
-            BindData();
 
-            //Controles menuPrincipal
+            //ocultar Controles menuPrincipal
             btnClientes.Visible = false;
+            pnBtnClientes.Visible = false;
             btnServicios.Visible = false;
+            pnBtnServicios.Visible = false;
             btnPrecios.Visible = false;
+            pnBtnPrecios.Visible = false;
             btnLocalidades.Visible = false;
+            pnBtnLocalidades.Visible = false;
             btnIngresos.Visible = false;
+            pnBtnIngresos.Visible = false;
             btnBackup.Visible = false;
+            pnBtnBackup.Visible = false;
             btnUsuarios.Visible = false;
+            pnBtnUsuarios.Visible = false;
             btnCerrarSesion.Visible = false;
             lblUsuario.Visible = false;
             lblUserTipo.Visible = false;
-
-            //cargarUsuarioLogueado();
-
-            /*lblUserTipo.Text = this.usuario + " (" + this.tipoUsuario + ")";
-
-            if (this.tipoUsuario != "admin")
-            {
-                btnBackup.Visible = false;
-                btnUsuarios.Visible = false;
-                btnIngresos.Visible = false;
-                pnBtnBackup.Visible = false;
-                pnBtnUsuarios.Visible = false;
-                pnBtnIngresos.Visible = false;
-            }*/
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -228,30 +220,6 @@ namespace CompuGross
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
 
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void BindData()
-        {
-            txtClave.Enabled = false;
-            txtClave.Text = "";
-            txtDni.Text = "";
-            txtDni.Visible = false;
-            lblUsuario.Visible = true;
-            txtDni.Visible = true;
-            txtDni.Text = "";
-            lblClave.Visible = true;
-            txtClave.Visible = true;
-            lblRecuperarClave.Visible = true;
-            btnIngresar.Visible = true;
-            btnEnviarCodigo.Visible = false;
-            lblClaveNueva.Visible = false;
-            lblClaveNueva.Visible = false;
-            cbMostrarClave2.Visible = false;
-            cbMostrarClave1.Visible = true;
-            lblCaracteres.Visible = false;
-            lblMayuscula.Visible = false;
-            lblMinuscula.Visible = false;
-            lblNumero.Visible = false;
-        }
 
         public void borrarUsuarioLogueado()
         {
@@ -267,6 +235,10 @@ namespace CompuGross
             catch
             {
                 MessageBox.Show("No se pudo quitar el usuario logueado de la DB.");
+            }
+            finally
+            {
+                datos.CerrarConexion();
             }
         }
 
@@ -314,14 +286,6 @@ namespace CompuGross
             {
                 visibilidadPanelSubMenuClientes("hide");
             }
-        }
-
-        private void MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Login frmLogin = new Login();
-            frmLogin.borrarUsuarioLogueado();
-
-            Application.Exit();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
@@ -404,9 +368,13 @@ namespace CompuGross
 
         private void iconoCG_Click(object sender, EventArgs e)
         {
-            string urlCompuGross = "https://www.instagram.com/compugrossok";
+            if (MessageBox.Show("¿Abrir Instagram de CompuGross?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string urlCompuGross = "https://www.instagram.com/compugrossok";
 
-            System.Diagnostics.Process.Start(urlCompuGross);
+                System.Diagnostics.Process.Start(urlCompuGross);
+            }
         }
 
         private void titleBar_MouseDown(object sender, MouseEventArgs e)
@@ -422,7 +390,40 @@ namespace CompuGross
 
             if (confirmResult.ToString() != "No")
             {
-                Application.Restart();
+                borrarUsuarioLogueado();
+
+                //ocultar Campos Menu
+                btnClientes.Visible = false;
+                pnBtnClientes.Visible = false;
+                btnServicios.Visible = false;
+                pnBtnServicios.Visible = false;
+                btnPrecios.Visible = false;
+                pnBtnPrecios.Visible = false;
+                btnLocalidades.Visible = false;
+                pnBtnLocalidades.Visible = false;
+                btnIngresos.Visible = false;
+                pnBtnIngresos.Visible = false;
+                btnBackup.Visible = false;
+                pnBtnBackup.Visible = false;
+                btnUsuarios.Visible = false;
+                pnBtnUsuarios.Visible = false;
+                btnCerrarSesion.Visible = false;
+                lblUsuario.Visible = false;
+                lblUserTipo.Visible = false;
+
+                //mostrar Campos Login
+                txtDni.Text = "";
+                txtClave.Text = "";
+                txtRecuperarClave.Text = "";
+                lblDni.Visible = true;
+                lblClave.Visible = true;
+                txtDni.Visible = true;
+                txtClave.Visible = true;
+                txtClave.Enabled = false;
+                lblRecuperarClave.Visible = true;
+                btnIngresar.Visible = true;
+                btnIngresar.Enabled = false;
+                lblTitulo.Visible = true;
             }
         }
 
@@ -555,7 +556,54 @@ namespace CompuGross
 
                         MessageBox.Show("Clave actualizada correctamente.");
 
-                        BindData();
+                        lblTitulo.Text = "Log-in";
+                        lblTitulo.Location = new System.Drawing.Point(348, 47);
+
+                        //mostrar Campos Login
+                        txtDni.Text = "";
+                        txtClave.Text = "";
+                        txtRecuperarClave.Text = "";
+                        lblDni.Visible = true;
+                        lblClave.Visible = true;
+                        txtDni.Visible = true;
+                        txtClave.Visible = true;
+                        txtClave.Enabled = false;
+                        lblRecuperarClave.Visible = true;
+                        btnIngresar.Visible = true;
+                        btnIngresar.Enabled = false;
+                        lblTitulo.Visible = true;
+
+                        //ocultar Campos Recuperar Clave
+                        lblIngreseCodigo.Visible = false;
+                        lblClaveNueva.Visible = false;
+                        txtRecuperarClave.Text = "";
+                        txtRecuperarClave.Visible = false;
+                        cbMostrarClave2.Visible = false;
+                        lblCaracteres.Visible = false;
+                        lblMayuscula.Visible = false;
+                        lblMinuscula.Visible = false;
+                        lblNumero.Visible = false;
+                        btnEnviarCodigo.Text = "Enviar código";
+                        btnEnviarCodigo.Visible = false;
+
+                        //ocultar Controles menuPrincipal
+                        btnClientes.Visible = false;
+                        pnBtnClientes.Visible = false;
+                        btnServicios.Visible = false;
+                        pnBtnServicios.Visible = false;
+                        btnPrecios.Visible = false;
+                        pnBtnPrecios.Visible = false;
+                        btnLocalidades.Visible = false;
+                        pnBtnLocalidades.Visible = false;
+                        btnIngresos.Visible = false;
+                        pnBtnIngresos.Visible = false;
+                        btnBackup.Visible = false;
+                        pnBtnBackup.Visible = false;
+                        btnUsuarios.Visible = false;
+                        pnBtnUsuarios.Visible = false;
+                        btnCerrarSesion.Visible = false;
+                        lblUsuario.Visible = false;
+                        lblUserTipo.Visible = false;
                     }
                     catch
                     {
@@ -571,16 +619,17 @@ namespace CompuGross
             {
                 if (txtRecuperarClave.Text == "")
                 {
-                    MessageBox.Show("Código de recuperación vacío.");
-                    txtRecuperarClave.BackColor = Color.FromArgb(255, 236, 236);
+                    MessageBox.Show("Código inválido.");
                     txtRecuperarClave.Focus();
                 }
                 else
                 {
                     int ID = 0, Cantidad = 0;
-                    string mailUsuario = txtDni.Text;
+                    string mailUsuario = txtClave.Text;
                     string selectCodigoMail = "select count(*) as CANTIDAD, ID as ID from Usuarios where Mail = '" + mailUsuario +
-                        "' AND CodigoRecuperarClave = " + txtDni.Text + "group by ID";
+                        "' AND CodigoRecuperarClave = " + txtRecuperarClave.Text + "group by ID";
+
+                    txtClave.Text = "";
 
                     AccesoDatos datos2 = new AccesoDatos();
                     try
@@ -595,18 +644,15 @@ namespace CompuGross
                         }
                         if (ID != 0 && Cantidad != 0)
                         {
-                            MessageBox.Show("Código correcto. En el próximo paso deberás ingresar tu nueva clave.");
+                            MessageBox.Show("Código correcto. Por favor ingresá tu nueva clave.");
 
                             txtClave.Text = ID.ToString();
-                            lblClaveNueva.Visible = false;
                             lblClaveNueva.Visible = true;
+                            lblIngreseCodigo.Visible = false;
                             btnEnviarCodigo.Text = "Cambiar Clave";
                             txtRecuperarClave.Text = "";
-
-                            txtDni.UseSystemPasswordChar = true;
-
+                            txtRecuperarClave.UseSystemPasswordChar = true;
                             cbMostrarClave2.Visible = true;
-
                             txtRecuperarClave.MaxLength = 8;
                         }
                         else
@@ -630,7 +676,6 @@ namespace CompuGross
                 if (txtRecuperarClave.Text == "")
                 {
                     MessageBox.Show("DNI vacío.");
-                    txtRecuperarClave.BackColor = Color.FromArgb(255, 236, 236);
                     txtRecuperarClave.Focus();
                 }
                 else
@@ -653,7 +698,7 @@ namespace CompuGross
                             existe = Convert.ToInt32(datos.Lector["Cantidad"]);
                             mailDestino = datos.Lector["Mail"].ToString();
                             IdUsuario = Convert.ToInt32(datos.Lector["ID"]);
-                            txtRecuperarClave.Text = mailDestino;
+                            txtClave.Text = mailDestino;
                         }
                         if (existe != 0 && mailDestino != "")
                         {
@@ -690,9 +735,9 @@ namespace CompuGross
                                     datos3.SetearConsulta(updateCodigoRecuperacion);
                                     datos3.EjecutarLectura();
 
-                                    txtDni.Text = "";
-                                    lblDni.Visible = false;
-                                    lblClaveNueva.Visible = true;
+                                    txtRecuperarClave.Text = "";
+                                    lblDni.Visible = false; ;
+                                    lblIngreseCodigo.Visible = true;
                                     btnEnviarCodigo.Text = "Validar";
                                 }
                                 catch
@@ -764,20 +809,37 @@ namespace CompuGross
             btnIngresar.Visible = false;
             btnEnviarCodigo.Visible = true;
             cbMostrarClave1.Visible = false;
+
+            lblTitulo.Text = "Recuperar contraseña";
+            lblTitulo.Location = new System.Drawing.Point(218, 47);
         }
 
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
-            if (txtDni.Text == "")
-            { txtClave.Enabled = false; }
-            else if (txtDni.Text.Length < 5) { txtClave.Enabled = false; }
-
-            if (txtDni.Text.Length >= 5) { txtClave.Enabled = true; }
+            if (txtDni.Text == "" || txtDni.Text.Length < 7)
+            {
+                if (txtDni.Text.Length < 7)
+                {
+                    txtClave.Text = "";
+                }
+                txtClave.Enabled = false;
+            }
+            else
+            {
+                txtClave.Enabled = true;
+            }
         }
 
         private void txtClave_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtClave.Text == "" || txtClave.Text.Length < 8)
+            {
+                btnIngresar.Enabled = false;
+            }
+            else
+            {
+                btnIngresar.Enabled = true;
+            }
         }
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
@@ -786,7 +848,7 @@ namespace CompuGross
             {
                 if (txtDni.Text == "")
                 {
-                    MessageBox.Show("Usuario vacío.");
+                    MessageBox.Show("DNI inválido.");
                     txtDni.Focus();
                 }
                 else if (txtClave.Text == "")
@@ -838,7 +900,7 @@ namespace CompuGross
 
         private void txtClave_Enter(object sender, EventArgs e)
         {
-            cbMostrarClave1.Enabled = true;
+            cbMostrarClave1.Visible = true;
         }
 
         private void txtClave_Leave(object sender, EventArgs e)
@@ -886,6 +948,8 @@ namespace CompuGross
         {
             if (btnEnviarCodigo.Text == "Cambiar Clave")
             {
+                cbMostrarClave2.Visible = true;
+
                 string claveNueva = txtRecuperarClave.Text;
 
                 if (claveNueva == "")
@@ -920,14 +984,10 @@ namespace CompuGross
 
         private void txtRecuperarClave_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (btnEnviarCodigo.Text == "Enviar Código")
+            if (btnEnviarCodigo.Text == "Validar")
             {
                 txtRecuperarClave.MaxLength = 8;
                 soloNumeros(sender, e);
-            }
-            else if (btnEnviarCodigo.Text == "Validar")
-            {
-                txtRecuperarClave.MaxLength = 6;
             }
             else if (btnEnviarCodigo.Text == "Cambiar Clave")
             {

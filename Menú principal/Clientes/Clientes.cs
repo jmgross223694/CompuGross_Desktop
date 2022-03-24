@@ -208,19 +208,6 @@ namespace CompuGross
             }
         }
 
-        private void lblListarTodos_Click(object sender, EventArgs e)
-        {
-            listarTodos();
-        }
-
-        private void Clientes_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Login frmLogin = new Login();
-            frmLogin.borrarUsuarioLogueado();
-
-            Application.Exit();
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             BuscarFiltro();

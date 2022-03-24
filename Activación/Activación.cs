@@ -68,10 +68,9 @@ namespace CompuGross
             }
             else
             {
-                Login frmLogin = new Login();
+                MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
                 this.Hide();
-                frmLogin.ShowDialog();
-                Application.Exit();
+                frmMenuPrincipal.ShowDialog();
             }
         }
 
@@ -272,10 +271,9 @@ namespace CompuGross
 
                         datos2.CerrarConexion();
 
-                        Login frmLogin = new Login();
+                        MenuPrincipal frmMenuPrincipal = new MenuPrincipal();
                         this.Hide();
-                        frmLogin.ShowDialog();
-                        Application.Exit();
+                        frmMenuPrincipal.ShowDialog();
                     }
                     catch
                     {
@@ -397,11 +395,6 @@ namespace CompuGross
             {
                 btnValidar.Enabled = true;
             }
-        }
-
-        private void Activación_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

@@ -51,7 +51,10 @@ namespace CompuGross
             // 
             // txtSerial1
             // 
+            this.txtSerial1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtSerial1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSerial1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerial1.ForeColor = System.Drawing.Color.White;
             this.txtSerial1.Location = new System.Drawing.Point(7, 117);
             this.txtSerial1.MaxLength = 4;
             this.txtSerial1.Name = "txtSerial1";
@@ -68,6 +71,7 @@ namespace CompuGross
             this.lblGuion1.BackColor = System.Drawing.Color.Transparent;
             this.lblGuion1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblGuion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuion1.ForeColor = System.Drawing.Color.White;
             this.lblGuion1.Location = new System.Drawing.Point(52, 115);
             this.lblGuion1.Name = "lblGuion1";
             this.lblGuion1.Size = new System.Drawing.Size(16, 24);
@@ -76,7 +80,10 @@ namespace CompuGross
             // 
             // txtSerial2
             // 
+            this.txtSerial2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtSerial2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSerial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerial2.ForeColor = System.Drawing.Color.White;
             this.txtSerial2.Location = new System.Drawing.Point(66, 118);
             this.txtSerial2.MaxLength = 4;
             this.txtSerial2.Name = "txtSerial2";
@@ -89,7 +96,10 @@ namespace CompuGross
             // 
             // txtSerial4
             // 
+            this.txtSerial4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtSerial4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSerial4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerial4.ForeColor = System.Drawing.Color.White;
             this.txtSerial4.Location = new System.Drawing.Point(186, 119);
             this.txtSerial4.MaxLength = 4;
             this.txtSerial4.Name = "txtSerial4";
@@ -106,6 +116,7 @@ namespace CompuGross
             this.lblGuion3.BackColor = System.Drawing.Color.Transparent;
             this.lblGuion3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblGuion3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuion3.ForeColor = System.Drawing.Color.White;
             this.lblGuion3.Location = new System.Drawing.Point(172, 116);
             this.lblGuion3.Name = "lblGuion3";
             this.lblGuion3.Size = new System.Drawing.Size(16, 24);
@@ -114,7 +125,10 @@ namespace CompuGross
             // 
             // txtSerial3
             // 
+            this.txtSerial3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtSerial3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSerial3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerial3.ForeColor = System.Drawing.Color.White;
             this.txtSerial3.Location = new System.Drawing.Point(127, 118);
             this.txtSerial3.MaxLength = 4;
             this.txtSerial3.Name = "txtSerial3";
@@ -131,6 +145,7 @@ namespace CompuGross
             this.lblGuion2.BackColor = System.Drawing.Color.Transparent;
             this.lblGuion2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblGuion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuion2.ForeColor = System.Drawing.Color.White;
             this.lblGuion2.Location = new System.Drawing.Point(111, 116);
             this.lblGuion2.Name = "lblGuion2";
             this.lblGuion2.Size = new System.Drawing.Size(16, 24);
@@ -143,6 +158,7 @@ namespace CompuGross
             this.lblGuion4.BackColor = System.Drawing.Color.Transparent;
             this.lblGuion4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblGuion4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuion4.ForeColor = System.Drawing.Color.White;
             this.lblGuion4.Location = new System.Drawing.Point(231, 117);
             this.lblGuion4.Name = "lblGuion4";
             this.lblGuion4.Size = new System.Drawing.Size(16, 24);
@@ -151,7 +167,10 @@ namespace CompuGross
             // 
             // txtSerial6
             // 
+            this.txtSerial6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtSerial6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSerial6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerial6.ForeColor = System.Drawing.Color.White;
             this.txtSerial6.Location = new System.Drawing.Point(306, 120);
             this.txtSerial6.MaxLength = 4;
             this.txtSerial6.Name = "txtSerial6";
@@ -168,6 +187,7 @@ namespace CompuGross
             this.lblGuion5.BackColor = System.Drawing.Color.Transparent;
             this.lblGuion5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblGuion5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuion5.ForeColor = System.Drawing.Color.White;
             this.lblGuion5.Location = new System.Drawing.Point(292, 117);
             this.lblGuion5.Name = "lblGuion5";
             this.lblGuion5.Size = new System.Drawing.Size(16, 24);
@@ -176,7 +196,10 @@ namespace CompuGross
             // 
             // txtSerial5
             // 
+            this.txtSerial5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtSerial5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSerial5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerial5.ForeColor = System.Drawing.Color.White;
             this.txtSerial5.Location = new System.Drawing.Point(247, 119);
             this.txtSerial5.MaxLength = 4;
             this.txtSerial5.Name = "txtSerial5";
@@ -193,6 +216,7 @@ namespace CompuGross
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Cursor = System.Windows.Forms.Cursors.No;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(77, 26);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(203, 37);
@@ -204,7 +228,8 @@ namespace CompuGross
             this.linkLblActivación.AutoSize = true;
             this.linkLblActivación.BackColor = System.Drawing.Color.Transparent;
             this.linkLblActivación.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLblActivación.LinkColor = System.Drawing.Color.Black;
+            this.linkLblActivación.ForeColor = System.Drawing.Color.White;
+            this.linkLblActivación.LinkColor = System.Drawing.Color.White;
             this.linkLblActivación.Location = new System.Drawing.Point(122, 179);
             this.linkLblActivación.Name = "linkLblActivación";
             this.linkLblActivación.Size = new System.Drawing.Size(111, 25);
@@ -216,14 +241,15 @@ namespace CompuGross
             // cbTerminos
             // 
             this.cbTerminos.AutoSize = true;
-            this.cbTerminos.BackColor = System.Drawing.Color.Transparent;
+            this.cbTerminos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.cbTerminos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cbTerminos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbTerminos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbTerminos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbTerminos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTerminos.ForeColor = System.Drawing.Color.White;
             this.cbTerminos.Location = new System.Drawing.Point(29, 132);
             this.cbTerminos.Name = "cbTerminos";
-            this.cbTerminos.Size = new System.Drawing.Size(301, 20);
+            this.cbTerminos.Size = new System.Drawing.Size(300, 20);
             this.cbTerminos.TabIndex = 14;
             this.cbTerminos.Text = "Acepto los términos y condiciones de software";
             this.cbTerminos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -238,7 +264,8 @@ namespace CompuGross
             this.lblTerminosLicencia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTerminosLicencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblTerminosLicencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerminosLicencia.LinkColor = System.Drawing.Color.Black;
+            this.lblTerminosLicencia.ForeColor = System.Drawing.Color.White;
+            this.lblTerminosLicencia.LinkColor = System.Drawing.Color.White;
             this.lblTerminosLicencia.Location = new System.Drawing.Point(69, 89);
             this.lblTerminosLicencia.Name = "lblTerminosLicencia";
             this.lblTerminosLicencia.Size = new System.Drawing.Size(222, 16);
@@ -253,6 +280,7 @@ namespace CompuGross
             this.lblSerial.AutoSize = true;
             this.lblSerial.BackColor = System.Drawing.Color.Transparent;
             this.lblSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSerial.ForeColor = System.Drawing.Color.White;
             this.lblSerial.Location = new System.Drawing.Point(4, 98);
             this.lblSerial.Name = "lblSerial";
             this.lblSerial.Size = new System.Drawing.Size(212, 16);
@@ -261,11 +289,14 @@ namespace CompuGross
             // 
             // btnValidar
             // 
-            this.btnValidar.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnValidar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.btnValidar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnValidar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnValidar.FlatAppearance.BorderSize = 0;
+            this.btnValidar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnValidar.ForeColor = System.Drawing.Color.White;
             this.btnValidar.Location = new System.Drawing.Point(132, 179);
             this.btnValidar.Name = "btnValidar";
             this.btnValidar.Size = new System.Drawing.Size(90, 34);
@@ -279,7 +310,7 @@ namespace CompuGross
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::CompuGross.Properties.Resources.fondo;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(359, 242);
             this.Controls.Add(this.btnValidar);
@@ -299,11 +330,11 @@ namespace CompuGross
             this.Controls.Add(this.txtSerial2);
             this.Controls.Add(this.lblGuion1);
             this.Controls.Add(this.txtSerial1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Activación";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CompuGross";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Activación_FormClosing);
             this.Load += new System.EventHandler(this.Activación_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

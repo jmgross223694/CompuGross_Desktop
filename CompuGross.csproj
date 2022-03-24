@@ -159,12 +159,6 @@
     <Compile Include="Menú principal\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Menú principal\Ordenes de trabajo\OrdenesTrabajo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Ordenes de trabajo\OrdenesTrabajo.resx">
       <DependentUpon>OrdenesTrabajo.cs</DependentUpon>

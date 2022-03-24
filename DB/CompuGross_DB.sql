@@ -25,8 +25,9 @@ create table credencialesMail(
 GO
 
 insert into credencialesMail(mail, pass)
-values('compugross02.05.13@gmail.com', 'y8?B$$3Gte+kv/j')
+values('compugross02.05.13@gmail.com', 'irxwqelshrmactii')
 GO
+
 
 create table Licencias(
 	ID int not null primary key identity(347862,13),

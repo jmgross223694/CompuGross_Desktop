@@ -522,7 +522,6 @@ namespace CompuGross
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Clientes";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Clientes_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
