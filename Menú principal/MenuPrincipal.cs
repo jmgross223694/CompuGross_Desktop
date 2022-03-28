@@ -151,10 +151,11 @@ namespace CompuGross
                     pnBtnClientes.Visible = true;
                     btnServicios.Visible = true;
                     pnBtnServicios.Visible = true;
+                    btnPresupuesto.Visible = true;
+                    pnBtnPresupuesto.Visible = true;
                     btnPrecios.Visible = true;
                     pnBtnPrecios.Visible = true;
                     btnLocalidades.Visible = true;
-                    pnBtnLocalidades.Visible = true;
                     btnIngresos.Visible = true;
                     pnBtnIngresos.Visible = true;
                     btnBackup.Visible = true;
@@ -201,10 +202,11 @@ namespace CompuGross
             pnBtnClientes.Visible = false;
             btnServicios.Visible = false;
             pnBtnServicios.Visible = false;
+            btnPresupuesto.Visible = false;
+            pnBtnPresupuesto.Visible = false;
             btnPrecios.Visible = false;
             pnBtnPrecios.Visible = false;
             btnLocalidades.Visible = false;
-            pnBtnLocalidades.Visible = false;
             btnIngresos.Visible = false;
             pnBtnIngresos.Visible = false;
             btnBackup.Visible = false;
@@ -214,6 +216,12 @@ namespace CompuGross
             btnCerrarSesion.Visible = false;
             lblUsuario.Visible = false;
             lblUserTipo.Visible = false;
+
+
+
+            //AUXILIAR
+            txtDni.Text = "38346656";
+            txtClave.Text = "Admin123";
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -248,14 +256,10 @@ namespace CompuGross
             if (aux == "show")
             {
                 pnSubMenuClientes.Visible = true;
-                imgAgregarCliente.Visible = true;
-                imgModificarCliente.Visible = true;
             }
             else if (aux == "hide")
             {
                 pnSubMenuClientes.Visible = false;
-                imgAgregarCliente.Visible = false;
-                imgModificarCliente.Visible = false;
             }
         }
 
@@ -264,14 +268,10 @@ namespace CompuGross
             if (aux == "show")
             {
                 pnSubMenuServicios.Visible = true;
-                imgAgregarServicio.Visible = true;
-                imgModificarServicio.Visible = true;
             }
             else if (aux == "hide")
             {
                 pnSubMenuServicios.Visible = false;
-                imgAgregarServicio.Visible = false;
-                imgModificarServicio.Visible = false;
             }
         }
 
@@ -330,11 +330,10 @@ namespace CompuGross
             abrirFormHijo(new Backup());
         }
 
-        private void btnDatosDesplegables_Click(object sender, EventArgs e)
+        private void btnLocalidades_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
-            //abrirFormHijo(new DatosDesplegables());
             abrirFormHijo(new Localidades());
         }
 
@@ -402,10 +401,11 @@ namespace CompuGross
                 pnBtnClientes.Visible = false;
                 btnServicios.Visible = false;
                 pnBtnServicios.Visible = false;
+                btnPresupuesto.Visible = false;
+                pnBtnPresupuesto.Visible = false;
                 btnPrecios.Visible = false;
                 pnBtnPrecios.Visible = false;
                 btnLocalidades.Visible = false;
-                pnBtnLocalidades.Visible = false;
                 btnIngresos.Visible = false;
                 pnBtnIngresos.Visible = false;
                 btnBackup.Visible = false;
@@ -590,10 +590,11 @@ namespace CompuGross
                         pnBtnClientes.Visible = false;
                         btnServicios.Visible = false;
                         pnBtnServicios.Visible = false;
+                        btnPresupuesto.Visible = false;
+                        pnBtnPresupuesto.Visible = false;
                         btnPrecios.Visible = false;
                         pnBtnPrecios.Visible = false;
                         btnLocalidades.Visible = false;
-                        pnBtnLocalidades.Visible = false;
                         btnIngresos.Visible = false;
                         pnBtnIngresos.Visible = false;
                         btnBackup.Visible = false;
@@ -992,6 +993,13 @@ namespace CompuGross
             {
                 txtRecuperarClave.MaxLength = 15;
             }
+        }
+
+        private void btnPresupuesto_Click(object sender, EventArgs e)
+        {
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+            abrirFormHijo(new Presupuesto());
         }
 
         public class MessageBoxTemporal

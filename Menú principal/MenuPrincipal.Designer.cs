@@ -40,16 +40,19 @@ namespace CompuGross
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.leftPanel = new System.Windows.Forms.Panel();
+            this.pnBtnPresupuesto = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.pnBtnUsuarios = new System.Windows.Forms.Panel();
             this.pnBtnBackup = new System.Windows.Forms.Panel();
             this.pnBtnIngresos = new System.Windows.Forms.Panel();
-            this.pnBtnLocalidades = new System.Windows.Forms.Panel();
             this.pnBtnPrecios = new System.Windows.Forms.Panel();
             this.pnBtnServicios = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnBtnClientes = new System.Windows.Forms.Panel();
             this.iconoCG = new System.Windows.Forms.PictureBox();
             this.btnClientes = new System.Windows.Forms.Button();
+            this.btnPresupuesto = new System.Windows.Forms.Button();
             this.btnServicios = new System.Windows.Forms.Button();
             this.btnLocalidades = new System.Windows.Forms.Button();
             this.btnPrecios = new System.Windows.Forms.Button();
@@ -72,36 +75,31 @@ namespace CompuGross
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtRecuperarClave = new System.Windows.Forms.TextBox();
             this.txtDni = new System.Windows.Forms.TextBox();
-            this.imgAgregarCliente = new System.Windows.Forms.PictureBox();
             this.pnSubMenuServicios = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.imgModificarServicio = new System.Windows.Forms.PictureBox();
-            this.imgAgregarServicio = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnModificarServicio = new System.Windows.Forms.Button();
             this.btnAgregarServicio = new System.Windows.Forms.Button();
+            this.lblIngreseCodigo = new System.Windows.Forms.Label();
+            this.lblClaveNueva = new System.Windows.Forms.Label();
             this.pnSubMenuClientes = new System.Windows.Forms.Panel();
-            this.imgModificarCliente = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnModificarCliente = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
-            this.lblIngreseCodigo = new System.Windows.Forms.Label();
-            this.lblClaveNueva = new System.Windows.Forms.Label();
+            this.pbBtnLocalidades = new System.Windows.Forms.Panel();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             this.leftPanel.SuspendLayout();
+            this.pnBtnPresupuesto.SuspendLayout();
+            this.pnBtnServicios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoCG)).BeginInit();
             this.contentPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAgregarCliente)).BeginInit();
             this.pnSubMenuServicios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgModificarServicio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAgregarServicio)).BeginInit();
             this.pnSubMenuClientes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgModificarCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCompuGross
@@ -217,19 +215,19 @@ namespace CompuGross
             // leftPanel
             // 
             this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.leftPanel.Controls.Add(this.pnBtnPresupuesto);
             this.leftPanel.Controls.Add(this.btnCerrarSesion);
             this.leftPanel.Controls.Add(this.pnBtnUsuarios);
             this.leftPanel.Controls.Add(this.pnBtnBackup);
             this.leftPanel.Controls.Add(this.pnBtnIngresos);
-            this.leftPanel.Controls.Add(this.pnBtnLocalidades);
             this.leftPanel.Controls.Add(this.pnBtnPrecios);
             this.leftPanel.Controls.Add(this.pnBtnServicios);
             this.leftPanel.Controls.Add(this.pnBtnClientes);
             this.leftPanel.Controls.Add(this.iconoCG);
             this.leftPanel.Controls.Add(this.btnClientes);
+            this.leftPanel.Controls.Add(this.btnPresupuesto);
             this.leftPanel.Controls.Add(this.btnServicios);
             this.leftPanel.Controls.Add(this.lblUserTipo);
-            this.leftPanel.Controls.Add(this.btnLocalidades);
             this.leftPanel.Controls.Add(this.btnPrecios);
             this.leftPanel.Controls.Add(this.lblUsuario);
             this.leftPanel.Controls.Add(this.btnIngresos);
@@ -239,7 +237,24 @@ namespace CompuGross
             this.leftPanel.Location = new System.Drawing.Point(0, 38);
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(200, 594);
-            this.leftPanel.TabIndex = 1;
+            this.leftPanel.TabIndex = 0;
+            // 
+            // pnBtnPresupuesto
+            // 
+            this.pnBtnPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.pnBtnPresupuesto.Controls.Add(this.panel3);
+            this.pnBtnPresupuesto.Location = new System.Drawing.Point(2, 287);
+            this.pnBtnPresupuesto.Name = "pnBtnPresupuesto";
+            this.pnBtnPresupuesto.Size = new System.Drawing.Size(5, 30);
+            this.pnBtnPresupuesto.TabIndex = 22;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel3.Location = new System.Drawing.Point(-90, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(5, 30);
+            this.panel3.TabIndex = 21;
             // 
             // btnCerrarSesion
             // 
@@ -262,7 +277,7 @@ namespace CompuGross
             // pnBtnUsuarios
             // 
             this.pnBtnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.pnBtnUsuarios.Location = new System.Drawing.Point(2, 446);
+            this.pnBtnUsuarios.Location = new System.Drawing.Point(2, 445);
             this.pnBtnUsuarios.Name = "pnBtnUsuarios";
             this.pnBtnUsuarios.Size = new System.Drawing.Size(5, 30);
             this.pnBtnUsuarios.TabIndex = 19;
@@ -270,7 +285,7 @@ namespace CompuGross
             // pnBtnBackup
             // 
             this.pnBtnBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.pnBtnBackup.Location = new System.Drawing.Point(2, 406);
+            this.pnBtnBackup.Location = new System.Drawing.Point(2, 405);
             this.pnBtnBackup.Name = "pnBtnBackup";
             this.pnBtnBackup.Size = new System.Drawing.Size(5, 30);
             this.pnBtnBackup.TabIndex = 19;
@@ -278,23 +293,15 @@ namespace CompuGross
             // pnBtnIngresos
             // 
             this.pnBtnIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.pnBtnIngresos.Location = new System.Drawing.Point(2, 366);
+            this.pnBtnIngresos.Location = new System.Drawing.Point(2, 365);
             this.pnBtnIngresos.Name = "pnBtnIngresos";
             this.pnBtnIngresos.Size = new System.Drawing.Size(5, 30);
             this.pnBtnIngresos.TabIndex = 19;
             // 
-            // pnBtnLocalidades
-            // 
-            this.pnBtnLocalidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.pnBtnLocalidades.Location = new System.Drawing.Point(2, 326);
-            this.pnBtnLocalidades.Name = "pnBtnLocalidades";
-            this.pnBtnLocalidades.Size = new System.Drawing.Size(5, 30);
-            this.pnBtnLocalidades.TabIndex = 19;
-            // 
             // pnBtnPrecios
             // 
             this.pnBtnPrecios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.pnBtnPrecios.Location = new System.Drawing.Point(2, 286);
+            this.pnBtnPrecios.Location = new System.Drawing.Point(2, 326);
             this.pnBtnPrecios.Name = "pnBtnPrecios";
             this.pnBtnPrecios.Size = new System.Drawing.Size(5, 30);
             this.pnBtnPrecios.TabIndex = 19;
@@ -302,10 +309,19 @@ namespace CompuGross
             // pnBtnServicios
             // 
             this.pnBtnServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.pnBtnServicios.Controls.Add(this.panel1);
             this.pnBtnServicios.Location = new System.Drawing.Point(2, 246);
             this.pnBtnServicios.Name = "pnBtnServicios";
             this.pnBtnServicios.Size = new System.Drawing.Size(5, 30);
             this.pnBtnServicios.TabIndex = 19;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel1.Location = new System.Drawing.Point(-90, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(5, 30);
+            this.panel1.TabIndex = 21;
             // 
             // pnBtnClientes
             // 
@@ -344,10 +360,30 @@ namespace CompuGross
             this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(183, 30);
-            this.btnClientes.TabIndex = 0;
+            this.btnClientes.TabIndex = 1;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
+            // btnPresupuesto
+            // 
+            this.btnPresupuesto.BackColor = System.Drawing.Color.Transparent;
+            this.btnPresupuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPresupuesto.FlatAppearance.BorderSize = 0;
+            this.btnPresupuesto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPresupuesto.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPresupuesto.ForeColor = System.Drawing.Color.Silver;
+            this.btnPresupuesto.Image = ((System.Drawing.Image)(resources.GetObject("btnPresupuesto.Image")));
+            this.btnPresupuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPresupuesto.Location = new System.Drawing.Point(4, 286);
+            this.btnPresupuesto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPresupuesto.Name = "btnPresupuesto";
+            this.btnPresupuesto.Size = new System.Drawing.Size(183, 30);
+            this.btnPresupuesto.TabIndex = 1;
+            this.btnPresupuesto.Text = "Presupuesto";
+            this.btnPresupuesto.UseVisualStyleBackColor = false;
+            this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
             // btnServicios
             // 
@@ -374,18 +410,19 @@ namespace CompuGross
             this.btnLocalidades.FlatAppearance.BorderSize = 0;
             this.btnLocalidades.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnLocalidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLocalidades.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocalidades.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLocalidades.ForeColor = System.Drawing.Color.Silver;
             this.btnLocalidades.Image = ((System.Drawing.Image)(resources.GetObject("btnLocalidades.Image")));
-            this.btnLocalidades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLocalidades.Location = new System.Drawing.Point(4, 326);
+            this.btnLocalidades.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLocalidades.Location = new System.Drawing.Point(7, 70);
             this.btnLocalidades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLocalidades.Name = "btnLocalidades";
-            this.btnLocalidades.Size = new System.Drawing.Size(183, 30);
+            this.btnLocalidades.Size = new System.Drawing.Size(138, 30);
             this.btnLocalidades.TabIndex = 6;
             this.btnLocalidades.Text = "Localidades";
+            this.btnLocalidades.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLocalidades.UseVisualStyleBackColor = false;
-            this.btnLocalidades.Click += new System.EventHandler(this.btnDatosDesplegables_Click);
+            this.btnLocalidades.Click += new System.EventHandler(this.btnLocalidades_Click);
             // 
             // btnPrecios
             // 
@@ -397,7 +434,7 @@ namespace CompuGross
             this.btnPrecios.ForeColor = System.Drawing.Color.Silver;
             this.btnPrecios.Image = ((System.Drawing.Image)(resources.GetObject("btnPrecios.Image")));
             this.btnPrecios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrecios.Location = new System.Drawing.Point(4, 286);
+            this.btnPrecios.Location = new System.Drawing.Point(4, 326);
             this.btnPrecios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrecios.Name = "btnPrecios";
             this.btnPrecios.Size = new System.Drawing.Size(183, 30);
@@ -416,7 +453,7 @@ namespace CompuGross
             this.btnIngresos.ForeColor = System.Drawing.Color.Silver;
             this.btnIngresos.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresos.Image")));
             this.btnIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresos.Location = new System.Drawing.Point(4, 366);
+            this.btnIngresos.Location = new System.Drawing.Point(4, 365);
             this.btnIngresos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnIngresos.Name = "btnIngresos";
             this.btnIngresos.Size = new System.Drawing.Size(183, 30);
@@ -435,7 +472,7 @@ namespace CompuGross
             this.btnBackup.ForeColor = System.Drawing.Color.Silver;
             this.btnBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.Image")));
             this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBackup.Location = new System.Drawing.Point(4, 406);
+            this.btnBackup.Location = new System.Drawing.Point(4, 405);
             this.btnBackup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(183, 30);
@@ -454,7 +491,7 @@ namespace CompuGross
             this.btnUsuarios.ForeColor = System.Drawing.Color.Silver;
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(4, 446);
+            this.btnUsuarios.Location = new System.Drawing.Point(4, 445);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(183, 30);
@@ -483,11 +520,10 @@ namespace CompuGross
             this.contentPanel.Controls.Add(this.txtClave);
             this.contentPanel.Controls.Add(this.txtRecuperarClave);
             this.contentPanel.Controls.Add(this.txtDni);
-            this.contentPanel.Controls.Add(this.imgAgregarCliente);
             this.contentPanel.Controls.Add(this.pnSubMenuServicios);
-            this.contentPanel.Controls.Add(this.pnSubMenuClientes);
             this.contentPanel.Controls.Add(this.lblIngreseCodigo);
             this.contentPanel.Controls.Add(this.lblClaveNueva);
+            this.contentPanel.Controls.Add(this.pnSubMenuClientes);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(200, 38);
             this.contentPanel.Name = "contentPanel";
@@ -743,24 +779,11 @@ namespace CompuGross
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
-            // imgAgregarCliente
-            // 
-            this.imgAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("imgAgregarCliente.Image")));
-            this.imgAgregarCliente.Location = new System.Drawing.Point(125, 211);
-            this.imgAgregarCliente.Name = "imgAgregarCliente";
-            this.imgAgregarCliente.Size = new System.Drawing.Size(23, 25);
-            this.imgAgregarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgAgregarCliente.TabIndex = 25;
-            this.imgAgregarCliente.TabStop = false;
-            this.imgAgregarCliente.Visible = false;
-            // 
             // pnSubMenuServicios
             // 
             this.pnSubMenuServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.pnSubMenuServicios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnSubMenuServicios.Controls.Add(this.panel7);
-            this.pnSubMenuServicios.Controls.Add(this.imgModificarServicio);
-            this.pnSubMenuServicios.Controls.Add(this.imgAgregarServicio);
             this.pnSubMenuServicios.Controls.Add(this.panel6);
             this.pnSubMenuServicios.Controls.Add(this.btnModificarServicio);
             this.pnSubMenuServicios.Controls.Add(this.btnAgregarServicio);
@@ -778,28 +801,6 @@ namespace CompuGross
             this.panel7.Size = new System.Drawing.Size(10, 30);
             this.panel7.TabIndex = 29;
             // 
-            // imgModificarServicio
-            // 
-            this.imgModificarServicio.Image = ((System.Drawing.Image)(resources.GetObject("imgModificarServicio.Image")));
-            this.imgModificarServicio.Location = new System.Drawing.Point(123, 38);
-            this.imgModificarServicio.Name = "imgModificarServicio";
-            this.imgModificarServicio.Size = new System.Drawing.Size(23, 25);
-            this.imgModificarServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgModificarServicio.TabIndex = 33;
-            this.imgModificarServicio.TabStop = false;
-            this.imgModificarServicio.Visible = false;
-            // 
-            // imgAgregarServicio
-            // 
-            this.imgAgregarServicio.Image = ((System.Drawing.Image)(resources.GetObject("imgAgregarServicio.Image")));
-            this.imgAgregarServicio.Location = new System.Drawing.Point(123, 4);
-            this.imgAgregarServicio.Name = "imgAgregarServicio";
-            this.imgAgregarServicio.Size = new System.Drawing.Size(23, 25);
-            this.imgAgregarServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgAgregarServicio.TabIndex = 32;
-            this.imgAgregarServicio.TabStop = false;
-            this.imgAgregarServicio.Visible = false;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
@@ -816,7 +817,8 @@ namespace CompuGross
             this.btnModificarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarServicio.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarServicio.ForeColor = System.Drawing.Color.Silver;
-            this.btnModificarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarServicio.Image")));
+            this.btnModificarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificarServicio.Location = new System.Drawing.Point(6, 36);
             this.btnModificarServicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnModificarServicio.Name = "btnModificarServicio";
@@ -835,7 +837,8 @@ namespace CompuGross
             this.btnAgregarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarServicio.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarServicio.ForeColor = System.Drawing.Color.Silver;
-            this.btnAgregarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarServicio.Image")));
+            this.btnAgregarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarServicio.Location = new System.Drawing.Point(7, 1);
             this.btnAgregarServicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregarServicio.Name = "btnAgregarServicio";
@@ -845,86 +848,6 @@ namespace CompuGross
             this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarServicio.UseVisualStyleBackColor = false;
             this.btnAgregarServicio.Click += new System.EventHandler(this.btnAgregarServicio_Click);
-            // 
-            // pnSubMenuClientes
-            // 
-            this.pnSubMenuClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnSubMenuClientes.Controls.Add(this.imgModificarCliente);
-            this.pnSubMenuClientes.Controls.Add(this.panel4);
-            this.pnSubMenuClientes.Controls.Add(this.btnModificarCliente);
-            this.pnSubMenuClientes.Controls.Add(this.panel5);
-            this.pnSubMenuClientes.Controls.Add(this.btnAgregarCliente);
-            this.pnSubMenuClientes.Location = new System.Drawing.Point(0, 206);
-            this.pnSubMenuClientes.Name = "pnSubMenuClientes";
-            this.pnSubMenuClientes.Size = new System.Drawing.Size(153, 72);
-            this.pnSubMenuClientes.TabIndex = 24;
-            this.pnSubMenuClientes.Visible = false;
-            // 
-            // imgModificarCliente
-            // 
-            this.imgModificarCliente.Image = ((System.Drawing.Image)(resources.GetObject("imgModificarCliente.Image")));
-            this.imgModificarCliente.Location = new System.Drawing.Point(123, 37);
-            this.imgModificarCliente.Name = "imgModificarCliente";
-            this.imgModificarCliente.Size = new System.Drawing.Size(23, 25);
-            this.imgModificarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgModificarCliente.TabIndex = 26;
-            this.imgModificarCliente.TabStop = false;
-            this.imgModificarCliente.Visible = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel4.Location = new System.Drawing.Point(2, 35);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 30);
-            this.panel4.TabIndex = 23;
-            // 
-            // btnModificarCliente
-            // 
-            this.btnModificarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnModificarCliente.FlatAppearance.BorderSize = 0;
-            this.btnModificarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarCliente.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarCliente.ForeColor = System.Drawing.Color.Silver;
-            this.btnModificarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarCliente.Location = new System.Drawing.Point(7, 35);
-            this.btnModificarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnModificarCliente.Name = "btnModificarCliente";
-            this.btnModificarCliente.Size = new System.Drawing.Size(142, 30);
-            this.btnModificarCliente.TabIndex = 22;
-            this.btnModificarCliente.Text = "Modificar";
-            this.btnModificarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarCliente.UseVisualStyleBackColor = false;
-            this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel5.Location = new System.Drawing.Point(2, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 30);
-            this.panel5.TabIndex = 21;
-            // 
-            // btnAgregarCliente
-            // 
-            this.btnAgregarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgregarCliente.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCliente.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCliente.ForeColor = System.Drawing.Color.Silver;
-            this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCliente.Location = new System.Drawing.Point(7, 0);
-            this.btnAgregarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAgregarCliente.Name = "btnAgregarCliente";
-            this.btnAgregarCliente.Size = new System.Drawing.Size(142, 30);
-            this.btnAgregarCliente.TabIndex = 20;
-            this.btnAgregarCliente.Text = "Agregar nuevo";
-            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCliente.UseVisualStyleBackColor = false;
-            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
             // lblIngreseCodigo
             // 
@@ -956,6 +879,86 @@ namespace CompuGross
             this.lblClaveNueva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblClaveNueva.Visible = false;
             // 
+            // pnSubMenuClientes
+            // 
+            this.pnSubMenuClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnSubMenuClientes.Controls.Add(this.pbBtnLocalidades);
+            this.pnSubMenuClientes.Controls.Add(this.panel4);
+            this.pnSubMenuClientes.Controls.Add(this.btnModificarCliente);
+            this.pnSubMenuClientes.Controls.Add(this.panel5);
+            this.pnSubMenuClientes.Controls.Add(this.btnAgregarCliente);
+            this.pnSubMenuClientes.Controls.Add(this.btnLocalidades);
+            this.pnSubMenuClientes.Location = new System.Drawing.Point(0, 206);
+            this.pnSubMenuClientes.Name = "pnSubMenuClientes";
+            this.pnSubMenuClientes.Size = new System.Drawing.Size(153, 108);
+            this.pnSubMenuClientes.TabIndex = 24;
+            this.pnSubMenuClientes.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel4.Location = new System.Drawing.Point(2, 35);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 30);
+            this.panel4.TabIndex = 23;
+            // 
+            // btnModificarCliente
+            // 
+            this.btnModificarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btnModificarCliente.FlatAppearance.BorderSize = 0;
+            this.btnModificarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarCliente.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarCliente.ForeColor = System.Drawing.Color.Silver;
+            this.btnModificarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarCliente.Image")));
+            this.btnModificarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificarCliente.Location = new System.Drawing.Point(7, 35);
+            this.btnModificarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnModificarCliente.Name = "btnModificarCliente";
+            this.btnModificarCliente.Size = new System.Drawing.Size(142, 30);
+            this.btnModificarCliente.TabIndex = 22;
+            this.btnModificarCliente.Text = "Modificar";
+            this.btnModificarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarCliente.UseVisualStyleBackColor = false;
+            this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel5.Location = new System.Drawing.Point(2, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 30);
+            this.panel5.TabIndex = 21;
+            // 
+            // btnAgregarCliente
+            // 
+            this.btnAgregarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAgregarCliente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCliente.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCliente.ForeColor = System.Drawing.Color.Silver;
+            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
+            this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCliente.Location = new System.Drawing.Point(7, 0);
+            this.btnAgregarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAgregarCliente.Name = "btnAgregarCliente";
+            this.btnAgregarCliente.Size = new System.Drawing.Size(142, 30);
+            this.btnAgregarCliente.TabIndex = 20;
+            this.btnAgregarCliente.Text = "Agregar nuevo";
+            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCliente.UseVisualStyleBackColor = false;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
+            // 
+            // pbBtnLocalidades
+            // 
+            this.pbBtnLocalidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.pbBtnLocalidades.Location = new System.Drawing.Point(2, 70);
+            this.pbBtnLocalidades.Name = "pbBtnLocalidades";
+            this.pbBtnLocalidades.Size = new System.Drawing.Size(10, 30);
+            this.pbBtnLocalidades.TabIndex = 24;
+            // 
             // MenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -986,15 +989,13 @@ namespace CompuGross
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
+            this.pnBtnPresupuesto.ResumeLayout(false);
+            this.pnBtnServicios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconoCG)).EndInit();
             this.contentPanel.ResumeLayout(false);
             this.contentPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAgregarCliente)).EndInit();
             this.pnSubMenuServicios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgModificarServicio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAgregarServicio)).EndInit();
             this.pnSubMenuClientes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgModificarCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1023,7 +1024,6 @@ namespace CompuGross
         private System.Windows.Forms.PictureBox iconoCG;
         private System.Windows.Forms.Panel pnBtnUsuarios;
         private System.Windows.Forms.Panel pnBtnIngresos;
-        private System.Windows.Forms.Panel pnBtnLocalidades;
         private System.Windows.Forms.Panel pnBtnPrecios;
         private System.Windows.Forms.Panel pnBtnServicios;
         private System.Windows.Forms.Panel pnBtnClientes;
@@ -1033,12 +1033,8 @@ namespace CompuGross
         private System.Windows.Forms.Button btnModificarCliente;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnAgregarCliente;
-        private System.Windows.Forms.PictureBox imgAgregarCliente;
-        private System.Windows.Forms.PictureBox imgModificarCliente;
         private System.Windows.Forms.Panel pnSubMenuServicios;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.PictureBox imgModificarServicio;
-        private System.Windows.Forms.PictureBox imgAgregarServicio;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnModificarServicio;
         private System.Windows.Forms.Button btnAgregarServicio;
@@ -1060,5 +1056,10 @@ namespace CompuGross
         private System.Windows.Forms.Label lblMayuscula;
         private System.Windows.Forms.LinkLabel lblRecuperarClave;
         private System.Windows.Forms.Panel pnBtnBackup;
+        private System.Windows.Forms.Panel pnBtnPresupuesto;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnPresupuesto;
+        private System.Windows.Forms.Panel pbBtnLocalidades;
     }
 }

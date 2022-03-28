@@ -53,3 +53,7 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross\bin\Debug\CompuGross.application
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.exe.manifest
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.application
 C:\Users\Juanma\Desktop\GitHub\CompuGross\obj\Debug\CompuGross.ListadoPrecios.resources
+C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Presupuesto.resources
+C:\Users\Juanma\Desktop\GitHub\compugross\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Juanma\Desktop\GitHub\compugross\bin\Debug\itextsharp.dll
+C:\Users\Juanma\Desktop\GitHub\compugross\bin\Debug\itextsharp.xml

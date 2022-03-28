@@ -66,11 +66,17 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -92,11 +98,11 @@
     <Compile Include="Menú principal\Clientes\AgregarCliente.Designer.cs">
       <DependentUpon>AgregarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menú principal\Ordenes de trabajo\AgregarOrden.cs">
+    <Compile Include="Menú principal\Servicios\AgregarServicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menú principal\Ordenes de trabajo\AgregarOrden.Designer.cs">
-      <DependentUpon>AgregarOrden.cs</DependentUpon>
+    <Compile Include="Menú principal\Servicios\AgregarServicio.Designer.cs">
+      <DependentUpon>AgregarServicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Menú principal\Usuarios\AgregarUsuario.cs">
       <SubType>Form</SubType>
@@ -159,11 +165,17 @@
     <Compile Include="Menú principal\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menú principal\Ordenes de trabajo\OrdenesTrabajo.cs">
+    <Compile Include="Menú principal\Servicios\Servicios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menú principal\Ordenes de trabajo\OrdenesTrabajo.Designer.cs">
-      <DependentUpon>OrdenesTrabajo.cs</DependentUpon>
+    <Compile Include="Menú principal\Servicios\Servicios.Designer.cs">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menú principal\Presupuesto\Presupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú principal\Presupuesto\Presupuesto.Designer.cs">
+      <DependentUpon>Presupuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,8 +188,11 @@
     <EmbeddedResource Include="Menú principal\Datos desplegables\Localidades\Localidades.resx">
       <DependentUpon>Localidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menú principal\Ordenes de trabajo\AgregarOrden.resx">
-      <DependentUpon>AgregarOrden.cs</DependentUpon>
+    <EmbeddedResource Include="Menú principal\Servicios\AgregarServicio.resx">
+      <DependentUpon>AgregarServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menú principal\Presupuesto\Presupuesto.resx">
+      <DependentUpon>Presupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Usuarios\AgregarUsuario.resx">
       <DependentUpon>AgregarUsuario.cs</DependentUpon>
@@ -197,8 +212,8 @@
     <EmbeddedResource Include="Menú principal\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menú principal\Ordenes de trabajo\OrdenesTrabajo.resx">
-      <DependentUpon>OrdenesTrabajo.cs</DependentUpon>
+    <EmbeddedResource Include="Menú principal\Servicios\Servicios.resx">
+      <DependentUpon>Servicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
