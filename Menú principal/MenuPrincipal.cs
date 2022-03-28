@@ -216,12 +216,6 @@ namespace CompuGross
             btnCerrarSesion.Visible = false;
             lblUsuario.Visible = false;
             lblUserTipo.Visible = false;
-
-
-
-            //AUXILIAR
-            txtDni.Text = "38346656";
-            txtClave.Text = "Admin123";
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

@@ -108,6 +108,7 @@ namespace Negocio
                 string datos = "";
                 SqlConnectionStringBuilder db = new SqlConnectionStringBuilder();
                 db.DataSource = "AMD-FX-8320\\SQLEXPRESS,1433";
+                //db.DataSource = ".\\SQLEXPRESS";
                 db.InitialCatalog = "CompuGross";
                 db.IntegratedSecurity = true;
                 datos = db.ToString();

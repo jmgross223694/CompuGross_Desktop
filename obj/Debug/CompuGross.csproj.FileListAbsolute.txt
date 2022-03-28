@@ -57,3 +57,4 @@ C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Presupuesto.resou
 C:\Users\Juanma\Desktop\GitHub\compugross\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Juanma\Desktop\GitHub\compugross\bin\Debug\itextsharp.dll
 C:\Users\Juanma\Desktop\GitHub\compugross\bin\Debug\itextsharp.xml
+C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.csproj.CopyComplete

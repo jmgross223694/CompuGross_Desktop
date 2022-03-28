@@ -317,8 +317,6 @@ namespace CompuGross
         {
             dgvPresupuesto.DataSource = null;
             dgvPresupuesto.Rows.Clear();
-            totalAcumulado = 0;
-            subtotalSeleccionado = 0;
             lblTotal.Text = "Total: $";
             lblItems.Text = "Items:";
             txtCliente.Text = "";
