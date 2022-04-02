@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Juanma\Desktop\CompuGross\</PublishUrl>
+    <PublishUrl>C:\inetpub\CompuGross\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,8 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -77,6 +76,10 @@
     </Reference>
     <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -147,10 +150,10 @@
     <Compile Include="Menú principal\Datos desplegables\Localidades\Localidades.Designer.cs">
       <DependentUpon>Localidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menú principal\Ingresos\Ingresos.cs">
+    <Compile Include="Menú principal\Reportes\Ingresos\Ingresos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menú principal\Ingresos\Ingresos.Designer.cs">
+    <Compile Include="Menú principal\Reportes\Ingresos\Ingresos.Designer.cs">
       <DependentUpon>Ingresos.cs</DependentUpon>
     </Compile>
     <Compile Include="Menú principal\Precios\ListadoPrecios.cs">
@@ -179,6 +182,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Menú principal\Reportes\ReportePorCliente\ReportePorCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú principal\Reportes\ReportePorCliente\ReportePorCliente.Designer.cs">
+      <DependentUpon>ReportePorCliente.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Activación\Activación.resx">
       <DependentUpon>Activación.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Datos desplegables\Localidades\Localidades.resx">
       <DependentUpon>Localidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menú principal\Reportes\ReportePorCliente\ReportePorCliente.resx">
+      <DependentUpon>ReportePorCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Servicios\AgregarServicio.resx">
       <DependentUpon>AgregarServicio.cs</DependentUpon>
@@ -203,7 +215,7 @@
     <EmbeddedResource Include="Menú principal\Clientes\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menú principal\Ingresos\Ingresos.resx">
+    <EmbeddedResource Include="Menú principal\Reportes\Ingresos\Ingresos.resx">
       <DependentUpon>Ingresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Precios\ListadoPrecios.resx">

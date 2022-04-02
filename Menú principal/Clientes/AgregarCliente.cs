@@ -195,7 +195,14 @@ namespace CompuGross
 
         private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
         {
-            soloLetras(sender, e);
+            if (e.KeyChar == '-')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                soloLetras(sender, e);
+            }
         }
 
         private void txtTelefono1_KeyPress(object sender, KeyPressEventArgs e)

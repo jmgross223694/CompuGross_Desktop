@@ -28,15 +28,17 @@ namespace Negocio
 
                 while (datos.Lector.Read())
                 {
-                    Cliente aux = new Cliente();
-                    aux.Id = (long)datos.Lector["ID"];
-                    aux.Nombres = Convert.ToString(datos.Lector["Cliente"]);
-                    aux.DNI = Convert.ToString(datos.Lector["DNI"]);
-                    aux.Direccion = Convert.ToString(datos.Lector["Direccion"]);
-                    aux.IdLocalidad = (long)datos.Lector["IdLocalidad"];
-                    aux.Localidad = Convert.ToString(datos.Lector["Localidad"]);
-                    aux.Telefono = Convert.ToString(datos.Lector["Telefono"]);
-                    aux.Mail = Convert.ToString(datos.Lector["Mail"]);
+                    Cliente aux = new Cliente
+                    {
+                        Id = (long)datos.Lector["ID"],
+                        Nombres = Convert.ToString(datos.Lector["Cliente"]),
+                        DNI = Convert.ToString(datos.Lector["DNI"]),
+                        Direccion = Convert.ToString(datos.Lector["Direccion"]),
+                        IdLocalidad = (long)datos.Lector["IdLocalidad"],
+                        Localidad = Convert.ToString(datos.Lector["Localidad"]),
+                        Telefono = Convert.ToString(datos.Lector["Telefono"]),
+                        Mail = Convert.ToString(datos.Lector["Mail"])
+                    };
 
                     lista.Add(aux);
                 }
@@ -104,7 +106,6 @@ namespace Negocio
             finally
             {
                 datos.CerrarConexion();
-                datos = null;
             }
 
             return clienteEliminado;

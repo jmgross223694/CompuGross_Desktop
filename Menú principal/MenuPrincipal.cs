@@ -44,10 +44,10 @@ namespace CompuGross
                 {
                     btnBackup.Visible = false;
                     btnUsuarios.Visible = false;
-                    btnIngresos.Visible = false;
+                    btnReportes.Visible = false;
                     pnBtnBackup.Visible = false;
                     pnBtnUsuarios.Visible = false;
-                    pnBtnIngresos.Visible = false;
+                    pnBtnInformes.Visible = false;
                 }
             }
             catch
@@ -156,8 +156,8 @@ namespace CompuGross
                     btnPrecios.Visible = true;
                     pnBtnPrecios.Visible = true;
                     btnLocalidades.Visible = true;
-                    btnIngresos.Visible = true;
-                    pnBtnIngresos.Visible = true;
+                    btnReportes.Visible = true;
+                    pnBtnInformes.Visible = true;
                     btnBackup.Visible = true;
                     pnBtnBackup.Visible = true;
                     btnUsuarios.Visible = true;
@@ -207,8 +207,8 @@ namespace CompuGross
             btnPrecios.Visible = false;
             pnBtnPrecios.Visible = false;
             btnLocalidades.Visible = false;
-            btnIngresos.Visible = false;
-            pnBtnIngresos.Visible = false;
+            btnReportes.Visible = false;
+            pnBtnInformes.Visible = false;
             btnBackup.Visible = false;
             pnBtnBackup.Visible = false;
             btnUsuarios.Visible = false;
@@ -245,6 +245,18 @@ namespace CompuGross
             }
         }
 
+        private void visibilidadPanelSubMenuInformes(string aux)
+        {
+            if (aux == "show")
+            {
+                pnSubMenuInformes.Visible = true;
+            }
+            else if (aux == "hide")
+            {
+                pnSubMenuInformes.Visible = false;
+            }
+        }
+
         private void visibilidadPanelSubMenuClientes(string aux)
         {
             if (aux == "show")
@@ -275,6 +287,7 @@ namespace CompuGross
             {
                 visibilidadPanelSubMenuClientes("show");
                 visibilidadPanelSubMenuServicios("hide");
+                visibilidadPanelSubMenuInformes("hide");
             }
             else
             {
@@ -286,6 +299,7 @@ namespace CompuGross
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
+            visibilidadPanelSubMenuInformes("hide");
             abrirFormHijo(new AgregarUsuario(this.usuario, this.tipoUsuario));
         }
 
@@ -293,6 +307,7 @@ namespace CompuGross
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
+            visibilidadPanelSubMenuInformes("hide");
             abrirFormHijo(new ListadoPrecios());
         }
 
@@ -300,16 +315,17 @@ namespace CompuGross
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
+            visibilidadPanelSubMenuInformes("hide");
             abrirFormHijo(new Ingresos());
         }
 
         private void btnOrdenesTrabajo_Click(object sender, EventArgs e)
         {
-            //abrirFormHijo(new OrdenesTrabajo());
             if (pnSubMenuServicios.Visible == false)
             {
                 visibilidadPanelSubMenuServicios("show");
                 visibilidadPanelSubMenuClientes("hide");
+                visibilidadPanelSubMenuInformes("hide");
             }
             else
             {
@@ -321,13 +337,13 @@ namespace CompuGross
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
+            visibilidadPanelSubMenuInformes("hide");
             abrirFormHijo(new Backup());
         }
 
         private void btnLocalidades_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
-            visibilidadPanelSubMenuServicios("hide");
             abrirFormHijo(new Localidades());
         }
 
@@ -400,8 +416,8 @@ namespace CompuGross
                 btnPrecios.Visible = false;
                 pnBtnPrecios.Visible = false;
                 btnLocalidades.Visible = false;
-                btnIngresos.Visible = false;
-                pnBtnIngresos.Visible = false;
+                btnReportes.Visible = false;
+                pnBtnInformes.Visible = false;
                 btnBackup.Visible = false;
                 pnBtnBackup.Visible = false;
                 btnUsuarios.Visible = false;
@@ -589,8 +605,8 @@ namespace CompuGross
                         btnPrecios.Visible = false;
                         pnBtnPrecios.Visible = false;
                         btnLocalidades.Visible = false;
-                        btnIngresos.Visible = false;
-                        pnBtnIngresos.Visible = false;
+                        btnReportes.Visible = false;
+                        pnBtnInformes.Visible = false;
                         btnBackup.Visible = false;
                         pnBtnBackup.Visible = false;
                         btnUsuarios.Visible = false;
@@ -994,6 +1010,28 @@ namespace CompuGross
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             abrirFormHijo(new Presupuesto());
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            if (pnSubMenuInformes.Visible == false)
+            {
+                visibilidadPanelSubMenuInformes("show");
+                visibilidadPanelSubMenuClientes("hide");
+                visibilidadPanelSubMenuServicios("hide");
+            }
+            else
+            {
+                visibilidadPanelSubMenuInformes("hide");
+            }
+        }
+
+        private void btnServiciosPorCliente_Click(object sender, EventArgs e)
+        {
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+            visibilidadPanelSubMenuInformes("hide");
+            abrirFormHijo(new ReportePorCliente());
         }
 
         public class MessageBoxTemporal

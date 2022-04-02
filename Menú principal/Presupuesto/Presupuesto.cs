@@ -20,6 +20,7 @@ namespace CompuGross
     public partial class Presupuesto : Form
     {
         private List<Cliente> listaClientes;
+        private Cliente cliente;
 
         public Presupuesto()
         {
@@ -42,7 +43,7 @@ namespace CompuGross
         {
             if (dgvPresupuesto.Rows.Count > 0 && txtCliente.Text != "")
             {
-                ExportToPdf(dgvPresupuesto, txtCliente.Text);
+                ExportToPdf(dgvPresupuesto, this.cliente.Nombres, this.cliente.DNI);
 
                 if (MessageBox.Show("¿Borrar Presupuesto actual?", "Atención!",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -57,12 +58,12 @@ namespace CompuGross
             }
         }
 
-        private void ExportToPdf(DataGridView dgv, string nombresCliente)
+        private void ExportToPdf(DataGridView dgv, string nombresCliente, string dni)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF (*.pdf)|*.pdf";
             string fechaHora = DateTime.Now.ToString("dd-MM-yy");
-            sfd.FileName = fechaHora + ".pdf";
+            sfd.FileName = "Presupuesto (" + fechaHora + ") " + nombresCliente + ".pdf";
             bool fileError = false;
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -92,7 +93,7 @@ namespace CompuGross
                     iTextSharp.text.Font subtitulo = new iTextSharp.text.Font(_subtitulo, 10f, iTextSharp.text.Font.BOLD, new BaseColor(0, 0, 0));
 
                     BaseFont _cliente = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, true);
-                    iTextSharp.text.Font cliente = new iTextSharp.text.Font(_subtitulo, 16f, iTextSharp.text.Font.BOLD, new BaseColor(0, 0, 0));
+                    iTextSharp.text.Font cliente = new iTextSharp.text.Font(_subtitulo, 12f, iTextSharp.text.Font.BOLD, new BaseColor(0, 0, 0));
 
                     BaseFont _parrafo = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, true);
                     iTextSharp.text.Font parrafo = new iTextSharp.text.Font(_parrafo, 10f, iTextSharp.text.Font.NORMAL, new BaseColor(0, 0, 0));
@@ -105,6 +106,10 @@ namespace CompuGross
 
                     string NombreEmpresa = "COMPUGROSS";
                     string Cliente = "Cliente:\n" + nombresCliente;
+                    if (dni != "-" && dni != "")
+                    {
+                        Cliente = "Cliente:\n" + nombresCliente + " (" + dni + ")";
+                    }
                     //string Direccion = "Profesor Simon 2005, Villa Ballester";
                     string Contacto = "WhatsApp: 11-5607-3553";
                     string Mail = "compugross02.05.13@gmail.com";
@@ -265,7 +270,7 @@ namespace CompuGross
                         {
                             Document pdfDoc = new Document(PageSize.LETTER, 40f, 40f, 40f, 40f);
                             PdfWriter.GetInstance(pdfDoc, stream);
-                            //pdfDoc.AddAuthor("Lubricentro Tony");
+                            //pdfDoc.AddAuthor("CompuGross");
                             pdfDoc.AddTitle("Presupuesto");
                             pdfDoc.Open();
                             //pdfDoc.Add(tblLetraRemito);
@@ -504,11 +509,11 @@ namespace CompuGross
             }
             else
             {
-                Cliente cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+                this.cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
 
                 visibilidadCamposPresupuesto("show");
 
-                txtCliente.Text = cliente.Nombres;
+                txtCliente.Text = this.cliente.Nombres;
 
                 dgvClientes.Visible = false;
             }
@@ -516,11 +521,11 @@ namespace CompuGross
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Cliente cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+            this.cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
 
             visibilidadCamposPresupuesto("show");
 
-            txtCliente.Text = cliente.Nombres;
+            txtCliente.Text = this.cliente.Nombres;
 
             dgvClientes.Visible = false;
         }

@@ -387,3 +387,31 @@ begin
 	end catch
 end
 GO
+
+create or alter view ExportIngresosServiciosPorCliente
+as
+select C.ID, C.Nombres,
+(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where C.ID = OT.IdCliente)
+TotalIngresos,
+(select count(ID) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Servicio técnico'))
+ServicioTecnico,
+(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Servicio técnico'))
+IngresoServicioTecnico,
+(select count(ID) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Cámaras de seguridad'))
+Camaras,
+(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Cámaras de seguridad'))
+IngresoCamaras,
+(select count(ID) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Armado de gabinete'))
+ArmadoGabinete,
+(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Armado de gabinete'))
+IngresoArmadoGabinete,
+(select count(ID) from OrdenesTrabajo OT where C.ID = OT.IdCliente)
+TotalServicios
+from Clientes C where Estado = 1
+GO

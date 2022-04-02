@@ -29,22 +29,25 @@ namespace CompuGross
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdenesTrabajo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnMenuModificar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.lblNumOrden = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExportar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBuscarOrden = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.fechaRecepcion = new System.Windows.Forms.DateTimePicker();
@@ -110,7 +113,7 @@ namespace CompuGross
             this.txtFiltro.ForeColor = System.Drawing.Color.White;
             this.txtFiltro.Location = new System.Drawing.Point(31, 53);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(486, 26);
+            this.txtFiltro.Size = new System.Drawing.Size(497, 26);
             this.txtFiltro.TabIndex = 1;
             this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
             this.txtFiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyUp);
@@ -129,26 +132,26 @@ namespace CompuGross
             this.dgvServicios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgvServicios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvServicios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvServicios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvServicios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvServicios.ColumnHeadersHeight = 30;
             this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvServicios.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvServicios.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvServicios.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvServicios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvServicios.EnableHeadersVisualStyles = false;
             this.dgvServicios.GridColor = System.Drawing.SystemColors.Control;
@@ -157,69 +160,79 @@ namespace CompuGross
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
             this.dgvServicios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvServicios.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvServicios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvServicios.RowHeadersVisible = false;
             this.dgvServicios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvServicios.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvServicios.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServicios.ShowCellErrors = false;
             this.dgvServicios.ShowCellToolTips = false;
             this.dgvServicios.ShowEditingIcon = false;
             this.dgvServicios.ShowRowErrors = false;
-            this.dgvServicios.Size = new System.Drawing.Size(512, 358);
+            this.dgvServicios.Size = new System.Drawing.Size(523, 358);
             this.dgvServicios.StandardTab = true;
             this.dgvServicios.TabIndex = 7;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.AutoSize = false;
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnModificar,
-            this.btnEliminar,
+            this.btnMenuModificar,
             this.btnCancelar,
-            this.lblNumOrden});
+            this.lblNumOrden,
+            this.btnExportar});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(529, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(540, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // btnMenuModificar
+            // 
+            this.btnMenuModificar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnModificar,
+            this.btnEliminar});
+            this.btnMenuModificar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuModificar.ForeColor = System.Drawing.Color.White;
+            this.btnMenuModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuModificar.Image")));
+            this.btnMenuModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuModificar.Name = "btnMenuModificar";
+            this.btnMenuModificar.Size = new System.Drawing.Size(101, 24);
+            this.btnMenuModificar.Text = "Modificar";
+            this.btnMenuModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // btnModificar
             // 
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(101, 24);
+            this.btnModificar.Size = new System.Drawing.Size(142, 24);
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(91, 24);
+            this.btnEliminar.Size = new System.Drawing.Size(142, 24);
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCancelar
             // 
@@ -244,11 +257,32 @@ namespace CompuGross
             this.lblNumOrden.Size = new System.Drawing.Size(155, 24);
             this.lblNumOrden.Text = "*Editando orden N° ";
             // 
+            // btnExportar
+            // 
+            this.btnExportar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnExcel});
+            this.btnExportar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.ForeColor = System.Drawing.Color.White;
+            this.btnExportar.Image = ((System.Drawing.Image)(resources.GetObject("btnExportar.Image")));
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(93, 24);
+            this.btnExportar.Text = "Exportar";
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(180, 24);
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
             // btnBuscarOrden
             // 
             this.btnBuscarOrden.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarOrden.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarOrden.Image")));
-            this.btnBuscarOrden.Location = new System.Drawing.Point(1, 50);
+            this.btnBuscarOrden.Location = new System.Drawing.Point(1, 52);
             this.btnBuscarOrden.Name = "btnBuscarOrden";
             this.btnBuscarOrden.Size = new System.Drawing.Size(25, 25);
             this.btnBuscarOrden.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -262,9 +296,9 @@ namespace CompuGross
             this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblTitulo.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(5, 25);
+            this.lblTitulo.Location = new System.Drawing.Point(5, 30);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(512, 23);
+            this.lblTitulo.Size = new System.Drawing.Size(523, 23);
             this.lblTitulo.TabIndex = 11;
             this.lblTitulo.Text = "SERVICIOS";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -291,7 +325,7 @@ namespace CompuGross
             this.lblFechaRecepcion.ForeColor = System.Drawing.Color.White;
             this.lblFechaRecepcion.Location = new System.Drawing.Point(9, 64);
             this.lblFechaRecepcion.Name = "lblFechaRecepcion";
-            this.lblFechaRecepcion.Size = new System.Drawing.Size(109, 16);
+            this.lblFechaRecepcion.Size = new System.Drawing.Size(108, 16);
             this.lblFechaRecepcion.TabIndex = 13;
             this.lblFechaRecepcion.Text = "Fecha recepción";
             // 
@@ -302,7 +336,7 @@ namespace CompuGross
             this.lblFechaDevolucion.ForeColor = System.Drawing.Color.White;
             this.lblFechaDevolucion.Location = new System.Drawing.Point(169, 64);
             this.lblFechaDevolucion.Name = "lblFechaDevolucion";
-            this.lblFechaDevolucion.Size = new System.Drawing.Size(115, 16);
+            this.lblFechaDevolucion.Size = new System.Drawing.Size(114, 16);
             this.lblFechaDevolucion.TabIndex = 15;
             this.lblFechaDevolucion.Text = "Fecha devolución";
             // 
@@ -358,7 +392,7 @@ namespace CompuGross
             this.lblTipoServicio.ForeColor = System.Drawing.Color.White;
             this.lblTipoServicio.Location = new System.Drawing.Point(353, 64);
             this.lblTipoServicio.Name = "lblTipoServicio";
-            this.lblTipoServicio.Size = new System.Drawing.Size(105, 16);
+            this.lblTipoServicio.Size = new System.Drawing.Size(104, 16);
             this.lblTipoServicio.TabIndex = 18;
             this.lblTipoServicio.Text = "Tipo de servicio";
             // 
@@ -369,7 +403,7 @@ namespace CompuGross
             this.lblTipoEquipo.ForeColor = System.Drawing.Color.White;
             this.lblTipoEquipo.Location = new System.Drawing.Point(9, 108);
             this.lblTipoEquipo.Name = "lblTipoEquipo";
-            this.lblTipoEquipo.Size = new System.Drawing.Size(100, 16);
+            this.lblTipoEquipo.Size = new System.Drawing.Size(99, 16);
             this.lblTipoEquipo.TabIndex = 20;
             this.lblTipoEquipo.Text = "Tipo de equipo";
             // 
@@ -407,7 +441,7 @@ namespace CompuGross
             this.lblMarcaModelo.ForeColor = System.Drawing.Color.White;
             this.lblMarcaModelo.Location = new System.Drawing.Point(186, 106);
             this.lblMarcaModelo.Name = "lblMarcaModelo";
-            this.lblMarcaModelo.Size = new System.Drawing.Size(105, 16);
+            this.lblMarcaModelo.Size = new System.Drawing.Size(104, 16);
             this.lblMarcaModelo.TabIndex = 22;
             this.lblMarcaModelo.Text = "Marca y modelo";
             // 
@@ -418,7 +452,7 @@ namespace CompuGross
             this.lblRam.ForeColor = System.Drawing.Color.White;
             this.lblRam.Location = new System.Drawing.Point(387, 106);
             this.lblRam.Name = "lblRam";
-            this.lblRam.Size = new System.Drawing.Size(94, 16);
+            this.lblRam.Size = new System.Drawing.Size(93, 16);
             this.lblRam.TabIndex = 24;
             this.lblRam.Text = "Memoria RAM";
             // 
@@ -441,7 +475,7 @@ namespace CompuGross
             this.lblMicroprocesador.ForeColor = System.Drawing.Color.White;
             this.lblMicroprocesador.Location = new System.Drawing.Point(9, 149);
             this.lblMicroprocesador.Name = "lblMicroprocesador";
-            this.lblMicroprocesador.Size = new System.Drawing.Size(111, 16);
+            this.lblMicroprocesador.Size = new System.Drawing.Size(110, 16);
             this.lblMicroprocesador.TabIndex = 26;
             this.lblMicroprocesador.Text = "Microprocesador";
             // 
@@ -464,7 +498,7 @@ namespace CompuGross
             this.lblAlmacenamiento.ForeColor = System.Drawing.Color.White;
             this.lblAlmacenamiento.Location = new System.Drawing.Point(184, 149);
             this.lblAlmacenamiento.Name = "lblAlmacenamiento";
-            this.lblAlmacenamiento.Size = new System.Drawing.Size(109, 16);
+            this.lblAlmacenamiento.Size = new System.Drawing.Size(108, 16);
             this.lblAlmacenamiento.TabIndex = 28;
             this.lblAlmacenamiento.Text = "Almacenamiento";
             // 
@@ -487,7 +521,7 @@ namespace CompuGross
             this.lblPlacaMadre.ForeColor = System.Drawing.Color.White;
             this.lblPlacaMadre.Location = new System.Drawing.Point(356, 149);
             this.lblPlacaMadre.Name = "lblPlacaMadre";
-            this.lblPlacaMadre.Size = new System.Drawing.Size(85, 16);
+            this.lblPlacaMadre.Size = new System.Drawing.Size(84, 16);
             this.lblPlacaMadre.TabIndex = 30;
             this.lblPlacaMadre.Text = "Placa madre";
             // 
@@ -510,7 +544,7 @@ namespace CompuGross
             this.lblAdicionales.ForeColor = System.Drawing.Color.White;
             this.lblAdicionales.Location = new System.Drawing.Point(184, 192);
             this.lblAdicionales.Name = "lblAdicionales";
-            this.lblAdicionales.Size = new System.Drawing.Size(79, 16);
+            this.lblAdicionales.Size = new System.Drawing.Size(78, 16);
             this.lblAdicionales.TabIndex = 34;
             this.lblAdicionales.Text = "Adicionales";
             // 
@@ -533,7 +567,7 @@ namespace CompuGross
             this.lblNumSerie.ForeColor = System.Drawing.Color.White;
             this.lblNumSerie.Location = new System.Drawing.Point(9, 192);
             this.lblNumSerie.Name = "lblNumSerie";
-            this.lblNumSerie.Size = new System.Drawing.Size(57, 16);
+            this.lblNumSerie.Size = new System.Drawing.Size(56, 16);
             this.lblNumSerie.TabIndex = 32;
             this.lblNumSerie.Text = "N° Serie";
             // 
@@ -556,7 +590,7 @@ namespace CompuGross
             this.lblAlimentacion.ForeColor = System.Drawing.Color.White;
             this.lblAlimentacion.Location = new System.Drawing.Point(9, 232);
             this.lblAlimentacion.Name = "lblAlimentacion";
-            this.lblAlimentacion.Size = new System.Drawing.Size(85, 16);
+            this.lblAlimentacion.Size = new System.Drawing.Size(84, 16);
             this.lblAlimentacion.TabIndex = 36;
             this.lblAlimentacion.Text = "Alimentación";
             // 
@@ -579,7 +613,7 @@ namespace CompuGross
             this.lblUnidadOptica.ForeColor = System.Drawing.Color.White;
             this.lblUnidadOptica.Location = new System.Drawing.Point(184, 232);
             this.lblUnidadOptica.Name = "lblUnidadOptica";
-            this.lblUnidadOptica.Size = new System.Drawing.Size(92, 16);
+            this.lblUnidadOptica.Size = new System.Drawing.Size(91, 16);
             this.lblUnidadOptica.TabIndex = 38;
             this.lblUnidadOptica.Text = "Unidad óptica";
             // 
@@ -612,7 +646,7 @@ namespace CompuGross
             this.lblCostoTerceros.ForeColor = System.Drawing.Color.White;
             this.lblCostoTerceros.Location = new System.Drawing.Point(245, 286);
             this.lblCostoTerceros.Name = "lblCostoTerceros";
-            this.lblCostoTerceros.Size = new System.Drawing.Size(95, 16);
+            this.lblCostoTerceros.Size = new System.Drawing.Size(94, 16);
             this.lblCostoTerceros.TabIndex = 44;
             this.lblCostoTerceros.Text = "Costo terceros";
             // 
@@ -634,7 +668,7 @@ namespace CompuGross
             this.lblManoObra.ForeColor = System.Drawing.Color.White;
             this.lblManoObra.Location = new System.Drawing.Point(128, 286);
             this.lblManoObra.Name = "lblManoObra";
-            this.lblManoObra.Size = new System.Drawing.Size(92, 16);
+            this.lblManoObra.Size = new System.Drawing.Size(91, 16);
             this.lblManoObra.TabIndex = 42;
             this.lblManoObra.Text = "Mano de obra";
             // 
@@ -656,7 +690,7 @@ namespace CompuGross
             this.lblCostoRepuestos.ForeColor = System.Drawing.Color.White;
             this.lblCostoRepuestos.Location = new System.Drawing.Point(9, 286);
             this.lblCostoRepuestos.Name = "lblCostoRepuestos";
-            this.lblCostoRepuestos.Size = new System.Drawing.Size(106, 16);
+            this.lblCostoRepuestos.Size = new System.Drawing.Size(105, 16);
             this.lblCostoRepuestos.TabIndex = 40;
             this.lblCostoRepuestos.Text = "Costo repuestos";
             // 
@@ -678,7 +712,7 @@ namespace CompuGross
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
             this.lblDescripcion.Location = new System.Drawing.Point(356, 192);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(80, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(79, 16);
             this.lblDescripcion.TabIndex = 46;
             this.lblDescripcion.Text = "Descripción";
             // 
@@ -796,26 +830,26 @@ namespace CompuGross
             this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvClientes.ColumnHeadersHeight = 30;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.GridColor = System.Drawing.SystemColors.Control;
@@ -824,28 +858,28 @@ namespace CompuGross
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.ShowCellErrors = false;
             this.dgvClientes.ShowCellToolTips = false;
             this.dgvClientes.ShowEditingIcon = false;
             this.dgvClientes.ShowRowErrors = false;
-            this.dgvClientes.Size = new System.Drawing.Size(512, 362);
+            this.dgvClientes.Size = new System.Drawing.Size(523, 362);
             this.dgvClientes.StandardTab = true;
             this.dgvClientes.TabIndex = 55;
             this.dgvClientes.Visible = false;
@@ -857,7 +891,7 @@ namespace CompuGross
             this.txtCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCliente.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCliente.ForeColor = System.Drawing.Color.White;
-            this.txtCliente.Location = new System.Drawing.Point(28, 28);
+            this.txtCliente.Location = new System.Drawing.Point(28, 33);
             this.txtCliente.MaxLength = 200;
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.ReadOnly = true;
@@ -870,7 +904,7 @@ namespace CompuGross
             // 
             this.btnCambiarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCambiarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCambiarCliente.Image")));
-            this.btnCambiarCliente.Location = new System.Drawing.Point(5, 26);
+            this.btnCambiarCliente.Location = new System.Drawing.Point(5, 30);
             this.btnCambiarCliente.Name = "btnCambiarCliente";
             this.btnCambiarCliente.Size = new System.Drawing.Size(20, 20);
             this.btnCambiarCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -885,7 +919,7 @@ namespace CompuGross
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(529, 467);
+            this.ClientSize = new System.Drawing.Size(540, 467);
             this.Controls.Add(this.btnCambiarCliente);
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.lblAsteriscoMarcaModelo);
@@ -959,8 +993,7 @@ namespace CompuGross
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.DataGridView dgvServicios;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem btnModificar;
-        private System.Windows.Forms.ToolStripMenuItem btnEliminar;
+        private System.Windows.Forms.ToolStripMenuItem btnMenuModificar;
         private System.Windows.Forms.PictureBox btnBuscarOrden;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.DateTimePicker fechaRecepcion;
@@ -1010,5 +1043,9 @@ namespace CompuGross
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.PictureBox btnCambiarCliente;
+        private System.Windows.Forms.ToolStripMenuItem btnModificar;
+        private System.Windows.Forms.ToolStripMenuItem btnEliminar;
+        private System.Windows.Forms.ToolStripMenuItem btnExportar;
+        private System.Windows.Forms.ToolStripMenuItem btnExcel;
     }
 }

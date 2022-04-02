@@ -31,17 +31,16 @@ namespace CompuGross
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.compuGrossDataSet = new CompuGross.CompuGrossDataSet();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new CompuGross.CompuGrossDataSetTableAdapters.ClientesTableAdapter();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnModificar = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuModificar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCantidadClientes = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -64,6 +63,10 @@ namespace CompuGross
             this.lblMailValido = new System.Windows.Forms.Label();
             this.lblMailInvalido = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.btnModificar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExportar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExcel = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
@@ -122,36 +125,27 @@ namespace CompuGross
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnModificar,
-            this.btnEliminar,
-            this.btnCancelar});
+            this.btnMenuModificar,
+            this.btnCancelar,
+            this.btnExportar});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(568, 28);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnModificar
+            // btnMenuModificar
             // 
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(101, 24);
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.ToolTipText = "Modificar cliente";
-            this.btnModificar.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(91, 24);
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.ToolTipText = "Eliminar cliente";
-            this.btnEliminar.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            this.btnMenuModificar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnModificar,
+            this.btnEliminar});
+            this.btnMenuModificar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuModificar.ForeColor = System.Drawing.Color.White;
+            this.btnMenuModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuModificar.Image")));
+            this.btnMenuModificar.Name = "btnMenuModificar";
+            this.btnMenuModificar.Size = new System.Drawing.Size(101, 24);
+            this.btnMenuModificar.Text = "Modificar";
+            this.btnMenuModificar.ToolTipText = "Modificar cliente";
             // 
             // btnCancelar
             // 
@@ -185,7 +179,7 @@ namespace CompuGross
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(12, 28);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(486, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(542, 30);
             this.lblTitulo.TabIndex = 12;
             this.lblTitulo.Text = "CLIENTES";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -446,25 +440,25 @@ namespace CompuGross
             this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvClientes.ColumnHeadersHeight = 30;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.Location = new System.Drawing.Point(14, 111);
@@ -474,12 +468,12 @@ namespace CompuGross
             this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.ShowCellErrors = false;
             this.dgvClientes.ShowCellToolTips = false;
@@ -488,6 +482,47 @@ namespace CompuGross
             this.dgvClientes.Size = new System.Drawing.Size(544, 382);
             this.dgvClientes.StandardTab = true;
             this.dgvClientes.TabIndex = 1;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(180, 24);
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(180, 24);
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnExcel});
+            this.btnExportar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.ForeColor = System.Drawing.Color.White;
+            this.btnExportar.Image = ((System.Drawing.Image)(resources.GetObject("btnExportar.Image")));
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(93, 24);
+            this.btnExportar.Text = "Exportar";
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(180, 24);
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // Clientes
             // 
@@ -540,8 +575,7 @@ namespace CompuGross
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.PictureBox btnBuscar;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem btnModificar;
-        private System.Windows.Forms.ToolStripMenuItem btnEliminar;
+        private System.Windows.Forms.ToolStripMenuItem btnMenuModificar;
         private System.Windows.Forms.Label lblCantidadClientes;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblDni;
@@ -564,6 +598,10 @@ namespace CompuGross
         private System.Windows.Forms.Label lblMailInvalido;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.ToolStripMenuItem btnCancelar;
+        private System.Windows.Forms.ToolStripMenuItem btnModificar;
+        private System.Windows.Forms.ToolStripMenuItem btnEliminar;
+        private System.Windows.Forms.ToolStripMenuItem btnExportar;
+        private System.Windows.Forms.ToolStripMenuItem btnExcel;
     }
 }
 

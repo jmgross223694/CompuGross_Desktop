@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.Office.Interop.Excel;
 using Negocio;
 using Dominio;
 
@@ -14,7 +18,7 @@ namespace CompuGross
 {
     public partial class OrdenesTrabajo : Form
     {
-        private List<Servicio> listaOrdenes;
+        private List<Dominio.Servicio> listaOrdenes;
         private List<Cliente> listaClientes;
 
         public OrdenesTrabajo()
@@ -43,7 +47,7 @@ namespace CompuGross
 
         private void cargarListado()
         {
-            ServicioDB ordenTrabajoDB = new ServicioDB();
+            Negocio.ServicioDB ordenTrabajoDB = new Negocio.ServicioDB();
 
             try
             {
@@ -137,7 +141,7 @@ namespace CompuGross
             ordenarColumnas();
             cambiarTitulos();
 
-            List<Servicio> filtro;
+            List<Dominio.Servicio> filtro;
             if (txtFiltro.Text != "")
             {
                 filtro = listaOrdenes.FindAll(Art => Art.ID.ToString().Contains(txtFiltro.Text.ToUpper()) ||
@@ -180,11 +184,6 @@ namespace CompuGross
             }
         }
 
-        private void lblFiltro_Click(object sender, EventArgs e)
-        {
-             
-        }
-
         private void listarTodas()
         {
             if (dgvServicios.DataSource == null)
@@ -218,44 +217,7 @@ namespace CompuGross
             }
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvServicios.CurrentRow != null)
-                {
-                    txtFiltro.Text = "";
-                    Servicio servicio = (Servicio)dgvServicios.CurrentRow.DataBoundItem;
-
-                    btnBuscarOrden.Visible = false;
-                    txtFiltro.Visible = false;
-                    dgvServicios.Visible = false;
-                    btnModificar.Visible = false;
-                    lblNumOrden.Text = lblNumOrden.Text + servicio.ID;
-                    visibilidadCamposModificar("show");
-                    btnCambiarCliente.Visible = true;
-                    txtCliente.Visible = true;
-
-                    completarCamposOrden(servicio);
-                }
-                else
-                {
-                    MessageBox.Show("No se ha seleccionado ninguna orden.", "Atención!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void completarCamposOrden(Servicio servicio)
+        private void completarCamposOrden(Dominio.Servicio servicio)
         {
             txtFiltro.Text = servicio.ID.ToString();
             txtCliente.Text = servicio.Cliente;
@@ -332,28 +294,6 @@ namespace CompuGross
             finally
             {
                 datos.CerrarConexion();
-            }
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Servicio seleccionado = (Servicio)dgvServicios.CurrentRow.DataBoundItem;
-            ServicioDB ordentTrabajoDB = new ServicioDB();
-
-            try
-            {
-                if (MessageBox.Show("¿Está seguro de eliminar la Orden N° " + seleccionado.ID + " del cliente " +
-                                    seleccionado.Cliente + "?", "Atención!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    ordentTrabajoDB.EliminarOrden(seleccionado.ID);
-                    MessageBox.Show("La Orden N° " + seleccionado.ID + ", del cliente " + seleccionado.Cliente +
-                                    ", se ha eliminado correctamente");
-                }
-            }
-            catch
-            {
-
             }
         }
 
@@ -605,8 +545,8 @@ namespace CompuGross
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            ServicioDB ordenDb = new ServicioDB();
-            Servicio orden = new Servicio();
+            Negocio.ServicioDB ordenDb = new Negocio.ServicioDB();
+            Dominio.Servicio orden = new Dominio.Servicio();
 
             orden.ID = Convert.ToInt64(txtFiltro.Text);
 
@@ -615,7 +555,7 @@ namespace CompuGross
             orden.TipoEquipo = ddlTipoEquipo.SelectedItem.ToString();
 
             if (txtRam.Text == "") { orden.RAM = "-"; }
-            else { orden.RAM = txtRam.Text + " GB"; }
+            else { orden.RAM = txtRam.Text; }
 
             if (txtPlacaMadre.Text == "") { orden.PlacaMadre = "-"; }
             else { orden.PlacaMadre = txtPlacaMadre.Text; }
@@ -651,31 +591,129 @@ namespace CompuGross
             orden.Descripcion = txtDescripcion.Text;
             orden.CostoCG = Convert.ToInt32(txtManoObra.Text);
 
+            if (MessageBox.Show("¿Confirma los cambios?", "Atención!",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    ordenDb.ModificarOrden(orden);
+
+                    MessageBox.Show("Se guardaron los cambios para el servicio N°" + orden.ID + ".", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    txtFiltro.Text = "";
+                    btnCambiarCliente.Visible = false;
+                    txtCliente.Visible = false;
+                    borrarCamposOrden();
+                    visibilidadCamposModificar("hide");
+                    btnModificar.Visible = true;
+                    btnBuscarOrden.Visible = true;
+                    txtFiltro.Visible = true;
+                    cargarListado();
+                    ocultarColumnas();
+                    alinearColumnas();
+                    ordenarColumnas();
+                    cambiarTitulos();
+                    dgvServicios.Visible = true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al intentar modificar el servicio.", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se modificó el servicio.", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
             try
             {
-                ordenDb.ModificarOrden(orden);
+                if (dgvServicios.CurrentRow != null)
+                {
+                    txtFiltro.Text = "";
+                    Dominio.Servicio servicio = (Dominio.Servicio)dgvServicios.CurrentRow.DataBoundItem;
 
-                MessageBox.Show("Se guardaron los cambios en la Orden de trabajo N°" + orden.ID + ".");
+                    btnBuscarOrden.Visible = false;
+                    txtFiltro.Visible = false;
+                    dgvServicios.Visible = false;
+                    btnModificar.Visible = false;
+                    lblNumOrden.Text = "*Editando orden N° " + servicio.ID;
+                    visibilidadCamposModificar("show");
+                    btnCambiarCliente.Visible = true;
+                    txtCliente.Visible = true;
 
-                txtFiltro.Text = "";
-                btnCambiarCliente.Visible = false;
-                txtCliente.Visible = false;
-                borrarCamposOrden();
-                visibilidadCamposModificar("hide");
-                btnModificar.Visible = true;
-                btnBuscarOrden.Visible = true;
-                txtFiltro.Visible = true;
-                cargarListado();
-                ocultarColumnas();
-                alinearColumnas();
-                ordenarColumnas();
-                cambiarTitulos();
-                dgvServicios.Visible = true;
+                    completarCamposOrden(servicio);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha seleccionado ninguna orden.", "Atención!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            catch (Exception)
+            catch
             {
-                MessageBox.Show("Se produjo un error y no se modificó la orden de trabajo.");
+
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Dominio.Servicio seleccionado = (Dominio.Servicio)dgvServicios.CurrentRow.DataBoundItem;
+            Negocio.ServicioDB ordentTrabajoDB = new Negocio.ServicioDB();
+
+            try
+            {
+                if (MessageBox.Show("¿Confirma eliminar la Orden N° " + seleccionado.ID + " del cliente " +
+                                    seleccionado.Cliente + "?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ordentTrabajoDB.EliminarOrden(seleccionado.ID);
+                    MessageBox.Show("La Orden N° " + seleccionado.ID + ", del cliente " + seleccionado.Cliente +
+                                    ", se ha eliminado correctamente");
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void ExportExcel(DataGridView tabla)
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application(); //creamos nuevo archivo excel
+            excel.Application.Workbooks.Add(true); //agregamos una hoja nueva al archivo
+
+            int indiceColumna = 0;
+            foreach (DataGridViewColumn col in tabla.Columns) //agregamos encabezados a la nueva hoja
+            {
+                indiceColumna++;
+                excel.Cells[1, indiceColumna] = col.Name;
+            }
+
+            int indiceFila = 0;
+            foreach (DataGridViewRow row in tabla.Rows) //agregamos contenido a la nueva hoja
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+                foreach (DataGridViewColumn col in tabla.Columns)
+                {
+                    indiceColumna++;
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                }
+            }
+
+            excel.Visible = true;
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportExcel(dgvServicios);
         }
     }
 }

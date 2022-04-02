@@ -334,66 +334,73 @@ namespace CompuGross
             {
                 MessageBox.Show("Faltan completar campos obligatorios !!");
             }
-            else if (txtDescripcion.Text.Contains("-"))
-            {
-                MessageBox.Show("La descripción no puede contener '-'.");
-            }
             else
             {
-               ServicioDB ordenDb = new ServicioDB();
-               Servicio orden = new Servicio();
+                Negocio.ServicioDB ordenDb = new Negocio.ServicioDB();
+                Dominio.Servicio orden = new Dominio.Servicio();
 
-               orden.Cliente = txtCliente.Text;
-               orden.FechaRecepcion = fechaRecepcion.Text;
-               orden.TipoEquipo = ddlTiposEquipo.SelectedItem.ToString();
+                orden.Cliente = txtCliente.Text;
+                orden.FechaRecepcion = fechaRecepcion.Text;
+                orden.TipoEquipo = ddlTiposEquipo.SelectedItem.ToString();
 
-               if (txtRam.Text == "") { orden.RAM = "-"; }
-               else { orden.RAM = txtRam.Text + " GB"; }
+                if (txtRam.Text == "") { orden.RAM = "-"; }
+                else { orden.RAM = txtRam.Text; }
 
-               if (txtPlacaMadre.Text == "") { orden.PlacaMadre = "-"; }
-               else { orden.PlacaMadre = txtPlacaMadre.Text; }
+                if (txtPlacaMadre.Text == "") { orden.PlacaMadre = "-"; }
+                else { orden.PlacaMadre = txtPlacaMadre.Text; }
 
-               if (txtMicroprocesador.Text == "") { orden.Microprocesador = "-"; }
-               else { orden.Microprocesador = txtMicroprocesador.Text; }
+                if (txtMicroprocesador.Text == "") { orden.Microprocesador = "-"; }
+                else { orden.Microprocesador = txtMicroprocesador.Text; }
 
-               if (txtAlmacenamiento.Text == "") { orden.Almacenamiento = "-"; }
-               else { orden.Almacenamiento = txtAlmacenamiento.Text; }
+                if (txtAlmacenamiento.Text == "") { orden.Almacenamiento = "-"; }
+                else { orden.Almacenamiento = txtAlmacenamiento.Text; }
 
-               orden.CdDvd = ddlCdDvd.SelectedItem.ToString();
+                orden.CdDvd = ddlCdDvd.SelectedItem.ToString();
 
-               if (txtFuente.Text == "") { orden.Fuente = "-"; }
-               else { orden.Fuente = txtFuente.Text; }
+                if (txtFuente.Text == "") { orden.Fuente = "-"; }
+                else { orden.Fuente = txtFuente.Text; }
 
-               if (txtAdicionales.Text == "") { orden.Adicionales = "-"; }
-               else { orden.Adicionales = txtAdicionales.Text; }
+                if (txtAdicionales.Text == "") { orden.Adicionales = "-"; }
+                else { orden.Adicionales = txtAdicionales.Text; }
 
-               if (txtNumSerie.Text == "") { orden.NumSerie = "-"; }
-               else { orden.NumSerie = txtNumSerie.Text; }
+                if (txtNumSerie.Text == "") { orden.NumSerie = "-"; }
+                else { orden.NumSerie = txtNumSerie.Text; }
 
-               if (txtCostoRepuestos.Text == "") { orden.CostoRepuestos = 0; }
-               else { orden.CostoRepuestos = Convert.ToInt32(txtCostoRepuestos.Text); }
+                if (txtCostoRepuestos.Text == "") { orden.CostoRepuestos = 0; }
+                else { orden.CostoRepuestos = Convert.ToInt32(txtCostoRepuestos.Text); }
 
-               if (txtCostoTerceros.Text == "") { orden.CostoTerceros = 0; }
-               else { orden.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
+                if (txtCostoTerceros.Text == "") { orden.CostoTerceros = 0; }
+                else { orden.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
 
-               orden.FechaDevolucion = fechaDevolucion.Text;
-               orden.MarcaModelo = txtMarcaModelo.Text;
-               orden.TipoServicio = ddlTiposServicio.SelectedItem.ToString();
-               orden.Descripcion = txtDescripcion.Text;
-               orden.CostoCG = Convert.ToInt32(txtCostoManoObra.Text);
+                orden.FechaDevolucion = fechaDevolucion.Text;
+                orden.MarcaModelo = txtMarcaModelo.Text;
+                orden.TipoServicio = ddlTiposServicio.SelectedItem.ToString();
+                orden.Descripcion = txtDescripcion.Text;
+                orden.CostoCG = Convert.ToInt32(txtCostoManoObra.Text);
 
-               try
-               {
-                    ordenDb.AgregarOrden(orden);
+                if (MessageBox.Show("¿Confirma el nuevo servicio?", "Atención!",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ordenDb.AgregarOrden(orden);
 
-                    MessageBox.Show("Servicio registrado correctamente.");
+                        MessageBox.Show("Servicio registrado correctamente.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    borrarCamposServicio();
-               }
-               catch (Exception)
-               {
-                   MessageBox.Show("Se produjo un error al intentar registrar el servicio.");
-               }
+                        borrarCamposServicio();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Se produjo un error al intentar registrar el servicio.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se registró el servicio.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

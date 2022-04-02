@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Dominio;
 using Negocio;
-using Dominio;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.Office.Interop.Excel;
 
 namespace CompuGross
 {
@@ -146,8 +145,8 @@ namespace CompuGross
             List<Cliente> filtro;
             if (txtFiltro.Text != "")
             {
-                filtro = listaClientes.FindAll(Art => Art.DNI.ToUpper().Contains(txtFiltro.Text.ToUpper()) || 
-                                               Art.Nombres.ToUpper().Contains(txtFiltro.Text.ToUpper()) || 
+                filtro = listaClientes.FindAll(Art => Art.DNI.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.Nombres.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.Direccion.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.Localidad.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.Telefono.ToUpper().Contains(txtFiltro.Text.ToUpper()));
@@ -237,41 +236,6 @@ namespace CompuGross
             lblMailInvalido.Visible = false;
         }
 
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvClientes.CurrentRow != null)
-                {
-                    txtFiltro.Text = "";
-                    this.cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-
-                    cargarCamposCliente(this.cliente);
-
-                    //ocultar campos de busqueda
-                    btnCancelar.Visible = true;
-                    btnModificar.Visible = false;
-                    btnBuscar.Visible = false;
-                    txtFiltro.Visible = false;
-                    lblCantidadClientes.Visible = false;
-                    dgvClientes.Visible = false;
-
-                    //mostrar campos para editar
-                    visibilidadCamposModificarCliente("show");
-                    txtDni.Focus();
-                }
-                else
-                {
-                    MessageBox.Show("No se ha seleccionado ningún cliente.", "Atención!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch
-            {
-
-            }
-        }
-
         private void visibilidadCamposModificarCliente(string aux)
         {
             if (aux == "show")
@@ -311,34 +275,6 @@ namespace CompuGross
                 lblAsteriscoTelefono.Visible = false;
                 lblCamposObligatorios.Visible = false;
                 btnConfirmar.Visible = false;
-            }
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-            ClienteDB clienteDB = new ClienteDB();
-
-            try
-            {
-                if (MessageBox.Show("¿Seguro que desea eliminar al cliente " + seleccionado.Nombres + "?", "Atención!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    clienteDB.EliminarCliente(seleccionado.Nombres, seleccionado.Telefono);
-                    MessageBox.Show("El cliente " + seleccionado.Nombres + ", se ha eliminado correctamente");
-                    txtFiltro.Text = "";
-
-                    cargarListado();
-                    ocultarColumnas();
-                    alinearColumnas();
-                    cambiarTitulosColumnas();
-                    ordenarColumnas();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudo eliminar al cliente. " + ex.ToString(), "Atención!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -382,8 +318,8 @@ namespace CompuGross
                         txtFiltro.Text = "";
                     }
                 }
-                else 
-                { 
+                else
+                {
                     modificarCliente();
                     visibilidadCamposModificarCliente("hide");
                     cargarListado();
@@ -413,17 +349,43 @@ namespace CompuGross
             try
             {
                 int clienteModificado = 0;
-                clienteModificado = clienteDB.ModificarCliente(this.cliente);
 
-                if (clienteModificado == 1)
+                string nombres = txtNombres.Text;
+                string dni = txtDni.Text;
+                string direccion = txtDireccion.Text;
+                string localidad = ddlLocalidades.SelectedItem.ToString();
+                string telefono = txtTelefono.Text;
+                string mail = txtMail.Text;
+
+                if (this.cliente.Nombres != nombres || this.cliente.DNI != dni || this.cliente.Direccion != direccion ||
+                    this.cliente.Localidad != localidad || this.cliente.Telefono != telefono || this.cliente.Mail != mail)
                 {
-                    MessageBox.Show("¡Cliente " + this.cliente.Nombres + " modificado/a con éxito!", "Atención!!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (MessageBox.Show("¿Confirma los cambios?", "Atención!",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        clienteModificado = clienteDB.ModificarCliente(this.cliente);
+
+                        if (clienteModificado == 1)
+                        {
+                            MessageBox.Show("¡Cliente " + this.cliente.Nombres + " modificado/a con éxito!", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
             {
-                MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
+                MessageBox.Show("Error al intentar modificar al cliente.", "Atención!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -492,7 +454,14 @@ namespace CompuGross
 
         private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
         {
-            soloLetras(sender, e);
+            if (e.KeyChar == '-')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                soloLetras(sender, e);
+            }
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
@@ -560,7 +529,7 @@ namespace CompuGross
         {
             string mail = txtMail.Text;
 
-            if (mail.Length <3  && e.KeyChar == '@')
+            if (mail.Length < 3 && e.KeyChar == '@')
             {
                 e.Handled = true;
             }
@@ -591,7 +560,7 @@ namespace CompuGross
                     e.Handled = true;
                 }
             }
-            else if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || e.KeyChar == '_' || 
+            else if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || e.KeyChar == '_' ||
                 e.KeyChar == '-' || e.KeyChar == '.' || e.KeyChar == '@' || Char.IsLetter(e.KeyChar))
             {
                 if (e.KeyChar != 'ñ')
@@ -624,6 +593,102 @@ namespace CompuGross
                 /*MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);*/
             }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvClientes.CurrentRow != null)
+                {
+                    txtFiltro.Text = "";
+                    this.cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+
+                    cargarCamposCliente(this.cliente);
+
+                    //ocultar campos de busqueda
+                    btnCancelar.Visible = true;
+                    btnModificar.Visible = false;
+                    btnBuscar.Visible = false;
+                    txtFiltro.Visible = false;
+                    lblCantidadClientes.Visible = false;
+                    dgvClientes.Visible = false;
+
+                    //mostrar campos para editar
+                    visibilidadCamposModificarCliente("show");
+                    txtDni.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("No se ha seleccionado ningún cliente.", "Atención!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+            ClienteDB clienteDB = new ClienteDB();
+
+            try
+            {
+                if (MessageBox.Show("¿Confirma eliminar al cliente " + seleccionado.Nombres + "?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    clienteDB.EliminarCliente(seleccionado.Nombres, seleccionado.Telefono);
+                    MessageBox.Show("El cliente " + seleccionado.Nombres + ", se ha eliminado correctamente");
+                    txtFiltro.Text = "";
+
+                    cargarListado();
+                    ocultarColumnas();
+                    alinearColumnas();
+                    cambiarTitulosColumnas();
+                    ordenarColumnas();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar eliminar al cliente. " + ex.ToString(), "Atención!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ExportExcel(DataGridView tabla)
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application(); //creamos nuevo archivo excel
+            excel.Application.Workbooks.Add(true); //agregamos una hoja nueva al archivo
+
+            int indiceColumna = 0;
+            foreach (DataGridViewColumn col in tabla.Columns) //agregamos encabezados a la nueva hoja
+            {
+                indiceColumna++;
+                excel.Cells[1, indiceColumna] = col.Name;
+            }
+
+            int indiceFila = 0;
+            foreach (DataGridViewRow row in tabla.Rows) //agregamos contenido a la nueva hoja
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+                foreach (DataGridViewColumn col in tabla.Columns)
+                {
+                    indiceColumna++;
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                }
+            }
+
+            excel.Visible = true;
+        }
+        
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportExcel(dgvClientes);
         }
     }
 }

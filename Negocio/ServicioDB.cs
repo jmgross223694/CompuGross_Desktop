@@ -10,9 +10,9 @@ namespace Negocio
 {
     public class ServicioDB
     {
-        public List<Servicio> Listar()
+        public List<Dominio.Servicio> Listar()
         {
-            List<Servicio> lista = new List<Servicio>();
+            List<Dominio.Servicio> lista = new List<Dominio.Servicio>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -24,7 +24,7 @@ namespace Negocio
 
                 while (datos.Lector.Read())
                 {
-                    Servicio aux = new Servicio();
+                    Dominio.Servicio aux = new Dominio.Servicio();
                     aux.ID = (long)datos.Lector["ID"];
                     aux.Cliente = datos.Lector["Cliente"].ToString();
                     DateTime aux1 = Convert.ToDateTime(datos.Lector["FechaRecepcion"]);
@@ -65,7 +65,7 @@ namespace Negocio
             }
         }
 
-        public void AgregarOrden(Servicio orden)
+        public void AgregarOrden(Dominio.Servicio orden)
         {
             string insertOrden = "EXEC SP_INSERT_ORDEN_TRABAJO '" + orden.Cliente + "', '" + 
                                 orden.FechaRecepcion + "', '" + orden.TipoEquipo + "', '" + 
@@ -116,7 +116,7 @@ namespace Negocio
             }
         }
 
-        public void ModificarOrden(Servicio ordenTrabajo)
+        public void ModificarOrden(Dominio.Servicio ordenTrabajo)
         {
             string update = "exec SP_UPDATE_ORDEN_TRABAJO " +
                                 ordenTrabajo.ID + ", '" +
