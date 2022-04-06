@@ -259,10 +259,48 @@ namespace CompuGross
             }
             else
             {
+                string tabla = "";
+
+                switch (ddlTablas.SelectedItem.ToString())
+                {
+                    case "Clientes":
+                        tabla = "Clientes";
+                        break;
+                    case "Servicios":
+                        tabla = "OrdenesTrabajo";
+                        break;
+                    case "Localidades":
+                        tabla = "Localidades";
+                        break;
+                    case "Tipos de Equipo":
+                        tabla = "TiposEquipo";
+                        break;
+                    case "Tipos de Servicio":
+                        tabla = "TiposServicio";
+                        break;
+                    case "Listado de precios":
+                        tabla = "ListaPrecios";
+                        break;
+                    case "Usuarios":
+                        tabla = "Usuarios";
+                        break;
+                    case "Tipos de Usuario":
+                        tabla = "TiposUsuario";
+                        break;
+                    case "Usuario Logueado":
+                        tabla = "UsuarioLogueado";
+                        break;
+                    case "Credenciales del Mail":
+                        tabla = "credencialesMail";
+                        break;
+                    case "Licencias":
+                        tabla = "Licencias";
+                        break;
+                }
 
                 DataTable data = (DataTable)(dgvArchivo.DataSource);
 
-                bool resultado = new FuncionalidadesExcel().CargarDatos(data, ddlTablas.SelectedItem.ToString());
+                bool resultado = new FuncionalidadesExcel().CargarDatos(data, tabla);
 
                 if (resultado)
                 {

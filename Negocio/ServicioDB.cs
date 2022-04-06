@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                string consulta = "select * from ExportOrdenesTrabajo ORDER BY FechaRecepcion desc";
+                string consulta = "select * from ExportOrdenesTrabajo ORDER BY FechaDevolucion desc, ID desc";
 
                 datos.SetearConsulta(consulta);
                 datos.EjecutarLectura();

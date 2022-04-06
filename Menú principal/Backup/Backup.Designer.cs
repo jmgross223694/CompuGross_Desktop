@@ -190,18 +190,14 @@ namespace CompuGross
             this.ddlTablas.FormattingEnabled = true;
             this.ddlTablas.Items.AddRange(new object[] {
             "-",
-            "Activado",
             "Clientes",
-            "credencialesMail",
-            "Licencias",
-            "ListaPrecios",
             "Localidades",
-            "OrdenesTrabajo",
-            "TiposEquipo",
-            "TiposServicio",
-            "TiposUsuario",
-            "UsuarioLogueado",
-            "Usuarios"});
+            "Servicios",
+            "Tipos de Equipo",
+            "Tipos de Servicio",
+            "Lista de Precios",
+            "Usuarios",
+            "Tipos de Usuario"});
             this.ddlTablas.Location = new System.Drawing.Point(438, 132);
             this.ddlTablas.Name = "ddlTablas";
             this.ddlTablas.Size = new System.Drawing.Size(145, 21);
@@ -215,7 +211,7 @@ namespace CompuGross
             this.lblSeleccionarTabla.ForeColor = System.Drawing.Color.White;
             this.lblSeleccionarTabla.Location = new System.Drawing.Point(452, 103);
             this.lblSeleccionarTabla.Name = "lblSeleccionarTabla";
-            this.lblSeleccionarTabla.Size = new System.Drawing.Size(119, 16);
+            this.lblSeleccionarTabla.Size = new System.Drawing.Size(118, 16);
             this.lblSeleccionarTabla.TabIndex = 12;
             this.lblSeleccionarTabla.Text = "Seleccionar Tabla";
             this.lblSeleccionarTabla.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

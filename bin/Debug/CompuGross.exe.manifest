@@ -54,26 +54,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompuGross.exe" size="6309840">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompuGross.exe" size="6338512">
       <assemblyIdentity name="CompuGross" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>E2n6Se1SClQix+EmEdMdsYbgp74v8dJ+JbFFJOOXQOM=</dsig:DigestValue>
+        <dsig:DigestValue>i9OZipijceEl4tf/D5jQMuDChGlXU09Rr9Cgq6nnF3k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dominio.dll" size="9728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dominio.dll" size="10240">
       <assemblyIdentity name="Dominio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ns8ROYTK4ReCgSAFtKKjGJaaE/xApXa0ojANnhOhDEs=</dsig:DigestValue>
+        <dsig:DigestValue>UUT5nmOFeB1Aj4hkzbQfsKHebHhf/rF995G9JAgVTb8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -114,14 +114,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Negocio.dll" size="18432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Negocio.dll" size="19968">
       <assemblyIdentity name="Negocio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1f1GX8ZWGCIl8687XufmSMeLft0JlG0rbgDsLv2Q6dM=</dsig:DigestValue>
+        <dsig:DigestValue>Hos9zEqEedzhwtmCSWNyftycTAo8uNCBEykGvINCGy0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

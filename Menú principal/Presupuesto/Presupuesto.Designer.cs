@@ -389,7 +389,7 @@ namespace CompuGross
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCliente.ForeColor = System.Drawing.Color.White;
             this.txtCliente.Location = new System.Drawing.Point(50, 58);
-            this.txtCliente.MaxLength = 8;
+            this.txtCliente.MaxLength = 200;
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(137, 21);
             this.txtCliente.TabIndex = 6;

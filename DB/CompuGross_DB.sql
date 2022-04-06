@@ -1,3 +1,4 @@
+
 create database CompuGross
 GO
 
@@ -171,7 +172,7 @@ begin
 
 	if (@IdClienteExistente <> 0)
 		begin
-			update clientes set Estado = 1 where DNI = @DNI
+			update Clientes set Estado = 1 where DNI = @DNI
 		end
 	else
 		begin

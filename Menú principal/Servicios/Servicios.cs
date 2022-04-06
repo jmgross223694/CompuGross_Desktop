@@ -675,6 +675,17 @@ namespace CompuGross
                     ordentTrabajoDB.EliminarOrden(seleccionado.ID);
                     MessageBox.Show("La Orden N° " + seleccionado.ID + ", del cliente " + seleccionado.Cliente +
                                     ", se ha eliminado correctamente");
+
+                    visibilidadCamposModificar("hide");
+                    listarTodas();
+
+                    cargarDdlTiposEquipo();
+                    cargarDdlTiposServicio();
+
+                    cargarListadoClientes();
+                    AlinearColumnasGrillaClientes();
+                    ordenarColumnasGrillaClientes();
+                    cambiarTitulosGrillaClientes();
                 }
             }
             catch

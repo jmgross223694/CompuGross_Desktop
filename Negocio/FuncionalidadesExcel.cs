@@ -14,7 +14,7 @@ namespace Negocio
         {
             bool resultado = true;
 
-            string strConLocal = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
+            //string strConLocal = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
             string strConLan = "Server=AMD-FX-8320\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
 
             using (SqlConnection con = new SqlConnection(strConLan))

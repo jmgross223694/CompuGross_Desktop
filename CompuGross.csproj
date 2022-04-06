@@ -144,11 +144,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CompuGrossDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Menú principal\Datos desplegables\Localidades\Localidades.cs">
+    <Compile Include="Menú principal\Clientes\ABMLocalidades\ABMLocalidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menú principal\Datos desplegables\Localidades\Localidades.Designer.cs">
-      <DependentUpon>Localidades.cs</DependentUpon>
+    <Compile Include="Menú principal\Clientes\ABMLocalidades\ABMLocalidades.Designer.cs">
+      <DependentUpon>ABMLocalidades.cs</DependentUpon>
     </Compile>
     <Compile Include="Menú principal\Reportes\Ingresos\Ingresos.cs">
       <SubType>Form</SubType>
@@ -194,8 +194,8 @@
     <EmbeddedResource Include="Menú principal\Clientes\AgregarCliente.resx">
       <DependentUpon>AgregarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menú principal\Datos desplegables\Localidades\Localidades.resx">
-      <DependentUpon>Localidades.cs</DependentUpon>
+    <EmbeddedResource Include="Menú principal\Clientes\ABMLocalidades\ABMLocalidades.resx">
+      <DependentUpon>ABMLocalidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Reportes\ReportePorCliente\ReportePorCliente.resx">
       <DependentUpon>ReportePorCliente.cs</DependentUpon>
