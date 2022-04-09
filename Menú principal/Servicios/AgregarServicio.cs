@@ -339,8 +339,11 @@ namespace CompuGross
                 Negocio.ServicioDB ordenDb = new Negocio.ServicioDB();
                 Dominio.Servicio orden = new Dominio.Servicio();
 
+                DateTime fecha = Convert.ToDateTime(fechaRecepcion.Text);
+                string fecRecepcion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+
                 orden.Cliente = txtCliente.Text;
-                orden.FechaRecepcion = fechaRecepcion.Text;
+                orden.FechaRecepcion = fecRecepcion;
                 orden.TipoEquipo = ddlTiposEquipo.SelectedItem.ToString();
 
                 if (txtRam.Text == "") { orden.RAM = "-"; }
@@ -372,7 +375,10 @@ namespace CompuGross
                 if (txtCostoTerceros.Text == "") { orden.CostoTerceros = 0; }
                 else { orden.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
 
-                orden.FechaDevolucion = fechaDevolucion.Text;
+                fecha = Convert.ToDateTime(fechaDevolucion.Text);
+                string fecDevolucion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+
+                orden.FechaDevolucion = fecDevolucion;
                 orden.MarcaModelo = txtMarcaModelo.Text;
                 orden.TipoServicio = ddlTiposServicio.SelectedItem.ToString();
                 orden.Descripcion = txtDescripcion.Text;

@@ -20,7 +20,7 @@ namespace CompuGross
     public partial class Presupuesto : Form
     {
         private List<Cliente> listaClientes;
-        private Cliente cliente;
+        private Cliente cliente = new Cliente(1, "", "", "", "", 1, "", "");
 
         public Presupuesto()
         {
@@ -62,8 +62,16 @@ namespace CompuGross
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF (*.pdf)|*.pdf";
-            string fechaHora = DateTime.Now.ToString("dd-MM-yy");
-            sfd.FileName = "Presupuesto (" + fechaHora + ") " + nombresCliente + ".pdf";
+            //string fechaHora = DateTime.Now.ToString("dd-MM-yy");
+            DateTime fechaHora = Convert.ToDateTime(selectFechaHora.Text);
+            string dia = fechaHora.Day.ToString();
+            string mes = fechaHora.Month.ToString();
+            string año = fechaHora.Year.ToString();
+            string horas = fechaHora.Hour.ToString();
+            string minutos = fechaHora.Minute.ToString();
+            string fecha = dia + "-" + mes + "-" + año;
+            string horario = horas + ":" + minutos;
+            sfd.FileName = "Presupuesto (" + fecha + ") " + nombresCliente + ".pdf";
             bool fileError = false;
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -113,7 +121,7 @@ namespace CompuGross
                     //string Direccion = "Profesor Simon 2005, Villa Ballester";
                     string Contacto = "WhatsApp: 11-5607-3553";
                     string Mail = "compugross02.05.13@gmail.com";
-                    string fechaHoraActual = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                    string fechaHoraPresupuesto = "Fecha: " + fecha;
 
                     //LETRA CABECERA
                     //var tblLetraRemito = new PdfPTable(new float[] { 100f }) { WidthPercentage = 100 };
@@ -178,7 +186,7 @@ namespace CompuGross
                         Border = 0,
                         HorizontalAlignment = Element.ALIGN_RIGHT
                     });
-                    tblCabecera.AddCell(new PdfPCell(new Phrase(fechaHoraActual, parrafo))
+                    tblCabecera.AddCell(new PdfPCell(new Phrase(fechaHoraPresupuesto, parrafo))
                     {
                         Border = 0,
                         HorizontalAlignment = Element.ALIGN_RIGHT

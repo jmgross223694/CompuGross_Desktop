@@ -8,7 +8,24 @@ namespace Dominio
 {
     public class Cliente
     {
+        public Cliente()
+        {
+        }
+
+        public Cliente(long id, string nombres, string dNI, string direccion, string localidad, long idLocalidad, string telefono, string mail)
+        {
+            Id = id;
+            Nombres = nombres;
+            DNI = dNI;
+            Direccion = direccion;
+            Localidad = localidad;
+            IdLocalidad = idLocalidad;
+            Telefono = telefono;
+            Mail = mail;
+        }
+
         public long Id { get; set; }
+
         public string Nombres { get; set; }
 
         public string DNI { get; set; }

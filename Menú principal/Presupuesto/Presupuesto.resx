@@ -146,7 +146,7 @@
         xUAa4EouKCoB0n+A2CgltTiZgYHRAMjOLi8pAIozzgGyRZKywewNIHZRSJAzkH0EyOZLh7CvgNhJEPYT
         ELsI6Akg+wtIfTqYzcQBNgfClgGxS1IrQPYyOOcXVBZlpmeUKBhaWloqOKbkJ6UqBFcWl6TmFit45iXn
         FxXkFyWWpKYA1ULcBwaCEIWgENMAarTQZKAyAMUDhPU5EBy+jGJnEGIIkFxaVAZlMjIZE+YjzJgjwcDg
-        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAAsQAAALEAGtI711
+        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAAsOAAALDgFAvuFB
         AAAfSklEQVR4Xu3dz69d13Uf8Aw67KCzjtrOkhYJIMQQAjsDAUIQQwNCBgSkiNBUgW2JpB75Ht8P/pCl
         iFYlu+EkSmjFNmIlAdQmiIIEsoqOXKQsK9ACCYEQ7BACpTAmJNWynCYt8hfccl3iVeTT4nv399lnnc/g
         M/laFmxe3rv22XuvdX5mNBoBAAOThgBAbWkIANSWhgBAbWkIANSWhgBAbWkIANSWhgBAbWkIANSWhgBA
@@ -286,7 +286,7 @@
   <data name="btnExportar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACr4SURBVHhe7d0J
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACr4SURBVHhe7d0J
         mFt1vf/xsinyF1G5V/7X61+RJukkmbJYBAWEIuKVTXBhX0r/Yum0M90XKFsF2SnKpqIIVAVlkUUEkV1l
         32SRRSpQmCSzJ5l9n989J/2NQ5PfTM/M5CTnnO/78zyvx8f7PHIyuSe/vEtnMlNYcKemTNm8dmo8lAhX
         HpqMxKtTodiaZCR2SyocfTQVir+SDMeS1n9PW//ZalGAXzQcesSr7+2zzyf0rc4YY7L3fqhyaiISPSkV
@@ -491,7 +491,7 @@
   <data name="btnCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARrSURBVEhLvZdr
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARrSURBVEhLvZdr
         TFtlGMehpRQopR3lUi4FVi6DhoJQKIWCIuMOG0xgVDYGLmNZyGACbnOZIYqXCXjJtmxGk30wfsAYTZaM
         i2GZYYpj6hc/YLJ5naISnfOyLMM5wt/nOUf0kNauZWT/5Jecy9Pnd95z3tO39fEiakLrIYHEmmQ98Sfx
         jYf0E2uSVGJG3Ly3uZPYTLxEjBJvEA5CTtxVGon7CRZXEwmENL3rgpWL9dZEdFZmoK04DabYUNDxKSJE
