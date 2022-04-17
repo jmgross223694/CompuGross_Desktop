@@ -12,7 +12,7 @@ namespace Dominio
         {
         }
 
-        public Cliente(long id, string nombres, string dNI, string direccion, string localidad, long idLocalidad, string telefono, string mail)
+        public Cliente(long id, string nombres, string dNI, string direccion, string localidad, long idLocalidad, string telefono, string mail, string fechaAlta)
         {
             Id = id;
             Nombres = nombres;
@@ -22,6 +22,7 @@ namespace Dominio
             IdLocalidad = idLocalidad;
             Telefono = telefono;
             Mail = mail;
+            FechaAlta = fechaAlta;
         }
 
         public long Id { get; set; }
@@ -39,5 +40,7 @@ namespace Dominio
         public string Telefono { get; set; }
 
         public string Mail { get; set; }
+
+        public string FechaAlta { get; set; }
     }
 }

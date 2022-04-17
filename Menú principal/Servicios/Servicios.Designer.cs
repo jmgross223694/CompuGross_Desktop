@@ -1,7 +1,7 @@
 ﻿
 namespace CompuGross
 {
-    partial class OrdenesTrabajo
+    partial class Servicios
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace CompuGross
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdenesTrabajo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Servicios));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -274,7 +274,7 @@ namespace CompuGross
             this.btnExcel.ForeColor = System.Drawing.Color.White;
             this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(180, 24);
+            this.btnExcel.Size = new System.Drawing.Size(112, 24);
             this.btnExcel.Text = "Excel";
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
@@ -433,6 +433,7 @@ namespace CompuGross
             this.txtMarcaModelo.Name = "txtMarcaModelo";
             this.txtMarcaModelo.Size = new System.Drawing.Size(188, 20);
             this.txtMarcaModelo.TabIndex = 21;
+            this.txtMarcaModelo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblMarcaModelo
             // 
@@ -467,6 +468,7 @@ namespace CompuGross
             this.txtRam.Name = "txtRam";
             this.txtRam.Size = new System.Drawing.Size(127, 20);
             this.txtRam.TabIndex = 23;
+            this.txtRam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblMicroprocesador
             // 
@@ -490,6 +492,7 @@ namespace CompuGross
             this.txtMicroprocesador.Name = "txtMicroprocesador";
             this.txtMicroprocesador.Size = new System.Drawing.Size(158, 20);
             this.txtMicroprocesador.TabIndex = 25;
+            this.txtMicroprocesador.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblAlmacenamiento
             // 
@@ -513,6 +516,7 @@ namespace CompuGross
             this.txtAlmacenamiento.Name = "txtAlmacenamiento";
             this.txtAlmacenamiento.Size = new System.Drawing.Size(158, 20);
             this.txtAlmacenamiento.TabIndex = 27;
+            this.txtAlmacenamiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblPlacaMadre
             // 
@@ -536,6 +540,7 @@ namespace CompuGross
             this.txtPlacaMadre.Name = "txtPlacaMadre";
             this.txtPlacaMadre.Size = new System.Drawing.Size(158, 20);
             this.txtPlacaMadre.TabIndex = 29;
+            this.txtPlacaMadre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblAdicionales
             // 
@@ -559,6 +564,7 @@ namespace CompuGross
             this.txtAdicionales.Name = "txtAdicionales";
             this.txtAdicionales.Size = new System.Drawing.Size(158, 20);
             this.txtAdicionales.TabIndex = 33;
+            this.txtAdicionales.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNumSerie
             // 
@@ -582,6 +588,7 @@ namespace CompuGross
             this.txtNumSerie.Name = "txtNumSerie";
             this.txtNumSerie.Size = new System.Drawing.Size(158, 20);
             this.txtNumSerie.TabIndex = 31;
+            this.txtNumSerie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblAlimentacion
             // 
@@ -605,6 +612,7 @@ namespace CompuGross
             this.txtAlimentacion.Name = "txtAlimentacion";
             this.txtAlimentacion.Size = new System.Drawing.Size(158, 20);
             this.txtAlimentacion.TabIndex = 35;
+            this.txtAlimentacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblUnidadOptica
             // 
@@ -660,6 +668,7 @@ namespace CompuGross
             this.txtCostoTerceros.Name = "txtCostoTerceros";
             this.txtCostoTerceros.Size = new System.Drawing.Size(97, 20);
             this.txtCostoTerceros.TabIndex = 43;
+            this.txtCostoTerceros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblManoObra
             // 
@@ -682,6 +691,7 @@ namespace CompuGross
             this.txtManoObra.Name = "txtManoObra";
             this.txtManoObra.Size = new System.Drawing.Size(97, 20);
             this.txtManoObra.TabIndex = 41;
+            this.txtManoObra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCostoRepuestos
             // 
@@ -704,6 +714,7 @@ namespace CompuGross
             this.txtCostoRepuestos.Name = "txtCostoRepuestos";
             this.txtCostoRepuestos.Size = new System.Drawing.Size(97, 20);
             this.txtCostoRepuestos.TabIndex = 39;
+            this.txtCostoRepuestos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblDescripcion
             // 
@@ -913,7 +924,7 @@ namespace CompuGross
             this.btnCambiarCliente.Visible = false;
             this.btnCambiarCliente.Click += new System.EventHandler(this.btnCambiarCliente_Click);
             // 
-            // OrdenesTrabajo
+            // Servicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -974,10 +985,10 @@ namespace CompuGross
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "OrdenesTrabajo";
+            this.Name = "Servicios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ordenes de Trabajo";
-            this.Load += new System.EventHandler(this.OrdenesTrabajo_Load);
+            this.Load += new System.EventHandler(this.Servicios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

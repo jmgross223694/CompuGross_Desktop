@@ -16,22 +16,17 @@ using Dominio;
 
 namespace CompuGross
 {
-    public partial class OrdenesTrabajo : Form
+    public partial class Servicios : Form
     {
-        private List<Dominio.Servicio> listaOrdenes;
+        private List<Dominio.Servicio> listaServicios;
         private List<Cliente> listaClientes;
 
-        public OrdenesTrabajo()
+        public Servicios()
         {
             InitializeComponent();
         }
 
-        public OrdenesTrabajo(bool bandera)
-        {
-            InitializeComponent();
-        }
-
-        private void OrdenesTrabajo_Load(object sender, EventArgs e)
+        private void Servicios_Load(object sender, EventArgs e)
         {
             visibilidadCamposModificar("hide");
             listarTodas();
@@ -47,12 +42,12 @@ namespace CompuGross
 
         private void cargarListado()
         {
-            Negocio.ServicioDB ordenTrabajoDB = new Negocio.ServicioDB();
+            Negocio.ServicioDB servicioDB = new Negocio.ServicioDB();
 
             try
             {
-                listaOrdenes = ordenTrabajoDB.Listar();
-                dgvServicios.DataSource = listaOrdenes;
+                listaServicios = servicioDB.Listar();
+                dgvServicios.DataSource = listaServicios;
             }
             catch (Exception es)
             {
@@ -144,7 +139,7 @@ namespace CompuGross
             List<Dominio.Servicio> filtro;
             if (txtFiltro.Text != "")
             {
-                filtro = listaOrdenes.FindAll(Art => Art.ID.ToString().Contains(txtFiltro.Text.ToUpper()) ||
+                filtro = listaServicios.FindAll(Art => Art.ID.ToString().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.Cliente.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.TipoEquipo.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.TipoServicio.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
@@ -158,7 +153,7 @@ namespace CompuGross
             else
             {
                 dgvServicios.DataSource = null;
-                dgvServicios.DataSource = listaOrdenes;
+                dgvServicios.DataSource = listaServicios;
             }
             alinearTitulos();
             alinearColumnas();
@@ -217,7 +212,7 @@ namespace CompuGross
             }
         }
 
-        private void completarCamposOrden(Dominio.Servicio servicio)
+        private void completarCamposServicio(Dominio.Servicio servicio)
         {
             txtFiltro.Text = servicio.ID.ToString();
             txtCliente.Text = servicio.Cliente;
@@ -236,11 +231,13 @@ namespace CompuGross
             txtCostoRepuestos.Text = servicio.CostoRepuestos.ToString();
             txtManoObra.Text = servicio.CostoCG.ToString();
             txtCostoTerceros.Text = servicio.CostoTerceros.ToString();
-            fechaDevolucion.Text = servicio.FechaDevolucion;
             cbFechaDevolucion.Checked = false;
-            if (servicio.FechaDevolucion != "")
+            fechaDevolucion.Visible = false;
+            if (servicio.FechaDevolucion != "-")
             {
                 cbFechaDevolucion.Checked = true;
+                fechaDevolucion.Visible = true;
+                fechaDevolucion.Text = servicio.FechaDevolucion;
             }
             txtDescripcion.Text = servicio.Descripcion;
         }
@@ -490,7 +487,7 @@ namespace CompuGross
                 txtFiltro.Text = "";
                 btnCambiarCliente.Visible = false;
                 txtCliente.Visible = false;
-                borrarCamposOrden();
+                borrarCamposServicio();
                 visibilidadCamposModificar("hide");
                 btnModificar.Visible = true;
                 btnBuscarOrden.Visible = true;
@@ -507,7 +504,7 @@ namespace CompuGross
             }
         }
 
-        private void borrarCamposOrden()
+        private void borrarCamposServicio()
         {
             txtCliente.Text = "";
             fechaRecepcion.Text = default;
@@ -533,13 +530,11 @@ namespace CompuGross
         {
             if (cbFechaDevolucion.Checked == true)
             {
-                fechaDevolucion.Enabled = true;
-                lblFechaDevolucion.ForeColor = Color.White;
+                fechaDevolucion.Visible = true;
             }
             else
             {
-                fechaDevolucion.Enabled = false;
-                lblFechaDevolucion.ForeColor = Color.FromArgb(26, 26, 29);
+                fechaDevolucion.Visible = false;
             }
         }
 
@@ -550,8 +545,11 @@ namespace CompuGross
 
             orden.ID = Convert.ToInt64(txtFiltro.Text);
 
+            DateTime fecha = Convert.ToDateTime(fechaRecepcion.Text);
+            string fecRecepcion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+
             orden.Cliente = txtCliente.Text;
-            orden.FechaRecepcion = fechaRecepcion.Text;
+            orden.FechaRecepcion = fecRecepcion;
             orden.TipoEquipo = ddlTipoEquipo.SelectedItem.ToString();
 
             if (txtRam.Text == "") { orden.RAM = "-"; }
@@ -583,8 +581,15 @@ namespace CompuGross
             if (txtCostoTerceros.Text == "") { orden.CostoTerceros = 0; }
             else { orden.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
 
-            if (fechaDevolucion.Enabled == false) { orden.FechaDevolucion = ""; }
-            else { orden.FechaDevolucion = fechaDevolucion.Text; }
+            fecha = Convert.ToDateTime(fechaDevolucion.Text);
+            string fecDevolucion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+
+            if (cbFechaDevolucion.Checked == false)
+            {
+                fecDevolucion = "";
+            }
+
+            orden.FechaDevolucion = fecDevolucion;
 
             orden.MarcaModelo = txtMarcaModelo.Text;
             orden.TipoServicio = ddlTipoServicio.SelectedItem.ToString();
@@ -604,7 +609,7 @@ namespace CompuGross
                     txtFiltro.Text = "";
                     btnCambiarCliente.Visible = false;
                     txtCliente.Visible = false;
-                    borrarCamposOrden();
+                    borrarCamposServicio();
                     visibilidadCamposModificar("hide");
                     btnModificar.Visible = true;
                     btnBuscarOrden.Visible = true;
@@ -647,7 +652,7 @@ namespace CompuGross
                     btnCambiarCliente.Visible = true;
                     txtCliente.Visible = true;
 
-                    completarCamposOrden(servicio);
+                    completarCamposServicio(servicio);
                 }
                 else
                 {
@@ -681,6 +686,8 @@ namespace CompuGross
 
                     cargarDdlTiposEquipo();
                     cargarDdlTiposServicio();
+
+                    cargarListado();
 
                     cargarListadoClientes();
                     AlinearColumnasGrillaClientes();

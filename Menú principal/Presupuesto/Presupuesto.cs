@@ -14,13 +14,14 @@ using iTextSharp.text.html;
 using iTextSharp.text.html.simpleparser;
 using Dominio;
 using Negocio;
+using System.Net;
 
 namespace CompuGross
 {
     public partial class Presupuesto : Form
     {
         private List<Cliente> listaClientes;
-        private Cliente cliente = new Cliente(1, "", "", "", "", 1, "", "");
+        private Cliente cliente = null;
 
         public Presupuesto()
         {
@@ -29,6 +30,8 @@ namespace CompuGross
 
         private void Presupuesto_Load(object sender, EventArgs e)
         {
+            lblFecha.Text = selectFecha.Text;
+
             txtCantidad.Focus();
             dgvClientes.Visible = false;
 
@@ -39,39 +42,11 @@ namespace CompuGross
             ocultarColumnasClientes();
         }
 
-        private void btnExportar_Click(object sender, EventArgs e)
-        {
-            if (dgvPresupuesto.Rows.Count > 0 && txtCliente.Text != "")
-            {
-                ExportToPdf(dgvPresupuesto, this.cliente.Nombres, this.cliente.DNI);
-
-                if (MessageBox.Show("¿Borrar Presupuesto actual?", "Atención!",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    borrarCamposItem();
-                    borrarPresupuestoActual();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Presupuesto sin Ítems o Cliente no seleccionado.", "Atención!");
-            }
-        }
-
-        private void ExportToPdf(DataGridView dgv, string nombresCliente, string dni)
+        private void ExportToPdf(DataGridView dgv, string nombresCliente)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PDF (*.pdf)|*.pdf";
-            //string fechaHora = DateTime.Now.ToString("dd-MM-yy");
-            DateTime fechaHora = Convert.ToDateTime(selectFechaHora.Text);
-            string dia = fechaHora.Day.ToString();
-            string mes = fechaHora.Month.ToString();
-            string año = fechaHora.Year.ToString();
-            string horas = fechaHora.Hour.ToString();
-            string minutos = fechaHora.Minute.ToString();
-            string fecha = dia + "-" + mes + "-" + año;
-            string horario = horas + ":" + minutos;
-            sfd.FileName = "Presupuesto (" + fecha + ") " + nombresCliente + ".pdf";
+            sfd.FileName = "Presupuesto (" + lblFecha.Text + ") " + nombresCliente + ".pdf";
             bool fileError = false;
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -114,14 +89,10 @@ namespace CompuGross
 
                     string NombreEmpresa = "COMPUGROSS";
                     string Cliente = "Cliente:\n" + nombresCliente;
-                    if (dni != "-" && dni != "")
-                    {
-                        Cliente = "Cliente:\n" + nombresCliente + " (" + dni + ")";
-                    }
                     //string Direccion = "Profesor Simon 2005, Villa Ballester";
                     string Contacto = "WhatsApp: 11-5607-3553";
                     string Mail = "compugross02.05.13@gmail.com";
-                    string fechaHoraPresupuesto = "Fecha: " + fecha;
+                    string fechaHoraPresupuesto = "Fecha: " + lblFecha.Text;
 
                     //LETRA CABECERA
                     //var tblLetraRemito = new PdfPTable(new float[] { 100f }) { WidthPercentage = 100 };
@@ -343,11 +314,6 @@ namespace CompuGross
             txtDescripcion.Text = "";
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            agregarItem();
-        }
-
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -437,15 +403,6 @@ namespace CompuGross
 
             decimal total = sumarSubtotalesPresupuesto();
             lblTotal.Text = "Total: $" + total;
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Eliminar ítem 'Código: " + dgvPresupuesto.CurrentRow.Cells["Codigo"].Value.ToString() 
-                + "'?", "Atención!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                dgvPresupuesto.Rows.Remove(dgvPresupuesto.CurrentRow);
-            }
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -629,6 +586,51 @@ namespace CompuGross
                 txtDescripcion.Visible = false;
                 dgvPresupuesto.Visible = false;
             }
+        }
+
+        private void btnAgregarItem_Click(object sender, EventArgs e)
+        {
+            agregarItem();
+        }
+
+        private void btnEliminarItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Eliminar ítem 'Código: " + dgvPresupuesto.CurrentRow.Cells["Codigo"].Value.ToString()
+                + "'?", "Atención!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                dgvPresupuesto.Rows.Remove(dgvPresupuesto.CurrentRow);
+            }
+        }
+
+        private void btnExportarPresupuesto_Click(object sender, EventArgs e)
+        {
+            if (dgvPresupuesto.Rows.Count > 0 && txtCliente.Text != "")
+            {
+                string cliente = txtCliente.Text;
+                ExportToPdf(dgvPresupuesto, cliente);
+
+                if (MessageBox.Show("¿Borrar Presupuesto actual?", "Atención!",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    borrarCamposItem();
+                    borrarPresupuestoActual();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Presupuesto sin Ítems o Cliente no seleccionado.", "Atención!");
+            }
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+            selectFecha.Select();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void selectFecha_ValueChanged(object sender, EventArgs e)
+        {
+            lblFecha.Text = selectFecha.Text;
         }
     }
 }

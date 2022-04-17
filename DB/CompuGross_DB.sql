@@ -1,4 +1,3 @@
-
 create database CompuGross
 GO
 
@@ -100,6 +99,7 @@ create table Clientes(
 	IdLocalidad bigint null foreign key references Localidades(ID),
 	Telefono varchar(50) null,
 	Mail varchar(100) null default('-'),
+	FechaAlta date not null default(getdate()),
 	Estado bit not null default(1)
 )
 GO
@@ -111,12 +111,6 @@ create table TiposServicio(
 )
 GO
 
---INSERT TiposServicio
-insert into TiposServicio(Descripcion) values('Armado de gabinete')
-insert into TiposServicio(Descripcion) values('Cámaras de seguridad')
-insert into TiposServicio(Descripcion) values('Servicio técnico')
-GO
-
 create table TiposEquipo(
 	ID int primary key not null identity(1,1),
 	Descripcion varchar(30) unique not null,
@@ -124,7 +118,7 @@ create table TiposEquipo(
 )
 GO
 
-create table OrdenesTrabajo(
+create table Servicios(
 	ID bigint primary key not null identity(1,1),
 	IdCliente bigint not null foreign key references Clientes(ID),
 	FechaRecepcion date not null,
@@ -134,8 +128,8 @@ create table OrdenesTrabajo(
 	MarcaModelo varchar(50) not null default('-'),
 	Microprocesador varchar(50) not null default('-'),
 	Almacenamiento varchar(50) not null default('-'),
-	CdDvd varchar(50) not null default('-'),
-	Fuente varchar(50) not null default('-'),
+	UnidadOptica varchar(50) not null default('-'),
+	Alimentacion varchar(50) not null default('-'),
 	Adicionales varchar(50) not null default('-'),
 	NumSerie varchar(100) not null default('-'),
 	IdTipoServicio int not null foreign key references TiposServicio(ID),
@@ -189,43 +183,6 @@ create table ListaPrecios(
 )
 GO
 
---INSERT PRECIOS
-insert into ListaPrecios(Descripcion, Precio) values('Back-up de disco HDD o SSD (hasta 50Gb, sino adicional $12 por Gb)', 13)
-insert into ListaPrecios(Descripcion, Precio) values('Formateo', 20)
-insert into ListaPrecios(Descripcion, Precio) values('Formateo + Back-up', 24)
-insert into ListaPrecios(Descripcion, Precio) values('Copia de datos (CD/PenDrive/HDD/SSD)', 10)
-insert into ListaPrecios(Descripcion, Precio) values('Limpieza y optimización de software', 10)
-insert into ListaPrecios(Descripcion, Precio) values('Limpieza de hardware CPU (suciedad interna)', 15)
-insert into ListaPrecios(Descripcion, Precio) values('Limpieza de hardware Notebook / Netbook', 20)
-insert into ListaPrecios(Descripcion, Precio) values('Cambio de pila CPU', 4)
-insert into ListaPrecios(Descripcion, Precio) values('Cambio de pila Notebook / Netbook', 10)
-insert into ListaPrecios(Descripcion, Precio) values('Reparación electronica de Placas madre (costo base)', 14)
-insert into ListaPrecios(Descripcion, Precio) values('Instalación de hardware', 10)
-insert into ListaPrecios(Descripcion, Precio) values('Instalación  de software (básico) / (no básico +$300)', 7)
-insert into ListaPrecios(Descripcion, Precio) values('Servicio de armado e instalación de S.O. de equipo nuevo', 30)
-insert into ListaPrecios(Descripcion, Precio) values('Armado e instalación de cable de red (precio  por metro)', 2)
-insert into ListaPrecios(Descripcion, Precio) values('Instalación y/o configuración de Modem / Router / A.P. (costo por hora)', 11)
-insert into ListaPrecios(Descripcion, Precio) values('Adicional domingo y feriados', 5)
-insert into ListaPrecios(Descripcion, Precio) values('Adicional servicio a domicilio (hasta 15kms, sino adicional $10 por km)', 5)
-insert into ListaPrecios(Descripcion, Precio) values('Instalación de cámaras (precio por cámara)', 27)
-insert into ListaPrecios(Descripcion, Precio) values('Servicio técnico / mantenimiento de sistema de cámaras', 12)
-insert into ListaPrecios(Descripcion, Precio) values('Recuperación de datos (hasta 100gb)', 16)
-GO
-
---INSERT TIPOS DE EQUIPO
-insert into TiposEquipo(Descripcion) values('PC de Escritorio')
-insert into TiposEquipo(Descripcion) values('All in One')
-insert into TiposEquipo(Descripcion) values('Notebook')
-insert into TiposEquipo(Descripcion) values('Netbook')
-insert into TiposEquipo(Descripcion) values('Tablet')
-insert into TiposEquipo(Descripcion) values('Impresora')
-insert into TiposEquipo(Descripcion) values('Televisor')
-insert into TiposEquipo(Descripcion) values('Monitor')
-insert into TiposEquipo(Descripcion) values('Celular')
-insert into TiposEquipo(Descripcion) values('Consola')
-insert into TiposEquipo(Descripcion) values('Cámaras')
-GO
-
 create or alter view ExportIngresos
 as
 	select isnull(count(*),0) as Cant1, 
@@ -246,7 +203,7 @@ create or alter view ExportOrdenesTrabajo
 as
 	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCliente) Cliente,
 	OT.FechaRecepcion FechaRecepcion,
-	OT.FechaDevolucion FechaDevolucion,
+	isnull(OT.FechaDevolucion, '') FechaDevolucion,
 	(select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,
 	OT.RAM, OT.PlacaMadre, OT.MarcaModelo, OT.Microprocesador, OT.Almacenamiento, OT.CdDvd, 
 	OT.Fuente, OT.Adicionales, OT.NumSerie,
@@ -380,39 +337,52 @@ create or alter trigger TR_BAJA_LOGICA_CLIENTE on Clientes
 instead of delete
 as
 begin
-	begin try
-		delete from Clientes where ID = (select ID from deleted)
-	end try
-	begin catch
+	if((select Estado from Clientes where ID = (select ID from deleted)) = 1)
+	begin
 		update Clientes set Estado = 0 where ID = (select ID from deleted)
-	end catch
+	end
 end
 GO
 
 create or alter view ExportIngresosServiciosPorCliente
 as
 select C.ID, C.Nombres,
-(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where C.ID = OT.IdCliente)
+(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where 
+Estado = 1 and C.ID = OT.IdCliente)
 TotalIngresos,
-(select count(ID) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+(select count(ID) from OrdenesTrabajo OT where Estado = 1 and C.ID = OT.IdCliente and 
 IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Servicio técnico'))
 ServicioTecnico,
-(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where 
+Estado = 1 and C.ID = OT.IdCliente and 
 IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Servicio técnico'))
 IngresoServicioTecnico,
-(select count(ID) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+(select count(ID) from OrdenesTrabajo OT where Estado = 1 and C.ID = OT.IdCliente and 
 IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Cámaras de seguridad'))
 Camaras,
-(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where 
+Estado = 1 and C.ID = OT.IdCliente and 
 IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Cámaras de seguridad'))
 IngresoCamaras,
-(select count(ID) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+(select count(ID) from OrdenesTrabajo OT where Estado = 1 and C.ID = OT.IdCliente and 
 IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Armado de gabinete'))
 ArmadoGabinete,
-(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where C.ID = OT.IdCliente and 
+(select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where 
+Estado = 1 and C.ID = OT.IdCliente and 
 IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Armado de gabinete'))
 IngresoArmadoGabinete,
-(select count(ID) from OrdenesTrabajo OT where C.ID = OT.IdCliente)
+(select count(ID) from OrdenesTrabajo OT where Estado = 1 and C.ID = OT.IdCliente)
 TotalServicios
 from Clientes C where Estado = 1
+GO
+
+create view ExportUsuarios
+as
+	select ID as ID,
+	(select TU.Tipo from TiposUsuario TU where ID = U.IdTipo) as Tipo,
+	Nombre as Nombres,
+	Apellido as Apellidos,
+	Username as DNI,
+	Mail as Mail
+	from Usuarios U
 GO

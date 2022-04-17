@@ -27,10 +27,8 @@ namespace CompuGross
             dgvClientes.Visible = false;
             lblBuscarCliente.Visible = false;
             txtBuscarCliente.Visible = false;
-            fechaDevolucion.Enabled = false;
             lblSeleccionarCliente.Text = "Seleccionar Cliente";
             lblSeleccionarCliente.Visible = true;
-            lblFechaDevolucion.ForeColor = Color.FromArgb(26, 26, 29);
 
             ddlTiposEquipo.SelectedValue = "-";
             ddlTiposServicio.SelectedValue = "-";
@@ -314,6 +312,11 @@ namespace CompuGross
 
                 visibilidadCamposServicio("show");
 
+                if (cbFechaDevolucion.Checked == false)
+                {
+                    fechaDevolucion.Visible = false;
+                }
+
                 txtCliente.Text = seleccionado.Nombres;
 
                 dgvClientes.Visible = false;
@@ -377,6 +380,11 @@ namespace CompuGross
 
                 fecha = Convert.ToDateTime(fechaDevolucion.Text);
                 string fecDevolucion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+
+                if (cbFechaDevolucion.Checked == false)
+                {
+                    fecDevolucion = "";
+                }
 
                 orden.FechaDevolucion = fecDevolucion;
                 orden.MarcaModelo = txtMarcaModelo.Text;
@@ -473,14 +481,12 @@ namespace CompuGross
         private void cbFechaDevolucion_CheckedChanged(object sender, EventArgs e)
         {
             if (cbFechaDevolucion.Checked == true) 
-            { 
-                fechaDevolucion.Enabled = true;
-                lblFechaDevolucion.ForeColor = Color.White;
+            {
+                fechaDevolucion.Visible = true;
             }
             else 
-            { 
-                fechaDevolucion.Enabled = false;
-                lblFechaDevolucion.ForeColor = Color.FromArgb(26,26,29);
+            {
+                fechaDevolucion.Visible = false;
             }
         }
 
@@ -596,6 +602,11 @@ namespace CompuGross
                 Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
 
                 visibilidadCamposServicio("show");
+
+                if (cbFechaDevolucion.Checked == false)
+                {
+                    fechaDevolucion.Visible = false;
+                }
 
                 txtCliente.Text = seleccionado.Nombres;
 

@@ -14,7 +14,8 @@ namespace CompuGross
     public partial class Clientes : Form
     {
         private List<Cliente> listaClientes;
-        private Cliente cliente = new Cliente();
+        private Cliente clienteSeleccionado = new Cliente();
+        private Cliente clienteModificado = new Cliente();
 
         public Clientes()
         {
@@ -77,11 +78,13 @@ namespace CompuGross
             dgvClientes.Columns["DNI"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClientes.Columns["Direccion"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClientes.Columns["Telefono"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["FechaAlta"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvClientes.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClientes.Columns["Telefono"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClientes.Columns["DNI"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClientes.Columns["Localidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClientes.Columns["FechaAlta"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void ocultarColumnas()
@@ -96,6 +99,7 @@ namespace CompuGross
             dgvClientes.Columns["Nombres"].HeaderText = "Cliente";
             dgvClientes.Columns["Telefono"].HeaderText = "Contacto";
             dgvClientes.Columns["Direccion"].HeaderText = "Dirección";
+            dgvClientes.Columns["FechaAlta"].HeaderText = "Alta";
         }
 
         private void ordenarColumnas()
@@ -109,6 +113,7 @@ namespace CompuGross
             dgvClientes.Columns["Mail"].DisplayIndex = 4;
             dgvClientes.Columns["Direccion"].DisplayIndex = 5;
             dgvClientes.Columns["Localidad"].DisplayIndex = 6;
+            dgvClientes.Columns["FechaAlta"].DisplayIndex = 7;
         }
 
         private void cargarListado()
@@ -149,6 +154,7 @@ namespace CompuGross
                                                Art.Nombres.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.Direccion.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.Localidad.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.FechaAlta.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.Telefono.ToUpper().Contains(txtFiltro.Text.ToUpper()));
                 dgvClientes.DataSource = null;
                 dgvClientes.DataSource = filtro;
@@ -234,6 +240,7 @@ namespace CompuGross
             }
             lblMailValido.Visible = false;
             lblMailInvalido.Visible = false;
+            this.clienteSeleccionado = cliente;
         }
 
         private void visibilidadCamposModificarCliente(string aux)
@@ -338,48 +345,47 @@ namespace CompuGross
         {
             ClienteDB clienteDB = new ClienteDB();
 
-            this.cliente.Id = Convert.ToInt64(txtFiltro.Text);
-            this.cliente.Nombres = txtNombres.Text;
-            this.cliente.DNI = txtDni.Text;
-            this.cliente.Direccion = txtDireccion.Text;
-            this.cliente.Localidad = ddlLocalidades.SelectedItem.ToString();
-            this.cliente.Telefono = txtTelefono.Text;
-            this.cliente.Mail = txtMail.Text;
-
             try
             {
                 int clienteModificado = 0;
 
-                string nombres = txtNombres.Text;
-                string dni = txtDni.Text;
-                string direccion = txtDireccion.Text;
-                string localidad = ddlLocalidades.SelectedItem.ToString();
-                string telefono = txtTelefono.Text;
-                string mail = txtMail.Text;
+                this.clienteModificado.Id = Convert.ToInt64(txtFiltro.Text);
+                this.clienteModificado.Nombres = txtNombres.Text;
+                this.clienteModificado.DNI = txtDni.Text;
+                if (txtDni.Text == "") { this.clienteModificado.DNI = "-"; }
+                this.clienteModificado.Direccion = txtDireccion.Text;
+                if (txtDireccion.Text == "") { this.clienteModificado.Direccion = "-"; }
+                this.clienteModificado.Localidad = ddlLocalidades.SelectedItem.ToString();
+                this.clienteModificado.Telefono = txtTelefono.Text;
+                this.clienteModificado.Mail = txtMail.Text;
 
-                if (this.cliente.Nombres != nombres || this.cliente.DNI != dni || this.cliente.Direccion != direccion ||
-                    this.cliente.Localidad != localidad || this.cliente.Telefono != telefono || this.cliente.Mail != mail)
+                if (this.clienteSeleccionado.Nombres != this.clienteModificado.Nombres || 
+                    this.clienteSeleccionado.DNI != this.clienteModificado.DNI || 
+                    this.clienteSeleccionado.Direccion != this.clienteModificado.Direccion ||
+                    this.clienteSeleccionado.Localidad != this.clienteModificado.Localidad || 
+                    this.clienteSeleccionado.Telefono != this.clienteModificado.Telefono || 
+                    this.clienteSeleccionado.Mail != this.clienteModificado.Mail)
                 {
                     if (MessageBox.Show("¿Confirma los cambios?", "Atención!",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        clienteModificado = clienteDB.ModificarCliente(this.cliente);
+                        clienteModificado = clienteDB.ModificarCliente(this.clienteModificado);
 
                         if (clienteModificado == 1)
                         {
-                            MessageBox.Show("¡Cliente " + this.cliente.Nombres + " modificado/a con éxito!", "Atención!!",
+                            MessageBox.Show("¡Cliente " + this.clienteModificado.Nombres + " modificado/a con éxito!", "Atención!!",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
+                        MessageBox.Show("No se modificó al cliente " + this.clienteSeleccionado.Nombres + ".", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No se modificó al cliente " + this.cliente.Nombres + ".", "Atención!!",
+                    MessageBox.Show("No se modificó al cliente " + this.clienteSeleccionado.Nombres + ".", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -390,7 +396,7 @@ namespace CompuGross
             }
             finally
             {
-                this.cliente = null;
+                this.clienteSeleccionado = null;
             }
         }
 
@@ -602,9 +608,9 @@ namespace CompuGross
                 if (dgvClientes.CurrentRow != null)
                 {
                     txtFiltro.Text = "";
-                    this.cliente = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+                    this.clienteSeleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
 
-                    cargarCamposCliente(this.cliente);
+                    cargarCamposCliente(this.clienteSeleccionado);
 
                     //ocultar campos de busqueda
                     btnCancelar.Visible = true;
@@ -640,7 +646,7 @@ namespace CompuGross
                 if (MessageBox.Show("¿Confirma eliminar al cliente " + seleccionado.Nombres + "?", "Atención!",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    clienteDB.EliminarCliente(seleccionado.Nombres, seleccionado.Telefono);
+                    clienteDB.EliminarCliente(seleccionado.Id);
                     MessageBox.Show("El cliente " + seleccionado.Nombres + ", se ha eliminado correctamente");
                     txtFiltro.Text = "";
 

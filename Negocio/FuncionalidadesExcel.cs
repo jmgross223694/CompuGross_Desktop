@@ -73,6 +73,7 @@ namespace Negocio
                         s.ColumnMappings.Add("IdLocalidad", "IdLocalidad");
                         s.ColumnMappings.Add("Telefono", "Telefono");
                         s.ColumnMappings.Add("Mail", "Mail");
+                        s.ColumnMappings.Add("FechaAlta", "FechaAlta");
                         s.ColumnMappings.Add("Estado", "Estado");
                     }
 

@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                string consulta = "select * from ExportOrdenesTrabajo ORDER BY FechaDevolucion desc, ID desc";
+                string consulta = "select * from ExportOrdenesTrabajo ORDER BY FechaRecepcion desc, ID desc";
 
                 datos.SetearConsulta(consulta);
                 datos.EjecutarLectura();
@@ -31,6 +31,10 @@ namespace Negocio
                     aux.FechaRecepcion = aux1.ToShortDateString();
                     DateTime aux2 = Convert.ToDateTime(datos.Lector["FechaDevolucion"]);
                     aux.FechaDevolucion = aux2.ToShortDateString();
+                    if (aux2.Day.ToString() + "/" + aux2.Month.ToString() + "/" + aux2.Year.ToString() == "1/1/1900")
+                    {
+                        aux.FechaDevolucion = "-";
+                    }
                     aux.TipoEquipo = datos.Lector["TipoEquipo"].ToString();
                     aux.RAM = datos.Lector["RAM"].ToString();
                     aux.PlacaMadre = datos.Lector["PlacaMadre"].ToString();

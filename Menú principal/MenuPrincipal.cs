@@ -300,7 +300,7 @@ namespace CompuGross
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             visibilidadPanelSubMenuInformes("hide");
-            abrirFormHijo(new AgregarUsuario(this.usuario, this.tipoUsuario));
+            abrirFormHijo(new ABMUsuarios(this.usuario, this.tipoUsuario));
         }
 
         private void btnPrecios_Click(object sender, EventArgs e)
@@ -465,7 +465,7 @@ namespace CompuGross
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
-            abrirFormHijo(new OrdenesTrabajo());
+            abrirFormHijo(new Servicios());
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)

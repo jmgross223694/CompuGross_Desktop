@@ -20,7 +20,7 @@ namespace Negocio
                 string consulta = "select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, " +
                     "isnull(C.Direccion, '-') as Direccion, isnull((select L.Descripcion from Localidades L " +
                     "where C.IdLocalidad = L.ID), '-') as Localidad, isnull(C.IdLocalidad, '-') as IdLocalidad, " +
-                    "isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail from Clientes C " +
+                    "isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail, C.FechaAlta as FechaAlta from Clientes C " +
                     "where Estado = 1 ORDER BY Cliente ASC";
 
                 datos.SetearConsulta(consulta);
@@ -37,8 +37,9 @@ namespace Negocio
                         IdLocalidad = (long)datos.Lector["IdLocalidad"],
                         Localidad = Convert.ToString(datos.Lector["Localidad"]),
                         Telefono = Convert.ToString(datos.Lector["Telefono"]),
-                        Mail = Convert.ToString(datos.Lector["Mail"])
-                    };
+                        Mail = Convert.ToString(datos.Lector["Mail"]),
+                        FechaAlta = (Convert.ToDateTime(datos.Lector["FechaAlta"])).ToShortDateString()
+                };
 
                     lista.Add(aux);
                 }
@@ -84,7 +85,7 @@ namespace Negocio
             return clienteAgregado;
         }
 
-        public int EliminarCliente(string nombres, string telefono)
+        public int EliminarCliente(long ID)
         {
             AccesoDatos datos = new AccesoDatos();
             
@@ -92,7 +93,7 @@ namespace Negocio
 
             try
             {
-                string delete = "delete from Clientes where Nombres = '" + nombres + "' and Telefono = '" + telefono + "'";
+                string delete = "delete from Clientes where ID = " + ID;
 
                 datos.SetearConsulta(delete);
                 datos.EjecutarLectura();

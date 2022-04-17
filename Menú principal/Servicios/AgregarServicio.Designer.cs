@@ -247,7 +247,6 @@ namespace CompuGross
             this.txtNumSerie.Name = "txtNumSerie";
             this.txtNumSerie.Size = new System.Drawing.Size(167, 20);
             this.txtNumSerie.TabIndex = 13;
-            this.txtNumSerie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCostoRepuestos
             // 
@@ -299,7 +298,7 @@ namespace CompuGross
             this.lblCliente.ForeColor = System.Drawing.Color.White;
             this.lblCliente.Location = new System.Drawing.Point(60, 31);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(49, 16);
+            this.lblCliente.Size = new System.Drawing.Size(48, 16);
             this.lblCliente.TabIndex = 22;
             this.lblCliente.Text = "Cliente";
             // 
@@ -311,7 +310,7 @@ namespace CompuGross
             this.lblFechaRecepcion.ForeColor = System.Drawing.Color.White;
             this.lblFechaRecepcion.Location = new System.Drawing.Point(9, 80);
             this.lblFechaRecepcion.Name = "lblFechaRecepcion";
-            this.lblFechaRecepcion.Size = new System.Drawing.Size(109, 16);
+            this.lblFechaRecepcion.Size = new System.Drawing.Size(108, 16);
             this.lblFechaRecepcion.TabIndex = 23;
             this.lblFechaRecepcion.Text = "Fecha recepción";
             // 
@@ -323,7 +322,7 @@ namespace CompuGross
             this.lblRam.ForeColor = System.Drawing.Color.White;
             this.lblRam.Location = new System.Drawing.Point(355, 120);
             this.lblRam.Name = "lblRam";
-            this.lblRam.Size = new System.Drawing.Size(94, 16);
+            this.lblRam.Size = new System.Drawing.Size(93, 16);
             this.lblRam.TabIndex = 24;
             this.lblRam.Text = "Memoria RAM";
             // 
@@ -335,7 +334,7 @@ namespace CompuGross
             this.lblTipoServicio.ForeColor = System.Drawing.Color.White;
             this.lblTipoServicio.Location = new System.Drawing.Point(343, 79);
             this.lblTipoServicio.Name = "lblTipoServicio";
-            this.lblTipoServicio.Size = new System.Drawing.Size(108, 16);
+            this.lblTipoServicio.Size = new System.Drawing.Size(107, 16);
             this.lblTipoServicio.TabIndex = 25;
             this.lblTipoServicio.Text = "Tipo de  servicio";
             // 
@@ -347,7 +346,7 @@ namespace CompuGross
             this.lblTipoEquipo.ForeColor = System.Drawing.Color.White;
             this.lblTipoEquipo.Location = new System.Drawing.Point(9, 120);
             this.lblTipoEquipo.Name = "lblTipoEquipo";
-            this.lblTipoEquipo.Size = new System.Drawing.Size(100, 16);
+            this.lblTipoEquipo.Size = new System.Drawing.Size(99, 16);
             this.lblTipoEquipo.TabIndex = 26;
             this.lblTipoEquipo.Text = "Tipo de equipo";
             // 
@@ -359,7 +358,7 @@ namespace CompuGross
             this.lblPlacaMadre.ForeColor = System.Drawing.Color.White;
             this.lblPlacaMadre.Location = new System.Drawing.Point(355, 164);
             this.lblPlacaMadre.Name = "lblPlacaMadre";
-            this.lblPlacaMadre.Size = new System.Drawing.Size(85, 16);
+            this.lblPlacaMadre.Size = new System.Drawing.Size(84, 16);
             this.lblPlacaMadre.TabIndex = 27;
             this.lblPlacaMadre.Text = "Placa madre";
             // 
@@ -371,7 +370,7 @@ namespace CompuGross
             this.lblMarca.ForeColor = System.Drawing.Color.White;
             this.lblMarca.Location = new System.Drawing.Point(161, 120);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(105, 16);
+            this.lblMarca.Size = new System.Drawing.Size(104, 16);
             this.lblMarca.TabIndex = 28;
             this.lblMarca.Text = "Marca y modelo";
             // 
@@ -383,7 +382,7 @@ namespace CompuGross
             this.lblMicroProcesador.ForeColor = System.Drawing.Color.White;
             this.lblMicroProcesador.Location = new System.Drawing.Point(9, 164);
             this.lblMicroProcesador.Name = "lblMicroProcesador";
-            this.lblMicroProcesador.Size = new System.Drawing.Size(111, 16);
+            this.lblMicroProcesador.Size = new System.Drawing.Size(110, 16);
             this.lblMicroProcesador.TabIndex = 29;
             this.lblMicroProcesador.Text = "Microprocesador";
             // 
@@ -395,7 +394,7 @@ namespace CompuGross
             this.lblAlmacenamiento.ForeColor = System.Drawing.Color.White;
             this.lblAlmacenamiento.Location = new System.Drawing.Point(182, 164);
             this.lblAlmacenamiento.Name = "lblAlmacenamiento";
-            this.lblAlmacenamiento.Size = new System.Drawing.Size(109, 16);
+            this.lblAlmacenamiento.Size = new System.Drawing.Size(108, 16);
             this.lblAlmacenamiento.TabIndex = 30;
             this.lblAlmacenamiento.Text = "Almacenamiento";
             // 
@@ -407,7 +406,7 @@ namespace CompuGross
             this.lblCdDvd.ForeColor = System.Drawing.Color.White;
             this.lblCdDvd.Location = new System.Drawing.Point(182, 252);
             this.lblCdDvd.Name = "lblCdDvd";
-            this.lblCdDvd.Size = new System.Drawing.Size(66, 16);
+            this.lblCdDvd.Size = new System.Drawing.Size(65, 16);
             this.lblCdDvd.TabIndex = 31;
             this.lblCdDvd.Text = "CD / DVD";
             // 
@@ -419,7 +418,7 @@ namespace CompuGross
             this.lblFuente.ForeColor = System.Drawing.Color.White;
             this.lblFuente.Location = new System.Drawing.Point(9, 252);
             this.lblFuente.Name = "lblFuente";
-            this.lblFuente.Size = new System.Drawing.Size(49, 16);
+            this.lblFuente.Size = new System.Drawing.Size(48, 16);
             this.lblFuente.TabIndex = 32;
             this.lblFuente.Text = "Fuente";
             // 
@@ -431,7 +430,7 @@ namespace CompuGross
             this.lblAdicionales.ForeColor = System.Drawing.Color.White;
             this.lblAdicionales.Location = new System.Drawing.Point(182, 205);
             this.lblAdicionales.Name = "lblAdicionales";
-            this.lblAdicionales.Size = new System.Drawing.Size(79, 16);
+            this.lblAdicionales.Size = new System.Drawing.Size(78, 16);
             this.lblAdicionales.TabIndex = 33;
             this.lblAdicionales.Text = "Adicionales";
             // 
@@ -443,7 +442,7 @@ namespace CompuGross
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
             this.lblDescripcion.Location = new System.Drawing.Point(355, 205);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(80, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(79, 16);
             this.lblDescripcion.TabIndex = 34;
             this.lblDescripcion.Text = "Descripción";
             // 
@@ -455,7 +454,7 @@ namespace CompuGross
             this.lblNumSerie.ForeColor = System.Drawing.Color.White;
             this.lblNumSerie.Location = new System.Drawing.Point(9, 207);
             this.lblNumSerie.Name = "lblNumSerie";
-            this.lblNumSerie.Size = new System.Drawing.Size(57, 16);
+            this.lblNumSerie.Size = new System.Drawing.Size(56, 16);
             this.lblNumSerie.TabIndex = 35;
             this.lblNumSerie.Text = "N° Serie";
             // 
@@ -467,7 +466,7 @@ namespace CompuGross
             this.lblCostoRepuestos.ForeColor = System.Drawing.Color.White;
             this.lblCostoRepuestos.Location = new System.Drawing.Point(9, 304);
             this.lblCostoRepuestos.Name = "lblCostoRepuestos";
-            this.lblCostoRepuestos.Size = new System.Drawing.Size(106, 16);
+            this.lblCostoRepuestos.Size = new System.Drawing.Size(105, 16);
             this.lblCostoRepuestos.TabIndex = 36;
             this.lblCostoRepuestos.Text = "Costo repuestos";
             // 
@@ -479,7 +478,7 @@ namespace CompuGross
             this.lblManoObra.ForeColor = System.Drawing.Color.White;
             this.lblManoObra.Location = new System.Drawing.Point(136, 304);
             this.lblManoObra.Name = "lblManoObra";
-            this.lblManoObra.Size = new System.Drawing.Size(92, 16);
+            this.lblManoObra.Size = new System.Drawing.Size(91, 16);
             this.lblManoObra.TabIndex = 37;
             this.lblManoObra.Text = "Mano de obra";
             // 
@@ -491,7 +490,7 @@ namespace CompuGross
             this.lblCostoTerceros.ForeColor = System.Drawing.Color.White;
             this.lblCostoTerceros.Location = new System.Drawing.Point(255, 305);
             this.lblCostoTerceros.Name = "lblCostoTerceros";
-            this.lblCostoTerceros.Size = new System.Drawing.Size(95, 16);
+            this.lblCostoTerceros.Size = new System.Drawing.Size(94, 16);
             this.lblCostoTerceros.TabIndex = 38;
             this.lblCostoTerceros.Text = "Costo terceros";
             // 
@@ -503,7 +502,7 @@ namespace CompuGross
             this.lblFechaDevolucion.ForeColor = System.Drawing.Color.White;
             this.lblFechaDevolucion.Location = new System.Drawing.Point(161, 80);
             this.lblFechaDevolucion.Name = "lblFechaDevolucion";
-            this.lblFechaDevolucion.Size = new System.Drawing.Size(115, 16);
+            this.lblFechaDevolucion.Size = new System.Drawing.Size(114, 16);
             this.lblFechaDevolucion.TabIndex = 39;
             this.lblFechaDevolucion.Text = "Fecha devolución";
             // 
