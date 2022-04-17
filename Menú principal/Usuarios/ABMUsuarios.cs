@@ -158,6 +158,8 @@ namespace CompuGross
             dgvUsuarios.Columns["Apellidos"].DisplayIndex = 2;
             dgvUsuarios.Columns["DNI"].DisplayIndex = 3;
             dgvUsuarios.Columns["Mail"].DisplayIndex = 4;
+
+            dgvUsuarios.AllowUserToOrderColumns = false;
         }
 
         private void AlinearColumnasListadoUsuarios()
@@ -190,13 +192,13 @@ namespace CompuGross
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (ddlTipoUsuario.SelectedItem.ToString() == "-" || txtNombres.Text == "" || txtApellidos.Text == "" 
+            if (ddlTipoUsuario.SelectedItem.ToString() == "-" || txtNombres.Text == "" || txtApellidos.Text == ""
                 || txtMail.Text == "" || !txtMail.Text.Contains("@") || !txtMail.Text.Contains(".com")
                 || txtDni.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
             {
-                MessageBox.Show("Hay datos inválidos o sin completar.", "Atención!!", 
+                MessageBox.Show("Hay datos inválidos o sin completar.", "Atención!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
+
                 if (!txtMail.Text.Contains("@") && !txtMail.Text.Contains(".com"))
                 {
                     MessageBox.Show("Mail inválido.", "Atención!!",
@@ -397,7 +399,7 @@ namespace CompuGross
             string nombres = txtNombres.Text;
             int len = nombres.Length;
 
-            if (nombres != "" && len >= 3) 
+            if (nombres != "" && len >= 3)
             {
                 txtApellidos.Enabled = true;
 
@@ -411,9 +413,9 @@ namespace CompuGross
                 {
                     claveValida = true;
                 }
-                if (validarMail(mail)) 
-                { 
-                    mailValido = true; 
+                if (validarMail(mail))
+                {
+                    mailValido = true;
                 }
 
                 if (tipo != "-" && apellidos.Length >= 3 && mailValido && dni.Length >= 7 && claveValida)
@@ -421,7 +423,7 @@ namespace CompuGross
                     btnRegistrar.Enabled = true;
                 }
             }
-            else 
+            else
             {
                 txtApellidos.Enabled = false;
                 txtDni.Enabled = false;
@@ -447,7 +449,7 @@ namespace CompuGross
             string apellidos = txtApellidos.Text;
             int len = apellidos.Length;
 
-            if (apellidos != "" && len >= 3) 
+            if (apellidos != "" && len >= 3)
             {
                 txtMail.Enabled = true;
 
@@ -471,7 +473,7 @@ namespace CompuGross
                     btnRegistrar.Enabled = true;
                 }
             }
-            else 
+            else
             {
                 txtMail.Enabled = false;
                 txtDni.Enabled = false;
@@ -497,7 +499,7 @@ namespace CompuGross
             int len = mail.Length;
             bool mailValido = validarMail(mail);
 
-            if (mailValido) 
+            if (mailValido)
             {
                 lblMailValido.Visible = true;
                 lblMailInvalido.Visible = false;
@@ -519,7 +521,7 @@ namespace CompuGross
                     btnRegistrar.Enabled = true;
                 }
             }
-            else 
+            else
             {
                 lblMailValido.Visible = false;
                 lblMailInvalido.Visible = true;
@@ -604,13 +606,13 @@ namespace CompuGross
                 lblNum.Visible = true;
                 btnRegistrar.Enabled = false;
             }
-            else 
+            else
             {
-                bool mayuscula = validarMayusculaClave(clave), 
+                bool mayuscula = validarMayusculaClave(clave),
                      minuscula = validarMinusculaClave(clave),
                      numero = validarNumeroClave(clave),
                      claveValida = false;
-                
+
                 if (mayuscula && minuscula && numero && len >= 8) { claveValida = true; }
 
                 if (len >= 8) { lblCaracteres.ForeColor = Color.ForestGreen; lblCaracteres.Visible = false; }
@@ -844,16 +846,13 @@ namespace CompuGross
                 {
                     e.Handled = true;
 
-                    if (Char.IsControl(e.KeyChar))
+                    if (e.KeyChar == (char)Keys.Delete)
                     {
-                        if (e.KeyChar == (char)Keys.Delete)
-                        {
-                            e.Handled = true;
-                        }
-                        else
-                        {
-                            e.Handled = false;
-                        }
+                        e.Handled = true;
+                    }
+                    else
+                    {
+                        e.Handled = false;
                     }
                 }
                 else if (mail.Contains("@"))
@@ -879,6 +878,10 @@ namespace CompuGross
                 {
                     e.Handled = true;
                 }
+            }
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
             }
         }
 
@@ -991,6 +994,41 @@ namespace CompuGross
                     ClickBtnCancelar();
                 }
             }
+        }
+
+        private void FiltrarUsuarios()
+        {
+            CargarListadoUsuarios();
+            OcultarColumnasListadoUsuarios();
+            AlinearColumnasListadoUsuarios();
+            RenombrarColumnasListadoUsuarios();
+            OrdenarColumnasUsuarios();
+
+            List<Usuario> filtro;
+            if (txtFiltro.Text != "")
+            {
+                filtro = listaUsuarios.FindAll(Art => Art.Tipo.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.Nombres.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.Apellidos.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.Mail.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.Dni.ToUpper().Contains(txtFiltro.Text.ToUpper()));
+                dgvUsuarios.DataSource = null;
+                dgvUsuarios.DataSource = filtro;
+            }
+            else
+            {
+                dgvUsuarios.DataSource = null;
+                dgvUsuarios.DataSource = listaUsuarios;
+            }
+            OcultarColumnasListadoUsuarios();
+            AlinearColumnasListadoUsuarios();
+            RenombrarColumnasListadoUsuarios();
+            OrdenarColumnasUsuarios();
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarUsuarios();
         }
 
         private void cbMostrarClave_CheckedChanged(object sender, EventArgs e)

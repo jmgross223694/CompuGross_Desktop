@@ -114,6 +114,8 @@ namespace CompuGross
             dgvClientes.Columns["Direccion"].DisplayIndex = 5;
             dgvClientes.Columns["Localidad"].DisplayIndex = 6;
             dgvClientes.Columns["FechaAlta"].DisplayIndex = 7;
+
+            dgvClientes.AllowUserToOrderColumns = false;
         }
 
         private void cargarListado()
