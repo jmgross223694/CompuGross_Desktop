@@ -144,5 +144,47 @@ namespace Negocio
 
             return clienteModificado;
         }
+
+        public Cliente CargarClientePorID(long id)
+        {
+            Cliente c = new Cliente();
+
+            AccesoDatos datos = new AccesoDatos();
+
+            string select = "select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, " +
+                    "isnull(C.Direccion, '-') as Direccion, isnull((select L.Descripcion from Localidades L " +
+                    "where C.IdLocalidad = L.ID), '-') as Localidad, isnull(C.IdLocalidad, '-') as IdLocalidad, " +
+                    "isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail, C.FechaAlta as FechaAlta from Clientes C " +
+                    "where Estado = 1 and ID = " + id;
+
+            try
+            {
+                datos.SetearConsulta(select);
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    c.Id = (long)datos.Lector["ID"];
+                    c.Nombres = Convert.ToString(datos.Lector["Cliente"]);
+                    c.DNI = Convert.ToString(datos.Lector["DNI"]);
+                    c.Direccion = Convert.ToString(datos.Lector["Direccion"]);
+                    c.IdLocalidad = (long)datos.Lector["IdLocalidad"];
+                    c.Localidad = Convert.ToString(datos.Lector["Localidad"]);
+                    c.Telefono = Convert.ToString(datos.Lector["Telefono"]);
+                    c.Mail = Convert.ToString(datos.Lector["Mail"]);
+                    c.FechaAlta = (Convert.ToDateTime(datos.Lector["FechaAlta"])).ToShortDateString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+            return c;
+        }
     }
 }

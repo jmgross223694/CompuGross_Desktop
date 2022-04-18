@@ -156,8 +156,7 @@ namespace Negocio
                                 "Nombre = '" + usuario.Nombres + "', " +
                                 "Apellido = '" + usuario.Apellidos + "', " +
                                 "Username = '" + usuario.Dni + "', " +
-                                "Mail = '" + usuario.Mail + "', " +
-                                "Clave = pwdencrypt('" + usuario.Clave + "') " +
+                                "Mail = '" + usuario.Mail + "' " +
                                 "where ID = " + usuario.Id;
 
                 datos.SetearConsulta(update);

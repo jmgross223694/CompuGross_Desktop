@@ -68,14 +68,8 @@ namespace CompuGross
             this.pnSubMenuServicios = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnModificarServicio = new System.Windows.Forms.Button();
+            this.btnListarServicios = new System.Windows.Forms.Button();
             this.btnAgregarServicio = new System.Windows.Forms.Button();
-            this.pnSubMenuClientes = new System.Windows.Forms.Panel();
-            this.pbBtnLocalidades = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnModificarCliente = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.lblRecuperarClave = new System.Windows.Forms.LinkLabel();
             this.lblNumero = new System.Windows.Forms.Label();
             this.lblMinuscula = new System.Windows.Forms.Label();
@@ -87,12 +81,18 @@ namespace CompuGross
             this.cbMostrarClave1 = new System.Windows.Forms.CheckBox();
             this.cbMostrarClave2 = new System.Windows.Forms.CheckBox();
             this.lblClave = new System.Windows.Forms.Label();
-            this.lblDni = new System.Windows.Forms.Label();
+            this.lblUsuarioLogin = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtRecuperarClave = new System.Windows.Forms.TextBox();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblIngreseCodigo = new System.Windows.Forms.Label();
             this.lblClaveNueva = new System.Windows.Forms.Label();
+            this.pnSubMenuClientes = new System.Windows.Forms.Panel();
+            this.pbBtnLocalidades = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnListarClientes = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -427,7 +427,7 @@ namespace CompuGross
             this.btnServicios.TabIndex = 1;
             this.btnServicios.Text = "Servicios";
             this.btnServicios.UseVisualStyleBackColor = false;
-            this.btnServicios.Click += new System.EventHandler(this.btnOrdenesTrabajo_Click);
+            this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
             // 
             // btnPrecios
             // 
@@ -533,7 +533,6 @@ namespace CompuGross
             this.contentPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.contentPanel.Controls.Add(this.pnSubMenuInformes);
             this.contentPanel.Controls.Add(this.pnSubMenuServicios);
-            this.contentPanel.Controls.Add(this.pnSubMenuClientes);
             this.contentPanel.Controls.Add(this.lblRecuperarClave);
             this.contentPanel.Controls.Add(this.lblNumero);
             this.contentPanel.Controls.Add(this.lblMinuscula);
@@ -545,12 +544,13 @@ namespace CompuGross
             this.contentPanel.Controls.Add(this.cbMostrarClave1);
             this.contentPanel.Controls.Add(this.cbMostrarClave2);
             this.contentPanel.Controls.Add(this.lblClave);
-            this.contentPanel.Controls.Add(this.lblDni);
+            this.contentPanel.Controls.Add(this.lblUsuarioLogin);
             this.contentPanel.Controls.Add(this.txtClave);
             this.contentPanel.Controls.Add(this.txtRecuperarClave);
             this.contentPanel.Controls.Add(this.txtDni);
             this.contentPanel.Controls.Add(this.lblIngreseCodigo);
             this.contentPanel.Controls.Add(this.lblClaveNueva);
+            this.contentPanel.Controls.Add(this.pnSubMenuClientes);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(200, 38);
             this.contentPanel.Name = "contentPanel";
@@ -613,7 +613,7 @@ namespace CompuGross
             this.pnSubMenuServicios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnSubMenuServicios.Controls.Add(this.panel7);
             this.pnSubMenuServicios.Controls.Add(this.panel6);
-            this.pnSubMenuServicios.Controls.Add(this.btnModificarServicio);
+            this.pnSubMenuServicios.Controls.Add(this.btnListarServicios);
             this.pnSubMenuServicios.Controls.Add(this.btnAgregarServicio);
             this.pnSubMenuServicios.Location = new System.Drawing.Point(0, 246);
             this.pnSubMenuServicios.Name = "pnSubMenuServicios";
@@ -637,25 +637,25 @@ namespace CompuGross
             this.panel6.Size = new System.Drawing.Size(10, 30);
             this.panel6.TabIndex = 31;
             // 
-            // btnModificarServicio
+            // btnListarServicios
             // 
-            this.btnModificarServicio.BackColor = System.Drawing.Color.Transparent;
-            this.btnModificarServicio.FlatAppearance.BorderSize = 0;
-            this.btnModificarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnModificarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarServicio.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarServicio.ForeColor = System.Drawing.Color.Silver;
-            this.btnModificarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarServicio.Image")));
-            this.btnModificarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificarServicio.Location = new System.Drawing.Point(6, 36);
-            this.btnModificarServicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnModificarServicio.Name = "btnModificarServicio";
-            this.btnModificarServicio.Size = new System.Drawing.Size(143, 30);
-            this.btnModificarServicio.TabIndex = 30;
-            this.btnModificarServicio.Text = "Listar todos";
-            this.btnModificarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarServicio.UseVisualStyleBackColor = false;
-            this.btnModificarServicio.Click += new System.EventHandler(this.btnModificarServicio_Click);
+            this.btnListarServicios.BackColor = System.Drawing.Color.Transparent;
+            this.btnListarServicios.FlatAppearance.BorderSize = 0;
+            this.btnListarServicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnListarServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListarServicios.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarServicios.ForeColor = System.Drawing.Color.Silver;
+            this.btnListarServicios.Image = ((System.Drawing.Image)(resources.GetObject("btnListarServicios.Image")));
+            this.btnListarServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnListarServicios.Location = new System.Drawing.Point(6, 36);
+            this.btnListarServicios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnListarServicios.Name = "btnListarServicios";
+            this.btnListarServicios.Size = new System.Drawing.Size(143, 30);
+            this.btnListarServicios.TabIndex = 30;
+            this.btnListarServicios.Text = "Listar todos";
+            this.btnListarServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListarServicios.UseVisualStyleBackColor = false;
+            this.btnListarServicios.Click += new System.EventHandler(this.btnListarServicios_Click);
             // 
             // btnAgregarServicio
             // 
@@ -676,86 +676,6 @@ namespace CompuGross
             this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarServicio.UseVisualStyleBackColor = false;
             this.btnAgregarServicio.Click += new System.EventHandler(this.btnAgregarServicio_Click);
-            // 
-            // pnSubMenuClientes
-            // 
-            this.pnSubMenuClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnSubMenuClientes.Controls.Add(this.pbBtnLocalidades);
-            this.pnSubMenuClientes.Controls.Add(this.panel4);
-            this.pnSubMenuClientes.Controls.Add(this.btnModificarCliente);
-            this.pnSubMenuClientes.Controls.Add(this.panel5);
-            this.pnSubMenuClientes.Controls.Add(this.btnAgregarCliente);
-            this.pnSubMenuClientes.Controls.Add(this.btnLocalidades);
-            this.pnSubMenuClientes.Location = new System.Drawing.Point(0, 206);
-            this.pnSubMenuClientes.Name = "pnSubMenuClientes";
-            this.pnSubMenuClientes.Size = new System.Drawing.Size(153, 108);
-            this.pnSubMenuClientes.TabIndex = 24;
-            this.pnSubMenuClientes.Visible = false;
-            // 
-            // pbBtnLocalidades
-            // 
-            this.pbBtnLocalidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.pbBtnLocalidades.Location = new System.Drawing.Point(2, 70);
-            this.pbBtnLocalidades.Name = "pbBtnLocalidades";
-            this.pbBtnLocalidades.Size = new System.Drawing.Size(10, 30);
-            this.pbBtnLocalidades.TabIndex = 24;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel4.Location = new System.Drawing.Point(2, 35);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 30);
-            this.panel4.TabIndex = 23;
-            // 
-            // btnModificarCliente
-            // 
-            this.btnModificarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnModificarCliente.FlatAppearance.BorderSize = 0;
-            this.btnModificarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarCliente.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarCliente.ForeColor = System.Drawing.Color.Silver;
-            this.btnModificarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarCliente.Image")));
-            this.btnModificarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificarCliente.Location = new System.Drawing.Point(7, 35);
-            this.btnModificarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnModificarCliente.Name = "btnModificarCliente";
-            this.btnModificarCliente.Size = new System.Drawing.Size(142, 30);
-            this.btnModificarCliente.TabIndex = 22;
-            this.btnModificarCliente.Text = "Listar todos";
-            this.btnModificarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarCliente.UseVisualStyleBackColor = false;
-            this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel5.Location = new System.Drawing.Point(2, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 30);
-            this.panel5.TabIndex = 21;
-            // 
-            // btnAgregarCliente
-            // 
-            this.btnAgregarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgregarCliente.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCliente.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCliente.ForeColor = System.Drawing.Color.Silver;
-            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
-            this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarCliente.Location = new System.Drawing.Point(7, 0);
-            this.btnAgregarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAgregarCliente.Name = "btnAgregarCliente";
-            this.btnAgregarCliente.Size = new System.Drawing.Size(142, 30);
-            this.btnAgregarCliente.TabIndex = 20;
-            this.btnAgregarCliente.Text = "Agregar nuevo";
-            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCliente.UseVisualStyleBackColor = false;
-            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
             // lblRecuperarClave
             // 
@@ -938,21 +858,21 @@ namespace CompuGross
             this.lblClave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblClave.Visible = false;
             // 
-            // lblDni
+            // lblUsuarioLogin
             // 
-            this.lblDni.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblUsuarioLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDni.AutoSize = true;
-            this.lblDni.BackColor = System.Drawing.Color.Transparent;
-            this.lblDni.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDni.ForeColor = System.Drawing.Color.White;
-            this.lblDni.Location = new System.Drawing.Point(386, 187);
-            this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(47, 27);
-            this.lblDni.TabIndex = 30;
-            this.lblDni.Text = "DNI";
-            this.lblDni.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblDni.Visible = false;
+            this.lblUsuarioLogin.AutoSize = true;
+            this.lblUsuarioLogin.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuarioLogin.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioLogin.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioLogin.Location = new System.Drawing.Point(360, 186);
+            this.lblUsuarioLogin.Name = "lblUsuarioLogin";
+            this.lblUsuarioLogin.Size = new System.Drawing.Size(102, 27);
+            this.lblUsuarioLogin.TabIndex = 30;
+            this.lblUsuarioLogin.Text = "USUARIO";
+            this.lblUsuarioLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuarioLogin.Visible = false;
             // 
             // txtClave
             // 
@@ -1036,6 +956,86 @@ namespace CompuGross
             this.lblClaveNueva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblClaveNueva.Visible = false;
             // 
+            // pnSubMenuClientes
+            // 
+            this.pnSubMenuClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnSubMenuClientes.Controls.Add(this.pbBtnLocalidades);
+            this.pnSubMenuClientes.Controls.Add(this.panel4);
+            this.pnSubMenuClientes.Controls.Add(this.btnListarClientes);
+            this.pnSubMenuClientes.Controls.Add(this.panel5);
+            this.pnSubMenuClientes.Controls.Add(this.btnAgregarCliente);
+            this.pnSubMenuClientes.Controls.Add(this.btnLocalidades);
+            this.pnSubMenuClientes.Location = new System.Drawing.Point(0, 206);
+            this.pnSubMenuClientes.Name = "pnSubMenuClientes";
+            this.pnSubMenuClientes.Size = new System.Drawing.Size(153, 108);
+            this.pnSubMenuClientes.TabIndex = 24;
+            this.pnSubMenuClientes.Visible = false;
+            // 
+            // pbBtnLocalidades
+            // 
+            this.pbBtnLocalidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.pbBtnLocalidades.Location = new System.Drawing.Point(2, 70);
+            this.pbBtnLocalidades.Name = "pbBtnLocalidades";
+            this.pbBtnLocalidades.Size = new System.Drawing.Size(10, 30);
+            this.pbBtnLocalidades.TabIndex = 24;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel4.Location = new System.Drawing.Point(2, 35);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 30);
+            this.panel4.TabIndex = 23;
+            // 
+            // btnListarClientes
+            // 
+            this.btnListarClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnListarClientes.FlatAppearance.BorderSize = 0;
+            this.btnListarClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnListarClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListarClientes.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarClientes.ForeColor = System.Drawing.Color.Silver;
+            this.btnListarClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnListarClientes.Image")));
+            this.btnListarClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnListarClientes.Location = new System.Drawing.Point(7, 35);
+            this.btnListarClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnListarClientes.Name = "btnListarClientes";
+            this.btnListarClientes.Size = new System.Drawing.Size(142, 30);
+            this.btnListarClientes.TabIndex = 22;
+            this.btnListarClientes.Text = "Listar todos";
+            this.btnListarClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListarClientes.UseVisualStyleBackColor = false;
+            this.btnListarClientes.Click += new System.EventHandler(this.btnListarClientes_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel5.Location = new System.Drawing.Point(2, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 30);
+            this.panel5.TabIndex = 21;
+            // 
+            // btnAgregarCliente
+            // 
+            this.btnAgregarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAgregarCliente.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCliente.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCliente.ForeColor = System.Drawing.Color.Silver;
+            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
+            this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCliente.Location = new System.Drawing.Point(7, 0);
+            this.btnAgregarCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAgregarCliente.Name = "btnAgregarCliente";
+            this.btnAgregarCliente.Size = new System.Drawing.Size(142, 30);
+            this.btnAgregarCliente.TabIndex = 20;
+            this.btnAgregarCliente.Text = "Agregar nuevo";
+            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCliente.UseVisualStyleBackColor = false;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
+            // 
             // MenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -1107,18 +1107,18 @@ namespace CompuGross
         private System.Windows.Forms.Panel contentPanel;
         private System.Windows.Forms.Panel pnSubMenuClientes;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnModificarCliente;
+        private System.Windows.Forms.Button btnListarClientes;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnAgregarCliente;
         private System.Windows.Forms.Panel pnSubMenuServicios;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnModificarServicio;
+        private System.Windows.Forms.Button btnListarServicios;
         private System.Windows.Forms.Button btnAgregarServicio;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.TextBox txtRecuperarClave;
-        private System.Windows.Forms.Label lblDni;
+        private System.Windows.Forms.Label lblUsuarioLogin;
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.Label lblClaveNueva;
         private System.Windows.Forms.Label lblIngreseCodigo;

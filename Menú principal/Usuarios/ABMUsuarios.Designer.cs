@@ -44,7 +44,7 @@ namespace CompuGross
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblClave = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
-            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.lblCaracteres = new System.Windows.Forms.Label();
             this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.ddlTipoUsuario = new System.Windows.Forms.ComboBox();
@@ -169,9 +169,9 @@ namespace CompuGross
             this.lblDni.ForeColor = System.Drawing.Color.White;
             this.lblDni.Location = new System.Drawing.Point(12, 223);
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(37, 20);
+            this.lblDni.Size = new System.Drawing.Size(86, 20);
             this.lblDni.TabIndex = 5;
-            this.lblDni.Text = "DNI";
+            this.lblDni.Text = "CUIL / DNI";
             // 
             // txtDni
             // 
@@ -216,25 +216,25 @@ namespace CompuGross
             this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
             this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 
-            // btnRegistrar
+            // btnConfirmar
             // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrar.FlatAppearance.BorderSize = 0;
-            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrar.Image")));
-            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(300, 317);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(132, 40);
-            this.btnRegistrar.TabIndex = 9;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmar.FlatAppearance.BorderSize = 0;
+            this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmar.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.Image")));
+            this.btnConfirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirmar.Location = new System.Drawing.Point(300, 317);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(132, 40);
+            this.btnConfirmar.TabIndex = 9;
+            this.btnConfirmar.Text = "Registrar";
+            this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // lblCaracteres
             // 
@@ -279,7 +279,7 @@ namespace CompuGross
             this.ddlTipoUsuario.Name = "ddlTipoUsuario";
             this.ddlTipoUsuario.Size = new System.Drawing.Size(315, 26);
             this.ddlTipoUsuario.TabIndex = 2;
-            this.ddlTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.cbTipoUsuario_SelectedIndexChanged);
+            this.ddlTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.ddlTipoUsuario_SelectedIndexChanged);
             // 
             // compuGrossDataSet1
             // 
@@ -493,7 +493,7 @@ namespace CompuGross
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -520,10 +520,10 @@ namespace CompuGross
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.ShowCellErrors = false;
@@ -534,6 +534,7 @@ namespace CompuGross
             this.dgvUsuarios.StandardTab = true;
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.Visible = false;
+            this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
             // 
             // txtFiltro
             // 
@@ -644,7 +645,7 @@ namespace CompuGross
             this.Controls.Add(this.lblAsterisco2);
             this.Controls.Add(this.lblAsterisco1);
             this.Controls.Add(this.lblCaracteres);
-            this.Controls.Add(this.btnRegistrar);
+            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblClave);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.lblMail);
@@ -666,7 +667,7 @@ namespace CompuGross
             this.Name = "ABMUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Usuario";
-            this.Load += new System.EventHandler(this.AgregarUsuario_Load);
+            this.Load += new System.EventHandler(this.ABMUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.compuGrossDataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.localidadesBindingSource)).EndInit();
@@ -690,7 +691,7 @@ namespace CompuGross
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Label lblCaracteres;
         private System.Windows.Forms.Label lblTipoUsuario;
         private System.Windows.Forms.ComboBox ddlTipoUsuario;

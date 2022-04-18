@@ -12,6 +12,8 @@ namespace Dominio
 
         public string FechaRecepcion { get; set; }
 
+        public long IdCliente { get; set; }
+
         public string Cliente { get; set; }
 
         public string TipoEquipo { get; set; }

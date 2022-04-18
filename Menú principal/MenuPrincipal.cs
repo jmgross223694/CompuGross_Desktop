@@ -169,7 +169,7 @@ namespace CompuGross
                     cargarUsuarioLogueado();
 
                     //ocultar Controles Login
-                    lblDni.Visible = false;
+                    lblUsuarioLogin.Visible = false;
                     lblClave.Visible = false;
                     txtDni.Visible = false;
                     txtClave.Visible = false;
@@ -187,7 +187,7 @@ namespace CompuGross
             txtDni.Text = "";
             txtClave.Text = "";
             txtRecuperarClave.Text = "";
-            lblDni.Visible = true;
+            lblUsuarioLogin.Visible = true;
             lblClave.Visible = true;
             txtDni.Visible = true;
             txtClave.Visible = true;
@@ -319,7 +319,7 @@ namespace CompuGross
             abrirFormHijo(new Ingresos());
         }
 
-        private void btnOrdenesTrabajo_Click(object sender, EventArgs e)
+        private void btnServicios_Click(object sender, EventArgs e)
         {
             if (pnSubMenuServicios.Visible == false)
             {
@@ -430,7 +430,7 @@ namespace CompuGross
                 txtDni.Text = "";
                 txtClave.Text = "";
                 txtRecuperarClave.Text = "";
-                lblDni.Visible = true;
+                lblUsuarioLogin.Visible = true;
                 lblClave.Visible = true;
                 txtDni.Visible = true;
                 txtClave.Visible = true;
@@ -442,7 +442,7 @@ namespace CompuGross
             }
         }
 
-        private void btnModificarCliente_Click(object sender, EventArgs e)
+        private void btnListarClientes_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
             abrirFormHijo(new Clientes());
@@ -461,7 +461,7 @@ namespace CompuGross
             abrirFormHijo(new AgregarOrden());
         }
 
-        private void btnModificarServicio_Click(object sender, EventArgs e)
+        private void btnListarServicios_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
@@ -572,7 +572,7 @@ namespace CompuGross
                         txtDni.Text = "";
                         txtClave.Text = "";
                         txtRecuperarClave.Text = "";
-                        lblDni.Visible = true;
+                        lblUsuarioLogin.Visible = true;
                         lblClave.Visible = true;
                         txtDni.Visible = true;
                         txtClave.Visible = true;
@@ -716,7 +716,7 @@ namespace CompuGross
 
                             if (codigoMail < 0) { codigoMail = codigoMail * (-1); }
 
-                            string asunto = "COMPUGROSS - RECUPERAR CONTRASEÑA (" + DateTime.Now.ToShortDateString() + ", " + DateTime.Now.ToShortTimeString() + " hs)";
+                            string asunto = "COMPUGROSS - RECUPERAR CONTRASEÑA (no-reply)";
                             string cuerpo = "Este mail ha sido enviado debido a que solicitaste un cambio de clave.\n\n" +
                                 "Si no has sido tú, ponte en contacto con nosotros de manera inmediata.\n\n" +
                                 "Debes ingresar este código para poder crear una nueva clave: '" + codigoMail + "'\n\n\n" +
@@ -744,7 +744,7 @@ namespace CompuGross
                                     datos3.EjecutarLectura();
 
                                     txtRecuperarClave.Text = "";
-                                    lblDni.Visible = false; ;
+                                    lblUsuarioLogin.Visible = false; ;
                                     lblIngreseCodigo.Visible = true;
                                     btnEnviarCodigo.Text = "Validar";
                                 }
@@ -807,7 +807,7 @@ namespace CompuGross
 
         private void lblRecuperarClave_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            lblDni.Visible = true;
+            lblUsuarioLogin.Visible = true;
             txtRecuperarClave.Visible = true;
             lblUsuario.Visible = false;
             txtDni.Visible = false;

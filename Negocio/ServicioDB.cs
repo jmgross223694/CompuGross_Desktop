@@ -26,6 +26,7 @@ namespace Negocio
                 {
                     Dominio.Servicio aux = new Dominio.Servicio();
                     aux.ID = (long)datos.Lector["ID"];
+                    aux.IdCliente = (long)datos.Lector["IdCliente"];
                     aux.Cliente = datos.Lector["Cliente"].ToString();
                     DateTime aux1 = Convert.ToDateTime(datos.Lector["FechaRecepcion"]);
                     aux.FechaRecepcion = aux1.ToShortDateString();

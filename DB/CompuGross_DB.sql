@@ -202,6 +202,7 @@ GO
 create or alter view ExportOrdenesTrabajo
 as
 	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCliente) Cliente,
+	OT.IdCliente IdCliente,
 	OT.FechaRecepcion FechaRecepcion,
 	isnull(OT.FechaDevolucion, '') FechaDevolucion,
 	(select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,

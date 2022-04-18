@@ -20,6 +20,7 @@ namespace CompuGross
     {
         private List<Dominio.Servicio> listaServicios;
         private List<Cliente> listaClientes;
+        private long IdCliente = 0;
 
         public Servicios()
         {
@@ -97,6 +98,7 @@ namespace CompuGross
 
         private void ocultarColumnas()
         {
+            dgvServicios.Columns["IdCliente"].Visible = false;
             dgvServicios.Columns["RAM"].Visible = false;
             dgvServicios.Columns["PlacaMadre"].Visible = false;
             dgvServicios.Columns["Microprocesador"].Visible = false;
@@ -538,48 +540,99 @@ namespace CompuGross
             }
         }
 
+        private void EnviarMailAlCliente(Cliente c, Servicio s)
+        {
+            if (c.Mail != null && c.Mail != "-")
+            {
+                EmailService mail = new EmailService();
+
+                try
+                {
+                    string asunto = "COMPUGROSS - ORDEN DE SERVICIO N°" + s.ID;
+
+                    decimal costoTotalServicio = s.CostoRepuestos + s.CostoTerceros + s.CostoCG;
+
+                    string cuerpo = "Esperamos se encuentre muy bien.\n\n" +
+                                    "A continuación le acercamos los datos actualizados de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
+                                    "- Fecha de recepción de equipo: " + s.FechaRecepcion + "\n\n" +
+                                    "- Fecha de devolución de equipo: " + s.FechaDevolucion + "\n\n" +
+                                    "- Equipo: " + s.TipoEquipo + " " + s.MarcaModelo + "\n\n" +
+                                    "- Detalles de servicio: " + s.Descripcion + "\n\n" +
+                                    "- Costo total del servicio: $" + costoTotalServicio.ToString() +
+                                    "\n\n\nSaludos cordiales.\n\nCompuGross";
+
+                    if (s.TipoServicio != "Servicio técnico")
+                    {
+                        cuerpo = "Esperamos se encuentre muy bien.\n\n" +
+                                 "A continuación le acercamos los datos actualizados de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n" +
+                                 "- Fecha de ejecución del servicio: " + s.FechaDevolucion + "\n" +
+                                 "- Equipo: " + s.TipoEquipo + " " + s.MarcaModelo + "\n" +
+                                 "- Detalles de servicio: " + s.Descripcion + "\n" +
+                                 "- Costo total del servicio: $" + costoTotalServicio.ToString() +
+                                 "\n\n\nSaludos cordiales.\n\nCompuGross";
+                    }
+
+                    mail.armarCorreo(c.Mail, asunto, cuerpo);
+                    mail.enviarEmail();
+
+                    MessageBox.Show("El correo al Cliente " + c.Nombres + " se ha enviado correctamente.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("No se pudo enviar el correo al Cliente " + c.Nombres + ".", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("El Cliente " + c.Nombres + " no tiene un Mail registrado.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            Negocio.ServicioDB ordenDb = new Negocio.ServicioDB();
-            Dominio.Servicio orden = new Dominio.Servicio();
+            ServicioDB servicioDb = new ServicioDB();
+            Servicio servicio = new Servicio();
 
-            orden.ID = Convert.ToInt64(txtFiltro.Text);
+            servicio.ID = Convert.ToInt64(txtFiltro.Text);
 
             DateTime fecha = Convert.ToDateTime(fechaRecepcion.Text);
             string fecRecepcion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
 
-            orden.Cliente = txtCliente.Text;
-            orden.FechaRecepcion = fecRecepcion;
-            orden.TipoEquipo = ddlTipoEquipo.SelectedItem.ToString();
+            servicio.Cliente = txtCliente.Text;
+            servicio.FechaRecepcion = fecRecepcion;
+            servicio.TipoEquipo = ddlTipoEquipo.SelectedItem.ToString();
 
-            if (txtRam.Text == "") { orden.RAM = "-"; }
-            else { orden.RAM = txtRam.Text; }
+            if (txtRam.Text == "") { servicio.RAM = "-"; }
+            else { servicio.RAM = txtRam.Text; }
 
-            if (txtPlacaMadre.Text == "") { orden.PlacaMadre = "-"; }
-            else { orden.PlacaMadre = txtPlacaMadre.Text; }
+            if (txtPlacaMadre.Text == "") { servicio.PlacaMadre = "-"; }
+            else { servicio.PlacaMadre = txtPlacaMadre.Text; }
 
-            if (txtMicroprocesador.Text == "") { orden.Microprocesador = "-"; }
-            else { orden.Microprocesador = txtMicroprocesador.Text; }
+            if (txtMicroprocesador.Text == "") { servicio.Microprocesador = "-"; }
+            else { servicio.Microprocesador = txtMicroprocesador.Text; }
 
-            if (txtAlmacenamiento.Text == "") { orden.Almacenamiento = "-"; }
-            else { orden.Almacenamiento = txtAlmacenamiento.Text; }
+            if (txtAlmacenamiento.Text == "") { servicio.Almacenamiento = "-"; }
+            else { servicio.Almacenamiento = txtAlmacenamiento.Text; }
 
-            orden.CdDvd = ddlUnidadOptica.SelectedItem.ToString();
+            servicio.CdDvd = ddlUnidadOptica.SelectedItem.ToString();
 
-            if (txtAlimentacion.Text == "") { orden.Fuente = "-"; }
-            else { orden.Fuente = txtAlimentacion.Text; }
+            if (txtAlimentacion.Text == "") { servicio.Fuente = "-"; }
+            else { servicio.Fuente = txtAlimentacion.Text; }
 
-            if (txtAdicionales.Text == "") { orden.Adicionales = "-"; }
-            else { orden.Adicionales = txtAdicionales.Text; }
+            if (txtAdicionales.Text == "") { servicio.Adicionales = "-"; }
+            else { servicio.Adicionales = txtAdicionales.Text; }
 
-            if (txtNumSerie.Text == "") { orden.NumSerie = "-"; }
-            else { orden.NumSerie = txtNumSerie.Text; }
+            if (txtNumSerie.Text == "") { servicio.NumSerie = "-"; }
+            else { servicio.NumSerie = txtNumSerie.Text; }
 
-            if (txtCostoRepuestos.Text == "") { orden.CostoRepuestos = 0; }
-            else { orden.CostoRepuestos = Convert.ToInt32(txtCostoRepuestos.Text); }
+            if (txtCostoRepuestos.Text == "") { servicio.CostoRepuestos = 0; }
+            else { servicio.CostoRepuestos = Convert.ToInt32(txtCostoRepuestos.Text); }
 
-            if (txtCostoTerceros.Text == "") { orden.CostoTerceros = 0; }
-            else { orden.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
+            if (txtCostoTerceros.Text == "") { servicio.CostoTerceros = 0; }
+            else { servicio.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
 
             fecha = Convert.ToDateTime(fechaDevolucion.Text);
             string fecDevolucion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
@@ -589,22 +642,35 @@ namespace CompuGross
                 fecDevolucion = "";
             }
 
-            orden.FechaDevolucion = fecDevolucion;
+            servicio.FechaDevolucion = fecDevolucion;
 
-            orden.MarcaModelo = txtMarcaModelo.Text;
-            orden.TipoServicio = ddlTipoServicio.SelectedItem.ToString();
-            orden.Descripcion = txtDescripcion.Text;
-            orden.CostoCG = Convert.ToInt32(txtManoObra.Text);
+            servicio.MarcaModelo = txtMarcaModelo.Text;
+            servicio.TipoServicio = ddlTipoServicio.SelectedItem.ToString();
+            servicio.Descripcion = txtDescripcion.Text;
+            servicio.CostoCG = Convert.ToInt32(txtManoObra.Text);
 
             if (MessageBox.Show("¿Confirma los cambios?", "Atención!",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
-                    ordenDb.ModificarOrden(orden);
+                    servicioDb.ModificarOrden(servicio);
 
-                    MessageBox.Show("Se guardaron los cambios para el servicio N°" + orden.ID + ".", "Atención!!",
+                    MessageBox.Show("Se guardaron los cambios para el servicio N°" + servicio.ID + ".", "Atención!!",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (cbFechaDevolucion.Checked == true)
+                    {
+                        if (MessageBox.Show("¿Informar al cliente sobre los cambios en el servicio?", "Atención!!",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            ClienteDB cDB = new ClienteDB();
+
+                            Cliente cliente = cDB.CargarClientePorID(this.IdCliente);
+
+                            EnviarMailAlCliente(cliente, servicio);
+                        }
+                    }
 
                     txtFiltro.Text = "";
                     btnCambiarCliente.Visible = false;
@@ -641,7 +707,9 @@ namespace CompuGross
                 if (dgvServicios.CurrentRow != null)
                 {
                     txtFiltro.Text = "";
-                    Dominio.Servicio servicio = (Dominio.Servicio)dgvServicios.CurrentRow.DataBoundItem;
+                    Servicio servicio = (Servicio)dgvServicios.CurrentRow.DataBoundItem;
+
+                    IdCliente = servicio.IdCliente;
 
                     btnBuscarOrden.Visible = false;
                     txtFiltro.Visible = false;

@@ -24,7 +24,7 @@ namespace CompuGross
             this.tipo = tipo;
         }
 
-        private void AgregarUsuario_Load(object sender, EventArgs e)
+        private void ABMUsuarios_Load(object sender, EventArgs e)
         {
             VisibilidadCamposAgregarUsuario("hide");
             dgvUsuarios.Visible = true;
@@ -36,11 +36,13 @@ namespace CompuGross
             OcultarColumnasListadoUsuarios();
             AlinearColumnasListadoUsuarios();
             RenombrarColumnasListadoUsuarios();
+
+            txtFiltro.Focus();
         }
 
         private void VisibilidadInicialAgregarUsuario()
         {
-            btnRegistrar.Enabled = false;
+            btnConfirmar.Enabled = false;
 
             txtNombres.Enabled = false;
             txtApellidos.Enabled = false;
@@ -90,7 +92,7 @@ namespace CompuGross
                 lblMayus.Visible = false;
                 lblMinus.Visible = false;
                 lblNum.Visible = false;
-                btnRegistrar.Visible = false;
+                btnConfirmar.Visible = false;
             }
             if (aux == "show")
             {
@@ -119,7 +121,7 @@ namespace CompuGross
                 lblMayus.Visible = true;
                 lblMinus.Visible = true;
                 lblNum.Visible = true;
-                btnRegistrar.Visible = true;
+                btnConfirmar.Visible = true;
             }
         }
 
@@ -190,67 +192,66 @@ namespace CompuGross
             dgvUsuarios.Columns["Clave"].Visible = false;
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e)
+        private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if (ddlTipoUsuario.SelectedItem.ToString() == "-" || txtNombres.Text == "" || txtApellidos.Text == ""
+            if (lblTitulo.Text == "MODIFICAR USUARIO") //Modificar Usuario
+            {
+                if (MessageBox.Show("¿Confirma los cambios?", "Atención!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    == DialogResult.Yes)
+                {
+                    if (ddlTipoUsuario.SelectedItem.ToString() == "-" || txtNombres.Text == "" || txtApellidos.Text == ""
+                        || txtMail.Text == "" || lblMailInvalido.Visible == true || txtDni.Text == "")
+                    {
+                        MessageBox.Show("Hay datos inválidos o sin completar.", "Atención!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        UsuarioDB uDB = new UsuarioDB();
+                        Usuario u = new Usuario();
+                        u.Id = Convert.ToInt32(txtFiltro.Text);
+                        u.Tipo = ddlTipoUsuario.SelectedItem.ToString();
+                        u.Nombres = txtNombres.Text;
+                        u.Apellidos = txtApellidos.Text;
+                        u.Mail = txtMail.Text;
+                        u.Dni = txtDni.Text;
+                        u.Clave = txtClave.Text;
+
+                        try
+                        {
+                            int resultado = uDB.ModificarUsuario(u);
+
+                            if (resultado != 1)
+                            {
+                                MessageBox.Show("No se pudo modificar Usuario/a " + u.Nombres + " " + u.Apellidos + ".", "Atención!!",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Usuario/a " + u.Nombres + " " + u.Apellidos + " modificado/a correctamente.", "Atención!!",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                ClickBtnCancelar();
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show("No se pudo modificar Usuario/a " + u.Nombres + " " + u.Apellidos + ".", "Atención!!",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else if (ddlTipoUsuario.SelectedItem.ToString() == "-" || txtNombres.Text == "" || txtApellidos.Text == ""
                 || txtMail.Text == "" || !txtMail.Text.Contains("@") || !txtMail.Text.Contains(".com")
                 || txtDni.Text == "" || txtClave.Text == "" || txtClave.Text.Length < 8)
             {
                 MessageBox.Show("Hay datos inválidos o sin completar.", "Atención!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                if (!txtMail.Text.Contains("@") && !txtMail.Text.Contains(".com"))
-                {
-                    MessageBox.Show("Mail inválido.", "Atención!!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                if (txtClave.Text == "" || txtClave.Text.Length < 8)
-                {
-                    if (txtClave.Text.Length < 8)
-                    {
-                        MessageBox.Show("La clave es menor a 8 caracteres.", "Atención!!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-            else if (lblTitulo.Text == "MODIFICAR USUARIO") //Modificar Usuario
-            {
-                UsuarioDB uDB = new UsuarioDB();
-                Usuario u = new Usuario();
-                u.Id = Convert.ToInt32(txtFiltro.Text);
-                u.Tipo = ddlTipoUsuario.SelectedItem.ToString();
-                u.Nombres = txtNombres.Text;
-                u.Apellidos = txtApellidos.Text;
-                u.Mail = txtMail.Text;
-                u.Dni = txtDni.Text;
-                u.Clave = txtClave.Text;
-
-                try
-                {
-                    int resultado = uDB.ModificarUsuario(u);
-
-                    if (resultado != 1)
-                    {
-                        MessageBox.Show("No se pudo modificar Usuario/a " + u.Nombres + " " + u.Apellidos + ".", "Atención!!",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuario/a " + u.Nombres + " " + u.Apellidos + " modificado/a correctamente.", "Atención!!",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        ClickBtnCancelar();
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("No se pudo modificar Usuario/a " + u.Nombres + " " + u.Apellidos + ".", "Atención!!",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             else //Agregar Usuario/a nuevo/a
             {
-                DialogResult result2 = MessageBox.Show("¿Confirma los datos ingresados?", "Confirmar",
+                DialogResult result2 = MessageBox.Show("¿Confirma agregar al nuevo usuario?", "Confirmar",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result2 == DialogResult.Yes)
@@ -278,7 +279,7 @@ namespace CompuGross
 
                             if (resultado != 1)
                             {
-                                MessageBox.Show("El DNI o Mail ya se encuentran registrados en el sistema.", "Atención!!",
+                                MessageBox.Show("El CUIL/DNI o Mail ya se encuentran registrados en el sistema.", "Atención!!",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
@@ -286,13 +287,40 @@ namespace CompuGross
                                 MessageBox.Show("Usuario creado correctamente.", "Atención!!",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                txtNombres.Text = "";
-                                txtApellidos.Text = "";
-                                txtMail.Text = "";
-                                txtDni.Text = "";
-                                txtClave.Text = "";
+                                //enviar mail al nuevo usuario.
+                                string asunto = "COMPUGROSS - ALTA DE USUARIO EN SISTEMA (no reply)";
 
-                                ClickBtnCancelar();
+                                string cuerpo = "Este mail ha sido enviado debido a que se dió de alta esta dirección de correo en nuestro sistema.\n\n" +
+                                    "Si el alta no ha sido solicitada por tí, ponte en contacto con nosotros de manera inmediata.\n\n\n" +
+                                    "Tu usuario para iniciar sesión es tu CUIL/DNI: '" + txtDni.Text + "'\n\n\n" +
+                                    "Saludos cordiales.\n\nCompuGross";
+
+                                string mailDestino = txtMail.Text;
+
+                                EmailService mail = new EmailService();
+
+                                try
+                                {
+                                    mail.armarCorreo(mailDestino, asunto, cuerpo);
+                                    mail.enviarEmail();
+
+                                    MessageBox.Show("Se ha enviado un mail al nuevo usuario con la información registrada.", "Atención!!",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch 
+                                {
+                                    MessageBox.Show("No se pudo enviar el correo con la información al nuevo usuario.", "Atención!!",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                finally
+                                {
+                                    txtNombres.Text = "";
+                                    txtApellidos.Text = "";
+                                    txtClave.Text = "";
+                                    txtMail.Text = "";
+                                    txtDni.Text = "";
+                                    ClickBtnCancelar();
+                                }
                             }
                         }
                         catch
@@ -420,7 +448,7 @@ namespace CompuGross
 
                 if (tipo != "-" && apellidos.Length >= 3 && mailValido && dni.Length >= 7 && claveValida)
                 {
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
             else
@@ -429,7 +457,7 @@ namespace CompuGross
                 txtDni.Enabled = false;
                 txtMail.Enabled = false;
                 txtClave.Enabled = false;
-                btnRegistrar.Enabled = false;
+                btnConfirmar.Enabled = false;
 
                 if (lblTitulo.Text == "MODIFICAR USUARIO")
                 {
@@ -439,7 +467,7 @@ namespace CompuGross
                     txtDni.Enabled = true;
                     txtMail.Enabled = true;
                     txtClave.Enabled = true;
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
         }
@@ -470,7 +498,7 @@ namespace CompuGross
 
                 if (tipo != "-" && nombres.Length >= 3 && mailValido && dni.Length >= 7 && claveValida)
                 {
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
             else
@@ -478,7 +506,7 @@ namespace CompuGross
                 txtMail.Enabled = false;
                 txtDni.Enabled = false;
                 txtClave.Enabled = false;
-                btnRegistrar.Enabled = false;
+                btnConfirmar.Enabled = false;
 
                 if (lblTitulo.Text == "MODIFICAR USUARIO")
                 {
@@ -488,7 +516,7 @@ namespace CompuGross
                     txtDni.Enabled = true;
                     txtMail.Enabled = true;
                     txtClave.Enabled = true;
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
         }
@@ -518,7 +546,7 @@ namespace CompuGross
 
                 if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && dni.Length >= 7 && claveValida)
                 {
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
             else
@@ -527,7 +555,7 @@ namespace CompuGross
                 lblMailInvalido.Visible = true;
                 txtDni.Enabled = false;
                 txtClave.Enabled = false;
-                btnRegistrar.Enabled = false;
+                btnConfirmar.Enabled = false;
 
                 if (lblTitulo.Text == "MODIFICAR USUARIO")
                 {
@@ -537,7 +565,7 @@ namespace CompuGross
                     txtDni.Enabled = true;
                     txtMail.Enabled = true;
                     txtClave.Enabled = true;
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
         }
@@ -568,13 +596,13 @@ namespace CompuGross
 
                 if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && mailValido && claveValida)
                 {
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
             else
             {
                 txtClave.Enabled = false;
-                btnRegistrar.Enabled = false;
+                btnConfirmar.Enabled = false;
 
                 if (lblTitulo.Text == "MODIFICAR USUARIO")
                 {
@@ -584,7 +612,7 @@ namespace CompuGross
                     txtDni.Enabled = true;
                     txtMail.Enabled = true;
                     txtClave.Enabled = true;
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
         }
@@ -604,7 +632,7 @@ namespace CompuGross
                 lblMinus.Visible = true;
                 lblNum.ForeColor = Color.Red;
                 lblNum.Visible = true;
-                btnRegistrar.Enabled = false;
+                btnConfirmar.Enabled = false;
             }
             else
             {
@@ -642,12 +670,12 @@ namespace CompuGross
 
                     if (tipo != "-" && nombres.Length >= 3 && apellidos.Length >= 3 && mailValido && dni.Length >= 7)
                     {
-                        btnRegistrar.Enabled = true;
+                        btnConfirmar.Enabled = true;
                     }
                 }
                 else
                 {
-                    btnRegistrar.Enabled = false;
+                    btnConfirmar.Enabled = false;
 
                     if (lblTitulo.Text == "MODIFICAR USUARIO")
                     {
@@ -657,7 +685,7 @@ namespace CompuGross
                         txtDni.Enabled = true;
                         txtMail.Enabled = true;
                         txtClave.Enabled = true;
-                        btnRegistrar.Enabled = true;
+                        btnConfirmar.Enabled = true;
                     }
                 }
             }
@@ -765,7 +793,7 @@ namespace CompuGross
             lblMailValido.Visible = false;
         }
 
-        private void cbTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        private void ddlTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlTipoUsuario.SelectedItem.ToString() != "-")
             {
@@ -787,11 +815,11 @@ namespace CompuGross
                 if (lenNombres >= 3 && lenApellidos >= 3 && mailValido && lenDni >= 7) { txtClave.Enabled = true; }
                 if (lenNombres >= 3 && lenApellidos >= 3 && mailValido && lenDni >= 7 && claveValida)
                 {
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
                 else
                 {
-                    btnRegistrar.Enabled = false;
+                    btnConfirmar.Enabled = false;
                 }
             }
             else
@@ -810,7 +838,7 @@ namespace CompuGross
                     txtDni.Enabled = true;
                     txtMail.Enabled = true;
                     txtClave.Enabled = true;
-                    btnRegistrar.Enabled = true;
+                    btnConfirmar.Enabled = true;
                 }
             }
         }
@@ -919,7 +947,9 @@ namespace CompuGross
             btnCancelar.Visible = false;
 
             lblTitulo.Text = "USUARIOS";
-            btnRegistrar.Text = "Registrar";
+            btnConfirmar.Text = "Registrar";
+
+            txtFiltro.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -937,62 +967,91 @@ namespace CompuGross
             txtDni.Text = u.Dni;
             txtClave.Text = "";
 
-            btnRegistrar.Enabled = false;
+            btnConfirmar.Enabled = false;
             ddlTipoUsuario.Focus();
+        }
+
+        private void ClickBtnModificar()
+        {
+            Usuario u = new Usuario();
+            try
+            {
+                u = (Usuario)dgvUsuarios.CurrentRow.DataBoundItem;
+
+                dgvUsuarios.Visible = false;
+                lblFiltro.Visible = false;
+                txtFiltro.Visible = false;
+                btnAgregar.Visible = false;
+                btnModificar.Visible = false;
+                btnEliminar.Visible = false;
+                btnCancelar.Visible = true;
+                VisibilidadCamposAgregarUsuario("show");
+                VisibilidadInicialAgregarUsuario();
+                lblClave.Visible = false;
+                txtClave.Visible = false;
+                cbMostrarClave.Visible = false;
+                lblAsterisco6.Visible = false;
+                lblCaracteres.Visible = false;
+                lblMayus.Visible = false;
+                lblMinus.Visible = false;
+                lblNum.Visible = false;
+
+                CargarCamposUsuarioSeleccionado(u);
+
+                btnConfirmar.Enabled = true;
+                ddlTipoUsuario.Enabled = true;
+                txtNombres.Enabled = true;
+                txtApellidos.Enabled = true;
+                txtMail.Enabled = true;
+                txtDni.Enabled = true;
+
+                lblTitulo.Text = "MODIFICAR USUARIO";
+                btnConfirmar.Text = "Confirmar";
+            }
+            catch
+            {
+                MessageBox.Show("No hay ningún usuario seleccionado en la grilla.", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            dgvUsuarios.Visible = false;
-            lblFiltro.Visible = false;
-            txtFiltro.Visible = false;
-            btnAgregar.Visible = false;
-            btnModificar.Visible = false;
-            btnEliminar.Visible = false;
-            btnCancelar.Visible = true;
-            VisibilidadCamposAgregarUsuario("show");
-            VisibilidadInicialAgregarUsuario();
-
-            Usuario u = new Usuario();
-            u = (Usuario)dgvUsuarios.CurrentRow.DataBoundItem;
-            CargarCamposUsuarioSeleccionado(u);
-
-            ddlTipoUsuario.Enabled = true;
-            txtNombres.Enabled = true;
-            txtApellidos.Enabled = true;
-            txtMail.Enabled = true;
-            txtDni.Enabled = true;
-            txtClave.Enabled = true;
-
-            lblTitulo.Text = "MODIFICAR USUARIO";
-            btnRegistrar.Text = "Confirmar";
+            ClickBtnModificar();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Usuario u = new Usuario();
-
-            u = (Usuario)dgvUsuarios.CurrentRow.DataBoundItem;
-
-            if (MessageBox.Show("¿Confirma eliminar Usuario/a " + u.Nombres + " " + u.Apellidos + "?", "Atención!!",
-                  MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                UsuarioDB uDB = new UsuarioDB();
+                Usuario u = new Usuario();
+                u = (Usuario)dgvUsuarios.CurrentRow.DataBoundItem;
 
-                int resultado = uDB.EliminarUsuario(u.Id, u.Tipo);
-
-                if (resultado != 1)
+                if (MessageBox.Show("¿Confirma eliminar Usuario/a " + u.Nombres + " " + u.Apellidos + "?", "Atención!!",
+                      MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("No se pudo eliminar Usuario/a " + u.Nombres + " " + u.Apellidos + ".", "Atención!!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (resultado == 1)
-                {
-                    MessageBox.Show("Usuario/a " + u.Nombres + " " + u.Apellidos + " eliminado/a correctamente.", "Atención!!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UsuarioDB uDB = new UsuarioDB();
 
-                    ClickBtnCancelar();
+                    int resultado = uDB.EliminarUsuario(u.Id, u.Tipo);
+
+                    if (resultado != 1)
+                    {
+                        MessageBox.Show("No se pudo eliminar Usuario/a " + u.Nombres + " " + u.Apellidos + ".", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (resultado == 1)
+                    {
+                        MessageBox.Show("Usuario/a " + u.Nombres + " " + u.Apellidos + " eliminado/a correctamente.", "Atención!!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        ClickBtnCancelar();
+                    }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("No hay ningún usuario seleccionado.", "Atención!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -1029,6 +1088,11 @@ namespace CompuGross
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             FiltrarUsuarios();
+        }
+
+        private void dgvUsuarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ClickBtnModificar();
         }
 
         private void cbMostrarClave_CheckedChanged(object sender, EventArgs e)
