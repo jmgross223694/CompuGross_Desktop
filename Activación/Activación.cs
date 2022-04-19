@@ -39,7 +39,7 @@ namespace CompuGross
             {
                 MessageBox.Show("Se ha producido un error al validar la licencia.\n\n" +
                     "Reintente más tarde o contacte al administrador del software", "Atención",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -61,7 +61,7 @@ namespace CompuGross
                 MessageBox.Show("Licencia expirada el día " + diaSemanaValidez + " " + 
                     Validez.ToShortDateString() + ".\n\nContacte al administrador del " +
                     "software para obtener una nueva licencia.", "Atención",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 ocultarMostrarElementos();
                 habilitarInhabilitarElementos();
@@ -198,7 +198,7 @@ namespace CompuGross
                 || txtSerial5.Text == "" || txtSerial6.Text == "")
             {
                 MessageBox.Show("Serial Key incompleto", "Atención",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -244,10 +244,11 @@ namespace CompuGross
                 if (Coincidencias > 0 && IdLicencia > 0)
                 {
                     string mailDestino = "compugross02.05.13@gmail.com";
-                    string asunto = "NUEVO REGISTRO DE LICENCIA DE SOFTWARE";
+                    string asunto = "NUEVO REGISTRO DE LICENCIA DE SOFTWARE - " + DateTime.Now.ToShortDateString();
                     string softwareRegistrado = "CompuGross - ST";
-                    string cuerpo = "Hola, te queremos informar que se ha realizado " +
-                        "un nuevo registro de licencia de software, correspondiente " +
+                    string cuerpo = "Sr. Juan Manuel Gross\n\n\n" + 
+                        "Le informamos que se ha realizado " +
+                        "una activación de licencia de software, correspondiente " +
                         "al programa " + softwareRegistrado + ", en el equipo " + NombreEquipo + "\n\n" +
                         "El ID de la licencia utilizada es el N°" + IdLicencia + "\n\n" +
                         "Saludos cordiales\n\n" +
@@ -265,7 +266,7 @@ namespace CompuGross
                         mailService.enviarEmail();
 
                         MessageBox.Show("Gracias por activar el software de CompuGross\n\n" +
-                            "(Recuerde que la licencia tiene una validez de un año a partir de este día).", 
+                            "Recuerde que la licencia tiene una validez de un año a partir de este día.\n\n", 
                             "Activación de software exitosa",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 

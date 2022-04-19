@@ -360,6 +360,7 @@ namespace CompuGross
                 this.clienteModificado.Localidad = ddlLocalidades.SelectedItem.ToString();
                 this.clienteModificado.Telefono = txtTelefono.Text;
                 this.clienteModificado.Mail = txtMail.Text;
+                if (txtMail.Text == "") { this.clienteModificado.Mail = "-"; }
 
                 if (this.clienteSeleccionado.Nombres != this.clienteModificado.Nombres || 
                     this.clienteSeleccionado.DNI != this.clienteModificado.DNI || 

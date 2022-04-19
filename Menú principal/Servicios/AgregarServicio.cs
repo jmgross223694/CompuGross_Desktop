@@ -409,6 +409,8 @@ namespace CompuGross
                             if (MessageBox.Show("¿Informar al cliente sobre el servicio registrado?", "Atención!!",
                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
+                                servicio.ID = servicioDb.ObtenerIdUltimoServicio();
+
                                 ClienteDB cDB = new ClienteDB();
 
                                 Cliente cliente = cDB.CargarClientePorID(this.IdCliente);
@@ -418,6 +420,19 @@ namespace CompuGross
                         }
 
                         borrarCamposServicio();
+                        btnBuscarCliente.Visible = true;
+                        inhabilitarCampos();
+                        visibilidadCamposServicio("hide");
+                        dgvClientes.Visible = false;
+                        lblBuscarCliente.Visible = false;
+                        txtBuscarCliente.Visible = false;
+                        lblSeleccionarCliente.Text = "Seleccionar Cliente";
+                        lblSeleccionarCliente.Visible = true;
+
+                        ddlTiposEquipo.SelectedValue = "-";
+                        ddlTiposServicio.SelectedValue = "-";
+                        ddlCdDvd.SelectedItem = "-";
+
                     }
                     catch (Exception)
                     {
@@ -623,6 +638,7 @@ namespace CompuGross
                     fechaDevolucion.Visible = false;
                 }
 
+                this.IdCliente = seleccionado.Id;
                 txtCliente.Text = seleccionado.Nombres;
 
                 dgvClientes.Visible = false;
@@ -647,7 +663,7 @@ namespace CompuGross
 
                     decimal costoTotalServicio = s.CostoRepuestos + s.CostoTerceros + s.CostoCG;
 
-                    string cuerpo = "Esperamos se encuentre muy bien.\n\n" +
+                    string cuerpo = "Esperamos se encuentre muy bien Sr/a " + c.Nombres + ".\n\n" +
                                     "A continuación le acercamos los datos de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
                                     "- Fecha de recepción de equipo: " + s.FechaRecepcion + "\n\n" +
                                     "- Fecha de devolución de equipo: " + s.FechaDevolucion + "\n\n" +
@@ -658,7 +674,7 @@ namespace CompuGross
 
                     if (s.TipoServicio != "Servicio técnico")
                     {
-                        cuerpo = "Esperamos se encuentre muy bien.\n\n" +
+                        cuerpo = "Esperamos se encuentre muy bien Sr/a " + c.Nombres + ".\n\n" +
                                  "A continuación le acercamos los datos de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
                                  "- Fecha de ejecución del servicio: " + s.FechaDevolucion + "\n\n" +
                                  "- Detalles de servicio: " + s.Descripcion + "\n\n" +

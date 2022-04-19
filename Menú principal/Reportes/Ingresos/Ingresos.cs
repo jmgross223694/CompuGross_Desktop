@@ -16,6 +16,8 @@ namespace CompuGross
         public Ingresos()
         {
             InitializeComponent();
+            this.Width = 844;
+            this.Height = 594;
             cbAnios.Focus();
         }
 
@@ -127,13 +129,13 @@ namespace CompuGross
                 string anioElegido = cbAnios.SelectedItem.ToString();
 
                 string selectCantidadServiciosPorAnio = "select isnull(count(*), 0) as Cantidad " +
-                                                "from OrdenesTrabajo where year(FechaDevolucion) = " +
-                                                anioElegido;
+                                                "from OrdenesTrabajo where Estado = 1 and " +
+                                                "year(FechaDevolucion) = " + anioElegido;
 
                 string selectGananciasPorAnio = "select isnull(count(*), 0) as Cantidad, " +
                                                 "convert(int,sum(Ganancia)) as 'GananciaAnual' " +
-                                                "from OrdenesTrabajo where year(FechaDevolucion) = " +
-                                                anioElegido;
+                                                "from OrdenesTrabajo where Estado = 1 and " +
+                                                "year(FechaDevolucion) = " + anioElegido;
 
                 AccesoDatos datos = new AccesoDatos();
                 AccesoDatos datos2 = new AccesoDatos();

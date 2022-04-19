@@ -160,5 +160,33 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+
+        public long ObtenerIdUltimoServicio()
+        {
+            string select = "select top 1 ID from OrdenesTrabajo where Estado = 1 order by ID desc";
+            long id = 0;
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta(select);
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    id = (long)datos.Lector["ID"];
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+            return id;
+        }
     }
 }

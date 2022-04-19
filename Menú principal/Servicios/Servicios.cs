@@ -552,7 +552,7 @@ namespace CompuGross
 
                     decimal costoTotalServicio = s.CostoRepuestos + s.CostoTerceros + s.CostoCG;
 
-                    string cuerpo = "Esperamos se encuentre muy bien.\n\n" +
+                    string cuerpo = "Esperamos se encuentre muy bien Sr/a " + c.Nombres + ".\n\n" +
                                     "A continuación le acercamos los datos actualizados de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
                                     "- Fecha de recepción de equipo: " + s.FechaRecepcion + "\n\n" +
                                     "- Fecha de devolución de equipo: " + s.FechaDevolucion + "\n\n" +
@@ -563,11 +563,11 @@ namespace CompuGross
 
                     if (s.TipoServicio != "Servicio técnico")
                     {
-                        cuerpo = "Esperamos se encuentre muy bien.\n\n" +
-                                 "A continuación le acercamos los datos actualizados de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n" +
-                                 "- Fecha de ejecución del servicio: " + s.FechaDevolucion + "\n" +
-                                 "- Equipo: " + s.TipoEquipo + " " + s.MarcaModelo + "\n" +
-                                 "- Detalles de servicio: " + s.Descripcion + "\n" +
+                        cuerpo = "Esperamos se encuentre muy bien Sr/a " + c.Nombres + ".\n\n" +
+                                 "A continuación le acercamos los datos actualizados de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
+                                 "- Fecha de ejecución del servicio: " + s.FechaDevolucion + "\n\n" +
+                                 "- Equipo: " + s.TipoEquipo + " " + s.MarcaModelo + "\n\n" +
+                                 "- Detalles de servicio: " + s.Descripcion + "\n\n" +
                                  "- Costo total del servicio: $" + costoTotalServicio.ToString() +
                                  "\n\n\nSaludos cordiales.\n\nCompuGross";
                     }

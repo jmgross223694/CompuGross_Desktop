@@ -1,0 +1,19 @@
+﻿ID;Descripcion;Precio
+1;Backup Disco (Tope 50Gb. $12 por Gb adicional);13;
+2;Formateo sin backup;20;
+3;Formateo con backup;24;
+4;Copia de datos (CD/PenDrive/HDD/SSD);10;
+5;Limpieza y optimización de software de PC;10;
+6;Limpieza de hardware PC de escritorio;15;
+7;Limpieza de hardware Notebook / Netbook;20;
+8;Cambio de pila PC de escritorio;4;
+9;Cambio de pila Notebook / Netbook;10;
+10;Reparación electrónica de Placas madre;14;
+11;Instalación de hardware en PC / Notebook;10;
+12;Instalación  de software;8;
+13;Ensamblado de PC nueva (incluye SO);30;
+14;Armado de cable UTP (por metro);2;
+15;Instalación de periféricos de red. (Valor hora);11;
+18;Instalación de cámaras (Cada una);27;
+19;Mantenimiento de sist. de seguridad (Valor hora);12;
+20;Recuperación de datos (hasta 100gb);16;
