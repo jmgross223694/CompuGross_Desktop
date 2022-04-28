@@ -134,9 +134,9 @@ namespace CompuGross
                     lblCantidadClientes.Visible = false;
                 }
             }
-            catch (Exception es)
+            catch (Exception ex)
             {
-                MessageBox.Show(es.ToString());
+                MessageBox.Show(ex.ToString());
                 lblCantidadClientes.Text = "Cantidad: 0";
             }
         }

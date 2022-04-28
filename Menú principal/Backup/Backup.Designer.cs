@@ -285,12 +285,12 @@ namespace CompuGross
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(626, 549);
+            this.Controls.Add(this.txtPath);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnSeleccionarCarpeta);
             this.Controls.Add(this.pbRestaurarBackup);
             this.Controls.Add(this.pbRealizarBackup);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.txtPath);
             this.Controls.Add(this.btnRestaurarBackup);
             this.Controls.Add(this.btnHacerBackup);
             this.Controls.Add(this.dgvArchivo);

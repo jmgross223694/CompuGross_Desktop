@@ -406,9 +406,9 @@ namespace CompuGross
             this.lblCdDvd.ForeColor = System.Drawing.Color.White;
             this.lblCdDvd.Location = new System.Drawing.Point(182, 252);
             this.lblCdDvd.Name = "lblCdDvd";
-            this.lblCdDvd.Size = new System.Drawing.Size(65, 16);
+            this.lblCdDvd.Size = new System.Drawing.Size(91, 16);
             this.lblCdDvd.TabIndex = 31;
-            this.lblCdDvd.Text = "CD / DVD";
+            this.lblCdDvd.Text = "Unidad óptica";
             // 
             // lblFuente
             // 
@@ -418,9 +418,9 @@ namespace CompuGross
             this.lblFuente.ForeColor = System.Drawing.Color.White;
             this.lblFuente.Location = new System.Drawing.Point(9, 252);
             this.lblFuente.Name = "lblFuente";
-            this.lblFuente.Size = new System.Drawing.Size(48, 16);
+            this.lblFuente.Size = new System.Drawing.Size(84, 16);
             this.lblFuente.TabIndex = 32;
-            this.lblFuente.Text = "Fuente";
+            this.lblFuente.Text = "Alimentación";
             // 
             // lblAdicionales
             // 
