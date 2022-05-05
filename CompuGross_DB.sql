@@ -189,17 +189,17 @@ GO
 create or alter view ExportIngresos
 as
 	select isnull(count(*),0) as Cant1, 
-	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 1) as Ganancia1,
-	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 1) as PromGanancia1,
+	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 1) as Ganancia1,
+	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 1) as PromGanancia1,
 	(select count(*) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 2) as Cant2, 
-	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 2) as Ganancia2,
-	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 2) as PromGanancia2,
+	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 2) as Ganancia2,
+	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 2) as PromGanancia2,
 	(select count(*) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 3) as Cant3, 
-	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 3) as Ganancia3,
-	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 3) as PromGanancia3,
+	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 3) as Ganancia3,
+	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 3) as PromGanancia3,
 	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from 
 	OrdenesTrabajo where Estado = 1 and FechaRecepcion = '28-06-2017')))) as TotalDiasServicio
-	from OrdenesTrabajo where IdTipoServicio = 1 AND Estado = 1
+	from OrdenesTrabajo where IdTipoServicio = 1 AND FechaDevolucion is not null AND Estado = 1
 GO
 
 create or alter view ExportOrdenesTrabajo

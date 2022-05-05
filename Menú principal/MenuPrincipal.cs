@@ -16,6 +16,7 @@ namespace CompuGross
     {
         private string usuario = "", tipoUsuario = "";
         private Form formActual = null;
+        bool secuencia_Alt_F4 = false;
 
         public MenuPrincipal()
         {
@@ -349,11 +350,7 @@ namespace CompuGross
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Seguro que desea salir del programa?", "Atención!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            this.Close();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -1032,6 +1029,15 @@ namespace CompuGross
             visibilidadPanelSubMenuServicios("hide");
             visibilidadPanelSubMenuInformes("hide");
             abrirFormHijo(new ReportePorCliente());
+        }
+
+        private void MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir del programa?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         public class MessageBoxTemporal

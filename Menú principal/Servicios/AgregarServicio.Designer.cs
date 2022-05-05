@@ -109,7 +109,7 @@ namespace CompuGross
             this.txtRam.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRam.ForeColor = System.Drawing.Color.White;
             this.txtRam.Location = new System.Drawing.Point(358, 140);
-            this.txtRam.MaxLength = 10;
+            this.txtRam.MaxLength = 50;
             this.txtRam.Name = "txtRam";
             this.txtRam.Size = new System.Drawing.Size(150, 20);
             this.txtRam.TabIndex = 5;
