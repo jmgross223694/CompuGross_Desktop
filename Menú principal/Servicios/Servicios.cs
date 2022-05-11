@@ -21,6 +21,7 @@ namespace CompuGross
         private List<Dominio.Servicio> listaServicios;
         private List<Cliente> listaClientes;
         private long IdCliente = 0;
+        private bool primerIngreso = false;
 
         public Servicios()
         {
@@ -31,14 +32,7 @@ namespace CompuGross
         {
             visibilidadCamposModificar("hide");
             listarTodas();
-
-            cargarDdlTiposEquipo();
-            cargarDdlTiposServicio();
-
-            cargarListadoClientes();
-            AlinearColumnasGrillaClientes();
-            ordenarColumnasGrillaClientes();
-            cambiarTitulosGrillaClientes();
+            this.primerIngreso = true;
         }
 
         private void cargarListado()
@@ -64,7 +58,6 @@ namespace CompuGross
             dgvServicios.Columns["TipoEquipo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvServicios.Columns["TipoServicio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvServicios.Columns["CostoTotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvServicios.Columns["Ganancia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void cambiarTitulos()
@@ -72,7 +65,6 @@ namespace CompuGross
             dgvServicios.Columns["FechaRecepcion"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvServicios.Columns["FechaDevolucion"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvServicios.Columns["CostoTotal"].DefaultCellStyle.Format = "C0";
-            dgvServicios.Columns["Ganancia"].DefaultCellStyle.Format = "C0";
 
             dgvServicios.Columns["ID"].HeaderText = "N° de orden";
             dgvServicios.Columns["FechaRecepcion"].HeaderText = "Recepción";
@@ -93,12 +85,12 @@ namespace CompuGross
             dgvServicios.Columns["MarcaModelo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvServicios.Columns["TipoServicio"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvServicios.Columns["CostoTotal"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvServicios.Columns["Ganancia"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void ocultarColumnas()
         {
             dgvServicios.Columns["IdCliente"].Visible = false;
+            dgvServicios.Columns["MarcaModelo"].Visible = false;
             dgvServicios.Columns["RAM"].Visible = false;
             dgvServicios.Columns["PlacaMadre"].Visible = false;
             dgvServicios.Columns["Microprocesador"].Visible = false;
@@ -112,6 +104,7 @@ namespace CompuGross
             dgvServicios.Columns["CostoTerceros"].Visible = false;
             dgvServicios.Columns["CostoCG"].Visible = false;
             dgvServicios.Columns["Estado"].Visible = false;
+            dgvServicios.Columns["Ganancia"].Visible = false;
         }
 
         private void ordenarColumnas()
@@ -126,7 +119,6 @@ namespace CompuGross
             dgvServicios.Columns["TipoEquipo"].DisplayIndex = 5;
             dgvServicios.Columns["MarcaModelo"].DisplayIndex = 6;
             dgvServicios.Columns["CostoTotal"].DisplayIndex = 7;
-            dgvServicios.Columns["Ganancia"].DisplayIndex = 8;
         }
 
         private void BuscarFiltro()
@@ -654,7 +646,7 @@ namespace CompuGross
             {
                 try
                 {
-                    servicioDb.ModificarOrden(servicio);
+                    servicioDb.ModificarServicio(servicio);
 
                     MessageBox.Show("Se guardaron los cambios para el servicio N°" + servicio.ID + ".", "Atención!!",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -706,8 +698,23 @@ namespace CompuGross
             {
                 if (dgvServicios.CurrentRow != null)
                 {
+                    if (this.primerIngreso)
+                    {
+                        cargarDdlTiposEquipo();
+                        cargarDdlTiposServicio();
+                        cargarListadoClientes();
+                        AlinearColumnasGrillaClientes();
+                        ordenarColumnasGrillaClientes();
+                        cambiarTitulosGrillaClientes();
+
+                        this.primerIngreso = false;
+                    }
+                    
                     txtFiltro.Text = "";
                     Servicio servicio = (Servicio)dgvServicios.CurrentRow.DataBoundItem;
+                    ServicioDB sDB = new ServicioDB();
+
+                    servicio = sDB.CargarDatosOrden(servicio.ID);
 
                     IdCliente = servicio.IdCliente;
 
@@ -745,7 +752,7 @@ namespace CompuGross
                                     seleccionado.Cliente + "?", "Atención!",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    ordentTrabajoDB.EliminarOrden(seleccionado.ID);
+                    ordentTrabajoDB.EliminarServicio(seleccionado.ID);
                     MessageBox.Show("La Orden N° " + seleccionado.ID + ", del cliente " + seleccionado.Cliente +
                                     ", se ha eliminado correctamente");
 

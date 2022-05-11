@@ -1,7 +1,7 @@
 ﻿
 namespace CompuGross
 {
-    partial class AgregarOrden
+    partial class AgregarServicio
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CompuGross
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarOrden));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarServicio));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -863,7 +863,7 @@ namespace CompuGross
             this.Name = "AgregarOrden";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Orden";
-            this.Load += new System.EventHandler(this.AgregarOrden_Load);
+            this.Load += new System.EventHandler(this.AgregarServicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

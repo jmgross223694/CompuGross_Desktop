@@ -147,11 +147,19 @@ create table Servicios(
 )
 GO
 
-create or alter view ExportClientes
+/*create or alter view ExportClientes
 as
 	select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, isnull(C.Direccion, '-') as Direccion,
 	isnull((select L.Descripcion from Localidades L where C.IdLocalidad = L.ID), '-') as Localidad,
 	isnull(C.IdLocalidad, '-') as IdLocalidad, isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail from Clientes C
+GO*/
+
+create or alter view ExportClientes
+as
+	select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, isnull(C.Direccion, '-') as Direccion,
+	isnull(C.IdLocalidad, '-') as IdLocalidad, isnull(L.Descripcion, '-') as Localidad,
+	isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail
+	from Clientes C inner join Localidades L on C.IdLocalidad = L.ID
 GO
 
 create or alter procedure SP_NUEVO_CLIENTE(
@@ -188,21 +196,31 @@ GO
 
 create or alter view ExportIngresos
 as
-	select isnull(count(*),0) as Cant1, 
-	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 1) as Ganancia1,
-	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 1) as PromGanancia1,
-	(select count(*) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 2) as Cant2, 
-	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 2) as Ganancia2,
-	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 2) as PromGanancia2,
-	(select count(*) from OrdenesTrabajo where Estado = 1 and IdTipoServicio = 3) as Cant3, 
-	(select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 3) as Ganancia3,
-	(select convert(int,isnull(avg(Ganancia),0)) from OrdenesTrabajo where Estado = 1 and FechaDevolucion is not null and IdTipoServicio = 3) as PromGanancia3,
-	(select convert(int, getdate()) - convert(int,convert(datetime, (select FechaRecepcion from 
-	OrdenesTrabajo where Estado = 1 and FechaRecepcion = '28-06-2017')))) as TotalDiasServicio
-	from OrdenesTrabajo where IdTipoServicio = 1 AND FechaDevolucion is not null AND Estado = 1
+	select 'ArmadoGabinete' 'ID', isnull(count(*), 0) Cant, convert(int,isnull(sum(OT.Ganancia),0)) Ganancia, 
+	convert(int,isnull(avg(OT.Ganancia),0)) PromGanancia
+	from OrdenesTrabajo OT
+	inner Join TiposServicio TS 
+	on TS.ID = OT.IdTipoServicio and OT.IdTipoServicio = 1 and OT.Estado = 1 and OT.FechaDevolucion is not null
+	union all
+	select 'CamarasSeguridad' 'ID', isnull(count(*), 0) Cant, convert(int,isnull(sum(OT.Ganancia),0)) Ganancia, 
+	convert(int,isnull(avg(OT.Ganancia),0)) PromGanancia
+	from OrdenesTrabajo OT
+	inner Join TiposServicio TS 
+	on TS.ID = OT.IdTipoServicio and OT.IdTipoServicio = 2 and OT.Estado = 1 and OT.FechaDevolucion is not null
+	union all
+	select 'ServicioTecnico' 'ID', isnull(count(*), 0) Cant, convert(int,isnull(sum(OT.Ganancia),0)) Ganancia, 
+	convert(int,isnull(avg(OT.Ganancia),0)) PromGanancia
+	from OrdenesTrabajo OT
+	inner Join TiposServicio TS
+	on TS.ID = OT.IdTipoServicio and OT.IdTipoServicio = 3 and OT.Estado = 1 and FechaDevolucion is not null
+	union all
+	select 'TotalDiasServicio' 'ID', 
+	datediff(day, 
+			(select FechaRecepcion from OrdenesTrabajo where Estado = 1 and FechaRecepcion = '28-06-2017'), 
+			getdate()) Cant, 0, 0
 GO
 
-create or alter view ExportOrdenesTrabajo
+/*create or alter view ExportOrdenesTrabajo
 as
 	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCliente) Cliente,
 	OT.IdCliente IdCliente,
@@ -218,6 +236,40 @@ as
 	CONVERT(int,OT.CostoTotal) CostoTotal,
 	CONVERT(int,OT.Ganancia) Ganancia, OT.Estado
 	from OrdenesTrabajo OT where Estado = 1
+GO*/
+
+create or alter view ExportModificarOrdenTrabajo
+as
+	select OT.ID, C.Nombres Cliente,
+	OT.IdCliente IdCliente,
+	OT.FechaRecepcion FechaRecepcion,
+	isnull(OT.FechaDevolucion, '') FechaDevolucion,
+	TE.Descripcion TipoEquipo,
+	OT.RAM, OT.PlacaMadre, OT.MarcaModelo, OT.Microprocesador, OT.Almacenamiento, OT.CdDvd, 
+	OT.Fuente, OT.Adicionales, OT.NumSerie,
+	TS.Descripcion TipoServicio,
+	OT.Descripcion, 
+	CONVERT(int,OT.CostoRepuestos) CostoRepuestos, 
+	CONVERT(int,OT.CostoTerceros) CostoTerceros, CONVERT(int,OT.CostoCG) CostoCG, 
+	CONVERT(int,OT.CostoTotal) CostoTotal, OT.Estado
+	from OrdenesTrabajo OT join TiposEquipo TE on TE.ID = OT.IdTipoEquipo
+	join Clientes C on C.ID = OT.IdCliente
+	join TiposServicio TS on TS.ID = OT.IdTipoServicio
+	where OT.Estado = 1
+GO
+
+create or alter view ExportListarOrdenTrabajo
+as
+	select OT.ID, C.Nombres Cliente,
+	OT.FechaRecepcion FechaRecepcion,
+	isnull(OT.FechaDevolucion, '') FechaDevolucion,
+	TE.Descripcion TipoEquipo,
+	TS.Descripcion TipoServicio,
+	CONVERT(int,OT.CostoTotal) CostoTotal
+	from OrdenesTrabajo OT join TiposEquipo TE on TE.ID = OT.IdTipoEquipo
+	join Clientes C on C.ID = OT.IdCliente
+	join TiposServicio TS on TS.ID = OT.IdTipoServicio
+	where OT.Estado = 1
 GO
 
 create or alter procedure SP_UPDATE_ORDEN_TRABAJO(

@@ -16,8 +16,8 @@ namespace CompuGross
         public Ingresos()
         {
             InitializeComponent();
-            this.Width = 844;
-            this.Height = 594;
+            //this.Width = 844;
+            //this.Height = 594;
             cbAnios.Focus();
         }
 
@@ -41,7 +41,7 @@ namespace CompuGross
             
             AccesoDatos datos = new AccesoDatos();
 
-            int gananciaArmadoGabinete, gananciaCamarasSeguridad, gananciaServicioTecnico, cant1, cant2, cant3 = 0;
+            int gananciaArmadoGabinete = 0, gananciaCamarasSeguridad = 0, gananciaServicioTecnico = 0, cant1 = 0, cant2 = 0, cant3 = 0;
             double totalDiasServicio = 0;
 
             try
@@ -49,42 +49,56 @@ namespace CompuGross
                 datos.SetearConsulta(selectGanancias);
                 datos.EjecutarLectura();
 
-                if (datos.Lector.Read() == true)
+                while (datos.Lector.Read())
                 {
-                    gananciaArmadoGabinete = Convert.ToInt32(datos.Lector["Ganancia1"]);
-                    gananciaCamarasSeguridad = Convert.ToInt32(datos.Lector["Ganancia2"]);
-                    gananciaServicioTecnico = Convert.ToInt32(datos.Lector["Ganancia3"]);
+                    string ID = Convert.ToString(datos.Lector["ID"]);
 
-                    double gananciaTotal = gananciaArmadoGabinete + gananciaCamarasSeguridad + gananciaServicioTecnico;
-
-                    cant1 = Convert.ToInt32(datos.Lector["Cant1"]);
-                    cant2 = Convert.ToInt32(datos.Lector["Cant2"]);
-                    cant3 = Convert.ToInt32(datos.Lector["Cant3"]);
-
-                    int cantTotal = cant1 + cant2 + cant3;
-
-                    totalDiasServicio = Convert.ToDouble(datos.Lector["TotalDiasServicio"]);
-
-                    txtCantidad1.Text = Convert.ToString(cant1);
-                    txtCantidad2.Text = Convert.ToString(cant2);
-                    txtCantidad3.Text = Convert.ToString(cant3);
-
-                    txtGanancia1.Text = "$ " + gananciaArmadoGabinete;
-                    txtGanancia2.Text = "$ " + gananciaCamarasSeguridad;
-                    txtGanancia3.Text = "$ " + gananciaServicioTecnico;
-
-                    double promGananciaAnual = Convert.ToInt32(gananciaTotal) / (Convert.ToInt32(totalDiasServicio) / 365);
-
-                    lblGananciaTotal2.Text = "$ " + gananciaTotal;
-
-                    lblPromedioGananciaAnual2.Text = "$ " + Convert.ToString(promGananciaAnual);
-
-                    lblPromedioGananciaMensual2.Text = "$ " + Convert.ToString(Convert.ToInt32(promGananciaAnual / 12));
-                    
-                    double promServiciosPorDia = cantTotal / totalDiasServicio;
-
-                    lblServicioDias2.Text = Convert.ToString(Convert.ToInt32(1 / promServiciosPorDia));
+                    if (ID == "ArmadoGabinete")
+                    {
+                        cant1 = Convert.ToInt32(datos.Lector["Cant"]);
+                        gananciaArmadoGabinete = Convert.ToInt32(datos.Lector["Ganancia"]);
+                    }
+                    else if (ID == "CamarasSeguridad")
+                    {
+                        cant2 = Convert.ToInt32(datos.Lector["Cant"]);
+                        gananciaCamarasSeguridad = Convert.ToInt32(datos.Lector["Ganancia"]);
+                    }
+                    else if (ID == "ServicioTecnico")
+                    {
+                        cant3 = Convert.ToInt32(datos.Lector["Cant"]);
+                        gananciaServicioTecnico = Convert.ToInt32(datos.Lector["Ganancia"]);
+                    }
+                    else
+                    {
+                        if (ID == "TotalDiasServicio")
+                        {
+                            totalDiasServicio = Convert.ToDouble(datos.Lector["Cant"]);
+                        }
+                    }
                 }
+
+                double gananciaTotal = gananciaArmadoGabinete + gananciaCamarasSeguridad + gananciaServicioTecnico;
+                int cantTotal = cant1 + cant2 + cant3;
+
+                txtCantidad1.Text = Convert.ToString(cant1);
+                txtCantidad2.Text = Convert.ToString(cant2);
+                txtCantidad3.Text = Convert.ToString(cant3);
+
+                txtGanancia1.Text = "$ " + gananciaArmadoGabinete;
+                txtGanancia2.Text = "$ " + gananciaCamarasSeguridad;
+                txtGanancia3.Text = "$ " + gananciaServicioTecnico;
+
+                double promGananciaAnual = Convert.ToInt32(gananciaTotal) / (Convert.ToInt32(totalDiasServicio) / 365);
+
+                lblGananciaTotal2.Text = "$ " + gananciaTotal;
+
+                lblPromedioGananciaAnual2.Text = "$ " + Convert.ToString(promGananciaAnual);
+
+                lblPromedioGananciaMensual2.Text = "$ " + Convert.ToString(Convert.ToInt32(promGananciaAnual / 12));
+
+                double promServiciosPorDia = cantTotal / totalDiasServicio;
+
+                lblServicioDias2.Text = Convert.ToString(Convert.ToInt32(1 / promServiciosPorDia));
             }
             catch
             {

@@ -43,7 +43,6 @@ C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Activación.resou
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.AgregarCliente.resources
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Localidades.resources
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.ReportePorCliente.resources
-C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.AgregarOrden.resources
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Presupuesto.resources
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Backup.resources
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Clientes.resources
@@ -60,3 +59,4 @@ C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.exe
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.pdb
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Servicios.resources
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.ABMUsuarios.resources
+C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.AgregarServicio.resources

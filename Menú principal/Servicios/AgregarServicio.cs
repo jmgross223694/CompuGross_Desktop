@@ -12,12 +12,12 @@ using Dominio;
 
 namespace CompuGross
 {
-    public partial class AgregarOrden : Form
+    public partial class AgregarServicio : Form
     {
         private List<Cliente> listaClientes;
         private long IdCliente = 0;
 
-        public AgregarOrden()
+        public AgregarServicio()
         {
             InitializeComponent();
             cargarDdlTiposEquipo();
@@ -36,7 +36,7 @@ namespace CompuGross
             ddlCdDvd.SelectedItem = "-";
         }
 
-        private void AgregarOrden_Load(object sender, EventArgs e)
+        private void AgregarServicio_Load(object sender, EventArgs e)
         {
             cargarListadoClientes();
             AlinearColumnasGrillaClientes();
@@ -399,7 +399,7 @@ namespace CompuGross
                 {
                     try
                     {
-                        servicioDb.AgregarOrden(servicio);
+                        servicioDb.AgregarServicio(servicio);
 
                         MessageBox.Show("Servicio registrado correctamente.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);

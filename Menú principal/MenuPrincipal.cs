@@ -16,7 +16,7 @@ namespace CompuGross
     {
         private string usuario = "", tipoUsuario = "";
         private Form formActual = null;
-        bool secuencia_Alt_F4 = false;
+        private bool clickBotonCerrarVentanaPrincipal = false;
 
         public MenuPrincipal()
         {
@@ -301,7 +301,7 @@ namespace CompuGross
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             visibilidadPanelSubMenuInformes("hide");
-            abrirFormHijo(new ABMUsuarios(this.usuario, this.tipoUsuario));
+            abrirFormHijo(new ABMUsuarios(this.usuario, this.tipoUsuario), "Usuarios");
         }
 
         private void btnPrecios_Click(object sender, EventArgs e)
@@ -309,7 +309,7 @@ namespace CompuGross
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             visibilidadPanelSubMenuInformes("hide");
-            abrirFormHijo(new ListadoPrecios());
+            abrirFormHijo(new ListadoPrecios(), "Listado de Precios");
         }
 
         private void btnIngresos_Click(object sender, EventArgs e)
@@ -317,7 +317,7 @@ namespace CompuGross
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             visibilidadPanelSubMenuInformes("hide");
-            abrirFormHijo(new Ingresos());
+            abrirFormHijo(new Ingresos(), "Reporte de Ingresos");
         }
 
         private void btnServicios_Click(object sender, EventArgs e)
@@ -339,18 +339,23 @@ namespace CompuGross
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             visibilidadPanelSubMenuInformes("hide");
-            abrirFormHijo(new Backup());
+            abrirFormHijo(new Backup(), "Backup");
         }
 
         private void btnLocalidades_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
-            abrirFormHijo(new Localidades());
+            abrirFormHijo(new Localidades(), "ABM Localidades");
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir del programa?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                clickBotonCerrarVentanaPrincipal = true;
+                Application.Exit();
+            }
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -442,27 +447,27 @@ namespace CompuGross
         private void btnListarClientes_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
-            abrirFormHijo(new Clientes());
+            abrirFormHijo(new Clientes(), "Listado de Clientes");
         }
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
-            abrirFormHijo(new AgregarCliente());
+            abrirFormHijo(new AgregarCliente(), "Nuevo Cliente");
         }
 
         private void btnAgregarServicio_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
-            abrirFormHijo(new AgregarOrden());
+            abrirFormHijo(new AgregarServicio(), "Nuevo Servicio");
         }
 
         private void btnListarServicios_Click(object sender, EventArgs e)
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
-            abrirFormHijo(new Servicios());
+            abrirFormHijo(new Servicios(), "Listado de Servicios");
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -866,20 +871,24 @@ namespace CompuGross
             soloNumeros(sender, e);
         }
 
-        public void abrirFormHijo(object formHijo)
+        public void abrirFormHijo(object formHijo, string name)
         {
-            if (formActual != null)
+            if (MessageBox.Show("¿Confirma abrir " + name + " en este momento?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.contentPanel.Controls.Remove(formActual);
-            }
+                if (formActual != null)
+                {
+                    this.contentPanel.Controls.Remove(formActual);
+                }
 
-            Form fH = formHijo as Form;
-            fH.TopLevel = false;
-            fH.Dock = DockStyle.Fill;
-            this.contentPanel.Controls.Add(fH);
-            this.contentPanel.Tag = fH;
-            fH.Show();
-            formActual = fH as Form;
+                Form fH = formHijo as Form;
+                fH.TopLevel = false;
+                fH.Dock = DockStyle.Fill;
+                this.contentPanel.Controls.Add(fH);
+                this.contentPanel.Tag = fH;
+                fH.Show();
+                formActual = fH as Form;
+            }
         }
 
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
@@ -1006,7 +1015,7 @@ namespace CompuGross
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
-            abrirFormHijo(new Presupuesto());
+            abrirFormHijo(new Presupuesto(), "Nuevo Presupuesto");
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -1028,15 +1037,18 @@ namespace CompuGross
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             visibilidadPanelSubMenuInformes("hide");
-            abrirFormHijo(new ReportePorCliente());
+            abrirFormHijo(new ReportePorCliente(), "Ingresos por Cliente");
         }
 
         private void MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (MessageBox.Show("¿Seguro que desea salir del programa?", "Atención!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (!clickBotonCerrarVentanaPrincipal)
             {
-                Application.Exit();
+                if (MessageBox.Show("¿Seguro que desea salir del programa?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
             }
         }
 

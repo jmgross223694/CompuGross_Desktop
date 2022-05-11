@@ -10,23 +10,22 @@ namespace Negocio
 {
     public class ServicioDB
     {
-        public List<Dominio.Servicio> Listar()
+        public List<Servicio> Listar()
         {
-            List<Dominio.Servicio> lista = new List<Dominio.Servicio>();
+            List<Servicio> lista = new List<Servicio>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                string consulta = "select * from ExportOrdenesTrabajo ORDER BY FechaRecepcion desc, ID desc";
+                string consulta = "select * from ExportListarOrdenTrabajo ORDER BY FechaRecepcion desc, ID desc";
 
                 datos.SetearConsulta(consulta);
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Dominio.Servicio aux = new Dominio.Servicio();
+                    Servicio aux = new Servicio();
                     aux.ID = (long)datos.Lector["ID"];
-                    aux.IdCliente = (long)datos.Lector["IdCliente"];
                     aux.Cliente = datos.Lector["Cliente"].ToString();
                     DateTime aux1 = Convert.ToDateTime(datos.Lector["FechaRecepcion"]);
                     aux.FechaRecepcion = aux1.ToShortDateString();
@@ -37,25 +36,9 @@ namespace Negocio
                         aux.FechaDevolucion = "-";
                     }
                     aux.TipoEquipo = datos.Lector["TipoEquipo"].ToString();
-                    aux.RAM = datos.Lector["RAM"].ToString();
-                    aux.PlacaMadre = datos.Lector["PlacaMadre"].ToString();
-                    aux.MarcaModelo = datos.Lector["MarcaModelo"].ToString();
-                    aux.Microprocesador = datos.Lector["Microprocesador"].ToString();
-                    aux.Almacenamiento = datos.Lector["Almacenamiento"].ToString();
-                    aux.CdDvd = datos.Lector["CdDvd"].ToString();
-                    aux.Fuente = datos.Lector["Fuente"].ToString();
-                    aux.Adicionales = datos.Lector["Adicionales"].ToString();
-                    aux.NumSerie = datos.Lector["NumSerie"].ToString();
                     aux.TipoServicio = datos.Lector["TipoServicio"].ToString();
-                    aux.Descripcion = datos.Lector["Descripcion"].ToString();
-                    aux.CostoRepuestos = Convert.ToInt32(datos.Lector["CostoRepuestos"]);
-                    aux.CostoTerceros = Convert.ToInt32(datos.Lector["CostoTerceros"]);
-                    aux.CostoCG = Convert.ToInt32(datos.Lector["CostoCG"]);
                     aux.CostoTotal = Convert.ToInt32(datos.Lector["CostoTotal"]);
-                    aux.Ganancia = Convert.ToInt32(datos.Lector["Ganancia"]);
-                    aux.Estado = Convert.ToInt32(datos.Lector["Estado"]);
-
-                    if (aux.Estado == 1) { lista.Add(aux); }
+                    lista.Add(aux);
                 }
 
                 return lista;
@@ -70,17 +53,17 @@ namespace Negocio
             }
         }
 
-        public void AgregarOrden(Dominio.Servicio orden)
+        public void AgregarServicio(Servicio servicio)
         {
-            string insertOrden = "EXEC SP_INSERT_ORDEN_TRABAJO '" + orden.Cliente + "', '" + 
-                                orden.FechaRecepcion + "', '" + orden.TipoEquipo + "', '" + 
-                                orden.RAM + "', '" + orden.PlacaMadre + "', '" + 
-                                orden.MarcaModelo + "', '" + orden.Microprocesador + "', '" + 
-                                orden.Almacenamiento + "', '" + orden.CdDvd + "', '" + 
-                                orden.Fuente + "', '" + orden.Adicionales + "', '" +
-                                orden.NumSerie + "', '" + orden.TipoServicio + "', '" + 
-                                orden.Descripcion + "', " + orden.CostoRepuestos + ", " + 
-                                orden.CostoTerceros + ", " + orden.CostoCG + ", '" + orden.FechaDevolucion + "'";
+            string insertOrden = "EXEC SP_INSERT_ORDEN_TRABAJO '" + servicio.Cliente + "', '" + 
+                                servicio.FechaRecepcion + "', '" + servicio.TipoEquipo + "', '" + 
+                                servicio.RAM + "', '" + servicio.PlacaMadre + "', '" + 
+                                servicio.MarcaModelo + "', '" + servicio.Microprocesador + "', '" + 
+                                servicio.Almacenamiento + "', '" + servicio.CdDvd + "', '" + 
+                                servicio.Fuente + "', '" + servicio.Adicionales + "', '" +
+                                servicio.NumSerie + "', '" + servicio.TipoServicio + "', '" + 
+                                servicio.Descripcion + "', " + servicio.CostoRepuestos + ", " +
+                                servicio.CostoTerceros + ", " + servicio.CostoCG + ", '" + servicio.FechaDevolucion + "'";
 
             AccesoDatos datos = new AccesoDatos();
 
@@ -99,7 +82,7 @@ namespace Negocio
             }
         }
 
-        public void EliminarOrden(long ID)
+        public void EliminarServicio(long ID)
         {
             string delete = "delete from OrdenesTrabajo where ID = " + ID;
 
@@ -121,28 +104,84 @@ namespace Negocio
             }
         }
 
-        public void ModificarOrden(Dominio.Servicio ordenTrabajo)
+        public Servicio CargarDatosOrden(long ID)
+        {
+            Servicio aux = new Servicio();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "select * from ExportModificarOrdenTrabajo where ID = " + ID;
+
+                datos.SetearConsulta(consulta);
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    aux.ID = (long)datos.Lector["ID"];
+                    aux.Cliente = datos.Lector["Cliente"].ToString();
+                    DateTime aux1 = Convert.ToDateTime(datos.Lector["FechaRecepcion"]);
+                    aux.FechaRecepcion = aux1.ToShortDateString();
+                    DateTime aux2 = Convert.ToDateTime(datos.Lector["FechaDevolucion"]);
+                    aux.FechaDevolucion = aux2.ToShortDateString();
+                    if (aux2.Day.ToString() + "/" + aux2.Month.ToString() + "/" + aux2.Year.ToString() == "1/1/1900")
+                    {
+                        aux.FechaDevolucion = "-";
+                    }
+                    aux.TipoEquipo = datos.Lector["TipoEquipo"].ToString();
+                    aux.TipoServicio = datos.Lector["TipoServicio"].ToString();
+                    aux.CostoTotal = Convert.ToInt32(datos.Lector["CostoTotal"]);
+                    aux.IdCliente = (long)datos.Lector["IdCliente"];
+                    aux.RAM = datos.Lector["RAM"].ToString();
+                    aux.PlacaMadre = datos.Lector["PlacaMadre"].ToString();
+                    aux.MarcaModelo = datos.Lector["MarcaModelo"].ToString();
+                    aux.Microprocesador = datos.Lector["Microprocesador"].ToString();
+                    aux.Almacenamiento = datos.Lector["Almacenamiento"].ToString();
+                    aux.CdDvd = datos.Lector["CdDvd"].ToString();
+                    aux.Fuente = datos.Lector["Fuente"].ToString();
+                    aux.Adicionales = datos.Lector["Adicionales"].ToString();
+                    aux.NumSerie = datos.Lector["NumSerie"].ToString();
+                    aux.Descripcion = datos.Lector["Descripcion"].ToString();
+                    aux.CostoRepuestos = Convert.ToInt32(datos.Lector["CostoRepuestos"]);
+                    aux.CostoTerceros = Convert.ToInt32(datos.Lector["CostoTerceros"]);
+                    aux.CostoCG = Convert.ToInt32(datos.Lector["CostoCG"]);
+                    aux.Estado = Convert.ToInt32(datos.Lector["Estado"]);
+                }
+
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void ModificarServicio(Servicio servicio)
         {
             string update = "exec SP_UPDATE_ORDEN_TRABAJO " +
-                                ordenTrabajo.ID + ", '" +
-                                ordenTrabajo.Cliente + "', '" +
-                                ordenTrabajo.FechaRecepcion + "', '" +
-                                ordenTrabajo.TipoEquipo + "', '" +
-                                ordenTrabajo.RAM + "', '" +
-                                ordenTrabajo.PlacaMadre + "', '" +
-                                ordenTrabajo.MarcaModelo + "', '" +
-                                ordenTrabajo.Microprocesador + "', '" +
-                                ordenTrabajo.Almacenamiento + "', '" +
-                                ordenTrabajo.CdDvd + "', '" +
-                                ordenTrabajo.Fuente + "', '" +
-                                ordenTrabajo.Adicionales + "', '" +
-                                ordenTrabajo.NumSerie + "', '" +
-                                ordenTrabajo.TipoServicio + "', '" +
-                                ordenTrabajo.Descripcion + "', " +
-                                ordenTrabajo.CostoRepuestos + ", " +
-                                ordenTrabajo.CostoTerceros + ", " +
-                                ordenTrabajo.CostoCG + ", '" +
-                                ordenTrabajo.FechaDevolucion + "'";
+                                servicio.ID + ", '" +
+                                servicio.Cliente + "', '" +
+                                servicio.FechaRecepcion + "', '" +
+                                servicio.TipoEquipo + "', '" +
+                                servicio.RAM + "', '" +
+                                servicio.PlacaMadre + "', '" +
+                                servicio.MarcaModelo + "', '" +
+                                servicio.Microprocesador + "', '" +
+                                servicio.Almacenamiento + "', '" +
+                                servicio.CdDvd + "', '" +
+                                servicio.Fuente + "', '" +
+                                servicio.Adicionales + "', '" +
+                                servicio.NumSerie + "', '" +
+                                servicio.TipoServicio + "', '" +
+                                servicio.Descripcion + "', " +
+                                servicio.CostoRepuestos + ", " +
+                                servicio.CostoTerceros + ", " +
+                                servicio.CostoCG + ", '" +
+                                servicio.FechaDevolucion + "'";
 
             AccesoDatos datos = new AccesoDatos();
 
