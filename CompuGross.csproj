@@ -188,6 +188,12 @@
     <Compile Include="Menú principal\Reportes\ReportePorCliente\ReportePorCliente.Designer.cs">
       <DependentUpon>ReportePorCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menú principal\Proveedores\Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú principal\Proveedores\Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Activación\Activación.resx">
       <DependentUpon>Activación.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Clientes\ABMLocalidades\ABMLocalidades.resx">
       <DependentUpon>ABMLocalidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menú principal\Proveedores\Proveedores.resx">
+      <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Reportes\ReportePorCliente\ReportePorCliente.resx">
       <DependentUpon>ReportePorCliente.cs</DependentUpon>

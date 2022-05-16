@@ -147,25 +147,7 @@ namespace CompuGross
 
                 if (ingreso)
                 {
-                    //mostrar Controles MenuPrincipal
-                    btnClientes.Visible = true;
-                    pnBtnClientes.Visible = true;
-                    btnServicios.Visible = true;
-                    pnBtnServicios.Visible = true;
-                    btnPresupuesto.Visible = true;
-                    pnBtnPresupuesto.Visible = true;
-                    btnPrecios.Visible = true;
-                    pnBtnPrecios.Visible = true;
-                    btnLocalidades.Visible = true;
-                    btnReportes.Visible = true;
-                    pnBtnInformes.Visible = true;
-                    btnBackup.Visible = true;
-                    pnBtnBackup.Visible = true;
-                    btnUsuarios.Visible = true;
-                    pnBtnUsuarios.Visible = true;
-                    btnCerrarSesion.Visible = true;
-                    lblUsuario.Visible = true;
-                    lblUserTipo.Visible = true;
+                    VisibilidadControlesMenuPrincipal("show");
 
                     cargarUsuarioLogueado();
 
@@ -184,7 +166,22 @@ namespace CompuGross
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            //mostrar Campos Login
+            VisibilidadCamposLogin();
+
+            VisibilidadControlesMenuPrincipal("hide");
+
+            txtDni.Text = "38346656";
+            txtClave.Text = "Admin123";
+            btnIngresar.Focus();
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void VisibilidadCamposLogin()
+        {
             txtDni.Text = "";
             txtClave.Text = "";
             txtRecuperarClave.Text = "";
@@ -197,33 +194,57 @@ namespace CompuGross
             btnIngresar.Visible = true;
             btnIngresar.Enabled = false;
             lblTitulo.Visible = true;
-
-            //ocultar Controles menuPrincipal
-            btnClientes.Visible = false;
-            pnBtnClientes.Visible = false;
-            btnServicios.Visible = false;
-            pnBtnServicios.Visible = false;
-            btnPresupuesto.Visible = false;
-            pnBtnPresupuesto.Visible = false;
-            btnPrecios.Visible = false;
-            pnBtnPrecios.Visible = false;
-            btnLocalidades.Visible = false;
-            btnReportes.Visible = false;
-            pnBtnInformes.Visible = false;
-            btnBackup.Visible = false;
-            pnBtnBackup.Visible = false;
-            btnUsuarios.Visible = false;
-            pnBtnUsuarios.Visible = false;
-            btnCerrarSesion.Visible = false;
-            lblUsuario.Visible = false;
-            lblUserTipo.Visible = false;
         }
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void VisibilidadControlesMenuPrincipal(string aux)
+        {
+            if (aux == "hide")
+            {
+                btnClientes.Visible = false;
+                pnBtnClientes.Visible = false;
+                btnServicios.Visible = false;
+                pnBtnServicios.Visible = false;
+                btnPresupuesto.Visible = false;
+                pnBtnPresupuesto.Visible = false;
+                btnPrecios.Visible = false;
+                pnBtnPrecios.Visible = false;
+                btnLocalidades.Visible = false;
+                btnReportes.Visible = false;
+                pnBtnInformes.Visible = false;
+                btnBackup.Visible = false;
+                pnBtnBackup.Visible = false;
+                btnUsuarios.Visible = false;
+                pnBtnUsuarios.Visible = false;
+                btnCerrarSesion.Visible = false;
+                lblUsuario.Visible = false;
+                lblUserTipo.Visible = false;
+                pnBtnProveedores.Visible = false;
+                btnProveedores.Visible = false;
+            }
+            if (aux == "show")
+            {
+                btnClientes.Visible = true;
+                pnBtnClientes.Visible = true;
+                btnServicios.Visible = true;
+                pnBtnServicios.Visible = true;
+                btnPresupuesto.Visible = true;
+                pnBtnPresupuesto.Visible = true;
+                btnPrecios.Visible = true;
+                pnBtnPrecios.Visible = true;
+                btnLocalidades.Visible = true;
+                btnReportes.Visible = true;
+                pnBtnInformes.Visible = true;
+                btnBackup.Visible = true;
+                pnBtnBackup.Visible = true;
+                btnUsuarios.Visible = true;
+                pnBtnUsuarios.Visible = true;
+                btnCerrarSesion.Visible = true;
+                lblUsuario.Visible = true;
+                lblUserTipo.Visible = true;
+                pnBtnProveedores.Visible = true;
+                btnProveedores.Visible = true;
+            }
+        }
 
         public void borrarUsuarioLogueado()
         {
@@ -1050,6 +1071,14 @@ namespace CompuGross
                     Application.Exit();
                 }
             }
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+            visibilidadPanelSubMenuInformes("hide");
+            abrirFormHijo(new Proveedores(), "Proveedores");
         }
 
         public class MessageBoxTemporal

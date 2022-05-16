@@ -60,3 +60,4 @@ C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.pdb
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Servicios.resources
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.ABMUsuarios.resources
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.AgregarServicio.resources
+C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.Proveedores.resources

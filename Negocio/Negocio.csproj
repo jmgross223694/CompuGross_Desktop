@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="FuncionalidadesExcel.cs" />
     <Compile Include="PrecioDB.cs" />
+    <Compile Include="ProveedorDB.cs" />
     <Compile Include="ReportePorClienteDB.cs" />
     <Compile Include="ServicioDB.cs" />
     <Compile Include="EmailService.cs" />

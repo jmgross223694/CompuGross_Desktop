@@ -121,7 +121,7 @@ create table TiposEquipo(
 )
 GO
 
-create table Servicios(
+create table OrdenesTrabajo(
 	ID bigint primary key not null identity(1,1),
 	IdCliente bigint not null foreign key references Clientes(ID),
 	FechaRecepcion date not null,
@@ -147,19 +147,12 @@ create table Servicios(
 )
 GO
 
-/*create or alter view ExportClientes
-as
-	select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, isnull(C.Direccion, '-') as Direccion,
-	isnull((select L.Descripcion from Localidades L where C.IdLocalidad = L.ID), '-') as Localidad,
-	isnull(C.IdLocalidad, '-') as IdLocalidad, isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail from Clientes C
-GO*/
-
 create or alter view ExportClientes
 as
 	select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, isnull(C.Direccion, '-') as Direccion,
 	isnull(C.IdLocalidad, '-') as IdLocalidad, isnull(L.Descripcion, '-') as Localidad,
 	isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail
-	from Clientes C inner join Localidades L on C.IdLocalidad = L.ID
+	from Clientes C join Localidades L on C.IdLocalidad = L.ID
 GO
 
 create or alter procedure SP_NUEVO_CLIENTE(
@@ -201,42 +194,24 @@ as
 	from OrdenesTrabajo OT
 	inner Join TiposServicio TS 
 	on TS.ID = OT.IdTipoServicio and OT.IdTipoServicio = 1 and OT.Estado = 1 and OT.FechaDevolucion is not null
-	union all
+	union
 	select 'CamarasSeguridad' 'ID', isnull(count(*), 0) Cant, convert(int,isnull(sum(OT.Ganancia),0)) Ganancia, 
 	convert(int,isnull(avg(OT.Ganancia),0)) PromGanancia
 	from OrdenesTrabajo OT
 	inner Join TiposServicio TS 
 	on TS.ID = OT.IdTipoServicio and OT.IdTipoServicio = 2 and OT.Estado = 1 and OT.FechaDevolucion is not null
-	union all
+	union
 	select 'ServicioTecnico' 'ID', isnull(count(*), 0) Cant, convert(int,isnull(sum(OT.Ganancia),0)) Ganancia, 
 	convert(int,isnull(avg(OT.Ganancia),0)) PromGanancia
 	from OrdenesTrabajo OT
 	inner Join TiposServicio TS
 	on TS.ID = OT.IdTipoServicio and OT.IdTipoServicio = 3 and OT.Estado = 1 and FechaDevolucion is not null
-	union all
+	union
 	select 'TotalDiasServicio' 'ID', 
 	datediff(day, 
 			(select FechaRecepcion from OrdenesTrabajo where Estado = 1 and FechaRecepcion = '28-06-2017'), 
 			getdate()) Cant, 0, 0
 GO
-
-/*create or alter view ExportOrdenesTrabajo
-as
-	select OT.ID, (select C.Nombres from Clientes C where C.ID = OT.IdCliente) Cliente,
-	OT.IdCliente IdCliente,
-	OT.FechaRecepcion FechaRecepcion,
-	isnull(OT.FechaDevolucion, '') FechaDevolucion,
-	(select TE.Descripcion from TiposEquipo TE where TE.ID = OT.IdTipoEquipo) TipoEquipo,
-	OT.RAM, OT.PlacaMadre, OT.MarcaModelo, OT.Microprocesador, OT.Almacenamiento, OT.CdDvd, 
-	OT.Fuente, OT.Adicionales, OT.NumSerie,
-	(select TS.Descripcion from TiposServicio TS where TS.ID = OT.IdTipoServicio) TipoServicio,
-	OT.Descripcion, 
-	CONVERT(int,OT.CostoRepuestos) CostoRepuestos, 
-	CONVERT(int,OT.CostoTerceros) CostoTerceros, CONVERT(int,OT.CostoCG) CostoCG, 
-	CONVERT(int,OT.CostoTotal) CostoTotal,
-	CONVERT(int,OT.Ganancia) Ganancia, OT.Estado
-	from OrdenesTrabajo OT where Estado = 1
-GO*/
 
 create or alter view ExportModificarOrdenTrabajo
 as
@@ -441,4 +416,41 @@ as
 	Username as DNI,
 	Mail as Mail
 	from Usuarios U
+GO
+
+create table TiposProveedor(
+	ID int primary key not null identity(1,1),
+	Descripcion varchar(200) not null,
+	Estado bit not null default(1)
+)
+GO
+
+create table Proveedores(
+	ID int primary key not null identity(1,1),
+	Nombre varchar(200) not null,
+	Mail varchar(200) null,
+	Telefono varchar(200) null,
+	Direccion varchar(200) null,
+	IdTipo int not null foreign key references TiposProveedor(ID),
+	SitioWeb varchar(max) null,
+	FechaAlta date not null default (getdate()),
+	Estado bit not null default(1)
+)
+GO
+
+create or alter view ExportProveedores
+as
+	select P.ID, Nombre, isnull(Mail, '-') Mail, isnull(Telefono, '-') Telefono, IdTipo, TP.Descripcion TipoProveedor, 
+	isnull(SitioWeb, '-') SitioWeb, FechaAlta, P.Estado from Proveedores P join TiposProveedor TP on IdTipo = TP.ID
+	where P.Estado = 1
+GO
+
+create trigger TR_BAJA_LOGICA_Proveedores on Proveedores
+instead of delete
+as
+begin
+	declare @ID bigint = (select ID from deleted)
+
+	update Proveedores set Estado = 0 where ID = @ID
+end
 GO

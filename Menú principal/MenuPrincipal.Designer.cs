@@ -40,6 +40,8 @@ namespace CompuGross
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.leftPanel = new System.Windows.Forms.Panel();
+            this.pnBtnProveedores = new System.Windows.Forms.Panel();
+            this.btnProveedores = new System.Windows.Forms.Button();
             this.pnBtnInformes = new System.Windows.Forms.Panel();
             this.btnReportes = new System.Windows.Forms.Button();
             this.pnBtnPresupuesto = new System.Windows.Forms.Panel();
@@ -221,6 +223,8 @@ namespace CompuGross
             // leftPanel
             // 
             this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.leftPanel.Controls.Add(this.pnBtnProveedores);
+            this.leftPanel.Controls.Add(this.btnProveedores);
             this.leftPanel.Controls.Add(this.pnBtnInformes);
             this.leftPanel.Controls.Add(this.btnReportes);
             this.leftPanel.Controls.Add(this.pnBtnPresupuesto);
@@ -244,6 +248,33 @@ namespace CompuGross
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(200, 594);
             this.leftPanel.TabIndex = 0;
+            // 
+            // pnBtnProveedores
+            // 
+            this.pnBtnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.pnBtnProveedores.Location = new System.Drawing.Point(2, 485);
+            this.pnBtnProveedores.Name = "pnBtnProveedores";
+            this.pnBtnProveedores.Size = new System.Drawing.Size(5, 30);
+            this.pnBtnProveedores.TabIndex = 26;
+            // 
+            // btnProveedores
+            // 
+            this.btnProveedores.BackColor = System.Drawing.Color.Transparent;
+            this.btnProveedores.FlatAppearance.BorderSize = 0;
+            this.btnProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedores.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.ForeColor = System.Drawing.Color.Silver;
+            this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
+            this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedores.Location = new System.Drawing.Point(3, 485);
+            this.btnProveedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(181, 30);
+            this.btnProveedores.TabIndex = 25;
+            this.btnProveedores.Text = "  Proveedores";
+            this.btnProveedores.UseVisualStyleBackColor = false;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // pnBtnInformes
             // 
@@ -1145,5 +1176,7 @@ namespace CompuGross
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button btnServiciosPorCliente;
+        private System.Windows.Forms.Panel pnBtnProveedores;
+        private System.Windows.Forms.Button btnProveedores;
     }
 }
