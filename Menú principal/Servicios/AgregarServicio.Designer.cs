@@ -41,10 +41,10 @@ namespace CompuGross
             this.txtMarcaModelo = new System.Windows.Forms.TextBox();
             this.txtMicroprocesador = new System.Windows.Forms.TextBox();
             this.txtAlmacenamiento = new System.Windows.Forms.TextBox();
-            this.txtFuente = new System.Windows.Forms.TextBox();
+            this.txtNumSerie = new System.Windows.Forms.TextBox();
             this.txtAdicionales = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtNumSerie = new System.Windows.Forms.TextBox();
+            this.txtAlimentacion = new System.Windows.Forms.TextBox();
             this.txtCostoRepuestos = new System.Windows.Forms.TextBox();
             this.txtCostoManoObra = new System.Windows.Forms.TextBox();
             this.txtCostoTerceros = new System.Windows.Forms.TextBox();
@@ -79,7 +79,7 @@ namespace CompuGross
             this.lblAsterisco2 = new System.Windows.Forms.Label();
             this.lblAsterisco3 = new System.Windows.Forms.Label();
             this.cbFechaDevolucion = new System.Windows.Forms.CheckBox();
-            this.ddlCdDvd = new System.Windows.Forms.ComboBox();
+            this.ddlUnidadOptica = new System.Windows.Forms.ComboBox();
             this.lblCamposObligatorios = new System.Windows.Forms.Label();
             this.lblSeleccionarCliente = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -198,17 +198,17 @@ namespace CompuGross
             this.txtAlmacenamiento.Size = new System.Drawing.Size(161, 20);
             this.txtAlmacenamiento.TabIndex = 9;
             // 
-            // txtFuente
+            // txtNumSerie
             // 
-            this.txtFuente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.txtFuente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFuente.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFuente.ForeColor = System.Drawing.Color.White;
-            this.txtFuente.Location = new System.Drawing.Point(12, 225);
-            this.txtFuente.MaxLength = 50;
-            this.txtFuente.Name = "txtFuente";
-            this.txtFuente.Size = new System.Drawing.Size(158, 20);
-            this.txtFuente.TabIndex = 11;
+            this.txtNumSerie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtNumSerie.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumSerie.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumSerie.ForeColor = System.Drawing.Color.White;
+            this.txtNumSerie.Location = new System.Drawing.Point(12, 225);
+            this.txtNumSerie.MaxLength = 50;
+            this.txtNumSerie.Name = "txtNumSerie";
+            this.txtNumSerie.Size = new System.Drawing.Size(158, 20);
+            this.txtNumSerie.TabIndex = 11;
             // 
             // txtAdicionales
             // 
@@ -236,17 +236,17 @@ namespace CompuGross
             this.txtDescripcion.TabIndex = 18;
             this.txtDescripcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescripcion_KeyDown);
             // 
-            // txtNumSerie
+            // txtAlimentacion
             // 
-            this.txtNumSerie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.txtNumSerie.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNumSerie.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumSerie.ForeColor = System.Drawing.Color.White;
-            this.txtNumSerie.Location = new System.Drawing.Point(12, 271);
-            this.txtNumSerie.MaxLength = 100;
-            this.txtNumSerie.Name = "txtNumSerie";
-            this.txtNumSerie.Size = new System.Drawing.Size(167, 20);
-            this.txtNumSerie.TabIndex = 13;
+            this.txtAlimentacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtAlimentacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAlimentacion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlimentacion.ForeColor = System.Drawing.Color.White;
+            this.txtAlimentacion.Location = new System.Drawing.Point(12, 271);
+            this.txtAlimentacion.MaxLength = 100;
+            this.txtAlimentacion.Name = "txtAlimentacion";
+            this.txtAlimentacion.Size = new System.Drawing.Size(167, 20);
+            this.txtAlimentacion.TabIndex = 13;
             // 
             // txtCostoRepuestos
             // 
@@ -738,26 +738,26 @@ namespace CompuGross
             this.cbFechaDevolucion.UseVisualStyleBackColor = true;
             this.cbFechaDevolucion.CheckedChanged += new System.EventHandler(this.cbFechaDevolucion_CheckedChanged);
             // 
-            // ddlCdDvd
+            // ddlUnidadOptica
             // 
-            this.ddlCdDvd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.ddlCdDvd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlCdDvd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlCdDvd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlCdDvd.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlCdDvd.ForeColor = System.Drawing.Color.White;
-            this.ddlCdDvd.FormattingEnabled = true;
-            this.ddlCdDvd.Items.AddRange(new object[] {
+            this.ddlUnidadOptica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.ddlUnidadOptica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlUnidadOptica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlUnidadOptica.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlUnidadOptica.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlUnidadOptica.ForeColor = System.Drawing.Color.White;
+            this.ddlUnidadOptica.FormattingEnabled = true;
+            this.ddlUnidadOptica.Items.AddRange(new object[] {
             "-",
             "Lectora CD",
             "Lectora CD/DVD",
             "Lectograbadora CD/DVD",
             "No tiene",
             "No aplica"});
-            this.ddlCdDvd.Location = new System.Drawing.Point(185, 270);
-            this.ddlCdDvd.Name = "ddlCdDvd";
-            this.ddlCdDvd.Size = new System.Drawing.Size(167, 21);
-            this.ddlCdDvd.TabIndex = 52;
+            this.ddlUnidadOptica.Location = new System.Drawing.Point(185, 270);
+            this.ddlUnidadOptica.Name = "ddlUnidadOptica";
+            this.ddlUnidadOptica.Size = new System.Drawing.Size(167, 21);
+            this.ddlUnidadOptica.TabIndex = 52;
             // 
             // lblCamposObligatorios
             // 
@@ -799,7 +799,7 @@ namespace CompuGross
             this.lblTitulo.Text = "NUEVO SERVICIO";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // AgregarOrden
+            // AgregarServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -810,7 +810,7 @@ namespace CompuGross
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblSeleccionarCliente);
             this.Controls.Add(this.lblCamposObligatorios);
-            this.Controls.Add(this.ddlCdDvd);
+            this.Controls.Add(this.ddlUnidadOptica);
             this.Controls.Add(this.cbFechaDevolucion);
             this.Controls.Add(this.lblAsterisco3);
             this.Controls.Add(this.lblAsterisco2);
@@ -840,10 +840,10 @@ namespace CompuGross
             this.Controls.Add(this.txtCostoTerceros);
             this.Controls.Add(this.txtCostoManoObra);
             this.Controls.Add(this.txtCostoRepuestos);
-            this.Controls.Add(this.txtNumSerie);
+            this.Controls.Add(this.txtAlimentacion);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtAdicionales);
-            this.Controls.Add(this.txtFuente);
+            this.Controls.Add(this.txtNumSerie);
             this.Controls.Add(this.txtAlmacenamiento);
             this.Controls.Add(this.txtMicroprocesador);
             this.Controls.Add(this.txtMarcaModelo);
@@ -860,7 +860,7 @@ namespace CompuGross
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "AgregarOrden";
+            this.Name = "AgregarServicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Orden";
             this.Load += new System.EventHandler(this.AgregarServicio_Load);
@@ -879,10 +879,10 @@ namespace CompuGross
         private System.Windows.Forms.TextBox txtMarcaModelo;
         private System.Windows.Forms.TextBox txtMicroprocesador;
         private System.Windows.Forms.TextBox txtAlmacenamiento;
-        private System.Windows.Forms.TextBox txtFuente;
+        private System.Windows.Forms.TextBox txtNumSerie;
         private System.Windows.Forms.TextBox txtAdicionales;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtNumSerie;
+        private System.Windows.Forms.TextBox txtAlimentacion;
         private System.Windows.Forms.TextBox txtCostoRepuestos;
         private System.Windows.Forms.TextBox txtCostoManoObra;
         private System.Windows.Forms.TextBox txtCostoTerceros;
@@ -917,7 +917,7 @@ namespace CompuGross
         private System.Windows.Forms.Label lblAsterisco2;
         private System.Windows.Forms.Label lblAsterisco3;
         private System.Windows.Forms.CheckBox cbFechaDevolucion;
-        private System.Windows.Forms.ComboBox ddlCdDvd;
+        private System.Windows.Forms.ComboBox ddlUnidadOptica;
         private System.Windows.Forms.Label lblCamposObligatorios;
         private System.Windows.Forms.Label lblSeleccionarCliente;
         private System.Windows.Forms.Label lblTitulo;

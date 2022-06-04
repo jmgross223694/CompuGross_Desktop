@@ -137,8 +137,7 @@ namespace CompuGross
                                                Art.Cliente.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.TipoEquipo.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.TipoServicio.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
-                                               Art.MarcaModelo.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
-                                               Art.Descripcion.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
+                                               Art.CostoTotal.ToString().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.FechaRecepcion.ToUpper().Contains(txtFiltro.Text.ToUpper()) ||
                                                Art.FechaDevolucion.ToUpper().Contains(txtFiltro.Text.ToUpper()));
                 dgvServicios.DataSource = null;
@@ -211,8 +210,8 @@ namespace CompuGross
             txtFiltro.Text = servicio.ID.ToString();
             txtCliente.Text = servicio.Cliente;
             fechaRecepcion.Text = servicio.FechaRecepcion;
-            ddlTipoServicio.SelectedItem = servicio.TipoServicio;
-            ddlTipoEquipo.SelectedItem = servicio.TipoEquipo;
+            ddlTiposServicio.SelectedItem = servicio.TipoServicio;
+            ddlTiposEquipo.SelectedItem = servicio.TipoEquipo;
             txtRam.Text = servicio.RAM;
             txtPlacaMadre.Text = servicio.PlacaMadre;
             txtMarcaModelo.Text = servicio.MarcaModelo;
@@ -247,9 +246,9 @@ namespace CompuGross
                 datos.EjecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    ddlTipoServicio.Items.Add(datos.Lector["Descripcion"].ToString());
+                    ddlTiposServicio.Items.Add(datos.Lector["Descripcion"].ToString());
                 }
-                ddlTipoServicio.SelectedItem = "-";
+                ddlTiposServicio.SelectedItem = "-";
             }
             catch (Exception)
             {
@@ -273,9 +272,9 @@ namespace CompuGross
                 datos.EjecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    ddlTipoEquipo.Items.Add(datos.Lector["Descripcion"].ToString());
+                    ddlTiposEquipo.Items.Add(datos.Lector["Descripcion"].ToString());
                 }
-                ddlTipoEquipo.SelectedItem = "-";
+                ddlTiposEquipo.SelectedItem = "-";
             }
             catch (Exception)
             {
@@ -313,8 +312,8 @@ namespace CompuGross
                 lblCostoTerceros.Visible = true;
                 fechaRecepcion.Visible = true;
                 fechaDevolucion.Visible = true;
-                ddlTipoServicio.Visible = true;
-                ddlTipoEquipo.Visible = true;
+                ddlTiposServicio.Visible = true;
+                ddlTiposEquipo.Visible = true;
                 txtMarcaModelo.Visible = true;
                 txtRam.Visible = true;
                 txtMicroprocesador.Visible = true;
@@ -360,8 +359,8 @@ namespace CompuGross
                 lblCostoTerceros.Visible = false;
                 fechaRecepcion.Visible = false;
                 fechaDevolucion.Visible = false;
-                ddlTipoServicio.Visible = false;
-                ddlTipoEquipo.Visible = false;
+                ddlTiposServicio.Visible = false;
+                ddlTiposEquipo.Visible = false;
                 txtMarcaModelo.Visible = false;
                 txtRam.Visible = false;
                 txtMicroprocesador.Visible = false;
@@ -502,8 +501,8 @@ namespace CompuGross
         {
             txtCliente.Text = "";
             fechaRecepcion.Text = default;
-            ddlTipoServicio.SelectedItem = "-";
-            ddlTipoEquipo.SelectedItem = "-";
+            ddlTiposServicio.SelectedItem = "-";
+            ddlTiposEquipo.SelectedItem = "-";
             txtRam.Text = "";
             txtPlacaMadre.Text = "";
             txtMarcaModelo.Text = "";
@@ -595,7 +594,7 @@ namespace CompuGross
 
             servicio.Cliente = txtCliente.Text;
             servicio.FechaRecepcion = fecRecepcion;
-            servicio.TipoEquipo = ddlTipoEquipo.SelectedItem.ToString();
+            servicio.TipoEquipo = ddlTiposEquipo.SelectedItem.ToString();
 
             if (txtRam.Text == "") { servicio.RAM = "-"; }
             else { servicio.RAM = txtRam.Text; }
@@ -637,7 +636,7 @@ namespace CompuGross
             servicio.FechaDevolucion = fecDevolucion;
 
             servicio.MarcaModelo = txtMarcaModelo.Text;
-            servicio.TipoServicio = ddlTipoServicio.SelectedItem.ToString();
+            servicio.TipoServicio = ddlTiposServicio.SelectedItem.ToString();
             servicio.Descripcion = txtDescripcion.Text;
             servicio.CostoCG = Convert.ToInt32(txtManoObra.Text);
 

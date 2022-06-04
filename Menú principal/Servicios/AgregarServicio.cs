@@ -33,7 +33,7 @@ namespace CompuGross
 
             ddlTiposEquipo.SelectedValue = "-";
             ddlTiposServicio.SelectedValue = "-";
-            ddlCdDvd.SelectedItem = "-";
+            ddlUnidadOptica.SelectedItem = "-";
         }
 
         private void AgregarServicio_Load(object sender, EventArgs e)
@@ -57,10 +57,10 @@ namespace CompuGross
                 txtMarcaModelo.Visible = true;
                 txtMicroprocesador.Visible = true;
                 txtAlmacenamiento.Visible = true;
-                ddlCdDvd.Visible = true;
-                txtFuente.Visible = true;
-                txtAdicionales.Visible = true;
+                ddlUnidadOptica.Visible = true;
                 txtNumSerie.Visible = true;
+                txtAdicionales.Visible = true;
+                txtAlimentacion.Visible = true;
                 txtCostoRepuestos.Visible = true;
                 txtCostoManoObra.Visible = true;
                 txtCostoTerceros.Visible = true;
@@ -106,10 +106,10 @@ namespace CompuGross
                 txtMarcaModelo.Visible = false;
                 txtMicroprocesador.Visible = false;
                 txtAlmacenamiento.Visible = false;
-                ddlCdDvd.Visible = false;
-                txtFuente.Visible = false;
-                txtAdicionales.Visible = false;
+                ddlUnidadOptica.Visible = false;
                 txtNumSerie.Visible = false;
+                txtAdicionales.Visible = false;
+                txtAlimentacion.Visible = false;
                 txtCostoRepuestos.Visible = false;
                 txtCostoManoObra.Visible = false;
                 txtCostoTerceros.Visible = false;
@@ -157,10 +157,10 @@ namespace CompuGross
             txtMarcaModelo.Enabled = false;
             txtMicroprocesador.Enabled = false;
             txtAlmacenamiento.Enabled = false;
-            ddlCdDvd.Enabled = false;
-            txtFuente.Enabled = false;
-            txtAdicionales.Enabled = false;
+            ddlUnidadOptica.Enabled = false;
             txtNumSerie.Enabled = false;
+            txtAdicionales.Enabled = false;
+            txtAlimentacion.Enabled = false;
             txtCostoRepuestos.Enabled = false;
             txtCostoManoObra.Enabled = false;
             txtCostoTerceros.Enabled = false;
@@ -179,10 +179,10 @@ namespace CompuGross
             txtMarcaModelo.Enabled = true;
             txtMicroprocesador.Enabled = true;
             txtAlmacenamiento.Enabled = true;
-            ddlCdDvd.Enabled = true;
-            txtFuente.Enabled = true;
-            txtAdicionales.Enabled = true;
+            ddlUnidadOptica.Enabled = true;
             txtNumSerie.Enabled = true;
+            txtAdicionales.Enabled = true;
+            txtAlimentacion.Enabled = true;
             txtCostoRepuestos.Enabled = true;
             txtCostoManoObra.Enabled = true;
             txtCostoTerceros.Enabled = true;
@@ -363,16 +363,16 @@ namespace CompuGross
                 if (txtAlmacenamiento.Text == "") { servicio.Almacenamiento = "-"; }
                 else { servicio.Almacenamiento = txtAlmacenamiento.Text; }
 
-                servicio.CdDvd = ddlCdDvd.SelectedItem.ToString();
+                servicio.CdDvd = ddlUnidadOptica.SelectedItem.ToString();
 
-                if (txtFuente.Text == "") { servicio.Fuente = "-"; }
-                else { servicio.Fuente = txtFuente.Text; }
+                if (txtNumSerie.Text == "") { servicio.Fuente = "-"; }
+                else { servicio.Fuente = txtNumSerie.Text; }
 
                 if (txtAdicionales.Text == "") { servicio.Adicionales = "-"; }
                 else { servicio.Adicionales = txtAdicionales.Text; }
 
-                if (txtNumSerie.Text == "") { servicio.NumSerie = "-"; }
-                else { servicio.NumSerie = txtNumSerie.Text; }
+                if (txtAlimentacion.Text == "") { servicio.NumSerie = "-"; }
+                else { servicio.NumSerie = txtAlimentacion.Text; }
 
                 if (txtCostoRepuestos.Text == "") { servicio.CostoRepuestos = 0; }
                 else { servicio.CostoRepuestos = Convert.ToInt32(txtCostoRepuestos.Text); }
@@ -431,7 +431,7 @@ namespace CompuGross
 
                         ddlTiposEquipo.SelectedValue = "-";
                         ddlTiposServicio.SelectedValue = "-";
-                        ddlCdDvd.SelectedItem = "-";
+                        ddlUnidadOptica.SelectedItem = "-";
 
                     }
                     catch (Exception)
@@ -462,10 +462,10 @@ namespace CompuGross
             txtMicroprocesador.Text = "";
             txtAlmacenamiento.Text = "";
             txtPlacaMadre.Text = "";
-            txtNumSerie.Text = "";
+            txtAlimentacion.Text = "";
             txtAdicionales.Text = "";
-            txtFuente.Text = "";
-            ddlCdDvd.SelectedItem = "-";
+            txtNumSerie.Text = "";
+            ddlUnidadOptica.SelectedItem = "-";
             txtCostoRepuestos.Text = "";
             txtCostoManoObra.Text = "";
             txtCostoTerceros.Text = "";

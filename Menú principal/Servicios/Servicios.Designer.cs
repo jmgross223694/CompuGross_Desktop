@@ -55,10 +55,10 @@ namespace CompuGross
             this.lblFechaDevolucion = new System.Windows.Forms.Label();
             this.fechaDevolucion = new System.Windows.Forms.DateTimePicker();
             this.cbFechaDevolucion = new System.Windows.Forms.CheckBox();
-            this.ddlTipoServicio = new System.Windows.Forms.ComboBox();
+            this.ddlTiposServicio = new System.Windows.Forms.ComboBox();
             this.lblTipoServicio = new System.Windows.Forms.Label();
             this.lblTipoEquipo = new System.Windows.Forms.Label();
-            this.ddlTipoEquipo = new System.Windows.Forms.ComboBox();
+            this.ddlTiposEquipo = new System.Windows.Forms.ComboBox();
             this.txtMarcaModelo = new System.Windows.Forms.TextBox();
             this.lblMarcaModelo = new System.Windows.Forms.Label();
             this.lblRam = new System.Windows.Forms.Label();
@@ -370,20 +370,20 @@ namespace CompuGross
             this.cbFechaDevolucion.UseVisualStyleBackColor = true;
             this.cbFechaDevolucion.CheckedChanged += new System.EventHandler(this.cbFechaDevolucion_CheckedChanged);
             // 
-            // ddlTipoServicio
+            // ddlTiposServicio
             // 
-            this.ddlTipoServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.ddlTipoServicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlTipoServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlTipoServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ddlTipoServicio.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlTipoServicio.ForeColor = System.Drawing.Color.White;
-            this.ddlTipoServicio.FormattingEnabled = true;
-            this.ddlTipoServicio.Location = new System.Drawing.Point(356, 81);
-            this.ddlTipoServicio.MaxDropDownItems = 10;
-            this.ddlTipoServicio.Name = "ddlTipoServicio";
-            this.ddlTipoServicio.Size = new System.Drawing.Size(161, 22);
-            this.ddlTipoServicio.TabIndex = 17;
+            this.ddlTiposServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.ddlTiposServicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlTiposServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTiposServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ddlTiposServicio.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlTiposServicio.ForeColor = System.Drawing.Color.White;
+            this.ddlTiposServicio.FormattingEnabled = true;
+            this.ddlTiposServicio.Location = new System.Drawing.Point(356, 81);
+            this.ddlTiposServicio.MaxDropDownItems = 10;
+            this.ddlTiposServicio.Name = "ddlTiposServicio";
+            this.ddlTiposServicio.Size = new System.Drawing.Size(161, 22);
+            this.ddlTiposServicio.TabIndex = 17;
             // 
             // lblTipoServicio
             // 
@@ -407,20 +407,20 @@ namespace CompuGross
             this.lblTipoEquipo.TabIndex = 20;
             this.lblTipoEquipo.Text = "Tipo de equipo";
             // 
-            // ddlTipoEquipo
+            // ddlTiposEquipo
             // 
-            this.ddlTipoEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.ddlTipoEquipo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlTipoEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlTipoEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ddlTipoEquipo.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlTipoEquipo.ForeColor = System.Drawing.Color.White;
-            this.ddlTipoEquipo.FormattingEnabled = true;
-            this.ddlTipoEquipo.Location = new System.Drawing.Point(12, 125);
-            this.ddlTipoEquipo.MaxDropDownItems = 10;
-            this.ddlTipoEquipo.Name = "ddlTipoEquipo";
-            this.ddlTipoEquipo.Size = new System.Drawing.Size(161, 21);
-            this.ddlTipoEquipo.TabIndex = 19;
+            this.ddlTiposEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.ddlTiposEquipo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlTiposEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTiposEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ddlTiposEquipo.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlTiposEquipo.ForeColor = System.Drawing.Color.White;
+            this.ddlTiposEquipo.FormattingEnabled = true;
+            this.ddlTiposEquipo.Location = new System.Drawing.Point(12, 125);
+            this.ddlTiposEquipo.MaxDropDownItems = 10;
+            this.ddlTiposEquipo.Name = "ddlTiposEquipo";
+            this.ddlTiposEquipo.Size = new System.Drawing.Size(161, 21);
+            this.ddlTiposEquipo.TabIndex = 19;
             // 
             // txtMarcaModelo
             // 
@@ -967,9 +967,9 @@ namespace CompuGross
             this.Controls.Add(this.lblMarcaModelo);
             this.Controls.Add(this.txtMarcaModelo);
             this.Controls.Add(this.lblTipoEquipo);
-            this.Controls.Add(this.ddlTipoEquipo);
+            this.Controls.Add(this.ddlTiposEquipo);
             this.Controls.Add(this.lblTipoServicio);
-            this.Controls.Add(this.ddlTipoServicio);
+            this.Controls.Add(this.ddlTiposServicio);
             this.Controls.Add(this.cbFechaDevolucion);
             this.Controls.Add(this.lblFechaDevolucion);
             this.Controls.Add(this.fechaDevolucion);
@@ -1012,10 +1012,10 @@ namespace CompuGross
         private System.Windows.Forms.Label lblFechaDevolucion;
         private System.Windows.Forms.DateTimePicker fechaDevolucion;
         private System.Windows.Forms.CheckBox cbFechaDevolucion;
-        private System.Windows.Forms.ComboBox ddlTipoServicio;
+        private System.Windows.Forms.ComboBox ddlTiposServicio;
         private System.Windows.Forms.Label lblTipoServicio;
         private System.Windows.Forms.Label lblTipoEquipo;
-        private System.Windows.Forms.ComboBox ddlTipoEquipo;
+        private System.Windows.Forms.ComboBox ddlTiposEquipo;
         private System.Windows.Forms.TextBox txtMarcaModelo;
         private System.Windows.Forms.Label lblMarcaModelo;
         private System.Windows.Forms.Label lblRam;

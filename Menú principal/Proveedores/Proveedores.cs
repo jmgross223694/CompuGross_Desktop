@@ -119,9 +119,8 @@ namespace CompuGross
                     datos.CerrarConexion();
                 }
 
-
-
                 navegadorProveedores.Navigate(sitioWeb);
+                txtUrl.Text = sitioWeb;
             }
         }
 
@@ -170,12 +169,11 @@ namespace CompuGross
             if (dgvProveedores.Visible == true)
             {
                 BuscarFiltroDgvProveedores();
+                OrdenarColumnas();
+                AlinearColumnas();
+                OcultarColumnas();
+                RenombrarColumnas();
             }
-
-            OrdenarColumnas();
-            AlinearColumnas();
-            OcultarColumnas();
-            RenombrarColumnas();
         }
 
         private void navegadorProveedores_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
