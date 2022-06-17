@@ -87,12 +87,17 @@ namespace CompuGross
                     BaseFont _contenidoGrilla = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, true);
                     iTextSharp.text.Font contenidoGrilla = new iTextSharp.text.Font(_contenidoGrilla, 10f, iTextSharp.text.Font.NORMAL, new BaseColor(0, 0, 0));
 
+                    BaseFont _footer = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, true);
+                    iTextSharp.text.Font footer = new iTextSharp.text.Font(_footer, 6f, iTextSharp.text.Font.BOLD, new BaseColor(0, 0, 0));
+
                     string NombreEmpresa = "COMPUGROSS";
                     string Cliente = "Cliente:\n" + nombresCliente;
                     //string Direccion = "Profesor Simon 2005, Villa Ballester";
                     string Contacto = "WhatsApp: 11-5607-3553";
                     string Mail = "compugross02.05.13@gmail.com";
-                    string fechaHoraPresupuesto = "Fecha: " + lblFecha.Text;
+                    string FechaHoraPresupuesto = "Fecha: " + lblFecha.Text;
+                    string Footer = "* Los precios no incluyen IVA.\n\n" +
+                                    "* Los precios serán válidos por 24 Hs.";
 
                     //LETRA CABECERA
                     //var tblLetraRemito = new PdfPTable(new float[] { 100f }) { WidthPercentage = 100 };
@@ -157,7 +162,7 @@ namespace CompuGross
                         Border = 0,
                         HorizontalAlignment = Element.ALIGN_RIGHT
                     });
-                    tblCabecera.AddCell(new PdfPCell(new Phrase(fechaHoraPresupuesto, parrafo))
+                    tblCabecera.AddCell(new PdfPCell(new Phrase(FechaHoraPresupuesto, parrafo))
                     {
                         Border = 0,
                         HorizontalAlignment = Element.ALIGN_RIGHT
@@ -245,6 +250,15 @@ namespace CompuGross
                             BorderColor = iTextSharp.text.BaseColor.BLACK
                         });
 
+                        //TABLA_FOOTER
+                        var tblFooter = new PdfPTable(new float[] { 100f }) { WidthPercentage = 100 };
+                        tblFooter.AddCell(new PdfPCell(new Phrase(Footer, footer))
+                        {
+                            Border = 0,
+                            HorizontalAlignment = Element.ALIGN_LEFT,
+                            VerticalAlignment = Element.ALIGN_BOTTOM
+                        });
+
                         using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
                         {
                             Document pdfDoc = new Document(PageSize.LETTER, 40f, 40f, 40f, 40f);
@@ -263,6 +277,9 @@ namespace CompuGross
                             pdfDoc.Add(tblContenido);
                             pdfDoc.Add(saltoDeLinea);
                             pdfDoc.Add(tblTotal);
+                            pdfDoc.Add(saltoDeLinea);
+                            pdfDoc.Add(saltoDeLinea);
+                            pdfDoc.Add(tblFooter);
                             pdfDoc.Close();
                             stream.Close();
                         }
