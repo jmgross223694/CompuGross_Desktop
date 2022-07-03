@@ -77,8 +77,8 @@ namespace CompuGross
                 lblMarca.Visible = true;
                 lblMicroProcesador.Visible = true;
                 lblAlmacenamiento.Visible = true;
-                lblCdDvd.Visible = true;
-                lblFuente.Visible = true;
+                lblUnidadOptica.Visible = true;
+                lblAlimentacion.Visible = true;
                 lblAdicionales.Visible = true;
                 lblNumSerie.Visible = true;
                 lblCostoRepuestos.Visible = true;
@@ -86,11 +86,11 @@ namespace CompuGross
                 lblCostoTerceros.Visible = true;
                 lblFechaDevolucion.Visible = true;
                 lblDescripcion.Visible = true;
-                lblAsterisco1.Visible = true;
-                lblAsterisco2.Visible = true;
-                lblAsterisco3.Visible = true;
-                lblAsterisco4.Visible = true;
-                lblAsterisco5.Visible = true;
+                lblAsteriscoTipoServicio.Visible = true;
+                lblAsteriscoTipoEquipo.Visible = true;
+                lblAsteriscoMarca.Visible = true;
+                lblAsteriscoManoObra.Visible = true;
+                lblAsteriscoDescripcion.Visible = true;
                 lblCamposObligatorios.Visible = true;
 
                 cbFechaDevolucion.Visible = true;
@@ -126,8 +126,8 @@ namespace CompuGross
                 lblMarca.Visible = false;
                 lblMicroProcesador.Visible = false;
                 lblAlmacenamiento.Visible = false;
-                lblCdDvd.Visible = false;
-                lblFuente.Visible = false;
+                lblUnidadOptica.Visible = false;
+                lblAlimentacion.Visible = false;
                 lblAdicionales.Visible = false;
                 lblNumSerie.Visible = false;
                 lblCostoRepuestos.Visible = false;
@@ -135,11 +135,11 @@ namespace CompuGross
                 lblCostoTerceros.Visible = false;
                 lblFechaDevolucion.Visible = false;
                 lblDescripcion.Visible = false;
-                lblAsterisco1.Visible = false;
-                lblAsterisco2.Visible = false;
-                lblAsterisco3.Visible = false;
-                lblAsterisco4.Visible = false;
-                lblAsterisco5.Visible = false;
+                lblAsteriscoTipoServicio.Visible = false;
+                lblAsteriscoTipoEquipo.Visible = false;
+                lblAsteriscoMarca.Visible = false;
+                lblAsteriscoManoObra.Visible = false;
+                lblAsteriscoDescripcion.Visible = false;
                 lblCamposObligatorios.Visible = false;
 
                 cbFechaDevolucion.Visible = false;
@@ -699,6 +699,135 @@ namespace CompuGross
                 MessageBox.Show("El Cliente " + c.Nombres + " no tiene un Mail registrado.", "Atención!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ddlTiposEquipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string aux = ddlTiposEquipo.SelectedItem.ToString();
+
+            OcultarCamposOrden();
+
+            if (aux == "PC de Escritorio" || aux == "All in One" || aux == "Notebook" || aux == "Netbook") 
+            { MostrarCamposComputadora(); }
+            else if (aux == "Impresora") 
+            { MostrarCamposImpresora(); }
+            else if (aux == "Tablet" || aux == "Celular") 
+            { MostrarCamposTabletCelular(); }
+            else if (aux == "Televisor" || aux == "Monitor") 
+            { MostrarCamposTelevisorMonitor(); }
+            else if (aux == "Consola") 
+            { MostrarCamposConsola(); }
+            else if (aux == "Joystick") 
+            { MostrarCamposJoystick(); }
+            else if (aux == "Cámaras") 
+            { MostrarCamposCámaras(); }
+        }
+
+        private void OcultarCamposOrden()
+        {
+            lblMarca.Visible = false;
+            lblAsteriscoMarca.Visible = false;
+            txtMarcaModelo.Visible = false;
+            lblRam.Visible = false;
+            txtRam.Visible = false;
+            lblMicroProcesador.Visible = false;
+            txtMicroprocesador.Visible = false;
+            lblAlmacenamiento.Visible = false;
+            txtAlmacenamiento.Visible = false;
+            lblPlacaMadre.Visible = false;
+            txtPlacaMadre.Visible = false;
+            lblNumSerie.Visible = false;
+            txtNumSerie.Visible = false;
+            lblAdicionales.Visible = false;
+            txtAdicionales.Visible = false;
+            lblAlimentacion.Visible = false;
+            txtAlimentacion.Visible = false;
+            lblUnidadOptica.Visible = false;
+            ddlUnidadOptica.Visible = false;
+            lblCostoRepuestos.Visible = false;
+            txtCostoRepuestos.Visible = false;
+            lblManoObra.Visible = false;
+            lblAsteriscoManoObra.Visible = false;
+            txtCostoManoObra.Visible = false;
+            lblCostoTerceros.Visible = false;
+            txtCostoTerceros.Visible = false;
+            lblDescripcion.Visible = false;
+            lblAsteriscoDescripcion.Visible = false;
+            txtDescripcion.Visible = false;
+        }
+
+        private void MostrarCamposGenericos()
+        {
+            lblMarca.Visible = true;
+            lblAsteriscoMarca.Visible = true;
+            txtMarcaModelo.Visible = true;
+            lblNumSerie.Visible = true;
+            txtNumSerie.Visible = true;
+            lblAdicionales.Visible = true;
+            txtAdicionales.Visible = true;
+            lblAlimentacion.Visible = true;
+            txtAlimentacion.Visible = true;
+            lblCostoRepuestos.Visible = true;
+            txtCostoRepuestos.Visible = true;
+            lblManoObra.Visible = true;
+            lblAsteriscoManoObra.Visible = true;
+            txtCostoManoObra.Visible = true;
+            lblCostoTerceros.Visible = true;
+            txtCostoTerceros.Visible = true;
+            lblDescripcion.Visible = true;
+            lblAsteriscoDescripcion.Visible = true;
+            txtDescripcion.Visible = true;
+        }
+
+        private void MostrarCamposComputadora() //PC de Escritorio, All in One, Notebook, Netbook
+        {
+            MostrarCamposGenericos();
+            lblRam.Visible = true;
+            txtRam.Visible = true;
+            lblMicroProcesador.Visible = true;
+            txtMicroprocesador.Visible = true;
+            lblAlmacenamiento.Visible = true;
+            txtAlmacenamiento.Visible = true;
+            lblPlacaMadre.Visible = true;
+            txtPlacaMadre.Visible = true;
+            lblUnidadOptica.Visible = true;
+            ddlUnidadOptica.Visible = true;
+        }
+
+        private void MostrarCamposImpresora() //Impresora
+        {
+            MostrarCamposGenericos();
+        }
+
+        private void MostrarCamposTabletCelular() //Tablet, Celular
+        {
+            MostrarCamposGenericos();
+            lblRam.Visible = true;
+            txtRam.Visible = true;
+            lblAlmacenamiento.Visible = true;
+            txtAlmacenamiento.Visible = true;
+        }
+
+        private void MostrarCamposTelevisorMonitor() //Televisor, Monitor
+        {
+            MostrarCamposGenericos();
+        }
+
+        private void MostrarCamposConsola() //Consola
+        {
+            MostrarCamposGenericos();
+            lblAlmacenamiento.Visible = true;
+            txtAlmacenamiento.Visible = true;
+        }
+
+        private void MostrarCamposJoystick() //Joystick
+        {
+            MostrarCamposGenericos();
+        }
+
+        private void MostrarCamposCámaras() //Cámaras
+        {
+            MostrarCamposGenericos();
         }
     }
 }

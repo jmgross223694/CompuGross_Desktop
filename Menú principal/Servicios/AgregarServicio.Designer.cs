@@ -30,9 +30,9 @@ namespace CompuGross
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarServicio));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtRam = new System.Windows.Forms.TextBox();
             this.ddlTiposServicio = new System.Windows.Forms.ComboBox();
@@ -57,8 +57,8 @@ namespace CompuGross
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblMicroProcesador = new System.Windows.Forms.Label();
             this.lblAlmacenamiento = new System.Windows.Forms.Label();
-            this.lblCdDvd = new System.Windows.Forms.Label();
-            this.lblFuente = new System.Windows.Forms.Label();
+            this.lblUnidadOptica = new System.Windows.Forms.Label();
+            this.lblAlimentacion = new System.Windows.Forms.Label();
             this.lblAdicionales = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblNumSerie = new System.Windows.Forms.Label();
@@ -73,11 +73,11 @@ namespace CompuGross
             this.lblBuscarCliente = new System.Windows.Forms.Label();
             this.fechaRecepcion = new System.Windows.Forms.DateTimePicker();
             this.fechaDevolucion = new System.Windows.Forms.DateTimePicker();
-            this.lblAsterisco5 = new System.Windows.Forms.Label();
-            this.lblAsterisco4 = new System.Windows.Forms.Label();
-            this.lblAsterisco1 = new System.Windows.Forms.Label();
-            this.lblAsterisco2 = new System.Windows.Forms.Label();
-            this.lblAsterisco3 = new System.Windows.Forms.Label();
+            this.lblAsteriscoDescripcion = new System.Windows.Forms.Label();
+            this.lblAsteriscoManoObra = new System.Windows.Forms.Label();
+            this.lblAsteriscoTipoServicio = new System.Windows.Forms.Label();
+            this.lblAsteriscoTipoEquipo = new System.Windows.Forms.Label();
+            this.lblAsteriscoMarca = new System.Windows.Forms.Label();
             this.cbFechaDevolucion = new System.Windows.Forms.CheckBox();
             this.ddlUnidadOptica = new System.Windows.Forms.ComboBox();
             this.lblCamposObligatorios = new System.Windows.Forms.Label();
@@ -149,6 +149,7 @@ namespace CompuGross
             this.ddlTiposEquipo.Name = "ddlTiposEquipo";
             this.ddlTiposEquipo.Size = new System.Drawing.Size(146, 21);
             this.ddlTiposEquipo.TabIndex = 4;
+            this.ddlTiposEquipo.SelectedIndexChanged += new System.EventHandler(this.ddlTiposEquipo_SelectedIndexChanged);
             // 
             // txtPlacaMadre
             // 
@@ -398,29 +399,29 @@ namespace CompuGross
             this.lblAlmacenamiento.TabIndex = 30;
             this.lblAlmacenamiento.Text = "Almacenamiento";
             // 
-            // lblCdDvd
+            // lblUnidadOptica
             // 
-            this.lblCdDvd.AutoSize = true;
-            this.lblCdDvd.BackColor = System.Drawing.Color.Transparent;
-            this.lblCdDvd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCdDvd.ForeColor = System.Drawing.Color.White;
-            this.lblCdDvd.Location = new System.Drawing.Point(182, 252);
-            this.lblCdDvd.Name = "lblCdDvd";
-            this.lblCdDvd.Size = new System.Drawing.Size(91, 16);
-            this.lblCdDvd.TabIndex = 31;
-            this.lblCdDvd.Text = "Unidad óptica";
+            this.lblUnidadOptica.AutoSize = true;
+            this.lblUnidadOptica.BackColor = System.Drawing.Color.Transparent;
+            this.lblUnidadOptica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnidadOptica.ForeColor = System.Drawing.Color.White;
+            this.lblUnidadOptica.Location = new System.Drawing.Point(182, 252);
+            this.lblUnidadOptica.Name = "lblUnidadOptica";
+            this.lblUnidadOptica.Size = new System.Drawing.Size(91, 16);
+            this.lblUnidadOptica.TabIndex = 31;
+            this.lblUnidadOptica.Text = "Unidad óptica";
             // 
-            // lblFuente
+            // lblAlimentacion
             // 
-            this.lblFuente.AutoSize = true;
-            this.lblFuente.BackColor = System.Drawing.Color.Transparent;
-            this.lblFuente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFuente.ForeColor = System.Drawing.Color.White;
-            this.lblFuente.Location = new System.Drawing.Point(9, 252);
-            this.lblFuente.Name = "lblFuente";
-            this.lblFuente.Size = new System.Drawing.Size(84, 16);
-            this.lblFuente.TabIndex = 32;
-            this.lblFuente.Text = "Alimentación";
+            this.lblAlimentacion.AutoSize = true;
+            this.lblAlimentacion.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlimentacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlimentacion.ForeColor = System.Drawing.Color.White;
+            this.lblAlimentacion.Location = new System.Drawing.Point(9, 252);
+            this.lblAlimentacion.Name = "lblAlimentacion";
+            this.lblAlimentacion.Size = new System.Drawing.Size(84, 16);
+            this.lblAlimentacion.TabIndex = 32;
+            this.lblAlimentacion.Text = "Alimentación";
             // 
             // lblAdicionales
             // 
@@ -558,25 +559,25 @@ namespace CompuGross
             this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvClientes.ColumnHeadersHeight = 30;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.GridColor = System.Drawing.SystemColors.Control;
@@ -587,12 +588,12 @@ namespace CompuGross
             this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.ShowCellErrors = false;
             this.dgvClientes.ShowCellToolTips = false;
@@ -663,65 +664,65 @@ namespace CompuGross
             this.fechaDevolucion.Size = new System.Drawing.Size(165, 22);
             this.fechaDevolucion.TabIndex = 17;
             // 
-            // lblAsterisco5
+            // lblAsteriscoDescripcion
             // 
-            this.lblAsterisco5.AutoSize = true;
-            this.lblAsterisco5.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco5.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco5.Location = new System.Drawing.Point(408, 203);
-            this.lblAsterisco5.Name = "lblAsterisco5";
-            this.lblAsterisco5.Size = new System.Drawing.Size(17, 19);
-            this.lblAsterisco5.TabIndex = 46;
-            this.lblAsterisco5.Text = "*";
+            this.lblAsteriscoDescripcion.AutoSize = true;
+            this.lblAsteriscoDescripcion.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsteriscoDescripcion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsteriscoDescripcion.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblAsteriscoDescripcion.Location = new System.Drawing.Point(408, 203);
+            this.lblAsteriscoDescripcion.Name = "lblAsteriscoDescripcion";
+            this.lblAsteriscoDescripcion.Size = new System.Drawing.Size(17, 19);
+            this.lblAsteriscoDescripcion.TabIndex = 46;
+            this.lblAsteriscoDescripcion.Text = "*";
             // 
-            // lblAsterisco4
+            // lblAsteriscoManoObra
             // 
-            this.lblAsterisco4.AutoSize = true;
-            this.lblAsterisco4.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco4.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco4.Location = new System.Drawing.Point(196, 301);
-            this.lblAsterisco4.Name = "lblAsterisco4";
-            this.lblAsterisco4.Size = new System.Drawing.Size(17, 19);
-            this.lblAsterisco4.TabIndex = 47;
-            this.lblAsterisco4.Text = "*";
+            this.lblAsteriscoManoObra.AutoSize = true;
+            this.lblAsteriscoManoObra.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsteriscoManoObra.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsteriscoManoObra.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblAsteriscoManoObra.Location = new System.Drawing.Point(196, 301);
+            this.lblAsteriscoManoObra.Name = "lblAsteriscoManoObra";
+            this.lblAsteriscoManoObra.Size = new System.Drawing.Size(17, 19);
+            this.lblAsteriscoManoObra.TabIndex = 47;
+            this.lblAsteriscoManoObra.Text = "*";
             // 
-            // lblAsterisco1
+            // lblAsteriscoTipoServicio
             // 
-            this.lblAsterisco1.AutoSize = true;
-            this.lblAsterisco1.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco1.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco1.Location = new System.Drawing.Point(414, 76);
-            this.lblAsterisco1.Name = "lblAsterisco1";
-            this.lblAsterisco1.Size = new System.Drawing.Size(17, 19);
-            this.lblAsterisco1.TabIndex = 48;
-            this.lblAsterisco1.Text = "*";
+            this.lblAsteriscoTipoServicio.AutoSize = true;
+            this.lblAsteriscoTipoServicio.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsteriscoTipoServicio.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsteriscoTipoServicio.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblAsteriscoTipoServicio.Location = new System.Drawing.Point(414, 76);
+            this.lblAsteriscoTipoServicio.Name = "lblAsteriscoTipoServicio";
+            this.lblAsteriscoTipoServicio.Size = new System.Drawing.Size(17, 19);
+            this.lblAsteriscoTipoServicio.TabIndex = 48;
+            this.lblAsteriscoTipoServicio.Text = "*";
             // 
-            // lblAsterisco2
+            // lblAsteriscoTipoEquipo
             // 
-            this.lblAsterisco2.AutoSize = true;
-            this.lblAsterisco2.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco2.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco2.Location = new System.Drawing.Point(76, 118);
-            this.lblAsterisco2.Name = "lblAsterisco2";
-            this.lblAsterisco2.Size = new System.Drawing.Size(17, 19);
-            this.lblAsterisco2.TabIndex = 49;
-            this.lblAsterisco2.Text = "*";
+            this.lblAsteriscoTipoEquipo.AutoSize = true;
+            this.lblAsteriscoTipoEquipo.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsteriscoTipoEquipo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsteriscoTipoEquipo.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblAsteriscoTipoEquipo.Location = new System.Drawing.Point(76, 118);
+            this.lblAsteriscoTipoEquipo.Name = "lblAsteriscoTipoEquipo";
+            this.lblAsteriscoTipoEquipo.Size = new System.Drawing.Size(17, 19);
+            this.lblAsteriscoTipoEquipo.TabIndex = 49;
+            this.lblAsteriscoTipoEquipo.Text = "*";
             // 
-            // lblAsterisco3
+            // lblAsteriscoMarca
             // 
-            this.lblAsterisco3.AutoSize = true;
-            this.lblAsterisco3.BackColor = System.Drawing.Color.Transparent;
-            this.lblAsterisco3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsterisco3.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblAsterisco3.Location = new System.Drawing.Point(234, 117);
-            this.lblAsterisco3.Name = "lblAsterisco3";
-            this.lblAsterisco3.Size = new System.Drawing.Size(17, 19);
-            this.lblAsterisco3.TabIndex = 50;
-            this.lblAsterisco3.Text = "*";
+            this.lblAsteriscoMarca.AutoSize = true;
+            this.lblAsteriscoMarca.BackColor = System.Drawing.Color.Transparent;
+            this.lblAsteriscoMarca.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsteriscoMarca.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblAsteriscoMarca.Location = new System.Drawing.Point(234, 117);
+            this.lblAsteriscoMarca.Name = "lblAsteriscoMarca";
+            this.lblAsteriscoMarca.Size = new System.Drawing.Size(17, 19);
+            this.lblAsteriscoMarca.TabIndex = 50;
+            this.lblAsteriscoMarca.Text = "*";
             // 
             // cbFechaDevolucion
             // 
@@ -812,11 +813,11 @@ namespace CompuGross
             this.Controls.Add(this.lblCamposObligatorios);
             this.Controls.Add(this.ddlUnidadOptica);
             this.Controls.Add(this.cbFechaDevolucion);
-            this.Controls.Add(this.lblAsterisco3);
-            this.Controls.Add(this.lblAsterisco2);
-            this.Controls.Add(this.lblAsterisco1);
-            this.Controls.Add(this.lblAsterisco4);
-            this.Controls.Add(this.lblAsterisco5);
+            this.Controls.Add(this.lblAsteriscoMarca);
+            this.Controls.Add(this.lblAsteriscoTipoEquipo);
+            this.Controls.Add(this.lblAsteriscoTipoServicio);
+            this.Controls.Add(this.lblAsteriscoManoObra);
+            this.Controls.Add(this.lblAsteriscoDescripcion);
             this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblFechaDevolucion);
@@ -826,8 +827,8 @@ namespace CompuGross
             this.Controls.Add(this.lblNumSerie);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblAdicionales);
-            this.Controls.Add(this.lblFuente);
-            this.Controls.Add(this.lblCdDvd);
+            this.Controls.Add(this.lblAlimentacion);
+            this.Controls.Add(this.lblUnidadOptica);
             this.Controls.Add(this.lblAlmacenamiento);
             this.Controls.Add(this.lblMicroProcesador);
             this.Controls.Add(this.lblMarca);
@@ -895,8 +896,8 @@ namespace CompuGross
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblMicroProcesador;
         private System.Windows.Forms.Label lblAlmacenamiento;
-        private System.Windows.Forms.Label lblCdDvd;
-        private System.Windows.Forms.Label lblFuente;
+        private System.Windows.Forms.Label lblUnidadOptica;
+        private System.Windows.Forms.Label lblAlimentacion;
         private System.Windows.Forms.Label lblAdicionales;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblNumSerie;
@@ -911,11 +912,11 @@ namespace CompuGross
         private System.Windows.Forms.Label lblBuscarCliente;
         private System.Windows.Forms.DateTimePicker fechaRecepcion;
         private System.Windows.Forms.DateTimePicker fechaDevolucion;
-        private System.Windows.Forms.Label lblAsterisco5;
-        private System.Windows.Forms.Label lblAsterisco4;
-        private System.Windows.Forms.Label lblAsterisco1;
-        private System.Windows.Forms.Label lblAsterisco2;
-        private System.Windows.Forms.Label lblAsterisco3;
+        private System.Windows.Forms.Label lblAsteriscoDescripcion;
+        private System.Windows.Forms.Label lblAsteriscoManoObra;
+        private System.Windows.Forms.Label lblAsteriscoTipoServicio;
+        private System.Windows.Forms.Label lblAsteriscoTipoEquipo;
+        private System.Windows.Forms.Label lblAsteriscoMarca;
         private System.Windows.Forms.CheckBox cbFechaDevolucion;
         private System.Windows.Forms.ComboBox ddlUnidadOptica;
         private System.Windows.Forms.Label lblCamposObligatorios;
