@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -670,13 +671,54 @@ namespace CompuGross
         private void ExportExcel(DataGridView tabla)
         {
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application(); //creamos nuevo archivo excel
-            excel.Application.Workbooks.Add(true); //agregamos una hoja nueva al archivo
+            Workbook wb = excel.Workbooks.Add();
+            Worksheet ws = wb.ActiveSheet;
 
             int indiceColumna = 0;
             foreach (DataGridViewColumn col in tabla.Columns) //agregamos encabezados a la nueva hoja
             {
                 indiceColumna++;
-                excel.Cells[1, indiceColumna] = col.Name;
+
+                if (indiceColumna == 1)
+                {
+                    excel.Cells[1, indiceColumna] = "N° de Cliente";
+                }
+                else if (indiceColumna == 2)
+                {
+                    excel.Cells[1, indiceColumna] = "Nombre y Apellido";
+                }
+                else if (indiceColumna == 3)
+                {
+                    excel.Cells[1, indiceColumna] = "DNI";
+                }
+                else if (indiceColumna == 4)
+                {
+                    excel.Cells[1, indiceColumna] = "Dirección";
+                }
+                else if (indiceColumna == 5)
+                {
+                    excel.Cells[1, indiceColumna] = "Localidad";
+                }
+                else if (indiceColumna == 6)
+                {
+                    excel.Cells[1, indiceColumna] = "ID Localidad";
+                }
+                else if (indiceColumna == 7)
+                {
+                    excel.Cells[1, indiceColumna] = "Contacto";
+                }
+                else if (indiceColumna == 8)
+                {
+                    excel.Cells[1, indiceColumna] = "Mail";
+                }
+                else if (indiceColumna == 9)
+                {
+                    excel.Cells[1, indiceColumna] = "Fecha de Alta";
+                }
+                else
+                {
+                    excel.Cells[1, indiceColumna] = col.Name;
+                }
             }
 
             int indiceFila = 0;
@@ -688,9 +730,45 @@ namespace CompuGross
                 foreach (DataGridViewColumn col in tabla.Columns)
                 {
                     indiceColumna++;
-                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+
+                    if (indiceColumna == 1)
+                    {
+                        long aux = Convert.ToInt64(row.Cells[col.Name].Value);
+                        excel.Cells[indiceFila + 1, indiceColumna] = aux;
+                    }
+                    else if (indiceColumna == 3 && row.Cells[col.Name].Value.ToString() != "-")
+                    {
+                        long aux = Convert.ToInt64(row.Cells[col.Name].Value);
+                        excel.Cells[indiceFila + 1, indiceColumna] = aux;
+                    }
+                    else if (indiceColumna == 6)
+                    {
+                        long aux = Convert.ToInt64(row.Cells[col.Name].Value);
+                        excel.Cells[indiceFila + 1, indiceColumna] = aux;
+                    }
+                    else if (indiceColumna == 9)
+                    {
+                        DateTime aux = Convert.ToDateTime(row.Cells[col.Name].Value);
+                        excel.Cells[indiceFila + 1, indiceColumna] = aux;
+                    }
+                    else
+                    {
+                        excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                    }
                 }
             }
+
+            for (int i = 1; i <= 9; i++)
+            {
+                excel.Cells[1, i].Interior.Color = System.Drawing.ColorTranslator.ToOle(Color.Orange);
+            }
+            excel.Columns.AutoFit();
+
+            ws.Range["C2:C1048576"].NumberFormat = "0";
+            ws.Range["A2:A1048576"].NumberFormat = "0";
+            ws.Range["F2:F1048576"].NumberFormat = "0";
+            
+            ws.Range["A:I"].HorizontalAlignment = HorizontalAlignment.Center;
 
             excel.Visible = true;
         }

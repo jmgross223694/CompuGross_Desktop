@@ -267,6 +267,7 @@ namespace CompuGross
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(93, 24);
             this.btnExportar.Text = "Exportar";
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnExcel
             // 
@@ -274,7 +275,7 @@ namespace CompuGross
             this.btnExcel.ForeColor = System.Drawing.Color.White;
             this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(112, 24);
+            this.btnExcel.Size = new System.Drawing.Size(180, 24);
             this.btnExcel.Text = "Excel";
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 

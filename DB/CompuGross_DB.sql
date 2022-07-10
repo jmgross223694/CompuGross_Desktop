@@ -240,7 +240,8 @@ as
 	isnull(OT.FechaDevolucion, '') FechaDevolucion,
 	TE.Descripcion TipoEquipo,
 	TS.Descripcion TipoServicio,
-	CONVERT(int,OT.CostoTotal) CostoTotal
+	CONVERT(int,OT.CostoTotal) CostoTotal,
+	CONVERT(int,OT.CostoCG) Ganancia
 	from OrdenesTrabajo OT join TiposEquipo TE on TE.ID = OT.IdTipoEquipo
 	join Clientes C on C.ID = OT.IdCliente
 	join TiposServicio TS on TS.ID = OT.IdTipoServicio

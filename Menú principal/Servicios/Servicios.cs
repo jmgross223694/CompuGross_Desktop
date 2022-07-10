@@ -18,7 +18,7 @@ namespace CompuGross
 {
     public partial class Servicios : Form
     {
-        private List<Dominio.Servicio> listaServicios;
+        private List<Servicio> listaServicios;
         private List<Cliente> listaClientes;
         private long IdCliente = 0;
         private bool primerIngreso = false;
@@ -778,13 +778,49 @@ namespace CompuGross
         private void ExportExcel(DataGridView tabla)
         {
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application(); //creamos nuevo archivo excel
-            excel.Application.Workbooks.Add(true); //agregamos una hoja nueva al archivo
+            Workbook wb = excel.Workbooks.Add();
+            Worksheet ws = wb.ActiveSheet;
 
             int indiceColumna = 0;
             foreach (DataGridViewColumn col in tabla.Columns) //agregamos encabezados a la nueva hoja
             {
                 indiceColumna++;
-                excel.Cells[1, indiceColumna] = col.Name;
+                if (indiceColumna == 1 || indiceColumna == 2 || indiceColumna == 4 || indiceColumna == 5 ||
+                    indiceColumna == 15 || indiceColumna == 21 || indiceColumna == 22)
+                {
+                    if (indiceColumna == 1)
+                    {
+                        excel.Cells[1, 1] = "N° de Servicio";
+                    }
+                    else if (indiceColumna == 2)
+                    {
+                        excel.Cells[1, 2] = "Recepción";
+                    }
+                    else if (indiceColumna == 4)
+                    {
+                        excel.Cells[1, 3] = col.Name;
+                    }
+                    else if (indiceColumna == 5)
+                    {
+                        excel.Cells[1, 4] = "Tipo de Equipo";
+                    }
+                    else if (indiceColumna == 15)
+                    {
+                        excel.Cells[1, 5] = "Tipo de Servicio";
+                    }
+                    else if (indiceColumna == 21)
+                    {
+                        excel.Cells[1, 6] = "Devolución";
+                    }
+                    else if (indiceColumna == 22)
+                    {
+                        excel.Cells[1, 7] = col.Name;
+                    }
+                    else
+                    {
+                        excel.Cells[1, indiceColumna] = col.Name;
+                    }
+                }
             }
 
             int indiceFila = 0;
@@ -796,9 +832,50 @@ namespace CompuGross
                 foreach (DataGridViewColumn col in tabla.Columns)
                 {
                     indiceColumna++;
-                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                    if (indiceColumna == 1 || indiceColumna == 2 || indiceColumna == 4 || indiceColumna == 5 ||
+                    indiceColumna == 15 || indiceColumna == 21 || indiceColumna == 22)
+                    {
+                        if (indiceColumna == 2)
+                        {
+                            DateTime aux = Convert.ToDateTime(row.Cells[col.Name].Value);
+                            excel.Cells[indiceFila + 1, indiceColumna] = aux;
+                        }
+                        else if (indiceColumna == 4)
+                        {
+                            excel.Cells[indiceFila + 1, 3] = row.Cells[col.Name].Value;
+                        }
+                        else if (indiceColumna == 5)
+                        {
+                            excel.Cells[indiceFila + 1, 4] = row.Cells[col.Name].Value;
+                        }
+                        else if (indiceColumna == 15)
+                        {
+                            excel.Cells[indiceFila + 1, 5] = row.Cells[col.Name].Value;
+                        }
+                        else if (indiceColumna == 21)
+                        {
+                            DateTime aux = Convert.ToDateTime(row.Cells[col.Name].Value);
+                            excel.Cells[indiceFila + 1, 6] = aux;
+                        }
+                        else if (indiceColumna == 22)
+                        {
+                            excel.Cells[indiceFila + 1, 7] = row.Cells[col.Name].Value;
+                        }
+                        else
+                        {
+                            excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                        }
+                    }
                 }
             }
+
+            for (int i = 1; i <= 7; i++)
+            {
+                excel.Cells[1, i].Interior.Color = System.Drawing.ColorTranslator.ToOle(Color.Orange);
+            }
+            excel.Columns.AutoFit();
+
+            ws.Range["A:G"].HorizontalAlignment = HorizontalAlignment.Center;
 
             excel.Visible = true;
         }
@@ -806,6 +883,11 @@ namespace CompuGross
         private void btnExcel_Click(object sender, EventArgs e)
         {
             ExportExcel(dgvServicios);
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

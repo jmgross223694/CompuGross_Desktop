@@ -38,6 +38,7 @@ namespace Negocio
                     aux.TipoEquipo = datos.Lector["TipoEquipo"].ToString();
                     aux.TipoServicio = datos.Lector["TipoServicio"].ToString();
                     aux.CostoTotal = Convert.ToInt32(datos.Lector["CostoTotal"]);
+                    aux.Ganancia = Convert.ToInt32(datos.Lector["Ganancia"]);
                     lista.Add(aux);
                 }
 
