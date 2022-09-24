@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -202,6 +202,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Clientes\ABMLocalidades\ABMLocalidades.resx">
       <DependentUpon>ABMLocalidades.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Proveedores\Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>
@@ -217,6 +218,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Usuarios\ABMUsuarios.resx">
       <DependentUpon>ABMUsuarios.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Backup\Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>

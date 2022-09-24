@@ -91,7 +91,7 @@ namespace CompuGross
         private void ocultarColumnas()
         {
             dgvClientes.Columns["IdLocalidad"].Visible = false;
-            dgvClientes.Columns["Direccion"].Visible = false;
+            //dgvClientes.Columns["Direccion"].Visible = false;
         }
 
         private void cambiarTitulosColumnas()
