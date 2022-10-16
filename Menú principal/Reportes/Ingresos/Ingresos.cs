@@ -29,6 +29,8 @@ namespace CompuGross
              * 3 = Servicio técnico
              */
 
+            panelGananciasPorMes.Visible = false;
+
             cargarDdlAños();
 
             cbAnios.SelectedItem = "Año";
@@ -130,6 +132,118 @@ namespace CompuGross
             }
         }
 
+        private void CargarGananciasPorMes(string anioElegido)
+        {
+            string selectCantidadPorMes = "select (select isnull(count(*), 0) " +
+                "from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 1 and year(FechaDevolucion) = " + 
+                anioElegido + ") '1', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 2 and year(FechaDevolucion) = " + 
+                anioElegido + ") '2', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 3 and year(FechaDevolucion) = " + 
+                anioElegido + ") '3', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 4 and year(FechaDevolucion) = " + 
+                anioElegido + ") '4', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 5 and year(FechaDevolucion) = " + 
+                anioElegido + ") '5', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 6 and year(FechaDevolucion) = " + 
+                anioElegido + ") '6', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 7 and year(FechaDevolucion) = " + 
+                anioElegido + ") '7', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 8 and year(FechaDevolucion) = " + 
+                anioElegido + ") '8', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 9 and year(FechaDevolucion) = " + 
+                anioElegido + ") '9', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 10 and year(FechaDevolucion) = " + 
+                anioElegido + ") '10', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 11 and year(FechaDevolucion) = " + 
+                anioElegido + ") '11', (select isnull(count(*), 0) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 12 and year(FechaDevolucion) = " + 
+                anioElegido + ") '12'";
+
+            string selectGananciasPorMes = "select (select convert(int,isnull(sum(Ganancia),0)) " +
+                "from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 1 and year(FechaDevolucion) = " + 
+                anioElegido + ") '1', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 2 and year(FechaDevolucion) = " +
+                anioElegido + ") '2', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 3 and year(FechaDevolucion) = " +
+                anioElegido + ") '3', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 4 and year(FechaDevolucion) = " +
+                anioElegido + ") '4', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 5 and year(FechaDevolucion) = " +
+                anioElegido + ") '5', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 6 and year(FechaDevolucion) = " +
+                anioElegido + ") '6', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 7 and year(FechaDevolucion) = " +
+                anioElegido + ") '7', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 8 and year(FechaDevolucion) = " +
+                anioElegido + ") '8', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 9 and year(FechaDevolucion) = " +
+                anioElegido + ") '9', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 10 and year(FechaDevolucion) = " +
+                anioElegido + ") '10', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 11 and year(FechaDevolucion) = " +
+                anioElegido + ") '11', (select convert(int,isnull(sum(Ganancia),0)) from OrdenesTrabajo " +
+                "where Estado = 1 and Month(FechaDevolucion) = 12 and year(FechaDevolucion) = " +
+                anioElegido + ") '12'";
+
+            AccesoDatos datosCantidad = new AccesoDatos();
+            AccesoDatos datosGanancia = new AccesoDatos();
+
+            try
+            {
+                datosGanancia.SetearConsulta(selectGananciasPorMes);
+                datosGanancia.EjecutarLectura();
+
+                if (datosGanancia.Lector.Read())
+                {
+                    lblGananciaMes1.Text = "$" + datosGanancia.Lector["1"].ToString();
+                    lblGananciaMes2.Text = "$" + datosGanancia.Lector["2"].ToString();
+                    lblGananciaMes3.Text = "$" + datosGanancia.Lector["3"].ToString();
+                    lblGananciaMes4.Text = "$" + datosGanancia.Lector["4"].ToString();
+                    lblGananciaMes5.Text = "$" + datosGanancia.Lector["5"].ToString();
+                    lblGananciaMes6.Text = "$" + datosGanancia.Lector["6"].ToString();
+                    lblGananciaMes7.Text = "$" + datosGanancia.Lector["7"].ToString();
+                    lblGananciaMes8.Text = "$" + datosGanancia.Lector["8"].ToString();
+                    lblGananciaMes9.Text = "$" + datosGanancia.Lector["9"].ToString();
+                    lblGananciaMes10.Text = "$" + datosGanancia.Lector["10"].ToString();
+                    lblGananciaMes11.Text = "$" + datosGanancia.Lector["11"].ToString();
+                    lblGananciaMes12.Text = "$" + datosGanancia.Lector["12"].ToString();
+                }
+
+                datosGanancia.CerrarConexion();
+
+                datosCantidad.SetearConsulta(selectCantidadPorMes);
+                datosCantidad.EjecutarLectura();
+
+                if (datosCantidad.Lector.Read())
+                {
+                    lblGananciaMes1.Text = lblGananciaMes1.Text + " (" + datosCantidad.Lector["1"].ToString() + ")";
+                    lblGananciaMes2.Text = lblGananciaMes2.Text + " (" + datosCantidad.Lector["2"].ToString() + ")";
+                    lblGananciaMes3.Text = lblGananciaMes3.Text + " (" + datosCantidad.Lector["3"].ToString() + ")";
+                    lblGananciaMes4.Text = lblGananciaMes4.Text + " (" + datosCantidad.Lector["4"].ToString() + ")";
+                    lblGananciaMes5.Text = lblGananciaMes5.Text + " (" + datosCantidad.Lector["5"].ToString() + ")";
+                    lblGananciaMes6.Text = lblGananciaMes6.Text + " (" + datosCantidad.Lector["6"].ToString() + ")";
+                    lblGananciaMes7.Text = lblGananciaMes7.Text + " (" + datosCantidad.Lector["7"].ToString() + ")";
+                    lblGananciaMes8.Text = lblGananciaMes8.Text + " (" + datosCantidad.Lector["8"].ToString() + ")";
+                    lblGananciaMes9.Text = lblGananciaMes9.Text + " (" + datosCantidad.Lector["9"].ToString() + ")";
+                    lblGananciaMes10.Text = lblGananciaMes10.Text + " (" + datosCantidad.Lector["10"].ToString() + ")";
+                    lblGananciaMes11.Text = lblGananciaMes11.Text + " (" + datosCantidad.Lector["11"].ToString() + ")";
+                    lblGananciaMes12.Text = lblGananciaMes12.Text + " (" + datosCantidad.Lector["12"].ToString() + ")";
+                }
+
+                datosCantidad.CerrarConexion();
+            }
+            catch
+            {
+                MessageBox.Show("Error en la base de datos.", "Atención !!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                panelGananciasPorMes.Visible = false;
+            }
+        }
+
         private void cbAnios_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbAnios.SelectedItem.ToString() == "Año") 
@@ -137,6 +251,7 @@ namespace CompuGross
                 lblAnualMonto.Text = "$ ";
                 lblMensualMonto.Text = "$ ";
                 lblCantidad2.Text = "-";
+                panelGananciasPorMes.Visible = false;
             }
             else
             {
@@ -150,6 +265,9 @@ namespace CompuGross
                                                 "convert(int,sum(Ganancia)) as 'GananciaAnual' " +
                                                 "from OrdenesTrabajo where Estado = 1 and " +
                                                 "year(FechaDevolucion) = " + anioElegido;
+
+                panelGananciasPorMes.Visible = true;
+                CargarGananciasPorMes(anioElegido);
 
                 AccesoDatos datos = new AccesoDatos();
                 AccesoDatos datos2 = new AccesoDatos();
