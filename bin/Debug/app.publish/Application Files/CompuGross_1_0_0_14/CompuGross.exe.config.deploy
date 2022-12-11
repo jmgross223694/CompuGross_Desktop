@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <configSections>
+    </configSections>
+    <connectionStrings>
+
+		<!--string strConLocal = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
+		string strConLan = "Server=AMD-FX-8320\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";-->
+		
+		<add name="CompuGross.Properties.Settings.CompuGrossConnectionString"
+            connectionString="Server=AMD-FX-8320\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+    </startup>
+</configuration>
