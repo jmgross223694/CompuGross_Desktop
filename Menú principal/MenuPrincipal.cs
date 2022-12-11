@@ -448,20 +448,24 @@ namespace CompuGross
                 btnCerrarSesion.Visible = false;
                 lblUsuario.Visible = false;
                 lblUserTipo.Visible = false;
+                btnProveedores.Visible = false;
+                pnBtnProveedores.Visible = false;
 
                 //mostrar Campos Login
-                txtDni.Text = "";
-                txtClave.Text = "";
+                txtDni.Text = "38346656";
+                txtClave.Text = "Admin123";
                 txtRecuperarClave.Text = "";
                 lblUsuarioLogin.Visible = true;
                 lblClave.Visible = true;
                 txtDni.Visible = true;
                 txtClave.Visible = true;
-                txtClave.Enabled = false;
+                txtClave.Enabled = true;
                 lblRecuperarClave.Visible = true;
                 btnIngresar.Visible = true;
-                btnIngresar.Enabled = false;
+                btnIngresar.Enabled = true;
                 lblTitulo.Visible = true;
+
+                btnIngresar.Focus();
             }
         }
 
