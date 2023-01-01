@@ -121,6 +121,20 @@ create table TiposEquipo(
 )
 GO
 
+create table UnidadesOpticas(
+	ID bigint not null identity(1,1),
+	Descripcion varchar(50) not null unique,
+	Estado bit not null default(1)
+)
+GO
+
+insert into UnidadesOpticas(Descripcion) values('-')
+insert into UnidadesOpticas(Descripcion) values('Lectora CD')
+insert into UnidadesOpticas(Descripcion) values('Lectora CD/DVD')
+insert into UnidadesOpticas(Descripcion) values('Lectograbadora CD/DVD')
+insert into UnidadesOpticas(Descripcion) values('No tiene')
+insert into UnidadesOpticas(Descripcion) values('No aplica')
+
 create table OrdenesTrabajo(
 	ID bigint primary key not null identity(1,1),
 	IdCliente bigint not null foreign key references Clientes(ID),
@@ -151,7 +165,7 @@ create or alter view ExportClientes
 as
 	select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, isnull(C.Direccion, '-') as Direccion,
 	isnull(C.IdLocalidad, '-') as IdLocalidad, isnull(L.Descripcion, '-') as Localidad,
-	isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail
+	isnull(C.Telefono, '-') as Telefono, isnull(C.Mail, '-') as Mail, C.FechaAlta, C.Estado
 	from Clientes C join Localidades L on C.IdLocalidad = L.ID
 GO
 
@@ -166,17 +180,69 @@ create or alter procedure SP_NUEVO_CLIENTE(
 as
 begin
 	declare @IdClienteExistente bigint = 0
-	set @IdClienteExistente = (select ID from Clientes where Nombres = @Nombres and DNI = @DNI and Estado = 0)
+	set @IdClienteExistente = (select ID from Clientes where Nombres = @Nombres and Estado = 0)
 
 	if (@IdClienteExistente <> 0)
 		begin
-			update Clientes set Estado = 1 where DNI = @DNI
+			update Clientes set Estado = 1 where Nombres = @Nombres
 		end
 	else
 		begin
 			insert into Clientes(DNI, Nombres, Direccion, IdLocalidad, Telefono, Mail)
 			values(@DNI, @Nombres, @Direccion, (select ID from Localidades where Descripcion = @Localidad), @Telefono, @Mail)
 		end
+end
+GO
+
+create or alter procedure SP_MODIFICAR_CLIENTE(
+	@ID bigint,
+	@DNI varchar(11),
+	@ApeNom varchar(200),
+	@Direccion varchar(100),
+	@Localidad varchar(100),
+	@Telefono varchar(50),
+	@Mail varchar(100),
+	@Estado bit
+)
+as
+begin
+	update Clientes set DNI = @DNI,
+						Nombres = @ApeNom,
+						Direccion = @Direccion,
+						IdLocalidad = (select ID from Localidades where Descripcion = @Localidad),
+						Telefono = @Telefono,
+						Mail = @Mail,
+						Estado = @Estado
+	where ID = @ID
+end
+GO
+
+create or alter procedure SP_NUEVA_LOCALIDAD(
+	@Descripcion varchar(200)
+)
+as
+begin
+	declare @IdLocalidadExistente bigint = 0
+	set @IdLocalidadExistente = (select ID from Localidades where Descripcion = @Descripcion and Estado = 0)
+
+	if (@IdLocalidadExistente <> 0)
+		begin
+			update Localidades set Estado = 1 where Descripcion = @Descripcion
+		end
+	else
+		begin
+			insert into Localidades(Descripcion) values(@Descripcion)
+		end
+end
+GO
+
+create or alter trigger TR_BAJA_LOGICA_LOCALIDAD on Localidades
+instead of delete
+as
+begin
+	declare @IdLocalidad bigint = (select ID from deleted)
+	
+	update Localidades set Estado = 0 where ID = @IdLocalidad
 end
 GO
 
@@ -215,21 +281,26 @@ GO
 
 create or alter view ExportModificarOrdenTrabajo
 as
-	select OT.ID, C.Nombres Cliente,
-	OT.IdCliente IdCliente,
+	select OT.ID, OT.IdCliente IdCliente,
+	C.Nombres Cliente,
 	OT.FechaRecepcion FechaRecepcion,
 	isnull(OT.FechaDevolucion, '') FechaDevolucion,
+	TE.ID IdTipoEquipo,
 	TE.Descripcion TipoEquipo,
-	OT.RAM, OT.PlacaMadre, OT.MarcaModelo, OT.Microprocesador, OT.Almacenamiento, OT.CdDvd, 
-	OT.Fuente, OT.Adicionales, OT.NumSerie,
+	OT.RAM, OT.PlacaMadre, OT.MarcaModelo, OT.Microprocesador, OT.Almacenamiento, 
+	UO.ID IdUnidadOptica,
+	OT.CdDvd UnidadOptica,
+	OT.Fuente Alimentacion, OT.Adicionales, OT.NumSerie,
+	TS.ID IdTipoServicio,
 	TS.Descripcion TipoServicio,
 	OT.Descripcion, 
 	CONVERT(int,OT.CostoRepuestos) CostoRepuestos, 
-	CONVERT(int,OT.CostoTerceros) CostoTerceros, CONVERT(int,OT.CostoCG) CostoCG, 
+	CONVERT(int,OT.CostoTerceros) CostoTerceros, CONVERT(int,OT.CostoCG) Honorarios, 
 	CONVERT(int,OT.CostoTotal) CostoTotal, OT.Estado
 	from OrdenesTrabajo OT join TiposEquipo TE on TE.ID = OT.IdTipoEquipo
 	join Clientes C on C.ID = OT.IdCliente
 	join TiposServicio TS on TS.ID = OT.IdTipoServicio
+	join UnidadesOpticas UO on UO.Descripcion = OT.CdDvd COLLATE MODERN_SPANISH_CI_AS
 	where OT.Estado = 1
 GO
 

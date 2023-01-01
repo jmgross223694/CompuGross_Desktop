@@ -61,6 +61,11 @@ C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.application
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.csproj.CopyComplete
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.exe
 C:\Users\Juanma\Desktop\GitHub\compugross\obj\Debug\CompuGross.pdb
+C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.exe.config
+C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.exe.manifest
+C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.application
+C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.exe
+C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.pdb
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\Dominio.dll
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\ExcelDataReader.DataSet.dll
@@ -95,11 +100,6 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.csproj.Ge
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.csproj.CoreCompileInputs.cache
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.exe.manifest
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.application
+C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.csproj.CopyComplete
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.exe
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.pdb
-C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.exe.config
-C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.exe.manifest
-C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.application
-C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.exe
-C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\CompuGross.pdb
-C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.csproj.CopyComplete

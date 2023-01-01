@@ -365,14 +365,14 @@ namespace CompuGross
 
                 servicio.CdDvd = ddlUnidadOptica.SelectedItem.ToString();
 
-                if (txtNumSerie.Text == "") { servicio.Fuente = "-"; }
-                else { servicio.Fuente = txtNumSerie.Text; }
+                if (txtNumSerie.Text == "") { servicio.NumSerie = "-"; }
+                else { servicio.NumSerie = txtNumSerie.Text; }
 
                 if (txtAdicionales.Text == "") { servicio.Adicionales = "-"; }
                 else { servicio.Adicionales = txtAdicionales.Text; }
 
-                if (txtAlimentacion.Text == "") { servicio.NumSerie = "-"; }
-                else { servicio.NumSerie = txtAlimentacion.Text; }
+                if (txtAlimentacion.Text == "") { servicio.Fuente = "-"; }
+                else { servicio.Fuente = txtAlimentacion.Text; }
 
                 if (txtCostoRepuestos.Text == "") { servicio.CostoRepuestos = 0; }
                 else { servicio.CostoRepuestos = Convert.ToInt32(txtCostoRepuestos.Text); }
@@ -719,7 +719,7 @@ namespace CompuGross
             { MostrarCamposConsola(); }
             else if (aux == "Joystick") 
             { MostrarCamposJoystick(); }
-            else if (aux == "Cámaras") 
+            else if (aux == "Cámaras de seguridad") 
             { MostrarCamposCámaras(); }
         }
 
@@ -828,6 +828,26 @@ namespace CompuGross
         private void MostrarCamposCámaras() //Cámaras
         {
             MostrarCamposGenericos();
+        }
+
+        private void ddlTiposServicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = ddlTiposServicio.SelectedItem.ToString();
+
+            if (seleccion == "Armado de gabinete")
+            {
+                ddlTiposEquipo.SelectedItem = "PC de Escritorio";
+            }
+
+            if (seleccion == "Cámaras de seguridad")
+            {
+                ddlTiposEquipo.SelectedItem = "Cámaras de seguridad";
+            }
+
+            if (seleccion == "Servicio técnico")
+            {
+                ddlTiposEquipo.SelectedItem = "-";
+            }
         }
     }
 }

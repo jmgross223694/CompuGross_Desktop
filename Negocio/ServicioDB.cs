@@ -138,14 +138,14 @@ namespace Negocio
                     aux.MarcaModelo = datos.Lector["MarcaModelo"].ToString();
                     aux.Microprocesador = datos.Lector["Microprocesador"].ToString();
                     aux.Almacenamiento = datos.Lector["Almacenamiento"].ToString();
-                    aux.CdDvd = datos.Lector["CdDvd"].ToString();
-                    aux.Fuente = datos.Lector["Fuente"].ToString();
+                    aux.CdDvd = datos.Lector["UnidadOptica"].ToString();
+                    aux.Fuente = datos.Lector["Alimentacion"].ToString();
                     aux.Adicionales = datos.Lector["Adicionales"].ToString();
                     aux.NumSerie = datos.Lector["NumSerie"].ToString();
                     aux.Descripcion = datos.Lector["Descripcion"].ToString();
                     aux.CostoRepuestos = Convert.ToInt32(datos.Lector["CostoRepuestos"]);
                     aux.CostoTerceros = Convert.ToInt32(datos.Lector["CostoTerceros"]);
-                    aux.CostoCG = Convert.ToInt32(datos.Lector["CostoCG"]);
+                    aux.CostoCG = Convert.ToInt32(datos.Lector["Honorarios"]);
                     aux.Estado = Convert.ToInt32(datos.Lector["Estado"]);
                 }
 
