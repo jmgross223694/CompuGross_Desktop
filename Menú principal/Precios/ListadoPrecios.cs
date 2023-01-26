@@ -52,7 +52,7 @@ namespace CompuGross
                     {
                         int ID = Convert.ToInt32(datos.Lector["ID"]);
                         string Descripcion = datos.Lector["Descripcion"].ToString();
-                        decimal PrecioDolares = Convert.ToDecimal(datos.Lector["Precio"].ToString());
+                        decimal PrecioDolares = Convert.ToDecimal(Convert.ToDouble(Math.Truncate((decimal)datos.Lector["Precio_Dolares"] * 100) / 100));
                         decimal PrecioPesos = PrecioDolares * dolarHoy;
 
                         ListViewItem registro = new ListViewItem(ID.ToString());
@@ -143,6 +143,45 @@ namespace CompuGross
             }
         }
 
+        private void AlinearColumnasDgv()
+        {
+            dgvPrecios.Columns["ID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrecios.Columns["Codigo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrecios.Columns["Dolares"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        private void AlinearTitulosDgv()
+        {
+            dgvPrecios.Columns["ID"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrecios.Columns["Codigo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrecios.Columns["Descripcion"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrecios.Columns["Dolares"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrecios.Columns["Aclaraciones"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        private void OrdenarColumnasDgv()
+        {
+            dgvPrecios.AllowUserToOrderColumns = true;
+            dgvPrecios.Columns["ID"].DisplayIndex = 0;
+            dgvPrecios.Columns["Codigo"].DisplayIndex = 1;
+            dgvPrecios.Columns["Descripcion"].DisplayIndex = 2;
+            dgvPrecios.Columns["Dolares"].DisplayIndex = 3;
+            dgvPrecios.Columns["Aclaraciones"].DisplayIndex = 4;
+        }
+
+        private void RenombrarColumnasDgv()
+        {
+            dgvPrecios.Columns["Codigo"].HeaderText = "Código";
+            dgvPrecios.Columns["Descripcion"].HeaderText = "Descripción";
+            dgvPrecios.Columns["Dolares"].HeaderText = "Precio u$s";
+        }
+
+        private void OcultarColumnasDgv()
+        {
+            dgvPrecios.Columns["Pesos"].Visible = false;
+            dgvPrecios.Columns["Estado"].Visible = false;
+        }
+
         private void CargarListadoAbm()
         {
             List<Precio> lista = new List<Precio>();
@@ -150,6 +189,12 @@ namespace CompuGross
 
             lista = pDb.Listar();
             dgvPrecios.DataSource = lista;
+
+            OcultarColumnasDgv();
+            AlinearTitulosDgv();
+            AlinearColumnasDgv();
+            OrdenarColumnasDgv();
+            RenombrarColumnasDgv();
         }
 
         private void btnAbm_Click(object sender, EventArgs e)
@@ -198,6 +243,13 @@ namespace CompuGross
             txtDolares.Visible = false;
             txtDescripcion.Visible = false;
             btnConfirmar.Visible = false;
+
+            lblCodigo.Visible = false;
+            txtCodigo.Text = "";
+            txtCodigo.Visible = false;
+            lblAclaraciones.Visible = false;
+            txtAclaraciones.Text = "";
+            txtAclaraciones.Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -220,6 +272,13 @@ namespace CompuGross
             txtDolares.Text = "";
             txtDescripcion.Visible = true;
             txtDescripcion.Text = "";
+
+            lblCodigo.Visible = true;
+            txtCodigo.Text = "";
+            txtCodigo.Visible = true;
+            lblAclaraciones.Visible = true;
+            txtAclaraciones.Text = "";
+            txtAclaraciones.Visible = true;
 
             btnConfirmar.Visible = true;
 
@@ -246,12 +305,19 @@ namespace CompuGross
             btnAbm.Visible = true;
             btnAgregar.Visible = false;
 
+            lblCodigo.Visible = true;
+            txtCodigo.Visible = true;
+            lblAclaraciones.Visible = true;
+            txtAclaraciones.Visible = true;
+
             lblDolares.Visible = true;
             lblDescripcion.Visible = true;
             txtDolares.Visible = true;
-            txtDolares.Text = p.PrecioDolares.ToString();
+            txtCodigo.Text = p.Codigo.ToString();
+            txtDolares.Text = p.Dolares.ToString();
             txtDescripcion.Visible = true;
             txtDescripcion.Text = p.Descripcion;
+            txtAclaraciones.Text = p.Aclaraciones;
 
             txtPesos.Text = p.ID.ToString();
 
@@ -334,10 +400,11 @@ namespace CompuGross
         {
             decimal precioDolares = Convert.ToDecimal(txtDolares.Text);
             string descripcion = txtDescripcion.Text;
+            string codigo = txtCodigo.Text;
 
-            if (precioDolares == 0 || descripcion == "" || descripcion == "-" || descripcion == " ")
+            if (precioDolares == 0 || descripcion == "" || descripcion == "-" || descripcion == " " || codigo == "" || codigo == "-")
             {
-                MessageBox.Show("Precio Dólares o Descripción inválidos.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Precio, Código o Descripción inválidos o vacíos.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -352,8 +419,10 @@ namespace CompuGross
 
                             Precio precio = new Precio();
                             precio.ID = 1;
-                            precio.Descripcion = txtDescripcion.Text;
-                            precio.PrecioDolares = Convert.ToInt64(txtDolares.Text);
+                            precio.Codigo = codigo;
+                            precio.Descripcion = descripcion;
+                            precio.Aclaraciones = txtAclaraciones.Text;
+                            precio.Dolares = precioDolares;
                             pDb.Agregar(precio);
 
                             MessageBox.Show("Precio registrado correctamente en el sistema.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -376,8 +445,10 @@ namespace CompuGross
                             Precio precio = new Precio();
 
                             precio.ID = Convert.ToInt64(txtPesos.Text);
+                            precio.Codigo = codigo;
                             precio.Descripcion = descripcion;
-                            precio.PrecioDolares = precioDolares;
+                            precio.Aclaraciones = txtAclaraciones.Text;
+                            precio.Dolares = precioDolares;
 
                             pDb.Modificar(precio);
 
@@ -398,6 +469,13 @@ namespace CompuGross
                 txtDescripcion.Text = "";
                 txtPesos.Text = "";
                 btnConfirmar.Visible = false;
+
+                lblCodigo.Visible = false;
+                txtCodigo.Text = "";
+                txtCodigo.Visible = false;
+                lblAclaraciones.Visible = false;
+                txtAclaraciones.Text = "";
+                txtAclaraciones.Visible = false;
 
                 btnAtras.Visible = true;
                 btnAgregar.Visible = true;

@@ -30,10 +30,10 @@ namespace CompuGross
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoPrecios));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.listPrecios = new System.Windows.Forms.ListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colDescripcion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,6 +54,10 @@ namespace CompuGross
             this.lblDolares = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.txtAclaraciones = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.lblAclaraciones = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrecios)).BeginInit();
             this.SuspendLayout();
@@ -227,45 +231,45 @@ namespace CompuGross
             this.dgvPrecios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPrecios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgvPrecios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrecios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrecios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvPrecios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPrecios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPrecios.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvPrecios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPrecios.EnableHeadersVisualStyles = false;
             this.dgvPrecios.Location = new System.Drawing.Point(10, 59);
             this.dgvPrecios.MultiSelect = false;
             this.dgvPrecios.Name = "dgvPrecios";
             this.dgvPrecios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrecios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrecios.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvPrecios.RowHeadersVisible = false;
             this.dgvPrecios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvPrecios.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvPrecios.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvPrecios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPrecios.ShowCellErrors = false;
             this.dgvPrecios.ShowCellToolTips = false;
@@ -281,8 +285,8 @@ namespace CompuGross
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.ForeColor = System.Drawing.Color.White;
-            this.txtDescripcion.Location = new System.Drawing.Point(129, 204);
-            this.txtDescripcion.MaxLength = 200;
+            this.txtDescripcion.Location = new System.Drawing.Point(131, 176);
+            this.txtDescripcion.MaxLength = 85;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(303, 24);
             this.txtDescripcion.TabIndex = 3;
@@ -296,7 +300,7 @@ namespace CompuGross
             this.txtDolares.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDolares.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDolares.ForeColor = System.Drawing.Color.White;
-            this.txtDolares.Location = new System.Drawing.Point(246, 110);
+            this.txtDolares.Location = new System.Drawing.Point(131, 114);
             this.txtDolares.MaxLength = 6;
             this.txtDolares.Name = "txtDolares";
             this.txtDolares.Size = new System.Drawing.Size(67, 24);
@@ -310,11 +314,11 @@ namespace CompuGross
             this.lblDolares.AutoSize = true;
             this.lblDolares.BackColor = System.Drawing.Color.Transparent;
             this.lblDolares.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDolares.Location = new System.Drawing.Point(242, 87);
+            this.lblDolares.Location = new System.Drawing.Point(134, 91);
             this.lblDolares.Name = "lblDolares";
-            this.lblDolares.Size = new System.Drawing.Size(112, 20);
+            this.lblDolares.Size = new System.Drawing.Size(83, 20);
             this.lblDolares.TabIndex = 96;
-            this.lblDolares.Text = "Precio Dólares";
+            this.lblDolares.Text = "Precio u$s";
             this.lblDolares.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDolares.Visible = false;
             // 
@@ -323,7 +327,7 @@ namespace CompuGross
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(246, 181);
+            this.lblDescripcion.Location = new System.Drawing.Point(248, 153);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(92, 20);
             this.lblDescripcion.TabIndex = 97;
@@ -340,7 +344,7 @@ namespace CompuGross
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.Image")));
             this.btnConfirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirmar.Location = new System.Drawing.Point(227, 286);
+            this.btnConfirmar.Location = new System.Drawing.Point(240, 287);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(102, 43);
             this.btnConfirmar.TabIndex = 4;
@@ -351,6 +355,60 @@ namespace CompuGross
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             this.btnConfirmar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnConfirmar_KeyPress);
             // 
+            // txtAclaraciones
+            // 
+            this.txtAclaraciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtAclaraciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAclaraciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAclaraciones.ForeColor = System.Drawing.Color.White;
+            this.txtAclaraciones.Location = new System.Drawing.Point(131, 242);
+            this.txtAclaraciones.MaxLength = 200;
+            this.txtAclaraciones.Name = "txtAclaraciones";
+            this.txtAclaraciones.Size = new System.Drawing.Size(303, 24);
+            this.txtAclaraciones.TabIndex = 98;
+            this.txtAclaraciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAclaraciones.Visible = false;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.BackColor = System.Drawing.Color.Transparent;
+            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(377, 91);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(59, 20);
+            this.lblCodigo.TabIndex = 99;
+            this.lblCodigo.Text = "Código";
+            this.lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCodigo.Visible = false;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.ForeColor = System.Drawing.Color.White;
+            this.txtCodigo.Location = new System.Drawing.Point(367, 114);
+            this.txtCodigo.MaxLength = 8;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(67, 24);
+            this.txtCodigo.TabIndex = 100;
+            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodigo.Visible = false;
+            // 
+            // lblAclaraciones
+            // 
+            this.lblAclaraciones.AutoSize = true;
+            this.lblAclaraciones.BackColor = System.Drawing.Color.Transparent;
+            this.lblAclaraciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAclaraciones.Location = new System.Drawing.Point(242, 219);
+            this.lblAclaraciones.Name = "lblAclaraciones";
+            this.lblAclaraciones.Size = new System.Drawing.Size(100, 20);
+            this.lblAclaraciones.TabIndex = 101;
+            this.lblAclaraciones.Text = "Aclaraciones";
+            this.lblAclaraciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAclaraciones.Visible = false;
+            // 
             // ListadoPrecios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +416,10 @@ namespace CompuGross
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(661, 405);
+            this.Controls.Add(this.lblAclaraciones);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.lblCodigo);
+            this.Controls.Add(this.txtAclaraciones);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblDolares);
@@ -408,5 +470,9 @@ namespace CompuGross
         private System.Windows.Forms.Label lblDolares;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.TextBox txtAclaraciones;
+        private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label lblAclaraciones;
     }
 }

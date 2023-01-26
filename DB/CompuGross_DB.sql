@@ -3,6 +3,8 @@ GO
 
 --drop trigger TR_BAJA_LOGICA_SERVICIO
 --drop trigger TR_BAJA_LOGICA_CLIENTE
+--drop trigger TR_BAJA_LOGICA_LOCALIDAD
+--drop trigger TR_BAJA_LOGICA_Proveedores
 
 /*
 --Consultar Case Sensitive en BD
@@ -248,8 +250,11 @@ GO
 
 create table ListaPrecios(
 	ID int not null identity(1,1),
-	Descripcion varchar(200) unique not null,
-	Precio int not null default(0)
+	Codigo varchar(8) unique not null,
+	Descripcion varchar(85) unique not null,
+	Aclaraciones varchar(200) null,
+	Precio_Dolares money not null default(0),
+	Estado bit not null default(1)
 )
 GO
 

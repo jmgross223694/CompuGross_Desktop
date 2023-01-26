@@ -27,8 +27,11 @@ namespace Negocio
                     Precio aux = new Precio
                     {
                         ID = Convert.ToInt64(datos.Lector["ID"]),
+                        Codigo = datos.Lector["Codigo"].ToString(),
                         Descripcion = datos.Lector["Descripcion"].ToString(),
-                        PrecioDolares = Convert.ToDecimal(datos.Lector["Precio"])
+                        Aclaraciones = datos.Lector["Aclaraciones"].ToString(),
+                        Dolares = Convert.ToDecimal(Convert.ToDouble(Math.Truncate((decimal)datos.Lector["Precio_Dolares"] * 100) / 100)),
+                        Estado = Convert.ToBoolean(datos.Lector["Estado"])
                     };
 
                     lista.Add(aux);
@@ -50,7 +53,10 @@ namespace Negocio
         {
             try
             {
-                string consulta = "update ListaPrecios set Descripcion = '" + p.Descripcion + "', Precio = " + p.PrecioDolares + " where ID = " + p.ID;
+                string consulta = "update ListaPrecios set Codigo = '" + p.Codigo + "', " +
+                                                      "Descripcion = '" + p.Descripcion + "', " +
+                                                      "Aclaraciones = '" + p.Aclaraciones + "', " +
+                                                      "Precio_Dolares = " + p.Dolares + " where ID = " + p.ID;
 
                 datos.IUD(consulta);
             }
@@ -68,7 +74,8 @@ namespace Negocio
         {
             try
             {
-                string consulta = "insert into ListaPrecios(Descripcion, Precio) values('" + p.Descripcion + "', " + p.PrecioDolares + ")";
+                string consulta = "insert into ListaPrecios(Codigo, Descripcion, Aclaraciones, Precio_Dolares) " +
+                                  "values('" + p.Codigo + "', '" + p.Descripcion + "', '" + p.Aclaraciones + "', " + p.Dolares + ")";
 
                 datos.IUD(consulta);
             }
