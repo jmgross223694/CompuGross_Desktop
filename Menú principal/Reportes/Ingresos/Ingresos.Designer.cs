@@ -147,7 +147,7 @@ namespace CompuGross
             this.txtTipoServicio2.ReadOnly = true;
             this.txtTipoServicio2.Size = new System.Drawing.Size(177, 26);
             this.txtTipoServicio2.TabIndex = 6;
-            this.txtTipoServicio2.Text = "Cámaras de seguridad";
+            this.txtTipoServicio2.Text = "Cámaras";
             this.txtTipoServicio2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtxTipoServicio3

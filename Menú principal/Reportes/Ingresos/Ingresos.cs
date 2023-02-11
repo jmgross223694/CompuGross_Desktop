@@ -25,7 +25,7 @@ namespace CompuGross
         {
             /* IdTipo:
              * 1 = Armado de gabinete
-             * 2 = Cámaras de seguridad
+             * 2 = Cámaras
              * 3 = Servicio técnico
              */
 

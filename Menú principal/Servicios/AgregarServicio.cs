@@ -719,7 +719,7 @@ namespace CompuGross
             { MostrarCamposConsola(); }
             else if (aux == "Joystick") 
             { MostrarCamposJoystick(); }
-            else if (aux == "Cámaras de seguridad") 
+            else if (aux == "Cámaras") 
             { MostrarCamposCámaras(); }
         }
 
@@ -839,9 +839,9 @@ namespace CompuGross
                 ddlTiposEquipo.SelectedItem = "PC de Escritorio";
             }
 
-            if (seleccion == "Cámaras de seguridad")
+            if (seleccion == "Cámaras")
             {
-                ddlTiposEquipo.SelectedItem = "Cámaras de seguridad";
+                ddlTiposEquipo.SelectedItem = "Cámaras";
             }
 
             if (seleccion == "Servicio técnico")
