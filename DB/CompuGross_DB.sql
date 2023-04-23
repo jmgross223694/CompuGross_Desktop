@@ -484,15 +484,10 @@ TotalServicios
 from Clientes C where Estado = 1
 GO
 
-create view ExportUsuarios
+create or alter view ExportUsuarios
 as
-	select ID as ID,
-	(select TU.Tipo from TiposUsuario TU where ID = U.IdTipo) as Tipo,
-	Nombre as Nombres,
-	Apellido as Apellidos,
-	Username as DNI,
-	Mail as Mail
-	from Usuarios U
+	select U.ID, TU.ID IdTipo, TU.Tipo, U.Nombre, U.Apellido, U.Username, U.Mail 
+	from Usuarios U inner join TiposUsuario TU on U.IdTipo = TU.ID
 GO
 
 create table TiposProveedor(
@@ -529,5 +524,12 @@ begin
 	declare @ID bigint = (select ID from deleted)
 
 	update Proveedores set Estado = 0 where ID = @ID
+end
+GO
+
+create or alter trigger TR_BORRAR_LICENCIA_ANTERIOR on Activado after insert
+as
+begin
+	delete from Activado where ID = (select top 1 ID from Activado order by ID asc)
 end
 GO
