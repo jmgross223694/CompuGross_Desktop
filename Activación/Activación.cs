@@ -262,8 +262,17 @@ namespace CompuGross
                         datos2.SetearConsulta(insertActivacion);
                         datos2.EjecutarLectura();
 
-                        mailService.armarCorreo(mailDestino, asunto, cuerpo);
-                        mailService.enviarEmail();
+                        try
+                        {
+                            mailService.armarCorreo(mailDestino, asunto, cuerpo);
+                            mailService.enviarEmail();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("No se pudo enviar el mail con los datos de la licencia registrada", "Atención", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        
 
                         MessageBox.Show("Gracias por activar el software de CompuGross\n\n" +
                             "Recuerde que la licencia tiene una validez de un año a partir de este día.\n\n", 

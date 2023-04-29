@@ -6,6 +6,13 @@ Serials CG:
 7587-5505-3692-8846-7458-6196
 6549-5139-9932-6621-7375-1543
 
+insert into Licencias(Serial) values(convert(varbinary,'9687-9367-9819-6821-2419-7850'))
+insert into Licencias(Serial) values(convert(varbinary,'4214-1810-8064-6539-7738-1505'))
+insert into Licencias(Serial) values(convert(varbinary,'8259-5919-3923-7237-4899-8042'))
+insert into Licencias(Serial) values(convert(varbinary,'4681-2234-7293-1081-5156-4060'))
+insert into Licencias(Serial) values(convert(varbinary,'7587-5505-3692-8846-7458-6196'))
+insert into Licencias(Serial) values(convert(varbinary,'6549-5139-9932-6621-7375-1543'))
+
 insert into credencialesMail(mail, pass)
-values('compugross02.05.13@gmail.com', 'irxwqelshrmactii')
+values('compugross02.05.13@gmail.com', 'ywfwemrxjhzssazo')
 GO

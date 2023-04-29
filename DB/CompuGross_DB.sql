@@ -39,9 +39,20 @@ GO
 create table Activado(
 	ID smallint primary key not null identity(1,1),
 	IdLicencia int not null foreign key references Licencias(ID),
-	Estado bit,
+	Estado bit default(1),
 	Validez date not null default(getdate()+365)
 )
+GO
+
+insert into Licencias(Serial) values(pwdencrypt('9687-9367-9819-6821-2419-7850'))
+insert into Licencias(Serial) values(pwdencrypt('4214-1810-8064-6539-7738-1505'))
+insert into Licencias(Serial) values(pwdencrypt('8259-5919-3923-7237-4899-8042'))
+insert into Licencias(Serial) values(pwdencrypt('4681-2234-7293-1081-5156-4060'))
+insert into Licencias(Serial) values(pwdencrypt('7587-5505-3692-8846-7458-6196'))
+insert into Licencias(Serial) values(pwdencrypt('6549-5139-9932-6621-7375-1543'))
+GO
+
+insert into Activado(IdLicencia, Validez) values((select top 1 ID from Licencias), getdate()-366)
 GO
 
 create table TiposUsuario(
@@ -73,21 +84,7 @@ create table UsuarioLogueado(
 )
 GO
 
-begin try
-	update UsuarioLogueado set Tipo = 'test', Username = 'test' where ID = 1
-end try
-begin catch
-	drop table UsuarioLogueado
-
-	create table UsuarioLogueado(
-		ID int not null primary key identity(1,1),
-		Username varchar(30) null,
-		Tipo varchar(10) null
-	)
-
-	insert into UsuarioLogueado(Tipo, Username) values('test', 'test')
-end catch
-GO
+insert into UsuarioLogueado(Tipo, Username) values('test', 'test')
 
 create table Localidades(
 	ID bigint primary key not null identity(1,1),
@@ -294,8 +291,8 @@ as
 	TE.Descripcion TipoEquipo,
 	OT.RAM, OT.PlacaMadre, OT.MarcaModelo, OT.Microprocesador, OT.Almacenamiento, 
 	UO.ID IdUnidadOptica,
-	OT.CdDvd UnidadOptica,
-	OT.Fuente Alimentacion, OT.Adicionales, OT.NumSerie,
+	OT.UnidadOptica,
+	OT.Alimentacion, OT.Adicionales, OT.NumSerie,
 	TS.ID IdTipoServicio,
 	TS.Descripcion TipoServicio,
 	OT.Descripcion, 
@@ -305,7 +302,7 @@ as
 	from OrdenesTrabajo OT join TiposEquipo TE on TE.ID = OT.IdTipoEquipo
 	join Clientes C on C.ID = OT.IdCliente
 	join TiposServicio TS on TS.ID = OT.IdTipoServicio
-	join UnidadesOpticas UO on UO.Descripcion = OT.CdDvd COLLATE MODERN_SPANISH_CI_AS
+	join UnidadesOpticas UO on UO.Descripcion = OT.UnidadOptica COLLATE MODERN_SPANISH_CI_AS
 	where OT.Estado = 1
 GO
 
@@ -334,8 +331,8 @@ create or alter procedure SP_UPDATE_ORDEN_TRABAJO(
 	@MarcaModelo varchar(50),
 	@Microprocesador varchar(50),
 	@Almacenamiento varchar(50),
-	@CdDvd varchar(50),
-	@Fuente varchar(50),
+	@UnidadOptica varchar(50),
+	@Alimentacion varchar(50),
 	@Adicionales varchar(50),
 	@NumSerie varchar(100),
 	@TipoServicio varchar(30),
@@ -355,8 +352,8 @@ begin
 							MarcaModelo = @MarcaModelo,
 							Microprocesador= @Microprocesador,
 							Almacenamiento = @Almacenamiento,
-							CdDvd = @CdDvd,
-							Fuente = @Fuente,
+							UnidadOptica = @UnidadOptica,
+							Alimentacion = @Alimentacion,
 							Adicionales = @Adicionales,
 							NumSerie = @NumSerie,
 							IdTipoServicio = (select ID from TiposServicio where Descripcion = @TipoServicio),
@@ -396,7 +393,7 @@ begin
 		begin
 			insert into OrdenesTrabajo(IdCliente, FechaRecepcion, IdTipoEquipo, RAM, 
 							   PlacaMadre, MarcaModelo, Microprocesador, 
-							   Almacenamiento, CdDvd, Fuente, Adicionales,
+							   Almacenamiento, UnidadOptica, Alimentacion, Adicionales,
 							   NumSerie, IdTipoServicio, Descripcion,
 							   CostoRepuestos, CostoTerceros, CostoCG,
 							   Ganancia, CostoTotal)
@@ -413,7 +410,7 @@ begin
 		begin
 			insert into OrdenesTrabajo(IdCliente, FechaRecepcion, IdTipoEquipo, RAM, 
 							   PlacaMadre, MarcaModelo, Microprocesador, 
-							   Almacenamiento, CdDvd, Fuente, Adicionales,
+							   Almacenamiento, UnidadOptica, Alimentacion, Adicionales,
 							   NumSerie, IdTipoServicio, Descripcion,
 							   CostoRepuestos, CostoTerceros, CostoCG,
 							   FechaDevolucion, Ganancia, CostoTotal)
@@ -426,8 +423,6 @@ begin
 				   @Descripcion, @CostoRepuestos, @CostoTerceros, @CostoCG,
 				   @FechaDevolucion, @CostoCG, (@CostoRepuestos + @CostoCG + @CostoTerceros))
 		end
-	
-	
 end
 GO
 

@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                string consulta = "select * from ExportUsuarios order by Nombres asc";
+                string consulta = "select * from ExportUsuarios order by Nombre asc";
 
                 datos.SetearConsulta(consulta);
                 datos.EjecutarLectura();
@@ -27,10 +27,10 @@ namespace Negocio
                     {
                         Id = (int)datos.Lector["ID"],
                         Tipo = Convert.ToString(datos.Lector["Tipo"]),
-                        Nombres = Convert.ToString(datos.Lector["Nombres"]),
-                        Apellidos = Convert.ToString(datos.Lector["Apellidos"]),
+                        Nombres = Convert.ToString(datos.Lector["Nombre"]),
+                        Apellidos = Convert.ToString(datos.Lector["Apellido"]),
                         Mail = Convert.ToString(datos.Lector["Mail"]),
-                        Dni = Convert.ToString(datos.Lector["DNI"])
+                        Dni = Convert.ToString(datos.Lector["Username"])
                     };
 
                     lista.Add(aux);
