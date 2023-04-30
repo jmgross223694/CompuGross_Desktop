@@ -43,10 +43,10 @@ namespace CompuGross
                 listaTablas.Add("TiposEquipo");
                 listaTablas.Add("OrdenesTrabajo");
                 listaTablas.Add("ListaPrecios");
-                listaTablas.Add("Activado");
-                listaTablas.Add("credencialesMail");
-                listaTablas.Add("Licencias");
-                listaTablas.Add("UsuarioLogueado");
+                //listaTablas.Add("Activado");
+                //listaTablas.Add("credencialesMail");
+                //listaTablas.Add("Licencias");
+                //listaTablas.Add("UsuarioLogueado");
                 
                 bool bandera = false;
 
@@ -64,7 +64,7 @@ namespace CompuGross
                         con = new SqlConnection(strConLan);
 
                         con.Open();
-
+                        
                         string selectTabla = "select * from " + nombreTabla;
 
                         //CARGAMOS TABLA EN MEMORIA CON LA CONSULTA
