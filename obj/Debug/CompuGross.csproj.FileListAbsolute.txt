@@ -103,3 +103,45 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\bin\Debug\itextsharp.xml
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.exe.manifest
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.application
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\obj\Debug\CompuGross.csproj.CopyComplete
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\CompuGross.exe.config
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\CompuGross.exe.manifest
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\CompuGross.application
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\CompuGross.exe
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\CompuGross.pdb
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\Dominio.dll
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\ExcelDataReader.dll
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\itextsharp.dll
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\Negocio.dll
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\Dominio.pdb
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\Negocio.pdb
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\ExcelDataReader.pdb
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\ExcelDataReader.xml
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\bin\Debug\itextsharp.xml
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.csproj.AssemblyReference.cache
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.csproj.SuggestedBindingRedirects.cache
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Activación.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.AgregarCliente.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Localidades.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Proveedores.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.ReportePorCliente.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.AgregarServicio.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Presupuesto.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.ABMUsuarios.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Backup.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Clientes.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Ingresos.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.ListadoPrecios.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.MenuPrincipal.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Servicios.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.Properties.Resources.resources
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.csproj.GenerateResource.cache
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.csproj.CoreCompileInputs.cache
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.exe.manifest
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.application
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.csproj.CopyComplete
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.exe
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\obj\Debug\CompuGross.pdb

@@ -10,3 +10,9 @@ C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\Dominio\obj\Debug\Entidades.cs
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\Dominio\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\Dominio\obj\Debug\Dominio.dll
 C:\Users\Juanma\Desktop\GitHub\CompuGross_Desktop\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\Dominio\bin\Debug\Dominio.dll
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\Dominio\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\Dominio\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\Dominio\obj\Debug\Dominio.dll
+C:\Users\Juan Manuel\Desktop\Proyectos\CompuGross_Desktop\Dominio\obj\Debug\Dominio.pdb
