@@ -16,3 +16,7 @@ insert into Licencias(Serial) values(convert(varbinary,'6549-5139-9932-6621-7375
 insert into credencialesMail(mail, pass)
 values('compugross02.05.13@gmail.com', 'ywfwemrxjhzssazo')
 GO
+
+insert into Usuarios(IdTipo, Apellido, Nombre, Username, Mail, Clave)
+values(1, 'Gross', 'Juan Manuel', '38346656', 'jmgross76@gmail.com', pwdencrypt('Admin123'))
+GO
