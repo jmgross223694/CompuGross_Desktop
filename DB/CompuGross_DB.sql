@@ -24,7 +24,7 @@ GO
 
 create table credencialesMail(
 	ID int not null primary key identity(1,1),
-	mail varchar(100), 
+	mail varchar(100),
 	pass varchar(20)
 )
 GO

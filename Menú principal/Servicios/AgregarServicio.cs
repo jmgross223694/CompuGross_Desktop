@@ -721,6 +721,8 @@ namespace CompuGross
             { MostrarCamposJoystick(); }
             else if (aux == "Cámaras") 
             { MostrarCamposCámaras(); }
+            else if (aux == "Unidad de Almacenamiento")
+            { MostrarCamposUnidadDeAlmacenamiento(); }
         }
 
         private void OcultarCamposOrden()
@@ -777,6 +779,17 @@ namespace CompuGross
             lblDescripcion.Visible = true;
             lblAsteriscoDescripcion.Visible = true;
             txtDescripcion.Visible = true;
+        }
+
+        private void MostrarCamposUnidadDeAlmacenamiento()
+        {
+            MostrarCamposGenericos();
+            lblAlmacenamiento.Visible = true;
+            txtAlmacenamiento.Visible = true;
+            lblNumSerie.Visible = true;
+            txtNumSerie.Visible = true;
+            lblAdicionales.Visible = true;
+            txtAdicionales.Visible = true;
         }
 
         private void MostrarCamposComputadora() //PC de Escritorio, All in One, Notebook, Netbook

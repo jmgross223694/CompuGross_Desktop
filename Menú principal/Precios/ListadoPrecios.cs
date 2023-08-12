@@ -51,18 +51,14 @@ namespace CompuGross
                     while (datos.Lector.Read() == true)
                     {
                         int ID = Convert.ToInt32(datos.Lector["ID"]);
+                        string Codigo = datos.Lector["Codigo"].ToString();
                         string Descripcion = datos.Lector["Descripcion"].ToString();
                         decimal PrecioDolares = Convert.ToDecimal(Convert.ToDouble(Math.Truncate((decimal)datos.Lector["Precio_Dolares"] * 100) / 100));
                         decimal PrecioPesos = PrecioDolares * dolarHoy;
-
-                        ListViewItem registro = new ListViewItem(ID.ToString());
-
+                        ListViewItem registro = new ListViewItem(Codigo);
                         registro.SubItems.Add(Descripcion);
-
                         registro.SubItems.Add("$ " + PrecioPesos.ToString());
-
                         registro.SubItems.Add("u$s " + PrecioDolares.ToString());
-
                         listPrecios.Items.Add(registro);
                     }
                 }
@@ -105,7 +101,7 @@ namespace CompuGross
             {
                 e.Handled = false;
             }
-            else if (e.KeyChar == ',')
+            else if (e.KeyChar == ',' || e.KeyChar == '.')
             {
                 e.Handled = false;
             }
@@ -302,7 +298,7 @@ namespace CompuGross
             btnEliminar.Visible = false;
             btnModificar.Visible = false;
             btnAtras.Visible = true;
-            btnAbm.Visible = true;
+            btnAbm.Visible = false;
             btnAgregar.Visible = false;
 
             lblCodigo.Visible = true;
@@ -369,6 +365,10 @@ namespace CompuGross
                 {
                     e.Handled = true;
                 }
+                if (len == 0 && e.KeyChar == '.')
+                {
+                    e.Handled = true;
+                }
                 else
                 {
                     soloNumerosEnteros_Y_Decimales(sender, e);
@@ -398,7 +398,7 @@ namespace CompuGross
 
         private void ConfirmarPrecio()
         {
-            decimal precioDolares = Convert.ToDecimal(txtDolares.Text);
+            decimal precioDolares = Convert.ToDecimal(txtDolares.Text.Replace(",", "."));
             string descripcion = txtDescripcion.Text;
             string codigo = txtCodigo.Text;
 
@@ -477,6 +477,7 @@ namespace CompuGross
                 txtAclaraciones.Text = "";
                 txtAclaraciones.Visible = false;
 
+                btnAbm.Visible = false;
                 btnAtras.Visible = true;
                 btnAgregar.Visible = true;
                 btnModificar.Visible = true;
