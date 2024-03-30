@@ -643,16 +643,16 @@ namespace CompuGross
 
                 if (mayuscula && minuscula && numero && len >= 8) { claveValida = true; }
 
-                if (len >= 8) { lblCaracteres.ForeColor = Color.ForestGreen; lblCaracteres.Visible = false; }
+                if (len >= 8) { lblCaracteres.ForeColor = Color.ForestGreen; /*lblCaracteres.Visible = false;*/ }
                 else { lblCaracteres.ForeColor = Color.Red; lblCaracteres.Visible = true; }
 
-                if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; lblMayus.Visible = false; }
+                if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; /*lblMayus.Visible = false;*/ }
                 else { lblMayus.ForeColor = Color.Red; lblMayus.Visible = true; }
 
-                if (minuscula) { lblMinus.ForeColor = Color.ForestGreen; lblMinus.Visible = false; }
+                if (minuscula) { lblMinus.ForeColor = Color.ForestGreen; /*lblMinus.Visible = false;*/ }
                 else { lblMinus.ForeColor = Color.Red; lblMinus.Visible = true; }
 
-                if (numero) { lblNum.ForeColor = Color.ForestGreen; lblNum.Visible = false; }
+                if (numero) { lblNum.ForeColor = Color.ForestGreen; /*lblNum.Visible = false;*/ }
                 else { lblNum.ForeColor = Color.Red; lblNum.Visible = true; }
 
                 if (claveValida)
@@ -750,19 +750,20 @@ namespace CompuGross
                      minuscula = validarMinusculaClave(clave),
                      numero = validarNumeroClave(clave);
 
-            if (len >= 8) { lblCaracteres.ForeColor = Color.ForestGreen; lblCaracteres.Visible = false; }
+            if (len >= 8) { lblCaracteres.ForeColor = Color.ForestGreen; /*lblCaracteres.Visible = false;*/ }
             else { lblCaracteres.ForeColor = Color.Red; lblCaracteres.Visible = true; }
 
-            if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; lblMayus.Visible = false; }
+            if (mayuscula) { lblMayus.ForeColor = Color.ForestGreen; /*lblMayus.Visible = false;*/ }
             else { lblMayus.ForeColor = Color.Red; lblMayus.Visible = true; }
 
-            if (minuscula) { lblMinus.ForeColor = Color.ForestGreen; lblMinus.Visible = false; }
+            if (minuscula) { lblMinus.ForeColor = Color.ForestGreen; /*lblMinus.Visible = false;*/ }
             else { lblMinus.ForeColor = Color.Red; lblMinus.Visible = true; }
 
-            if (numero) { lblNum.ForeColor = Color.ForestGreen; lblNum.Visible = false; }
+            if (numero) { lblNum.ForeColor = Color.ForestGreen; /*lblNum.Visible = false;*/ }
             else { lblNum.ForeColor = Color.Red; lblNum.Visible = true; }
 
             cbMostrarClave.Enabled = true;
+            cbMostrarClave.Visible = true;
         }
 
         private void txtClave_Leave(object sender, EventArgs e)
@@ -775,6 +776,7 @@ namespace CompuGross
 
         private void txtMail_Enter(object sender, EventArgs e)
         {
+            OcultarCondicionesClave();
             string mail = txtMail.Text;
             int len = mail.Length;
             if (mail == "")
@@ -987,10 +989,10 @@ namespace CompuGross
                 btnCancelar.Visible = true;
                 VisibilidadCamposAgregarUsuario("show");
                 VisibilidadInicialAgregarUsuario();
-                lblClave.Visible = false;
-                txtClave.Visible = false;
+                lblClave.Visible = true;
+                txtClave.Visible = true;
                 cbMostrarClave.Visible = false;
-                lblAsterisco6.Visible = false;
+                lblAsterisco6.Visible = true;
                 lblCaracteres.Visible = false;
                 lblMayus.Visible = false;
                 lblMinus.Visible = false;
@@ -1095,6 +1097,34 @@ namespace CompuGross
             ClickBtnModificar();
         }
 
+        private void ddlTipoUsuario_Enter(object sender, EventArgs e)
+        {
+            OcultarCondicionesClave();
+        }
+
+        private void OcultarCondicionesClave()
+        {
+            lblCaracteres.Visible = false;
+            lblMayus.Visible = false;
+            lblMinus.Visible = false;
+            lblNum.Visible = false;
+        }
+
+        private void txtNombres_Enter(object sender, EventArgs e)
+        {
+            OcultarCondicionesClave();
+        }
+
+        private void txtApellidos_Enter(object sender, EventArgs e)
+        {
+            OcultarCondicionesClave();
+        }
+
+        private void txtDni_Enter(object sender, EventArgs e)
+        {
+            OcultarCondicionesClave();
+        }
+
         private void cbMostrarClave_CheckedChanged(object sender, EventArgs e)
         {
             if (cbMostrarClave.Checked)
@@ -1105,6 +1135,12 @@ namespace CompuGross
             {
                 txtClave.UseSystemPasswordChar = true;
             }
+            lblCaracteres.Visible = true;
+            lblMayus.Visible = true;
+            lblMinus.Visible = true;
+            lblNum.Visible = true;
+            cbMostrarClave.Visible = true;
+            cbMostrarClave.Enabled = true;
         }
     }
 }

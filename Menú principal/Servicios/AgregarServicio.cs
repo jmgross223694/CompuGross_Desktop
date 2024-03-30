@@ -345,7 +345,7 @@ namespace CompuGross
                 Servicio servicio = new Servicio();
 
                 DateTime fecha = Convert.ToDateTime(fechaRecepcion.Text);
-                string fecRecepcion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+                string fecRecepcion = fecha.Year.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Day.ToString();
 
                 servicio.Cliente = txtCliente.Text;
                 servicio.FechaRecepcion = fecRecepcion;
@@ -381,7 +381,7 @@ namespace CompuGross
                 else { servicio.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
 
                 fecha = Convert.ToDateTime(fechaDevolucion.Text);
-                string fecDevolucion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+                string fecDevolucion = fecha.Year.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Day.ToString();
 
                 if (cbFechaDevolucion.Checked == false)
                 {

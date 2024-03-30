@@ -59,7 +59,7 @@ namespace CompuGross
                     {
                         //INICIAMOS CONEXION
                         //string strConLocal = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
-                        string strConLan = "Server=192.168.100.26\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
+                        string strConLan = "Server=192.168.100.144\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
 
                         con = new SqlConnection(strConLan);
 
@@ -185,42 +185,49 @@ namespace CompuGross
 
         private void btnElegirArchivo_Click(object sender, EventArgs e)
         {
-            //configuracion de ventana para seleccionar un archivo
-            OpenFileDialog oOpenFileDialog = new OpenFileDialog();
-            oOpenFileDialog.Filter = "Excel Worbook|*.xlsx";
-
-            if (oOpenFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                dgvArchivo.DataSource = null;
+                //configuracion de ventana para seleccionar un archivo
+                OpenFileDialog oOpenFileDialog = new OpenFileDialog();
+                oOpenFileDialog.Filter = "Excel Worbook|*.xlsx";
 
-                txtArchivoSeleccionado.Text = oOpenFileDialog.FileName;
-
-                //FileStream nos permite leer, escribir, abrir y cerrar archivos en un sistema de archivos, como matrices de bytes
-                FileStream fsSource = new FileStream(oOpenFileDialog.FileName, FileMode.Open, FileAccess.Read);
-
-
-                //ExcelReaderFactory.CreateBinaryReader = formato XLS
-                //ExcelReaderFactory.CreateOpenXmlReader = formato XLSX
-                //ExcelReaderFactory.CreateReader = XLS o XLSX
-                IExcelDataReader reader = ExcelReaderFactory.CreateReader(fsSource);
-
-                //convierte todas las hojas a un DataSet
-                dtsTablas = reader.AsDataSet(new ExcelDataSetConfiguration()
+                if (oOpenFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    ConfigureDataTable = (tableReader) => new ExcelDataTableConfiguration()
+                    dgvArchivo.DataSource = null;
+
+                    txtArchivoSeleccionado.Text = oOpenFileDialog.FileName;
+
+                    //FileStream nos permite leer, escribir, abrir y cerrar archivos en un sistema de archivos, como matrices de bytes
+                    FileStream fsSource = new FileStream(oOpenFileDialog.FileName, FileMode.Open, FileAccess.Read);
+
+
+                    //ExcelReaderFactory.CreateBinaryReader = formato XLS
+                    //ExcelReaderFactory.CreateOpenXmlReader = formato XLSX
+                    //ExcelReaderFactory.CreateReader = XLS o XLSX
+                    IExcelDataReader reader = ExcelReaderFactory.CreateReader(fsSource);
+
+                    //convierte todas las hojas a un DataSet
+                    dtsTablas = reader.AsDataSet(new ExcelDataSetConfiguration()
                     {
-                        UseHeaderRow = true
-                    }
-                });
+                        ConfigureDataTable = (tableReader) => new ExcelDataTableConfiguration()
+                        {
+                            UseHeaderRow = true
+                        }
+                    });
 
-                //obtenemos las tablas y añadimos sus nombres en el desplegable de hojas
-                //foreach (DataTable tabla in dtsTablas.Tables)
-                //{
-                //    cboHojas.Items.Add(tabla.TableName);
-                //}
-                //cboHojas.SelectedIndex = 0;
+                    //obtenemos las tablas y añadimos sus nombres en el desplegable de hojas
+                    //foreach (DataTable tabla in dtsTablas.Tables)
+                    //{
+                    //    cboHojas.Items.Add(tabla.TableName);
+                    //}
+                    //cboHojas.SelectedIndex = 0;
 
-                reader.Close();
+                    reader.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo seleccionado está siendo utilizado por otra aplicación. Ciérrelo y reintente.");
             }
         }
 

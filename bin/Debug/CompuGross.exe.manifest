@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompuGross.exe" size="6608896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CompuGross.exe" size="6609408">
       <assemblyIdentity name="CompuGross" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qABKlZE22Sp0GQ82zuPIUbYoOqNW6tK1zVmjF6HBK4I=</dsig:DigestValue>
+        <dsig:DigestValue>7N3vCJYX4ZGFOoGN9bR9wiBC5iA1wx6Ac2f5vGcdwUY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yjWj/wil2rIuy43gYyvHjKxzUGonr7yzs7mPfKbJ7N8=</dsig:DigestValue>
+        <dsig:DigestValue>6KhI48LHuRxMZeKhGBhVdxDS7Y/HtWL+7Supy63lhZU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -115,14 +115,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Negocio.dll" size="28160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Negocio.dll" size="28672">
       <assemblyIdentity name="Negocio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e0XURWII8mypNuOo/UUiGUtRxwda/y1W0cC0jmQ1/oc=</dsig:DigestValue>
+        <dsig:DigestValue>TorfO73wOpwCmEIzFrAW78c8hQOzE/MYHHYQgqJRhQE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

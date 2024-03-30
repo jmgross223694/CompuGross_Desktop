@@ -17,7 +17,7 @@ namespace Negocio
         public AccesoDatos()
         {
             //string strCon = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
-            string strCon = "Server=192.168.100.26\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
+            string strCon = "Server=192.168.100.144\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
 
             conexion = new SqlConnection(strCon);
             comando = new SqlCommand();
@@ -107,7 +107,7 @@ namespace Negocio
             {
                 string datos = "";
                 SqlConnectionStringBuilder db = new SqlConnectionStringBuilder();
-                db.DataSource = "AMD-FX-8320\\SQLEXPRESS,1433";
+                db.DataSource = "192.168.100.144\\SQLEXPRESS,1433";
                 //db.DataSource = ".\\SQLEXPRESS";
                 db.InitialCatalog = "CompuGross";
                 db.IntegratedSecurity = true;

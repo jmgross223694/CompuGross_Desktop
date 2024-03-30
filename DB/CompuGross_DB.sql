@@ -25,7 +25,7 @@ GO
 create table credencialesMail(
 	ID int not null primary key identity(1,1),
 	mail varchar(100),
-	pass varchar(20)
+	pass varbinary(max)
 )
 GO
 
@@ -277,7 +277,7 @@ as
 	union
 	select 'TotalDiasServicio' 'ID', 
 	datediff(day, 
-			(select FechaRecepcion from OrdenesTrabajo where Estado = 1 and FechaRecepcion = '28-06-2017'), 
+			(select FechaRecepcion from OrdenesTrabajo where Estado = 1 and FechaRecepcion = Convert(Datetime, '2017-06-28')), 
 			getdate()) Cant, 0, 0
 GO
 

@@ -15,7 +15,7 @@ namespace Negocio
             bool resultado = true;
 
             //string strConLocal = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
-            string strConLan = "Server=192.168.100.26\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
+            string strConLan = "Server=192.168.100.144\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
 
             using (SqlConnection con = new SqlConnection(strConLan))
             {
@@ -38,8 +38,8 @@ namespace Negocio
                         s.ColumnMappings.Add("MarcaModelo", "MarcaModelo");
                         s.ColumnMappings.Add("Microprocesador", "Microprocesador");
                         s.ColumnMappings.Add("Almacenamiento", "Almacenamiento");
-                        s.ColumnMappings.Add("CdDvd", "CdDvd");
-                        s.ColumnMappings.Add("Fuente", "Fuente");
+                        s.ColumnMappings.Add("UnidadOptica", "UnidadOptica");
+                        s.ColumnMappings.Add("Alimentacion", "Alimentacion");
                         s.ColumnMappings.Add("Adicionales", "Adicionales");
                         s.ColumnMappings.Add("NumSerie", "NumSerie");
                         s.ColumnMappings.Add("IdTipoServicio", "IdTipoServicio");

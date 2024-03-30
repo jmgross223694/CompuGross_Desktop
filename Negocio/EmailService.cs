@@ -12,12 +12,11 @@ namespace Negocio
         public EmailService()
         {
             AccesoDatos datos = new AccesoDatos();
-
-            string selectCredencialesMail = "select mail, pass from credencialesMail";
-
+            string selectCredencialesMail = "select mail, " +
+                                            "CONVERT(VARCHAR(MAX), DECRYPTBYPASSPHRASE('Cultivo.2024', pass)) pass " +
+                                            "from credencialesMail";
             string user = "";
             string pass = "";
-
             try
             {
                 datos.SetearConsulta(selectCredencialesMail);

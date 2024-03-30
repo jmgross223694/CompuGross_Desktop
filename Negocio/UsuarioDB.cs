@@ -146,9 +146,7 @@ namespace Negocio
         public int ModificarUsuario(Usuario usuario)
         {
             AccesoDatos datos = new AccesoDatos();
-
             int usuarioModificado = 0;
-
             try
             {
                 string update = "update Usuarios set " +
@@ -158,10 +156,20 @@ namespace Negocio
                                 "Username = '" + usuario.Dni + "', " +
                                 "Mail = '" + usuario.Mail + "' " +
                                 "where ID = " + usuario.Id;
-
+                if (usuario.Clave != "")
+                {
+                    update = "update Usuarios set " +
+                             "IdTipo = (select TU.ID from TiposUsuario TU where TU.Tipo = '" + usuario.Tipo + "'), " +
+                             "Nombre = '" + usuario.Nombres + "', " +
+                             "Apellido = '" + usuario.Apellidos + "', " +
+                             "Username = '" + usuario.Dni + "', " +
+                             "Mail = '" + usuario.Mail + "', " +
+                             "Clave = pwdencrypt('" + usuario.Clave + "'), " +
+                             "CodigoRecuperarClave = 0 " +
+                             "where ID = " + usuario.Id;
+                }
                 datos.SetearConsulta(update);
                 datos.EjecutarLectura();
-
                 usuarioModificado = 1;
             }
             catch (Exception ex)
