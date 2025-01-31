@@ -285,6 +285,7 @@ create or alter view ExportModificarOrdenTrabajo
 as
 	select OT.ID, OT.IdCliente IdCliente,
 	C.Nombres Cliente,
+	(select Telefono from Clientes where ID = IdCliente) Cliente_Telefono,
 	OT.FechaRecepcion FechaRecepcion,
 	isnull(OT.FechaDevolucion, '') FechaDevolucion,
 	TE.ID IdTipoEquipo,

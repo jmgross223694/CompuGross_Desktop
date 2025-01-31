@@ -19,6 +19,7 @@ namespace CompuGross
     public partial class Servicios : Form
     {
         private List<Servicio> listaServicios;
+        private ServicioDB servicioDB = new ServicioDB();
         private List<Cliente> listaClientes;
         private long IdCliente = 0;
         private bool primerIngreso = false;
@@ -90,6 +91,7 @@ namespace CompuGross
         private void ocultarColumnas()
         {
             dgvServicios.Columns["IdCliente"].Visible = false;
+            dgvServicios.Columns["clienteAux"].Visible = false;
             dgvServicios.Columns["MarcaModelo"].Visible = false;
             dgvServicios.Columns["RAM"].Visible = false;
             dgvServicios.Columns["PlacaMadre"].Visible = false;
@@ -544,24 +546,37 @@ namespace CompuGross
                     decimal costoTotalServicio = s.CostoRepuestos + s.CostoTerceros + s.CostoCG;
 
                     string cuerpo = "Esperamos se encuentre muy bien Sr/a " + c.Nombres + ".\n\n" +
-                                    "A continuación le acercamos los datos actualizados de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
-                                    "- Fecha de recepción de equipo: " + s.FechaRecepcion + "\n\n" +
-                                    "- Fecha de devolución de equipo: " + s.FechaDevolucion + "\n\n" +
-                                    "- Equipo: " + s.TipoEquipo + " " + s.MarcaModelo + "\n\n" +
-                                    "- Detalles de servicio: " + s.Descripcion + "\n\n" +
-                                    "- Costo total del servicio: $" + costoTotalServicio.ToString() +
-                                    "\n\n\nSaludos cordiales.\n\nCompuGross";
+                                    "A continuación le acercamos los datos actualizados de su orden de servicio N°" + s.ID + " realizada con nosotros:";
 
-                    if (s.TipoServicio != "Servicio técnico")
+                    if (s.FechaRecepcion == s.FechaDevolucion)
                     {
-                        cuerpo = "Esperamos se encuentre muy bien Sr/a " + c.Nombres + ".\n\n" +
-                                 "A continuación le acercamos los datos actualizados de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
-                                 "- Fecha de ejecución del servicio: " + s.FechaDevolucion + "\n\n" +
-                                 "- Equipo: " + s.TipoEquipo + " " + s.MarcaModelo + "\n\n" +
-                                 "- Detalles de servicio: " + s.Descripcion + "\n\n" +
-                                 "- Costo total del servicio: $" + costoTotalServicio.ToString() +
-                                 "\n\n\nSaludos cordiales.\n\nCompuGross";
+                        DateTime aux = Convert.ToDateTime(s.FechaDevolucion);
+                        string nombreDiaEjecucionServicio = aux.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                        cuerpo += "\n\n\n" +
+                                  "- Fecha de ejecución del servicio: " + nombreDiaEjecucionServicio + ", " + aux.DayOfWeek + aux.Day + "/" + aux.Month + "/" + aux.Year;
                     }
+                    else
+                    {
+                        DateTime auxRecepción = Convert.ToDateTime(s.FechaRecepcion);
+                        DateTime auxDevolucion = Convert.ToDateTime(s.FechaDevolucion);
+                        string nombreDiaRecepcionEquipo = auxRecepción.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                        string nombreDiaDevolucionEquipo = auxDevolucion.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                        cuerpo += "\n\n\n" +
+                                  "- Fecha de recepción de equipo: " + nombreDiaRecepcionEquipo + ", " + auxRecepción.Day + "/" + auxRecepción.Month + "/" + auxRecepción.Year + "\n\n" +
+                                  "- Fecha de devolución de equipo: " + nombreDiaDevolucionEquipo + ", " + auxDevolucion.Day + "/" + auxDevolucion.Month + "/" + auxDevolucion.Year;
+                    }
+
+                    if (s.MarcaModelo != "")
+                    {
+                        cuerpo += "\n\n" +
+                                  "- Detalles de Equipo: " + s.TipoEquipo + " " + s.MarcaModelo;
+                    }
+
+                    cuerpo += "\n\n" +
+                              "- Detalles del servicio: " + s.Descripcion + "\n\n" +
+                              "- Costo total del servicio: $" + costoTotalServicio.ToString() + "\n\n\n" +
+                              "Saludos cordiales.\n\n" +
+                              "CompuGross";
 
                     mail.armarCorreo(c.Mail, asunto, cuerpo);
                     mail.enviarEmail();
@@ -590,7 +605,7 @@ namespace CompuGross
             servicio.ID = Convert.ToInt64(txtFiltro.Text);
 
             DateTime fecha = Convert.ToDateTime(fechaRecepcion.Text);
-            string fecRecepcion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+            string fecRecepcion = fecha.Year.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Day.ToString();
 
             servicio.Cliente = txtCliente.Text;
             servicio.FechaRecepcion = fecRecepcion;
@@ -626,7 +641,7 @@ namespace CompuGross
             else { servicio.CostoTerceros = Convert.ToInt32(txtCostoTerceros.Text); }
 
             fecha = Convert.ToDateTime(fechaDevolucion.Text);
-            string fecDevolucion = fecha.Day.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Year.ToString();
+            string fecDevolucion = fecha.Year.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Day.ToString();
 
             if (cbFechaDevolucion.Checked == false)
             {
@@ -775,119 +790,124 @@ namespace CompuGross
             }
         }
 
+        private Microsoft.Office.Interop.Excel.Application EscribirTitulosExcel(Microsoft.Office.Interop.Excel.Application excel)
+        {
+            excel.Cells[1, 1] = "N° de Servicio";
+            excel.Cells[1, 2] = "Recepción";
+            excel.Cells[1, 3] = "Cliente";
+            excel.Cells[1, 4] = "Teléfono";
+            excel.Cells[1, 5] = "Tipo de Equipo";
+            excel.Cells[1, 6] = "Tipo de Servicio";
+            excel.Cells[1, 7] = "Devolución";
+            excel.Cells[1, 8] = "Subtotal";
+            excel.Cells[1, 9] = "Ganancia";
+            excel.Cells[1, 10] = "Descripción";
+            return excel;
+        }
+
+        private List<Servicio> CargarServiciosCompleto(DataGridView tabla)
+        {
+            try
+            {
+                List<Servicio> listaServiciosAux = new List<Servicio>();
+                foreach (DataGridViewRow row in tabla.Rows)
+                {
+                    listaServiciosAux.Add(servicioDB.CargarDatosOrden(Convert.ToInt64(row.Cells[0].Value)));
+                }
+                return listaServiciosAux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private Microsoft.Office.Interop.Excel.Application CargarContenidoExcel(Microsoft.Office.Interop.Excel.Application excel, List<Servicio> listaServiciosAux)
+        {
+            DateTime aux;
+            int row = 2;
+            foreach(Servicio servicio in listaServiciosAux)
+            {
+                for (int col = 1; col <= 10; col ++)
+                {
+                    switch (col)
+                    {
+                        case 1:
+                            excel.Cells[row, col] = servicio.ID;
+                            break;
+                        case 2:
+                            aux = Convert.ToDateTime(servicio.FechaRecepcion);
+                            excel.Cells[row, col] = aux;
+                            break;
+                        case 3:
+                            excel.Cells[row, col] = servicio.Cliente;
+                            break;
+                        case 4:
+                            excel.Cells[row, col] = servicio.clienteAux.Telefono;
+                            break;
+                        case 5:
+                            excel.Cells[row, col] = servicio.TipoEquipo;
+                            break;
+                        case 6:
+                            excel.Cells[row, col] = servicio.TipoServicio;
+                            break;
+                        case 7:
+                            aux = Convert.ToDateTime(servicio.FechaDevolucion);
+                            excel.Cells[row, col] = aux;
+                            break;
+                        case 8:
+                            excel.Cells[row, col] = Convert.ToInt32(servicio.CostoRepuestos+servicio.CostoCG+servicio.CostoTerceros);
+                            break;
+                        case 9:
+                            excel.Cells[row, col] = servicio.CostoCG;
+                            break;
+                        case 10:
+                            excel.Cells[row, col] = servicio.Descripcion;
+                            break;
+                    }
+                }
+                row++;
+            }
+            return excel;
+        }
+
+        private Microsoft.Office.Interop.Excel.Application FormatearExcel(Microsoft.Office.Interop.Excel.Application excel, Worksheet ws)
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                excel.Cells[1, i].Interior.Color = XlRgbColor.rgbOrange;
+            }
+            ws.Range["A1", ws.Cells[ws.UsedRange.Rows.Count, ws.UsedRange.Columns.Count]].AutoFilter();
+            ws.Range["A:I"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            ws.Range["J1:J1"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            ws.Range["J:J"].HorizontalAlignment = XlHAlign.xlHAlignLeft;
+            ws.Range["A:I"].EntireColumn.AutoFit();
+            return excel;
+        }
+
         private void ExportExcel(DataGridView tabla)
         {
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application(); //creamos nuevo archivo excel
-            Workbook wb = excel.Workbooks.Add();
-            Worksheet ws = wb.ActiveSheet;
-
-            int indiceColumna = 0;
-            foreach (DataGridViewColumn col in tabla.Columns) //agregamos encabezados a la nueva hoja
+            try
             {
-                indiceColumna++;
-                if (indiceColumna == 1 || indiceColumna == 2 || indiceColumna == 4 || indiceColumna == 5 ||
-                    indiceColumna == 15 || indiceColumna == 21 || indiceColumna == 22)
-                {
-                    if (indiceColumna == 1)
-                    {
-                        excel.Cells[1, 1] = "N° de Servicio";
-                    }
-                    else if (indiceColumna == 2)
-                    {
-                        excel.Cells[1, 2] = "Recepción";
-                    }
-                    else if (indiceColumna == 4)
-                    {
-                        excel.Cells[1, 3] = col.Name;
-                    }
-                    else if (indiceColumna == 5)
-                    {
-                        excel.Cells[1, 4] = "Tipo de Equipo";
-                    }
-                    else if (indiceColumna == 15)
-                    {
-                        excel.Cells[1, 5] = "Tipo de Servicio";
-                    }
-                    else if (indiceColumna == 21)
-                    {
-                        excel.Cells[1, 6] = "Devolución";
-                    }
-                    else if (indiceColumna == 22)
-                    {
-                        excel.Cells[1, 7] = col.Name;
-                    }
-                    else
-                    {
-                        excel.Cells[1, indiceColumna] = col.Name;
-                    }
-                }
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                Workbook wb = excel.Workbooks.Add();
+                Worksheet ws = wb.ActiveSheet;
+                List<Servicio> listaServiciosAux = new List<Servicio>();
+                listaServiciosAux = CargarServiciosCompleto(tabla);
+                excel = EscribirTitulosExcel(excel);
+                excel = CargarContenidoExcel(excel, listaServiciosAux);
+                excel = FormatearExcel(excel, ws);
+                excel.Visible = true;
             }
-
-            int indiceFila = 0;
-            foreach (DataGridViewRow row in tabla.Rows) //agregamos contenido a la nueva hoja
+            catch (Exception ex)
             {
-                indiceFila++;
-                indiceColumna = 0;
-
-                foreach (DataGridViewColumn col in tabla.Columns)
-                {
-                    indiceColumna++;
-                    if (indiceColumna == 1 || indiceColumna == 2 || indiceColumna == 4 || indiceColumna == 5 ||
-                    indiceColumna == 15 || indiceColumna == 21 || indiceColumna == 22)
-                    {
-                        if (indiceColumna == 2)
-                        {
-                            DateTime aux = Convert.ToDateTime(row.Cells[col.Name].Value);
-                            excel.Cells[indiceFila + 1, indiceColumna] = aux;
-                        }
-                        else if (indiceColumna == 4)
-                        {
-                            excel.Cells[indiceFila + 1, 3] = row.Cells[col.Name].Value;
-                        }
-                        else if (indiceColumna == 5)
-                        {
-                            excel.Cells[indiceFila + 1, 4] = row.Cells[col.Name].Value;
-                        }
-                        else if (indiceColumna == 15)
-                        {
-                            excel.Cells[indiceFila + 1, 5] = row.Cells[col.Name].Value;
-                        }
-                        else if (indiceColumna == 21)
-                        {
-                            DateTime aux = Convert.ToDateTime(row.Cells[col.Name].Value);
-                            excel.Cells[indiceFila + 1, 6] = aux;
-                        }
-                        else if (indiceColumna == 22)
-                        {
-                            excel.Cells[indiceFila + 1, 7] = row.Cells[col.Name].Value;
-                        }
-                        else
-                        {
-                            excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
-                        }
-                    }
-                }
+                MessageBox.Show("Se produjo un error al exportar a Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            for (int i = 1; i <= 7; i++)
-            {
-                excel.Cells[1, i].Interior.Color = System.Drawing.ColorTranslator.ToOle(Color.Orange);
-            }
-            excel.Columns.AutoFit();
-
-            ws.Range["A:G"].HorizontalAlignment = HorizontalAlignment.Center;
-
-            excel.Visible = true;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
             ExportExcel(dgvServicios);
-        }
-
-        private void btnExportar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -267,7 +267,6 @@ namespace CompuGross
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(93, 24);
             this.btnExportar.Text = "Exportar";
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnExcel
             // 
@@ -317,7 +316,7 @@ namespace CompuGross
             this.fechaRecepcion.Location = new System.Drawing.Point(12, 81);
             this.fechaRecepcion.Name = "fechaRecepcion";
             this.fechaRecepcion.Size = new System.Drawing.Size(135, 22);
-            this.fechaRecepcion.TabIndex = 12;
+            this.fechaRecepcion.TabIndex = 1;
             // 
             // lblFechaRecepcion
             // 
@@ -354,7 +353,7 @@ namespace CompuGross
             this.fechaDevolucion.Location = new System.Drawing.Point(172, 81);
             this.fechaDevolucion.Name = "fechaDevolucion";
             this.fechaDevolucion.Size = new System.Drawing.Size(165, 22);
-            this.fechaDevolucion.TabIndex = 14;
+            this.fechaDevolucion.TabIndex = 3;
             // 
             // cbFechaDevolucion
             // 
@@ -367,7 +366,7 @@ namespace CompuGross
             this.cbFechaDevolucion.Location = new System.Drawing.Point(324, 66);
             this.cbFechaDevolucion.Name = "cbFechaDevolucion";
             this.cbFechaDevolucion.Size = new System.Drawing.Size(12, 11);
-            this.cbFechaDevolucion.TabIndex = 16;
+            this.cbFechaDevolucion.TabIndex = 2;
             this.cbFechaDevolucion.UseVisualStyleBackColor = true;
             this.cbFechaDevolucion.CheckedChanged += new System.EventHandler(this.cbFechaDevolucion_CheckedChanged);
             // 
@@ -384,7 +383,7 @@ namespace CompuGross
             this.ddlTiposServicio.MaxDropDownItems = 10;
             this.ddlTiposServicio.Name = "ddlTiposServicio";
             this.ddlTiposServicio.Size = new System.Drawing.Size(161, 22);
-            this.ddlTiposServicio.TabIndex = 17;
+            this.ddlTiposServicio.TabIndex = 4;
             // 
             // lblTipoServicio
             // 
@@ -421,7 +420,7 @@ namespace CompuGross
             this.ddlTiposEquipo.MaxDropDownItems = 10;
             this.ddlTiposEquipo.Name = "ddlTiposEquipo";
             this.ddlTiposEquipo.Size = new System.Drawing.Size(161, 21);
-            this.ddlTiposEquipo.TabIndex = 19;
+            this.ddlTiposEquipo.TabIndex = 5;
             // 
             // txtMarcaModelo
             // 
@@ -433,7 +432,7 @@ namespace CompuGross
             this.txtMarcaModelo.MaxLength = 50;
             this.txtMarcaModelo.Name = "txtMarcaModelo";
             this.txtMarcaModelo.Size = new System.Drawing.Size(188, 20);
-            this.txtMarcaModelo.TabIndex = 21;
+            this.txtMarcaModelo.TabIndex = 6;
             this.txtMarcaModelo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblMarcaModelo
@@ -468,7 +467,7 @@ namespace CompuGross
             this.txtRam.MaxLength = 50;
             this.txtRam.Name = "txtRam";
             this.txtRam.Size = new System.Drawing.Size(127, 20);
-            this.txtRam.TabIndex = 23;
+            this.txtRam.TabIndex = 7;
             this.txtRam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblMicroprocesador
@@ -492,7 +491,7 @@ namespace CompuGross
             this.txtMicroprocesador.MaxLength = 50;
             this.txtMicroprocesador.Name = "txtMicroprocesador";
             this.txtMicroprocesador.Size = new System.Drawing.Size(158, 20);
-            this.txtMicroprocesador.TabIndex = 25;
+            this.txtMicroprocesador.TabIndex = 8;
             this.txtMicroprocesador.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblAlmacenamiento
@@ -516,7 +515,7 @@ namespace CompuGross
             this.txtAlmacenamiento.MaxLength = 50;
             this.txtAlmacenamiento.Name = "txtAlmacenamiento";
             this.txtAlmacenamiento.Size = new System.Drawing.Size(158, 20);
-            this.txtAlmacenamiento.TabIndex = 27;
+            this.txtAlmacenamiento.TabIndex = 9;
             this.txtAlmacenamiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblPlacaMadre
@@ -540,7 +539,7 @@ namespace CompuGross
             this.txtPlacaMadre.MaxLength = 50;
             this.txtPlacaMadre.Name = "txtPlacaMadre";
             this.txtPlacaMadre.Size = new System.Drawing.Size(158, 20);
-            this.txtPlacaMadre.TabIndex = 29;
+            this.txtPlacaMadre.TabIndex = 10;
             this.txtPlacaMadre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblAdicionales
@@ -564,7 +563,7 @@ namespace CompuGross
             this.txtAdicionales.MaxLength = 50;
             this.txtAdicionales.Name = "txtAdicionales";
             this.txtAdicionales.Size = new System.Drawing.Size(158, 20);
-            this.txtAdicionales.TabIndex = 33;
+            this.txtAdicionales.TabIndex = 12;
             this.txtAdicionales.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNumSerie
@@ -588,7 +587,7 @@ namespace CompuGross
             this.txtNumSerie.MaxLength = 100;
             this.txtNumSerie.Name = "txtNumSerie";
             this.txtNumSerie.Size = new System.Drawing.Size(158, 20);
-            this.txtNumSerie.TabIndex = 31;
+            this.txtNumSerie.TabIndex = 11;
             this.txtNumSerie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblAlimentacion
@@ -612,7 +611,7 @@ namespace CompuGross
             this.txtAlimentacion.MaxLength = 50;
             this.txtAlimentacion.Name = "txtAlimentacion";
             this.txtAlimentacion.Size = new System.Drawing.Size(158, 20);
-            this.txtAlimentacion.TabIndex = 35;
+            this.txtAlimentacion.TabIndex = 13;
             this.txtAlimentacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblUnidadOptica
@@ -646,7 +645,7 @@ namespace CompuGross
             this.ddlUnidadOptica.MaxDropDownItems = 10;
             this.ddlUnidadOptica.Name = "ddlUnidadOptica";
             this.ddlUnidadOptica.Size = new System.Drawing.Size(158, 21);
-            this.ddlUnidadOptica.TabIndex = 37;
+            this.ddlUnidadOptica.TabIndex = 14;
             // 
             // lblCostoTerceros
             // 
@@ -668,7 +667,7 @@ namespace CompuGross
             this.txtCostoTerceros.Location = new System.Drawing.Point(248, 305);
             this.txtCostoTerceros.Name = "txtCostoTerceros";
             this.txtCostoTerceros.Size = new System.Drawing.Size(97, 20);
-            this.txtCostoTerceros.TabIndex = 43;
+            this.txtCostoTerceros.TabIndex = 17;
             this.txtCostoTerceros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblManoObra
@@ -691,7 +690,7 @@ namespace CompuGross
             this.txtManoObra.Location = new System.Drawing.Point(131, 305);
             this.txtManoObra.Name = "txtManoObra";
             this.txtManoObra.Size = new System.Drawing.Size(97, 20);
-            this.txtManoObra.TabIndex = 41;
+            this.txtManoObra.TabIndex = 16;
             this.txtManoObra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCostoRepuestos
@@ -714,7 +713,7 @@ namespace CompuGross
             this.txtCostoRepuestos.Location = new System.Drawing.Point(12, 305);
             this.txtCostoRepuestos.Name = "txtCostoRepuestos";
             this.txtCostoRepuestos.Size = new System.Drawing.Size(97, 20);
-            this.txtCostoRepuestos.TabIndex = 39;
+            this.txtCostoRepuestos.TabIndex = 15;
             this.txtCostoRepuestos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblDescripcion
@@ -739,7 +738,7 @@ namespace CompuGross
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(158, 114);
-            this.txtDescripcion.TabIndex = 45;
+            this.txtDescripcion.TabIndex = 18;
             this.txtDescripcion.Visible = false;
             // 
             // btnConfirmar
@@ -756,7 +755,7 @@ namespace CompuGross
             this.btnConfirmar.Location = new System.Drawing.Point(421, 331);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(96, 36);
-            this.btnConfirmar.TabIndex = 47;
+            this.btnConfirmar.TabIndex = 19;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirmar.UseVisualStyleBackColor = true;

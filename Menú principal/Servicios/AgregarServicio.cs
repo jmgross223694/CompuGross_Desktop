@@ -664,23 +664,37 @@ namespace CompuGross
                     decimal costoTotalServicio = s.CostoRepuestos + s.CostoTerceros + s.CostoCG;
 
                     string cuerpo = "Esperamos se encuentre muy bien Sr/a " + c.Nombres + ".\n\n" +
-                                    "A continuación le acercamos los datos de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
-                                    "- Fecha de recepción de equipo: " + s.FechaRecepcion + "\n\n" +
-                                    "- Fecha de devolución de equipo: " + s.FechaDevolucion + "\n\n" +
-                                    "- Equipo: " + s.TipoEquipo + " " + s.MarcaModelo + "\n\n" +
-                                    "- Detalles de servicio: " + s.Descripcion + "\n\n" +
-                                    "- Costo total del servicio: $" + costoTotalServicio.ToString() +
-                                    "\n\n\nSaludos cordiales.\n\nCompuGross";
+                                    "A continuación le acercamos los datos de su orden de servicio N°" + s.ID + " realizada con nosotros:";
 
-                    if (s.TipoServicio != "Servicio técnico")
+                    if (s.FechaRecepcion == s.FechaDevolucion)
                     {
-                        cuerpo = "Esperamos se encuentre muy bien Sr/a " + c.Nombres + ".\n\n" +
-                                 "A continuación le acercamos los datos de su orden de servicio N°" + s.ID + " realizada con nosotros:\n\n\n" +
-                                 "- Fecha de ejecución del servicio: " + s.FechaDevolucion + "\n\n" +
-                                 "- Detalles de servicio: " + s.Descripcion + "\n\n" +
-                                 "- Costo total del servicio: $" + costoTotalServicio.ToString() +
-                                 "\n\n\nSaludos cordiales.\n\nCompuGross";
+                        DateTime aux = Convert.ToDateTime(s.FechaDevolucion);
+                        string nombreDiaEjecucionServicio = aux.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                        cuerpo += "\n\n\n" +
+                                  "- Fecha de ejecución del servicio: " + nombreDiaEjecucionServicio + ", " + aux.DayOfWeek + aux.Day + "/" + aux.Month + "/" + aux.Year;
                     }
+                    else
+                    {
+                        DateTime auxRecepción = Convert.ToDateTime(s.FechaRecepcion);
+                        DateTime auxDevolucion = Convert.ToDateTime(s.FechaDevolucion);
+                        string nombreDiaRecepcionEquipo = auxRecepción.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                        string nombreDiaDevolucionEquipo = auxDevolucion.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                        cuerpo += "\n\n\n" +
+                                  "- Fecha de recepción de equipo: " + nombreDiaRecepcionEquipo + ", " + auxRecepción.Day + "/" + auxRecepción.Month + "/" + auxRecepción.Year + "\n\n" +
+                                  "- Fecha de devolución de equipo: " + nombreDiaDevolucionEquipo + ", " + auxDevolucion.Day + "/" + auxDevolucion.Month + "/" + auxDevolucion.Year;
+                    }
+
+                    if (s.MarcaModelo != "")
+                    {
+                        cuerpo += "\n\n" +
+                                  "- Detalles de Equipo: " + s.TipoEquipo + " " + s.MarcaModelo;
+                    }
+
+                    cuerpo += "\n\n" +
+                              "- Detalles del servicio: " + s.Descripcion + "\n\n" +
+                              "- Costo total del servicio: $" + costoTotalServicio.ToString() + "\n\n\n" +
+                              "Saludos cordiales.\n\n" +
+                              "CompuGross";
 
                     mail.armarCorreo(c.Mail, asunto, cuerpo);
                     mail.enviarEmail();
@@ -719,7 +733,7 @@ namespace CompuGross
             { MostrarCamposConsola(); }
             else if (aux == "Joystick") 
             { MostrarCamposJoystick(); }
-            else if (aux == "Cámaras") 
+            else if (aux == "Cámara/s") 
             { MostrarCamposCámaras(); }
             else if (aux == "Unidad de Almacenamiento")
             { MostrarCamposUnidadDeAlmacenamiento(); }

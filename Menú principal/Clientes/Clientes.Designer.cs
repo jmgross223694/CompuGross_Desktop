@@ -153,7 +153,7 @@ namespace CompuGross
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(180, 24);
+            this.btnModificar.Size = new System.Drawing.Size(142, 24);
             this.btnModificar.Text = "Modificar";
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
@@ -163,7 +163,7 @@ namespace CompuGross
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(180, 24);
+            this.btnEliminar.Size = new System.Drawing.Size(142, 24);
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -305,7 +305,7 @@ namespace CompuGross
             this.txtDni.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.ForeColor = System.Drawing.Color.White;
             this.txtDni.Location = new System.Drawing.Point(12, 119);
-            this.txtDni.MaxLength = 9;
+            this.txtDni.MaxLength = 11;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(254, 24);
             this.txtDni.TabIndex = 2;

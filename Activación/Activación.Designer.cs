@@ -249,7 +249,7 @@ namespace CompuGross
             this.cbTerminos.ForeColor = System.Drawing.Color.White;
             this.cbTerminos.Location = new System.Drawing.Point(29, 132);
             this.cbTerminos.Name = "cbTerminos";
-            this.cbTerminos.Size = new System.Drawing.Size(300, 20);
+            this.cbTerminos.Size = new System.Drawing.Size(299, 20);
             this.cbTerminos.TabIndex = 14;
             this.cbTerminos.Text = "Acepto los términos y condiciones de software";
             this.cbTerminos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -268,7 +268,7 @@ namespace CompuGross
             this.lblTerminosLicencia.LinkColor = System.Drawing.Color.White;
             this.lblTerminosLicencia.Location = new System.Drawing.Point(69, 89);
             this.lblTerminosLicencia.Name = "lblTerminosLicencia";
-            this.lblTerminosLicencia.Size = new System.Drawing.Size(222, 16);
+            this.lblTerminosLicencia.Size = new System.Drawing.Size(221, 16);
             this.lblTerminosLicencia.TabIndex = 15;
             this.lblTerminosLicencia.TabStop = true;
             this.lblTerminosLicencia.Text = "Ver acuerdo de licencia de software";
@@ -283,7 +283,7 @@ namespace CompuGross
             this.lblSerial.ForeColor = System.Drawing.Color.White;
             this.lblSerial.Location = new System.Drawing.Point(4, 98);
             this.lblSerial.Name = "lblSerial";
-            this.lblSerial.Size = new System.Drawing.Size(212, 16);
+            this.lblSerial.Size = new System.Drawing.Size(211, 16);
             this.lblSerial.TabIndex = 16;
             this.lblSerial.Text = "A continuación, introduce un serial:";
             // 

@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CompuGross.exe.manifest" size="8007">
+    <dependentAssembly dependencyType="install" codebase="CompuGross.exe.manifest" size="8049">
       <assemblyIdentity name="CompuGross.exe" version="1.0.0.21" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ieYYymsOOSl8dgtkH3aROorucZeO99wwqXOnxC90I2E=</dsig:DigestValue>
+        <dsig:DigestValue>m4U5tfm/YMsrDaS6un5VQkeLbh9dJ091/iF0/FZVYRo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

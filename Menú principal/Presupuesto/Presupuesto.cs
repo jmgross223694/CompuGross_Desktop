@@ -22,6 +22,7 @@ namespace CompuGross
     {
         private List<Cliente> listaClientes;
         private Cliente cliente = null;
+        private List<Precio> listaPrecios = new List<Precio>();
 
         public Presupuesto()
         {
@@ -36,10 +37,46 @@ namespace CompuGross
             dgvClientes.Visible = false;
 
             cargarListadoClientes();
+            cargarDesplegableItemsPrecios();
             AlinearColumnasGrillaClientes();
             ordenarColumnasGrillaClientes();
             cambiarTitulosGrillaClientes();
             ocultarColumnasClientes();
+            txtPrecioDolar.Focus();
+        }
+
+        private void cargarDesplegableItemsPrecios()
+        {
+            string selectListaPrecios = "select * from ListaPrecios where Estado = 1 " +
+                                   "order by Descripcion asc";
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta(selectListaPrecios);
+                datos.EjecutarLectura();
+                ddlPrecios.Items.Add("-");
+                while (datos.Lector.Read())
+                {
+                    Precio precio = new Precio();
+                    precio.ID = Convert.ToInt64(datos.Lector["ID"]);
+                    precio.Codigo = datos.Lector["Codigo"].ToString();
+                    precio.Descripcion = datos.Lector["Descripcion"].ToString();
+                    precio.Dolares = Convert.ToDecimal(datos.Lector["Precio_Dolares"]);
+                    listaPrecios.Add(precio);
+                    ddlPrecios.Items.Add(precio.Descripcion);
+                }
+                ddlPrecios.SelectedItem = "-";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al leer la tabla Precios en la base de datos.");
+                this.Close();
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
 
         private void ExportToPdf(DataGridView dgv, string nombresCliente)
@@ -589,6 +626,8 @@ namespace CompuGross
                 lblDescripcion.Visible = true;
                 txtDescripcion.Visible = true;
                 dgvPresupuesto.Visible = true;
+                lblListaPrecios.Visible = true;
+                ddlPrecios.Visible = true;
             }
             if (aux == "hide")
             {
@@ -602,6 +641,8 @@ namespace CompuGross
                 lblDescripcion.Visible = false;
                 txtDescripcion.Visible = false;
                 dgvPresupuesto.Visible = false;
+                lblListaPrecios.Visible = false;
+                ddlPrecios.Visible = false;
             }
         }
 
@@ -648,6 +689,34 @@ namespace CompuGross
         private void selectFecha_ValueChanged(object sender, EventArgs e)
         {
             lblFecha.Text = selectFecha.Text;
+        }
+
+        private void ddlCodigos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlPrecios.SelectedItem.ToString() != "-" && txtPrecioDolar.Text != "")
+            {
+                Precio precio = new Precio();
+                precio.Descripcion = ddlPrecios.SelectedItem.ToString();
+                foreach (Precio precioAux in listaPrecios)
+                {
+                    if (precio.Descripcion == precioAux.Descripcion)
+                    {
+                        txtCodigo.Text = precioAux.Codigo;
+                        txtCantidad.Text = "1";
+                        txtPrecioUnitario.Text = ((int)Convert.ToDouble(precioAux.Dolares * Convert.ToDecimal(txtPrecioDolar.Text))).ToString();
+                        txtDescripcion.Text = precioAux.Descripcion;
+                        txtCantidad.Focus();
+                    }
+                }
+            }
+            else
+            {
+                txtCodigo.Text = "";
+                txtCantidad.Text = "";
+                txtPrecioUnitario.Text = "";
+                txtDescripcion.Text = "";
+                txtCodigo.Focus();
+            }
         }
     }
 }

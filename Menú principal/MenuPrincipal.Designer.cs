@@ -1,5 +1,4 @@
-﻿
-namespace CompuGross
+﻿namespace CompuGross
 {
     partial class MenuPrincipal
     {
@@ -95,6 +94,7 @@ namespace CompuGross
             this.btnListarClientes = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
+            this.lblFechaExpiracion = new System.Windows.Forms.Label();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -160,6 +160,7 @@ namespace CompuGross
             // titleBar
             // 
             this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.titleBar.Controls.Add(this.lblFechaExpiracion);
             this.titleBar.Controls.Add(this.btnMaximize);
             this.titleBar.Controls.Add(this.lblCompuGross);
             this.titleBar.Controls.Add(this.btnMinimize);
@@ -1067,6 +1068,18 @@ namespace CompuGross
             this.btnAgregarCliente.UseVisualStyleBackColor = false;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
+            // lblFechaExpiracion
+            // 
+            this.lblFechaExpiracion.AutoSize = true;
+            this.lblFechaExpiracion.BackColor = System.Drawing.Color.Transparent;
+            this.lblFechaExpiracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaExpiracion.ForeColor = System.Drawing.Color.White;
+            this.lblFechaExpiracion.Location = new System.Drawing.Point(448, 12);
+            this.lblFechaExpiracion.Name = "lblFechaExpiracion";
+            this.lblFechaExpiracion.Size = new System.Drawing.Size(11, 13);
+            this.lblFechaExpiracion.TabIndex = 12;
+            this.lblFechaExpiracion.Text = "-";
+            // 
             // MenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -1178,5 +1191,6 @@ namespace CompuGross
         private System.Windows.Forms.Button btnServiciosPorCliente;
         private System.Windows.Forms.Panel pnBtnProveedores;
         private System.Windows.Forms.Button btnProveedores;
+        private System.Windows.Forms.Label lblFechaExpiracion;
     }
 }

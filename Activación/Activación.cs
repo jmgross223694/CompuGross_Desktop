@@ -314,7 +314,7 @@ namespace CompuGross
 
         private void lblTerminosLicencia_Click(object sender, EventArgs e)
         {
-            string urlLicencia = "https://www.microsoft.com/es-es/store/standard-application-license-terms-eea";
+            string urlLicencia = "https://jmgross223694.github.io/mi-portfolio/terms";
 
             System.Diagnostics.Process.Start(urlLicencia);
 

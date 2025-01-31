@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
+using Dominio;
 using System.Runtime.InteropServices;
 
 namespace CompuGross
@@ -21,6 +22,17 @@ namespace CompuGross
         public MenuPrincipal()
         {
             InitializeComponent();
+            CargarFechaExpiracion();
+        }
+
+        private void CargarFechaExpiracion()
+        {
+            Activacion activacion = new Activacion();
+            ActivacionDB activacionDB = new ActivacionDB();
+            activacion = activacionDB.LeerDatos();
+            TimeSpan diferencia = activacion.Validez - DateTime.Now;
+            int diasFaltantes = diferencia.Days;
+            lblFechaExpiracion.Text = "Licencia hasta: " + activacion.Validez.ToShortDateString() + " (Quedan " + diasFaltantes + " días)";
         }
 
         private void cargarUsuarioLogueado()

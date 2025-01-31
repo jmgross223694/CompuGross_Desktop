@@ -30,9 +30,9 @@ namespace CompuGross
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarServicio));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtRam = new System.Windows.Forms.TextBox();
             this.ddlTiposServicio = new System.Windows.Forms.ComboBox();
@@ -112,7 +112,7 @@ namespace CompuGross
             this.txtRam.MaxLength = 50;
             this.txtRam.Name = "txtRam";
             this.txtRam.Size = new System.Drawing.Size(150, 20);
-            this.txtRam.TabIndex = 5;
+            this.txtRam.TabIndex = 7;
             // 
             // ddlTiposServicio
             // 
@@ -130,7 +130,7 @@ namespace CompuGross
             this.ddlTiposServicio.MaxDropDownItems = 10;
             this.ddlTiposServicio.Name = "ddlTiposServicio";
             this.ddlTiposServicio.Size = new System.Drawing.Size(161, 23);
-            this.ddlTiposServicio.TabIndex = 3;
+            this.ddlTiposServicio.TabIndex = 4;
             this.ddlTiposServicio.SelectedIndexChanged += new System.EventHandler(this.ddlTiposServicio_SelectedIndexChanged);
             // 
             // ddlTiposEquipo
@@ -149,7 +149,7 @@ namespace CompuGross
             this.ddlTiposEquipo.MaxDropDownItems = 15;
             this.ddlTiposEquipo.Name = "ddlTiposEquipo";
             this.ddlTiposEquipo.Size = new System.Drawing.Size(146, 21);
-            this.ddlTiposEquipo.TabIndex = 4;
+            this.ddlTiposEquipo.TabIndex = 5;
             this.ddlTiposEquipo.SelectedIndexChanged += new System.EventHandler(this.ddlTiposEquipo_SelectedIndexChanged);
             // 
             // txtPlacaMadre
@@ -162,7 +162,7 @@ namespace CompuGross
             this.txtPlacaMadre.MaxLength = 50;
             this.txtPlacaMadre.Name = "txtPlacaMadre";
             this.txtPlacaMadre.Size = new System.Drawing.Size(150, 20);
-            this.txtPlacaMadre.TabIndex = 6;
+            this.txtPlacaMadre.TabIndex = 10;
             // 
             // txtMarcaModelo
             // 
@@ -174,7 +174,7 @@ namespace CompuGross
             this.txtMarcaModelo.MaxLength = 50;
             this.txtMarcaModelo.Name = "txtMarcaModelo";
             this.txtMarcaModelo.Size = new System.Drawing.Size(188, 20);
-            this.txtMarcaModelo.TabIndex = 7;
+            this.txtMarcaModelo.TabIndex = 6;
             // 
             // txtMicroprocesador
             // 
@@ -260,7 +260,7 @@ namespace CompuGross
             this.txtCostoRepuestos.MaxLength = 10;
             this.txtCostoRepuestos.Name = "txtCostoRepuestos";
             this.txtCostoRepuestos.Size = new System.Drawing.Size(109, 20);
-            this.txtCostoRepuestos.TabIndex = 14;
+            this.txtCostoRepuestos.TabIndex = 15;
             this.txtCostoRepuestos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCostoRepuestos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoRepuestos_KeyPress);
             // 
@@ -274,7 +274,7 @@ namespace CompuGross
             this.txtCostoManoObra.MaxLength = 10;
             this.txtCostoManoObra.Name = "txtCostoManoObra";
             this.txtCostoManoObra.Size = new System.Drawing.Size(104, 20);
-            this.txtCostoManoObra.TabIndex = 15;
+            this.txtCostoManoObra.TabIndex = 16;
             this.txtCostoManoObra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCostoManoObra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoManoObra_KeyPress);
             // 
@@ -288,7 +288,7 @@ namespace CompuGross
             this.txtCostoTerceros.MaxLength = 10;
             this.txtCostoTerceros.Name = "txtCostoTerceros";
             this.txtCostoTerceros.Size = new System.Drawing.Size(92, 20);
-            this.txtCostoTerceros.TabIndex = 16;
+            this.txtCostoTerceros.TabIndex = 17;
             this.txtCostoTerceros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCostoTerceros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoTerceros_KeyPress);
             // 
@@ -560,25 +560,25 @@ namespace CompuGross
             this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvClientes.ColumnHeadersHeight = 30;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.GridColor = System.Drawing.SystemColors.Control;
@@ -589,12 +589,12 @@ namespace CompuGross
             this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.ShowCellErrors = false;
             this.dgvClientes.ShowCellToolTips = false;
@@ -644,9 +644,10 @@ namespace CompuGross
             this.fechaRecepcion.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaRecepcion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaRecepcion.Location = new System.Drawing.Point(12, 96);
+            this.fechaRecepcion.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.fechaRecepcion.Name = "fechaRecepcion";
             this.fechaRecepcion.Size = new System.Drawing.Size(135, 22);
-            this.fechaRecepcion.TabIndex = 2;
+            this.fechaRecepcion.TabIndex = 1;
             // 
             // fechaDevolucion
             // 
@@ -663,7 +664,7 @@ namespace CompuGross
             this.fechaDevolucion.Name = "fechaDevolucion";
             this.fechaDevolucion.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.fechaDevolucion.Size = new System.Drawing.Size(165, 22);
-            this.fechaDevolucion.TabIndex = 17;
+            this.fechaDevolucion.TabIndex = 3;
             // 
             // lblAsteriscoDescripcion
             // 
@@ -736,7 +737,7 @@ namespace CompuGross
             this.cbFechaDevolucion.Location = new System.Drawing.Point(317, 82);
             this.cbFechaDevolucion.Name = "cbFechaDevolucion";
             this.cbFechaDevolucion.Size = new System.Drawing.Size(12, 11);
-            this.cbFechaDevolucion.TabIndex = 51;
+            this.cbFechaDevolucion.TabIndex = 2;
             this.cbFechaDevolucion.UseVisualStyleBackColor = true;
             this.cbFechaDevolucion.CheckedChanged += new System.EventHandler(this.cbFechaDevolucion_CheckedChanged);
             // 
@@ -759,7 +760,7 @@ namespace CompuGross
             this.ddlUnidadOptica.Location = new System.Drawing.Point(185, 270);
             this.ddlUnidadOptica.Name = "ddlUnidadOptica";
             this.ddlUnidadOptica.Size = new System.Drawing.Size(167, 21);
-            this.ddlUnidadOptica.TabIndex = 52;
+            this.ddlUnidadOptica.TabIndex = 14;
             // 
             // lblCamposObligatorios
             // 

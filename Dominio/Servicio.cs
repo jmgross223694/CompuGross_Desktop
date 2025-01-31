@@ -8,6 +8,12 @@ namespace Dominio
 {
     public class Servicio
     {
+        public Servicio()
+        {
+            Cliente cliente = new Cliente();
+            clienteAux = cliente;
+        }
+
         public long ID { get; set; }
 
         public string FechaRecepcion { get; set; }
@@ -15,6 +21,8 @@ namespace Dominio
         public long IdCliente { get; set; }
 
         public string Cliente { get; set; }
+
+        public Cliente clienteAux { get; set; }
 
         public string TipoEquipo { get; set; }
         
