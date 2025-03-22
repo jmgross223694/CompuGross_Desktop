@@ -42,108 +42,66 @@ namespace CompuGross
             AlinearColumnasGrillaClientes();
             ordenarColumnasGrillaClientes();
             cambiarTitulosGrillaClientes();
+            dgvClientes.Visible = true;
+            txtBuscarCliente.Visible = true;
+            txtBuscarCliente.Focus();
         }
 
         private void visibilidadCamposServicio(string aux)
         {
+            bool visibilidad = false;
             if (aux == "show")
             {
-                txtCliente.Visible = true;
-                fechaRecepcion.Visible = true;
-                ddlTiposServicio.Visible = true;
-                ddlTiposEquipo.Visible = true;
-                txtRam.Visible = true;
-                txtPlacaMadre.Visible = true;
-                txtMarcaModelo.Visible = true;
-                txtMicroprocesador.Visible = true;
-                txtAlmacenamiento.Visible = true;
-                ddlUnidadOptica.Visible = true;
-                txtNumSerie.Visible = true;
-                txtAdicionales.Visible = true;
-                txtAlimentacion.Visible = true;
-                txtCostoRepuestos.Visible = true;
-                txtCostoManoObra.Visible = true;
-                txtCostoTerceros.Visible = true;
-                fechaDevolucion.Visible = true;
-                txtDescripcion.Visible = true;
-                btnConfirmar.Visible = true;
-
-                lblCliente.Visible = true;
-                lblFechaRecepcion.Visible = true;
-                lblTipoServicio.Visible = true;
-                lblTipoEquipo.Visible = true;
-                lblRam.Visible = true;
-                lblPlacaMadre.Visible = true;
-                lblMarca.Visible = true;
-                lblMicroProcesador.Visible = true;
-                lblAlmacenamiento.Visible = true;
-                lblUnidadOptica.Visible = true;
-                lblAlimentacion.Visible = true;
-                lblAdicionales.Visible = true;
-                lblNumSerie.Visible = true;
-                lblCostoRepuestos.Visible = true;
-                lblManoObra.Visible = true;
-                lblCostoTerceros.Visible = true;
-                lblFechaDevolucion.Visible = true;
-                lblDescripcion.Visible = true;
-                lblAsteriscoTipoServicio.Visible = true;
-                lblAsteriscoTipoEquipo.Visible = true;
-                lblAsteriscoMarca.Visible = true;
-                lblAsteriscoManoObra.Visible = true;
-                lblAsteriscoDescripcion.Visible = true;
-                lblCamposObligatorios.Visible = true;
-
-                cbFechaDevolucion.Visible = true;
+                visibilidad = true;
             }
-            if (aux == "hide")
-            {
-                txtCliente.Visible = false;
-                fechaRecepcion.Visible = false;
-                ddlTiposServicio.Visible = false;
-                ddlTiposEquipo.Visible = false;
-                txtRam.Visible = false;
-                txtPlacaMadre.Visible = false;
-                txtMarcaModelo.Visible = false;
-                txtMicroprocesador.Visible = false;
-                txtAlmacenamiento.Visible = false;
-                ddlUnidadOptica.Visible = false;
-                txtNumSerie.Visible = false;
-                txtAdicionales.Visible = false;
-                txtAlimentacion.Visible = false;
-                txtCostoRepuestos.Visible = false;
-                txtCostoManoObra.Visible = false;
-                txtCostoTerceros.Visible = false;
-                fechaDevolucion.Visible = false;
-                txtDescripcion.Visible = false;
-                btnConfirmar.Visible = false;
+            txtCliente.Visible = visibilidad;
+            ddlEquiposDisponibles.Visible = visibilidad;
+            fechaRecepcion.Visible = visibilidad;
+            ddlTiposServicio.Visible = visibilidad;
+            ddlTiposEquipo.Visible = visibilidad;
+            txtRam.Visible = visibilidad;
+            txtPlacaMadre.Visible = visibilidad;
+            txtMarcaModelo.Visible = visibilidad;
+            txtMicroprocesador.Visible = visibilidad;
+            txtAlmacenamiento.Visible = visibilidad;
+            ddlUnidadOptica.Visible = visibilidad;
+            txtNumSerie.Visible = visibilidad;
+            txtAdicionales.Visible = visibilidad;
+            txtAlimentacion.Visible = visibilidad;
+            txtCostoRepuestos.Visible = visibilidad;
+            txtCostoManoObra.Visible = visibilidad;
+            txtCostoTerceros.Visible = visibilidad;
+            fechaDevolucion.Visible = visibilidad;
+            txtDescripcion.Visible = visibilidad;
+            btnConfirmar.Visible = visibilidad;
 
-                lblCliente.Visible = false;
-                lblFechaRecepcion.Visible = false;
-                lblTipoServicio.Visible = false;
-                lblTipoEquipo.Visible = false;
-                lblRam.Visible = false;
-                lblPlacaMadre.Visible = false;
-                lblMarca.Visible = false;
-                lblMicroProcesador.Visible = false;
-                lblAlmacenamiento.Visible = false;
-                lblUnidadOptica.Visible = false;
-                lblAlimentacion.Visible = false;
-                lblAdicionales.Visible = false;
-                lblNumSerie.Visible = false;
-                lblCostoRepuestos.Visible = false;
-                lblManoObra.Visible = false;
-                lblCostoTerceros.Visible = false;
-                lblFechaDevolucion.Visible = false;
-                lblDescripcion.Visible = false;
-                lblAsteriscoTipoServicio.Visible = false;
-                lblAsteriscoTipoEquipo.Visible = false;
-                lblAsteriscoMarca.Visible = false;
-                lblAsteriscoManoObra.Visible = false;
-                lblAsteriscoDescripcion.Visible = false;
-                lblCamposObligatorios.Visible = false;
+            lblCliente.Visible = visibilidad;
+            lblEquiposDisponibles.Visible = visibilidad;
+            lblFechaRecepcion.Visible = visibilidad;
+            lblTipoServicio.Visible = visibilidad;
+            lblTipoEquipo.Visible = visibilidad;
+            lblRam.Visible = visibilidad;
+            lblPlacaMadre.Visible = visibilidad;
+            lblMarca.Visible = visibilidad;
+            lblMicroProcesador.Visible = visibilidad;
+            lblAlmacenamiento.Visible = visibilidad;
+            lblUnidadOptica.Visible = visibilidad;
+            lblAlimentacion.Visible = visibilidad;
+            lblAdicionales.Visible = visibilidad;
+            lblNumSerie.Visible = visibilidad;
+            lblCostoRepuestos.Visible = visibilidad;
+            lblManoObra.Visible = visibilidad;
+            lblCostoTerceros.Visible = visibilidad;
+            lblFechaDevolucion.Visible = visibilidad;
+            lblDescripcion.Visible = visibilidad;
+            lblAsteriscoTipoServicio.Visible = visibilidad;
+            lblAsteriscoTipoEquipo.Visible = visibilidad;
+            lblAsteriscoMarca.Visible = visibilidad;
+            lblAsteriscoManoObra.Visible = visibilidad;
+            lblAsteriscoDescripcion.Visible = visibilidad;
+            lblCamposObligatorios.Visible = visibilidad;
 
-                cbFechaDevolucion.Visible = false;
-            }
+            cbFechaDevolucion.Visible = visibilidad;
         }
 
         private void inhabilitarCampos()
@@ -311,6 +269,8 @@ namespace CompuGross
             {
                 Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
 
+                CargarEquiposDisponiblesCliente(seleccionado);
+
                 visibilidadCamposServicio("show");
 
                 if (cbFechaDevolucion.Checked == false)
@@ -328,6 +288,62 @@ namespace CompuGross
                 txtBuscarCliente.Text = "";
                 lblSeleccionarCliente.Text = "Seleccionar Cliente";
                 lblSeleccionarCliente.Visible = false;
+            }
+        }
+
+        private void CargarEquiposDisponiblesCliente(Cliente cliente)
+        {
+            string selectEquiposDisponibles = "select * from ExportModificarOrdenTrabajo";
+            AccesoDatos datos = new AccesoDatos();
+            List<Servicio> listaServicios = new List<Servicio>();
+            try
+            {
+                datos.SetearConsulta(selectEquiposDisponibles);
+                datos.EjecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Servicio servicio = new Servicio();
+                    servicio.ID = Convert.ToInt64(datos.Lector["ID"]);
+                    servicio.IdCliente = Convert.ToInt64(datos.Lector["IdCliente"]);
+                    servicio.TipoEquipo = datos.Lector["TipoEquipo"].ToString();
+                    servicio.MarcaModelo = datos.Lector["MarcaModelo"].ToString();
+                    listaServicios.Add(servicio);
+                }
+                foreach(Servicio servicio in listaServicios)
+                {
+                    if (servicio.IdCliente == cliente.Id)
+                    {
+                        if (ddlEquiposDisponibles.Items.Count == 0)
+                        {
+                            ddlEquiposDisponibles.Items.Add(servicio.TipoEquipo + " " + servicio.MarcaModelo);
+                        }
+                        else
+                        {
+                            bool bandera = false;
+                            foreach (var item in ddlEquiposDisponibles.Items)
+                            {
+                                if (item.ToString() == servicio.TipoEquipo + " " + servicio.MarcaModelo)
+                                {
+                                    bandera = true;
+                                    break;
+                                }
+                            }
+                            if (!bandera)
+                            {
+                                ddlEquiposDisponibles.Items.Add(servicio.TipoEquipo + " " + servicio.MarcaModelo);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al leer la tabla Precios en la base de datos.");
+                this.Close();
+            }
+            finally
+            {
+                datos.CerrarConexion();
             }
         }
 
@@ -631,6 +647,8 @@ namespace CompuGross
             {
                 Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
 
+                CargarEquiposDisponiblesCliente(seleccionado);
+
                 visibilidadCamposServicio("show");
 
                 if (cbFechaDevolucion.Checked == false)
@@ -875,6 +893,87 @@ namespace CompuGross
             {
                 ddlTiposEquipo.SelectedItem = "-";
             }
+        }
+
+        private void ddlEquiposDisponibles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string equipoSeleccionado = ddlEquiposDisponibles.SelectedItem.ToString();
+            string cliente = txtCliente.Text;
+            AccesoDatos datos = new AccesoDatos();
+            if (equipoSeleccionado != "-")
+            {
+                try
+                {
+                    Servicio servicio = new Servicio();
+                    string selectServicio = "select top 1 * from ExportModificarOrdenTrabajo where Cliente = '" + cliente + "' and TipoEquipo+' '+MarcaModelo = '" + equipoSeleccionado + "' order by ID desc";
+                    datos.SetearConsulta(selectServicio);
+                    datos.EjecutarLectura();
+                    if (datos.Lector.Read())
+                    {
+                        servicio.TipoEquipo = datos.Lector["TipoEquipo"].ToString();
+                        servicio.MarcaModelo = datos.Lector["MarcaModelo"].ToString();
+                        servicio.RAM = datos.Lector["RAM"].ToString();
+                        servicio.Microprocesador = datos.Lector["Microprocesador"].ToString();
+                        servicio.Almacenamiento = datos.Lector["Almacenamiento"].ToString();
+                        servicio.PlacaMadre = datos.Lector["PlacaMadre"].ToString();
+                        servicio.NumSerie = datos.Lector["NumSerie"].ToString();
+                        servicio.Fuente = datos.Lector["Alimentacion"].ToString();
+                        servicio.CdDvd = datos.Lector["UnidadOptica"].ToString();
+                        AsignarCamposServicio(servicio);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("No se pudieron cargar los datos del Equipo seleccionado");
+                }
+                finally
+                {
+                    datos.CerrarConexion();
+                }
+            }
+            else
+            {
+                if (txtMarcaModelo.Text != "")
+                {
+                    if (MessageBox.Show("¿Borrar los campos cargados del Servicio?", "Atención!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        BorrarCamposCargados();
+                        visibilidadCamposServicio("show");
+                        fechaDevolucion.Visible = false;
+                        if (cbFechaDevolucion.Checked)
+                        {
+                            fechaDevolucion.Visible = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void AsignarCamposServicio(Servicio servicio)
+        {
+            ddlTiposEquipo.SelectedItem = servicio.TipoEquipo;
+            txtMarcaModelo.Text = servicio.MarcaModelo;
+            txtRam.Text = servicio.RAM;
+            txtMicroprocesador.Text = servicio.Microprocesador;
+            txtAlmacenamiento.Text = servicio.Almacenamiento;
+            txtPlacaMadre.Text = servicio.PlacaMadre;
+            txtNumSerie.Text = servicio.NumSerie;
+            txtAlimentacion.Text = servicio.Fuente;
+            ddlUnidadOptica.SelectedItem = servicio.CdDvd;
+        }
+
+        private void BorrarCamposCargados()
+        {
+            ddlTiposEquipo.SelectedItem = "-";
+            txtMarcaModelo.Text = "";
+            txtRam.Text = "";
+            txtMicroprocesador.Text = "";
+            txtAlmacenamiento.Text = "";
+            txtPlacaMadre.Text = "";
+            txtNumSerie.Text = "";
+            txtAlimentacion.Text = "";
+            ddlUnidadOptica.SelectedItem = "-";
         }
     }
 }

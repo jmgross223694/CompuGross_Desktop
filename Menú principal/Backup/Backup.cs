@@ -59,13 +59,13 @@ namespace CompuGross
                     {
                         //INICIAMOS CONEXION
                         //string strConLocal = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
-                        string strConLan = "Server=192.168.100.144\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
+                        string strConLan = "Server=.\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
 
                         con = new SqlConnection(strConLan);
 
                         con.Open();
                         
-                        string selectTabla = "select * from " + nombreTabla;
+                        string selectTabla = "select * from " + nombreTabla + " where Estado = 1";
 
                         //CARGAMOS TABLA EN MEMORIA CON LA CONSULTA
                         SqlCommand cmd = new SqlCommand(selectTabla, con);

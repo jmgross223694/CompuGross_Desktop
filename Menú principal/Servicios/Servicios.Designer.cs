@@ -184,6 +184,7 @@ namespace CompuGross
             this.dgvServicios.Size = new System.Drawing.Size(523, 358);
             this.dgvServicios.StandardTab = true;
             this.dgvServicios.TabIndex = 7;
+            this.dgvServicios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServicios_CellDoubleClick);
             // 
             // menuStrip1
             // 

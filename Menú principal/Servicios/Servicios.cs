@@ -708,6 +708,11 @@ namespace CompuGross
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            CargarDatosServicio();
+        }
+
+        private void CargarDatosServicio()
+        {
             try
             {
                 if (dgvServicios.CurrentRow != null)
@@ -723,7 +728,7 @@ namespace CompuGross
 
                         this.primerIngreso = false;
                     }
-                    
+
                     txtFiltro.Text = "";
                     Servicio servicio = (Servicio)dgvServicios.CurrentRow.DataBoundItem;
                     ServicioDB sDB = new ServicioDB();
@@ -751,7 +756,8 @@ namespace CompuGross
             }
             catch
             {
-
+                MessageBox.Show("No se pudieron cargar los datos del Servicio seleccionado.", "Atención!",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -908,6 +914,11 @@ namespace CompuGross
         private void btnExcel_Click(object sender, EventArgs e)
         {
             ExportExcel(dgvServicios);
+        }
+
+        private void dgvServicios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CargarDatosServicio();
         }
     }
 }

@@ -372,7 +372,7 @@ namespace CompuGross
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                agregarItem();
+                txtPrecioUnitario.Focus();
             }
 
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -408,7 +408,7 @@ namespace CompuGross
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                txtPrecioUnitario.Focus();
+                txtCodigo.Focus();
             }
             else
             {
@@ -420,7 +420,7 @@ namespace CompuGross
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                txtCodigo.Focus();
+                agregarItem();
             }
             else
             {

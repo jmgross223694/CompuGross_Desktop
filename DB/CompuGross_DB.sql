@@ -399,7 +399,7 @@ begin
 							   CostoRepuestos, CostoTerceros, CostoCG,
 							   Ganancia, CostoTotal)
 							
-			values((select ID from Clientes where Nombres = @Cliente), @FechaRecepcion, 
+			values((select top 1 ID from Clientes where Nombres = @Cliente order by ID asc), @FechaRecepcion, 
 				   (select ID from TiposEquipo where Descripcion = @TipoEquipo), @RAM,
 				   @PlacaMadre, @MarcaModelo, @Microprocesador, @Almacenamiento, @CdDvd,
 				   @Fuente, @Adicionales, @NumSerie,
@@ -416,7 +416,7 @@ begin
 							   CostoRepuestos, CostoTerceros, CostoCG,
 							   FechaDevolucion, Ganancia, CostoTotal)
 							
-			values((select ID from Clientes where Nombres = @Cliente), @FechaRecepcion, 
+			values((select top 1 ID from Clientes where Nombres = @Cliente order by ID asc), @FechaRecepcion, 
 				   (select ID from TiposEquipo where Descripcion = @TipoEquipo), @RAM,
 				   @PlacaMadre, @MarcaModelo, @Microprocesador, @Almacenamiento, @CdDvd,
 				   @Fuente, @Adicionales, @NumSerie,
