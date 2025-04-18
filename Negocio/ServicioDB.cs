@@ -41,7 +41,8 @@ namespace Negocio
                     aux.Ganancia = Convert.ToInt32(datos.Lector["Ganancia"]);
                     lista.Add(aux);
                 }
-
+                datos.CerrarConexion();
+                lista = CargarNumSerieCodVerificacionCamaras(lista);
                 return lista;
             }
             catch (Exception ex)
@@ -100,7 +101,8 @@ namespace Negocio
 
                     lista.Add(aux);
                 }
-
+                datos.CerrarConexion();
+                lista = CargarNumSerieCodVerificacionCamaras(lista);
                 return lista;
             }
             catch (Exception ex)
@@ -131,6 +133,8 @@ namespace Negocio
             {
                 datos.SetearConsulta(insertOrden);
                 datos.EjecutarLectura();
+                datos.CerrarConexion();
+                AgregarNumSerieCodVerificacionCamaras(servicio);
             }
             catch (Exception ex)
             {
@@ -152,6 +156,8 @@ namespace Negocio
             {
                 datos.SetearConsulta(delete);
                 datos.EjecutarLectura();
+                datos.CerrarConexion();
+                EliminarNumSerieCodVerificacionCamaras(ID);
             }
             catch (Exception ex)
             {
@@ -208,7 +214,10 @@ namespace Negocio
                     aux.CostoCG = Convert.ToInt32(datos.Lector["Honorarios"]);
                     aux.Estado = Convert.ToInt32(datos.Lector["Estado"]);
                 }
-
+                if (aux.TipoServicio == "Cámaras")
+                {
+                    aux.NumSerieCodVerificacion = BuscarNumSerieCodVerificacionCamarasPorId(aux.ID);
+                }
                 return aux;
             }
             catch (Exception ex)
@@ -250,6 +259,11 @@ namespace Negocio
             {
                 datos.SetearConsulta(update);
                 datos.EjecutarLectura();
+                datos.CerrarConexion();
+                if (servicio.TipoServicio == "Cámaras")
+                {
+                    ModificarNumSerieCodVerificacionCamaras(servicio);
+                }
             }
             catch (Exception ex)
             {
@@ -287,6 +301,120 @@ namespace Negocio
                 datos.CerrarConexion();
             }
             return id;
+        }
+
+        public string BuscarNumSerieCodVerificacionCamarasPorId(long ID)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string select = "select * from NumSerieCodVerificacionOrdenesTrabajo where IdOrdenTrabajo = " + ID,
+            resultado = "";
+            try
+            {
+                datos.SetearConsulta(select);
+                datos.EjecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    resultado = datos.Lector["NumSerie_CodVerificacion"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+            return resultado;
+        }
+
+        public List<Servicio> CargarNumSerieCodVerificacionCamaras(List<Servicio> listaServicios)
+        {
+            List<Servicio> nuevaListaServicios = new List<Servicio>();
+            foreach (Servicio servicio in listaServicios)
+            {
+                if (servicio.TipoServicio == "Cámaras")
+                {
+                    AccesoDatos datos = new AccesoDatos();
+                    string select = "select * from NumSerieCodVerificacionOrdenesTrabajo where IdOrdenTrabajo = " + servicio.ID;
+                    try
+                    {
+                        datos.SetearConsulta(select);
+                        datos.EjecutarLectura();
+                        if (datos.Lector.Read())
+                        {
+                            servicio.NumSerieCodVerificacion = datos.Lector["NumSerie_CodVerificacion"].ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        datos.CerrarConexion();
+                    }
+                }
+                nuevaListaServicios.Add(servicio);
+            }
+            return nuevaListaServicios;
+        }
+
+        public void AgregarNumSerieCodVerificacionCamaras(Servicio servicio)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string insert = "insert into NumSerieCodVerificacionOrdenesTrabajo(IdOrdenTrabajo, NumSerie_CodVerificacion) values (" + servicio.ID + ", '" + servicio.NumSerieCodVerificacion + "')";
+            try
+            {
+                datos.SetearConsulta(insert);
+                datos.EjecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void ModificarNumSerieCodVerificacionCamaras(Servicio servicio)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string update = "update NumSerieCodVerificacionOrdenesTrabajo set NumSerie_CodVerificacion ='" + servicio.NumSerieCodVerificacion + "' where IdOrdenTrabajo = " + servicio.ID;
+            try
+            {
+                datos.SetearConsulta(update);
+                datos.EjecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void EliminarNumSerieCodVerificacionCamaras(long ID)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string delete = "delete NumSerieCodVerificacionOrdenesTrabajo where IdOrdenTrabajo = " + ID;
+            try
+            {
+                datos.SetearConsulta(delete);
+                datos.EjecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
     }
 }

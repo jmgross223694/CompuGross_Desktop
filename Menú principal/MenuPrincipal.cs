@@ -22,6 +22,7 @@ namespace CompuGross
         public MenuPrincipal()
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
             CargarFechaExpiracion();
         }
 
@@ -919,6 +920,7 @@ namespace CompuGross
                 }
 
                 Form fH = formHijo as Form;
+                fH.MdiParent = this;
                 fH.TopLevel = false;
                 fH.Dock = DockStyle.Fill;
                 this.contentPanel.Controls.Add(fH);

@@ -407,6 +407,20 @@ namespace CompuGross
                 servicio.FechaDevolucion = fecDevolucion;
                 servicio.MarcaModelo = txtMarcaModelo.Text;
                 servicio.TipoServicio = ddlTiposServicio.SelectedItem.ToString();
+
+                if (servicio.TipoServicio == "Cámaras")
+                {
+                    servicio.NumSerieCodVerificacion = txtNumSerieCodVerificacion.Text;
+                    if (servicio.NumSerieCodVerificacion == "")
+                    {
+                        servicio.NumSerieCodVerificacion = "-";
+                    }
+                }
+                else
+                {
+                    servicio.NumSerieCodVerificacion = "-";
+                }
+
                 servicio.Descripcion = txtDescripcion.Text;
                 servicio.CostoCG = Convert.ToInt32(txtCostoManoObra.Text);
 
@@ -481,6 +495,7 @@ namespace CompuGross
             txtAlimentacion.Text = "";
             txtAdicionales.Text = "";
             txtNumSerie.Text = "";
+            txtNumSerieCodVerificacion.Text = "";
             ddlUnidadOptica.SelectedItem = "-";
             txtCostoRepuestos.Text = "";
             txtCostoManoObra.Text = "";
@@ -650,6 +665,8 @@ namespace CompuGross
                 CargarEquiposDisponiblesCliente(seleccionado);
 
                 visibilidadCamposServicio("show");
+                OcultarCamposOrden();
+                ddlTiposEquipo.SelectedIndex = 0;
 
                 if (cbFechaDevolucion.Checked == false)
                 {
@@ -788,6 +805,8 @@ namespace CompuGross
             lblDescripcion.Visible = false;
             lblAsteriscoDescripcion.Visible = false;
             txtDescripcion.Visible = false;
+            lblNumSerieCodVerificacion.Visible = false;
+            txtNumSerieCodVerificacion.Visible = false;
         }
 
         private void MostrarCamposGenericos()
@@ -873,6 +892,10 @@ namespace CompuGross
         private void MostrarCamposCámaras() //Cámaras
         {
             MostrarCamposGenericos();
+            lblNumSerieCodVerificacion.Visible = true;
+            txtNumSerieCodVerificacion.Visible = true;
+            lblNumSerie.Visible = false;
+            txtNumSerie.Visible = false;
         }
 
         private void ddlTiposServicio_SelectedIndexChanged(object sender, EventArgs e)

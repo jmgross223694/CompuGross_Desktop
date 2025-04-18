@@ -44,6 +44,8 @@ namespace Dominio
 
         public string NumSerie { get; set; }
 
+        public string NumSerieCodVerificacion { get; set; }
+
         public string TipoServicio { get; set; }
 
         public string Descripcion { get; set; }

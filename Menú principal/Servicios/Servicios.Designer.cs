@@ -95,6 +95,8 @@ namespace CompuGross
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.btnCambiarCliente = new System.Windows.Forms.PictureBox();
+            this.lblNumSerieCodVerificacion = new System.Windows.Forms.Label();
+            this.txtNumSerieCodVerificacion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscarOrden)).BeginInit();
@@ -211,8 +213,8 @@ namespace CompuGross
             this.btnMenuModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuModificar.Image")));
             this.btnMenuModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuModificar.Name = "btnMenuModificar";
-            this.btnMenuModificar.Size = new System.Drawing.Size(101, 24);
-            this.btnMenuModificar.Text = "Modificar";
+            this.btnMenuModificar.Size = new System.Drawing.Size(99, 24);
+            this.btnMenuModificar.Text = "Opciones";
             this.btnMenuModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnModificar
@@ -221,7 +223,8 @@ namespace CompuGross
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(142, 24);
+            this.btnModificar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.M)));
+            this.btnModificar.Size = new System.Drawing.Size(193, 24);
             this.btnModificar.Text = "Modificar";
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
@@ -231,7 +234,8 @@ namespace CompuGross
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(142, 24);
+            this.btnEliminar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
+            this.btnEliminar.Size = new System.Drawing.Size(193, 24);
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -738,6 +742,7 @@ namespace CompuGross
             this.txtDescripcion.MaxLength = 1000;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescripcion.Size = new System.Drawing.Size(158, 114);
             this.txtDescripcion.TabIndex = 18;
             this.txtDescripcion.Visible = false;
@@ -925,6 +930,33 @@ namespace CompuGross
             this.btnCambiarCliente.Visible = false;
             this.btnCambiarCliente.Click += new System.EventHandler(this.btnCambiarCliente_Click);
             // 
+            // lblNumSerieCodVerificacion
+            // 
+            this.lblNumSerieCodVerificacion.AutoSize = true;
+            this.lblNumSerieCodVerificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumSerieCodVerificacion.ForeColor = System.Drawing.Color.White;
+            this.lblNumSerieCodVerificacion.Location = new System.Drawing.Point(387, 106);
+            this.lblNumSerieCodVerificacion.Name = "lblNumSerieCodVerificacion";
+            this.lblNumSerieCodVerificacion.Size = new System.Drawing.Size(169, 16);
+            this.lblNumSerieCodVerificacion.TabIndex = 59;
+            this.lblNumSerieCodVerificacion.Text = "NumSerie_CodVerificación";
+            this.lblNumSerieCodVerificacion.Visible = false;
+            // 
+            // txtNumSerieCodVerificacion
+            // 
+            this.txtNumSerieCodVerificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
+            this.txtNumSerieCodVerificacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumSerieCodVerificacion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumSerieCodVerificacion.ForeColor = System.Drawing.Color.White;
+            this.txtNumSerieCodVerificacion.Location = new System.Drawing.Point(390, 125);
+            this.txtNumSerieCodVerificacion.MaxLength = 1000;
+            this.txtNumSerieCodVerificacion.Multiline = true;
+            this.txtNumSerieCodVerificacion.Name = "txtNumSerieCodVerificacion";
+            this.txtNumSerieCodVerificacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNumSerieCodVerificacion.Size = new System.Drawing.Size(132, 54);
+            this.txtNumSerieCodVerificacion.TabIndex = 58;
+            this.txtNumSerieCodVerificacion.Visible = false;
+            // 
             // Servicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -932,6 +964,8 @@ namespace CompuGross
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(540, 467);
+            this.Controls.Add(this.lblNumSerieCodVerificacion);
+            this.Controls.Add(this.txtNumSerieCodVerificacion);
             this.Controls.Add(this.btnCambiarCliente);
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.lblAsteriscoMarcaModelo);
@@ -1059,5 +1093,7 @@ namespace CompuGross
         private System.Windows.Forms.ToolStripMenuItem btnEliminar;
         private System.Windows.Forms.ToolStripMenuItem btnExportar;
         private System.Windows.Forms.ToolStripMenuItem btnExcel;
+        private System.Windows.Forms.Label lblNumSerieCodVerificacion;
+        private System.Windows.Forms.TextBox txtNumSerieCodVerificacion;
     }
 }

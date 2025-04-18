@@ -34,6 +34,7 @@
             this.lblUserTipo = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.titleBar = new System.Windows.Forms.Panel();
+            this.lblFechaExpiracion = new System.Windows.Forms.Label();
             this.btnMaximize = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
@@ -94,7 +95,6 @@
             this.btnListarClientes = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
-            this.lblFechaExpiracion = new System.Windows.Forms.Label();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -172,6 +172,18 @@
             this.titleBar.Size = new System.Drawing.Size(1044, 38);
             this.titleBar.TabIndex = 0;
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
+            // 
+            // lblFechaExpiracion
+            // 
+            this.lblFechaExpiracion.AutoSize = true;
+            this.lblFechaExpiracion.BackColor = System.Drawing.Color.Transparent;
+            this.lblFechaExpiracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaExpiracion.ForeColor = System.Drawing.Color.White;
+            this.lblFechaExpiracion.Location = new System.Drawing.Point(448, 12);
+            this.lblFechaExpiracion.Name = "lblFechaExpiracion";
+            this.lblFechaExpiracion.Size = new System.Drawing.Size(11, 13);
+            this.lblFechaExpiracion.TabIndex = 12;
+            this.lblFechaExpiracion.Text = "-";
             // 
             // btnMaximize
             // 
@@ -273,7 +285,8 @@
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(181, 30);
             this.btnProveedores.TabIndex = 25;
-            this.btnProveedores.Text = "  Proveedores";
+            this.btnProveedores.Text = "               Proveedores";
+            this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedores.UseVisualStyleBackColor = false;
             this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
@@ -300,7 +313,8 @@
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(183, 30);
             this.btnReportes.TabIndex = 23;
-            this.btnReportes.Text = "Reportes";
+            this.btnReportes.Text = "               Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
@@ -418,7 +432,8 @@
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(180, 30);
             this.btnClientes.TabIndex = 1;
-            this.btnClientes.Text = "Clientes";
+            this.btnClientes.Text = "               Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
@@ -438,7 +453,8 @@
             this.btnPresupuesto.Name = "btnPresupuesto";
             this.btnPresupuesto.Size = new System.Drawing.Size(183, 30);
             this.btnPresupuesto.TabIndex = 1;
-            this.btnPresupuesto.Text = "Presupuesto";
+            this.btnPresupuesto.Text = "               Presupuesto";
+            this.btnPresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPresupuesto.UseVisualStyleBackColor = false;
             this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
@@ -457,7 +473,8 @@
             this.btnServicios.Name = "btnServicios";
             this.btnServicios.Size = new System.Drawing.Size(183, 30);
             this.btnServicios.TabIndex = 1;
-            this.btnServicios.Text = "Servicios";
+            this.btnServicios.Text = "               Servicios";
+            this.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnServicios.UseVisualStyleBackColor = false;
             this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
             // 
@@ -476,7 +493,8 @@
             this.btnPrecios.Name = "btnPrecios";
             this.btnPrecios.Size = new System.Drawing.Size(183, 30);
             this.btnPrecios.TabIndex = 2;
-            this.btnPrecios.Text = "Precios";
+            this.btnPrecios.Text = "               Precios";
+            this.btnPrecios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrecios.UseVisualStyleBackColor = false;
             this.btnPrecios.Click += new System.EventHandler(this.btnPrecios_Click);
             // 
@@ -495,7 +513,8 @@
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(180, 30);
             this.btnBackup.TabIndex = 4;
-            this.btnBackup.Text = "Backup";
+            this.btnBackup.Text = "               Backup";
+            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBackup.UseVisualStyleBackColor = false;
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
@@ -514,7 +533,8 @@
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(181, 30);
             this.btnUsuarios.TabIndex = 5;
-            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.Text = "               Usuarios";
+            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsuarios.UseVisualStyleBackColor = false;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
@@ -1067,18 +1087,6 @@
             this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarCliente.UseVisualStyleBackColor = false;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
-            // 
-            // lblFechaExpiracion
-            // 
-            this.lblFechaExpiracion.AutoSize = true;
-            this.lblFechaExpiracion.BackColor = System.Drawing.Color.Transparent;
-            this.lblFechaExpiracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaExpiracion.ForeColor = System.Drawing.Color.White;
-            this.lblFechaExpiracion.Location = new System.Drawing.Point(448, 12);
-            this.lblFechaExpiracion.Name = "lblFechaExpiracion";
-            this.lblFechaExpiracion.Size = new System.Drawing.Size(11, 13);
-            this.lblFechaExpiracion.TabIndex = 12;
-            this.lblFechaExpiracion.Text = "-";
             // 
             // MenuPrincipal
             // 

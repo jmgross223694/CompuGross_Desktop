@@ -160,6 +160,14 @@ create table OrdenesTrabajo(
 )
 GO
 
+create table NumSerieCodVerificacionOrdenesTrabajo (
+	ID bigint primary key not null identity(1,1),
+	IdOrdenTrabajo bigint unique not null foreign key references OrdenesTrabajo(ID),
+	NumSerie_CodVerificacion varchar(4000) null,
+    Estado bit not null default(1)
+)
+GO
+
 create or alter view ExportClientes
 as
 	select C.ID as ID, C.Nombres as 'Cliente', isnull(C.DNI,'-') as DNI, isnull(C.Direccion, '-') as Direccion,
@@ -455,18 +463,18 @@ select C.ID, C.Nombres,
 Estado = 1 and C.ID = OT.IdCliente)
 TotalIngresos,
 (select count(ID) from OrdenesTrabajo OT where Estado = 1 and C.ID = OT.IdCliente and 
-IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Servicio técnico'))
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Servicio t cnico'))
 ServicioTecnico,
 (select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where 
 Estado = 1 and C.ID = OT.IdCliente and 
-IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Servicio técnico'))
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Servicio t cnico'))
 IngresoServicioTecnico,
 (select count(ID) from OrdenesTrabajo OT where Estado = 1 and C.ID = OT.IdCliente and 
-IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Cámaras'))
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'C maras'))
 Camaras,
 (select CONVERT(int, isnull(sum(Ganancia),'-')) from OrdenesTrabajo OT where 
 Estado = 1 and C.ID = OT.IdCliente and 
-IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Cámaras'))
+IdTipoServicio = (select ID from TiposServicio where Descripcion = 'C maras'))
 IngresoCamaras,
 (select count(ID) from OrdenesTrabajo OT where Estado = 1 and C.ID = OT.IdCliente and 
 IdTipoServicio = (select ID from TiposServicio where Descripcion = 'Armado de gabinete'))

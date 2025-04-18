@@ -34,3 +34,9 @@ C:\Users\juanm\Escritorio\Github\Personal\CompuGross_Desktop\Dominio\obj\Debug\E
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross_Desktop\Dominio\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross_Desktop\Dominio\obj\Debug\Dominio.dll
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross_Desktop\Dominio\obj\Debug\Dominio.pdb
+C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\Dominio\bin\Debug\Dominio.dll
+C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\Dominio\bin\Debug\Dominio.pdb
+C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\Dominio\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\Dominio\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\Dominio\obj\Debug\Dominio.dll
+C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\Dominio\obj\Debug\Dominio.pdb

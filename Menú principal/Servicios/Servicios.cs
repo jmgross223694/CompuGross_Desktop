@@ -234,6 +234,16 @@ namespace CompuGross
                 fechaDevolucion.Visible = true;
                 fechaDevolucion.Text = servicio.FechaDevolucion;
             }
+            if (servicio.TipoServicio == "Cámaras")
+            {
+                lblRam.Visible = false;
+                txtRam.Visible = false;
+                lblPlacaMadre.Visible = false;
+                txtPlacaMadre.Visible = false;
+                lblNumSerieCodVerificacion.Visible = true;
+                txtNumSerieCodVerificacion.Visible = true;
+                txtNumSerieCodVerificacion.Text = servicio.NumSerieCodVerificacion;
+            }
             txtDescripcion.Text = servicio.Descripcion;
         }
 
@@ -337,6 +347,8 @@ namespace CompuGross
                 lblAsteriscoDescripcion.Visible = true;
                 lblCamposObligatorios.Visible = true;
                 btnConfirmar.Visible = true;
+                lblNumSerieCodVerificacion.Visible = true;
+                txtNumSerieCodVerificacion.Visible = true;
             }
             if (aux == "hide")
             {
@@ -384,6 +396,8 @@ namespace CompuGross
                 lblAsteriscoDescripcion.Visible = false;
                 lblCamposObligatorios.Visible = false;
                 btnConfirmar.Visible = false;
+                lblNumSerieCodVerificacion.Visible = false;
+                txtNumSerieCodVerificacion.Visible = false;
             }
         }
 
@@ -519,6 +533,7 @@ namespace CompuGross
             txtCostoTerceros.Text = "";
             fechaDevolucion.Text = default;
             txtDescripcion.Text = "";
+            txtNumSerieCodVerificacion.Text = "";
         }
 
         private void cbFechaDevolucion_CheckedChanged(object sender, EventArgs e)
@@ -652,6 +667,12 @@ namespace CompuGross
 
             servicio.MarcaModelo = txtMarcaModelo.Text;
             servicio.TipoServicio = ddlTiposServicio.SelectedItem.ToString();
+
+            if (servicio.TipoServicio == "Cámaras")
+            {
+                servicio.NumSerieCodVerificacion = txtNumSerieCodVerificacion.Text;
+            }
+
             servicio.Descripcion = txtDescripcion.Text;
             servicio.CostoCG = Convert.ToInt32(txtManoObra.Text);
 
