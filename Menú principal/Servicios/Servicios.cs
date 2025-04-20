@@ -244,6 +244,15 @@ namespace CompuGross
                 txtNumSerieCodVerificacion.Visible = true;
                 txtNumSerieCodVerificacion.Text = servicio.NumSerieCodVerificacion;
             }
+            else
+            {
+                lblRam.Visible = true;
+                txtRam.Visible = true;
+                lblPlacaMadre.Visible = true;
+                txtPlacaMadre.Visible = true;
+                lblNumSerieCodVerificacion.Visible = false;
+                txtNumSerieCodVerificacion.Visible = false;
+            }
             txtDescripcion.Text = servicio.Descripcion;
         }
 
