@@ -706,7 +706,7 @@ namespace CompuGross
                         DateTime aux = Convert.ToDateTime(s.FechaDevolucion);
                         string nombreDiaEjecucionServicio = aux.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
                         cuerpo += "\n\n\n" +
-                                  "- Fecha de ejecución del servicio: " + nombreDiaEjecucionServicio + ", " + aux.DayOfWeek + aux.Day + "/" + aux.Month + "/" + aux.Year;
+                                  "- Fecha de ejecución del servicio: " + nombreDiaEjecucionServicio + ", " + aux.Day + "/" + aux.Month + "/" + aux.Year;
                     }
                     else
                     {

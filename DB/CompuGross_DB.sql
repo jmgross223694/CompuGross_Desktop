@@ -531,6 +531,34 @@ begin
 end
 GO
 
+create table ComprasProveedores(
+	ID bigint primary key not null identity(1,1),
+	IdProveedor int not null foreign key references Proveedores(ID),
+	CodigoArticuloProveedor varchar(20) not null default('-'),
+	DescripcionArticulo varchar(400) not null,
+	NumeroSerieArticulo varchar(100) not null,
+	CodigoVerificacionArticulo varchar(100) null,
+	MontoAbonado money not null default(0),
+	FechaCompra date not null,
+	IdClienteAsignado bigint null foreign key references Clientes(ID),
+	Devolucion bit not null default(0),
+	Estado bit not null default(1)
+)
+GO
+
+create or alter view ExportComprasProveedores
+as
+	select CP.ID, CP.IdProveedor, TP.Descripcion 'Tipo_Proveedor', P.Nombre 'Nombre_Proveedor',
+	P.Telefono 'Telefono_Proveedor', P.Direccion 'Direccion Proveedor', CP.CodigoArticuloProveedor,
+	CP.DescripcionArticulo, CP.NumeroSerieArticulo, CP.CodigoVerificacionArticulo,
+	CP.MontoAbonado, CP.FechaCompra, CP.IdClienteAsignado, C.Nombres 'Asignado a Cliente', 
+	C.Telefono 'Telefono_Cliente', C.Direccion 'Direccion_Cliente', CP.Devolucion, CP.Estado
+	from ComprasProveedores CP
+	inner join Proveedores P on CP.IdProveedor = P.ID
+	inner join Clientes C on CP.IdClienteAsignado = C.ID
+	inner join TiposProveedor TP on P.IdTipo = TP.ID
+GO
+
 create or alter trigger TR_BORRAR_LICENCIA_ANTERIOR on Activado after insert
 as
 begin

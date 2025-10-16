@@ -134,6 +134,7 @@ namespace Negocio
                 datos.SetearConsulta(insertOrden);
                 datos.EjecutarLectura();
                 datos.CerrarConexion();
+                servicio.ID = ObtenerIdUltimoServicio();
                 AgregarNumSerieCodVerificacionCamaras(servicio);
             }
             catch (Exception ex)

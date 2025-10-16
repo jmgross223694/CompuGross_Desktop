@@ -44,6 +44,7 @@ namespace CompuGross
                 listaTablas.Add("OrdenesTrabajo");
                 listaTablas.Add("ListaPrecios");
                 listaTablas.Add("NumSerieCodVerificacionOrdenesTrabajo");
+                listaTablas.Add("ExportComprasProveedores");
                 //listaTablas.Add("Activado");
                 //listaTablas.Add("credencialesMail");
                 //listaTablas.Add("Licencias");
@@ -65,8 +66,13 @@ namespace CompuGross
                         con = new SqlConnection(strConLan);
 
                         con.Open();
-                        
+
                         string selectTabla = "select * from " + nombreTabla + " where Estado = 1";
+
+                        if (nombreTabla == "ExportComprasProveedores")
+                        {
+                            selectTabla += " order by FechaCompra desc"; 
+                        }
 
                         //CARGAMOS TABLA EN MEMORIA CON LA CONSULTA
                         SqlCommand cmd = new SqlCommand(selectTabla, con);

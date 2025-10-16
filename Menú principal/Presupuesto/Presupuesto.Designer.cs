@@ -506,13 +506,13 @@ namespace CompuGross
             this.ddlPrecios.DisplayMember = "ID";
             this.ddlPrecios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ddlPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ddlPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlPrecios.ForeColor = System.Drawing.Color.White;
             this.ddlPrecios.FormattingEnabled = true;
             this.ddlPrecios.Location = new System.Drawing.Point(12, 158);
             this.ddlPrecios.Margin = new System.Windows.Forms.Padding(6);
             this.ddlPrecios.Name = "ddlPrecios";
-            this.ddlPrecios.Size = new System.Drawing.Size(339, 21);
+            this.ddlPrecios.Size = new System.Drawing.Size(339, 24);
             this.ddlPrecios.TabIndex = 3;
             this.ddlPrecios.ValueMember = "ID";
             this.ddlPrecios.SelectedIndexChanged += new System.EventHandler(this.ddlCodigos_SelectedIndexChanged);
