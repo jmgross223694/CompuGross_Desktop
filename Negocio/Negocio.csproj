@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivacionDB.cs" />
+    <Compile Include="CompraProveedorDB.cs" />
     <Compile Include="FuncionalidadesExcel.cs" />
     <Compile Include="PrecioDB.cs" />
     <Compile Include="ProveedorDB.cs" />

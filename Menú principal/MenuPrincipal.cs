@@ -304,6 +304,18 @@ namespace CompuGross
             }
         }
 
+        private void visibilidadPanelSubMenuProveedores(string aux)
+        {
+            if (aux == "show")
+            {
+                pnSubMenuProveedores.Visible = true;
+            }
+            else if (aux == "hide")
+            {
+                pnSubMenuProveedores.Visible = false;
+            }
+        }
+
         private void visibilidadPanelSubMenuServicios(string aux)
         {
             if (aux == "show")
@@ -323,6 +335,7 @@ namespace CompuGross
                 visibilidadPanelSubMenuClientes("show");
                 visibilidadPanelSubMenuServicios("hide");
                 visibilidadPanelSubMenuInformes("hide");
+                visibilidadPanelSubMenuProveedores("hide");
             }
             else
             {
@@ -361,6 +374,7 @@ namespace CompuGross
                 visibilidadPanelSubMenuServicios("show");
                 visibilidadPanelSubMenuClientes("hide");
                 visibilidadPanelSubMenuInformes("hide");
+                visibilidadPanelSubMenuProveedores("hide");
             }
             else
             {
@@ -1054,6 +1068,9 @@ namespace CompuGross
         {
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
+            visibilidadPanelSubMenuProveedores("hide");
+            visibilidadPanelSubMenuInformes("hide");
+
             abrirFormHijo(new Presupuesto(), "Nuevo Presupuesto");
         }
 
@@ -1061,6 +1078,7 @@ namespace CompuGross
         {
             if (pnSubMenuInformes.Visible == false)
             {
+                visibilidadPanelSubMenuProveedores("hide");
                 visibilidadPanelSubMenuInformes("show");
                 visibilidadPanelSubMenuClientes("hide");
                 visibilidadPanelSubMenuServicios("hide");
@@ -1093,10 +1111,35 @@ namespace CompuGross
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
+            if (pnSubMenuProveedores.Visible == false)
+            {
+                visibilidadPanelSubMenuProveedores("show");
+                visibilidadPanelSubMenuClientes("hide");
+                visibilidadPanelSubMenuServicios("hide");
+                visibilidadPanelSubMenuInformes("hide");
+            }
+            else
+            {
+                visibilidadPanelSubMenuProveedores("hide");
+            }
+        }
+
+        private void btnAbmProveedores_Click(object sender, EventArgs e)
+        {
+            visibilidadPanelSubMenuProveedores("hide");
             visibilidadPanelSubMenuClientes("hide");
             visibilidadPanelSubMenuServicios("hide");
             visibilidadPanelSubMenuInformes("hide");
             abrirFormHijo(new Proveedores(), "Proveedores");
+        }
+
+        private void btnAgregarCompraProveedor_Click(object sender, EventArgs e)
+        {
+            visibilidadPanelSubMenuProveedores("hide");
+            visibilidadPanelSubMenuClientes("hide");
+            visibilidadPanelSubMenuServicios("hide");
+            visibilidadPanelSubMenuInformes("hide");
+            abrirFormHijo(new Menú_principal.Proveedores.ComprasProveedores(), "ComprasProveedores");
         }
 
         public class MessageBoxTemporal

@@ -63,6 +63,11 @@
             this.btnIngresos = new System.Windows.Forms.Button();
             this.btnLocalidades = new System.Windows.Forms.Button();
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.pnSubMenuProveedores = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnAgregarCompraProveedor = new System.Windows.Forms.Button();
+            this.btnAbmProveedores = new System.Windows.Forms.Button();
             this.pnSubMenuInformes = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -105,6 +110,7 @@
             this.pnBtnServicios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoCG)).BeginInit();
             this.contentPanel.SuspendLayout();
+            this.pnSubMenuProveedores.SuspendLayout();
             this.pnSubMenuInformes.SuspendLayout();
             this.pnSubMenuServicios.SuspendLayout();
             this.pnSubMenuClientes.SuspendLayout();
@@ -583,6 +589,7 @@
             this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.contentPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contentPanel.BackgroundImage")));
             this.contentPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.contentPanel.Controls.Add(this.pnSubMenuProveedores);
             this.contentPanel.Controls.Add(this.pnSubMenuInformes);
             this.contentPanel.Controls.Add(this.pnSubMenuServicios);
             this.contentPanel.Controls.Add(this.lblRecuperarClave);
@@ -608,6 +615,76 @@
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(844, 594);
             this.contentPanel.TabIndex = 2;
+            // 
+            // pnSubMenuProveedores
+            // 
+            this.pnSubMenuProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.pnSubMenuProveedores.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnSubMenuProveedores.Controls.Add(this.panel8);
+            this.pnSubMenuProveedores.Controls.Add(this.panel11);
+            this.pnSubMenuProveedores.Controls.Add(this.btnAgregarCompraProveedor);
+            this.pnSubMenuProveedores.Controls.Add(this.btnAbmProveedores);
+            this.pnSubMenuProveedores.Location = new System.Drawing.Point(0, 485);
+            this.pnSubMenuProveedores.Name = "pnSubMenuProveedores";
+            this.pnSubMenuProveedores.Size = new System.Drawing.Size(153, 72);
+            this.pnSubMenuProveedores.TabIndex = 32;
+            this.pnSubMenuProveedores.Visible = false;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel8.Location = new System.Drawing.Point(2, 1);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 30);
+            this.panel8.TabIndex = 29;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel11.Location = new System.Drawing.Point(2, 36);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(10, 30);
+            this.panel11.TabIndex = 31;
+            // 
+            // btnAgregarCompraProveedor
+            // 
+            this.btnAgregarCompraProveedor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarCompraProveedor.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCompraProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnAgregarCompraProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCompraProveedor.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCompraProveedor.ForeColor = System.Drawing.Color.Silver;
+            this.btnAgregarCompraProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCompraProveedor.Image")));
+            this.btnAgregarCompraProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCompraProveedor.Location = new System.Drawing.Point(6, 36);
+            this.btnAgregarCompraProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAgregarCompraProveedor.Name = "btnAgregarCompraProveedor";
+            this.btnAgregarCompraProveedor.Size = new System.Drawing.Size(143, 30);
+            this.btnAgregarCompraProveedor.TabIndex = 30;
+            this.btnAgregarCompraProveedor.Text = "Compras";
+            this.btnAgregarCompraProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCompraProveedor.UseVisualStyleBackColor = false;
+            this.btnAgregarCompraProveedor.Click += new System.EventHandler(this.btnAgregarCompraProveedor_Click);
+            // 
+            // btnAbmProveedores
+            // 
+            this.btnAbmProveedores.BackColor = System.Drawing.Color.Transparent;
+            this.btnAbmProveedores.FlatAppearance.BorderSize = 0;
+            this.btnAbmProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnAbmProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbmProveedores.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbmProveedores.ForeColor = System.Drawing.Color.Silver;
+            this.btnAbmProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmProveedores.Image")));
+            this.btnAbmProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAbmProveedores.Location = new System.Drawing.Point(7, 1);
+            this.btnAbmProveedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAbmProveedores.Name = "btnAbmProveedores";
+            this.btnAbmProveedores.Size = new System.Drawing.Size(142, 30);
+            this.btnAbmProveedores.TabIndex = 28;
+            this.btnAbmProveedores.Text = "CRUD";
+            this.btnAbmProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbmProveedores.UseVisualStyleBackColor = false;
+            this.btnAbmProveedores.Click += new System.EventHandler(this.btnAbmProveedores_Click);
             // 
             // pnSubMenuInformes
             // 
@@ -1124,6 +1201,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconoCG)).EndInit();
             this.contentPanel.ResumeLayout(false);
             this.contentPanel.PerformLayout();
+            this.pnSubMenuProveedores.ResumeLayout(false);
             this.pnSubMenuInformes.ResumeLayout(false);
             this.pnSubMenuServicios.ResumeLayout(false);
             this.pnSubMenuClientes.ResumeLayout(false);
@@ -1200,5 +1278,10 @@
         private System.Windows.Forms.Panel pnBtnProveedores;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Label lblFechaExpiracion;
+        private System.Windows.Forms.Panel pnSubMenuProveedores;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btnAgregarCompraProveedor;
+        private System.Windows.Forms.Button btnAbmProveedores;
     }
 }

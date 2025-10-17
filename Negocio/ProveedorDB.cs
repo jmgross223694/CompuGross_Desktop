@@ -52,6 +52,69 @@ namespace Negocio
             }
         }
 
+        public Proveedor BuscarPorID(int ID)
+        {
+            Proveedor proveedor = new Proveedor();
+            try
+            {
+                string consulta = "select * from ExportProveedores where ID = " + ID;
+
+                this.datos.SetearConsulta(consulta);
+                this.datos.EjecutarLectura();
+
+                if (this.datos.Lector.Read())
+                {
+                    proveedor.ID = Convert.ToInt32(datos.Lector["ID"]);
+                    proveedor.Nombre = datos.Lector["Nombre"].ToString();
+                    proveedor.Mail = datos.Lector["Mail"].ToString();
+                    proveedor.Telefono = datos.Lector["Telefono"].ToString();
+                    proveedor.IdTipo = Convert.ToInt32(datos.Lector["IdTipo"]);
+                    proveedor.Tipo = datos.Lector["TipoProveedor"].ToString();
+                    proveedor.SitioWeb = datos.Lector["SitioWeb"].ToString();
+                    proveedor.Estado = Convert.ToInt32(datos.Lector["Estado"]);
+                    proveedor.FechaAlta = (Convert.ToDateTime(datos.Lector["FechaAlta"])).ToShortDateString();
+                }
+
+                return proveedor;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public Proveedor BuscarPorTelefono(string telefono)
+        {
+            Proveedor proveedor = new Proveedor();
+            try
+            {
+                string consulta = "select top 1 * from Proveedores where Replace(Telefono,'-','') = '" + telefono + "' order by Nombre asc";
+
+                this.datos.SetearConsulta(consulta);
+                this.datos.EjecutarLectura();
+
+                if (this.datos.Lector.Read())
+                {
+                    proveedor.ID = Convert.ToInt32(datos.Lector["ID"]);
+                    proveedor.Nombre = datos.Lector["Nombre"].ToString();
+                }
+
+                return proveedor;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
         public int Eliminar(int id)
         {
             int resultado = 0;

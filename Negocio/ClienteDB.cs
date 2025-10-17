@@ -145,6 +145,36 @@ namespace Negocio
             return clienteModificado;
         }
 
+        public Cliente BuscarPorTelefono(string telefono)
+        {
+            Cliente c = new Cliente();
+
+            AccesoDatos datos = new AccesoDatos();
+
+            string select = "select top 1 * from Clientes where Replace(Telefono,'-','') = '" + telefono + "' order by Nombres asc";
+
+            try
+            {
+                datos.SetearConsulta(select);
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    c.Id = (long)datos.Lector["ID"];
+                    c.Nombres = Convert.ToString(datos.Lector["Nombres"]);
+                }
+                return c;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
         public Cliente CargarClientePorID(long id)
         {
             Cliente c = new Cliente();

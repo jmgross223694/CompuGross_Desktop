@@ -104,6 +104,12 @@
     <Compile Include="Menú principal\Clientes\AgregarCliente.Designer.cs">
       <DependentUpon>AgregarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menú principal\Proveedores\ComprasProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú principal\Proveedores\ComprasProveedores.Designer.cs">
+      <DependentUpon>ComprasProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menú principal\Servicios\AgregarServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     <EmbeddedResource Include="Menú principal\Clientes\ABMLocalidades\ABMLocalidades.resx">
       <DependentUpon>ABMLocalidades.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menú principal\Proveedores\ComprasProveedores.resx">
+      <DependentUpon>ComprasProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú principal\Proveedores\Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>

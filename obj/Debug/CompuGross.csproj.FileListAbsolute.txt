@@ -292,6 +292,7 @@ C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\obj\Debu
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\obj\Debug\CompuGross.Activación.resources
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\obj\Debug\CompuGross.AgregarCliente.resources
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\obj\Debug\CompuGross.Localidades.resources
+C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\obj\Debug\CompuGross.Menú_principal.Proveedores.ComprasProveedores.resources
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\obj\Debug\CompuGross.Proveedores.resources
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\obj\Debug\CompuGross.ReportePorCliente.resources
 C:\Users\juanm\Escritorio\Github\Personal\CompuGross\CompuGross_Desktop\obj\Debug\CompuGross.AgregarServicio.resources
