@@ -107,7 +107,7 @@ namespace Negocio
             {
                 string datos = "";
                 SqlConnectionStringBuilder db = new SqlConnectionStringBuilder();
-                db.DataSource = "192.168.100.144\\SQLEXPRESS,1433";
+                db.DataSource = ".\\SQLEXPRESS";
                 //db.DataSource = ".\\SQLEXPRESS";
                 db.InitialCatalog = "CompuGross";
                 db.IntegratedSecurity = true;

@@ -398,95 +398,101 @@ namespace CompuGross
 
         private void ConfirmarPrecio()
         {
-            decimal precioDolares = Convert.ToDecimal(txtDolares.Text.Replace(",", "."));
-            string descripcion = txtDescripcion.Text;
-            string codigo = txtCodigo.Text;
-
-            if (precioDolares == 0 || descripcion == "" || descripcion == "-" || descripcion == " " || codigo == "" || codigo == "-")
+            if (txtDolares.Text != "" && txtDescripcion.Text != "" && txtCodigo.Text != "")
             {
-                MessageBox.Show("Precio, Código o Descripción inválidos o vacíos.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                decimal precioDolares = Convert.ToDecimal(txtDolares.Text.Replace(",", "."));
+                string descripcion = txtDescripcion.Text, codigo = txtCodigo.Text, aclaraciones = txtAclaraciones.Text;
+
+                if (precioDolares == 0 || descripcion == "" || descripcion == "-" || descripcion == " " || codigo == "" || codigo == "-")
+                {
+                    MessageBox.Show("Precio, Código o Descripción inválidos o vacíos.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    if (this.agregar)
+                    {
+                        if (MessageBox.Show("¿Confirma agregar el nuevo Precio a la lista?", "Atención!!",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                PrecioDB pDb = new PrecioDB();
+
+                                Precio precio = new Precio();
+                                precio.ID = 1;
+                                precio.Codigo = codigo;
+                                precio.Descripcion = descripcion;
+                                precio.Aclaraciones = aclaraciones;
+                                precio.Dolares = precioDolares;
+                                pDb.Agregar(precio);
+
+                                MessageBox.Show("Precio registrado correctamente en el sistema.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Error al intentar agregar el Precio.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    if (this.modificar)
+                    {
+                        if (MessageBox.Show("¿Confirma modificar el Precio seleccionado?", "Atención!!",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                PrecioDB pDb = new PrecioDB();
+
+                                Precio precio = new Precio();
+
+                                precio.ID = Convert.ToInt64(txtPesos.Text);
+                                precio.Codigo = codigo;
+                                precio.Descripcion = descripcion;
+                                precio.Aclaraciones = txtAclaraciones.Text;
+                                precio.Dolares = precioDolares;
+
+                                pDb.Modificar(precio);
+
+                                MessageBox.Show("Precio modificado correctamente.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Error al intentar modificar el Precio.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+
+                    lblDolares.Visible = false;
+                    lblDescripcion.Visible = false;
+                    txtDolares.Visible = false;
+                    txtDolares.Text = "";
+                    txtDescripcion.Visible = false;
+                    txtDescripcion.Text = "";
+                    txtPesos.Text = "";
+                    btnConfirmar.Visible = false;
+
+                    lblCodigo.Visible = false;
+                    txtCodigo.Text = "";
+                    txtCodigo.Visible = false;
+                    lblAclaraciones.Visible = false;
+                    txtAclaraciones.Text = "";
+                    txtAclaraciones.Visible = false;
+
+                    btnAbm.Visible = false;
+                    btnAtras.Visible = true;
+                    btnAgregar.Visible = true;
+                    btnModificar.Visible = true;
+                    btnEliminar.Visible = true;
+                    dgvPrecios.Visible = true;
+                }
+
+                CargarListadoAbm();
+                cargarListadoPrecios("select * from ListaPrecios order by ID asc");
             }
             else
             {
-                if (this.agregar)
-                {
-                    if (MessageBox.Show("¿Confirma agregar el nuevo Precio a la lista?", "Atención!!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            PrecioDB pDb = new PrecioDB();
-
-                            Precio precio = new Precio();
-                            precio.ID = 1;
-                            precio.Codigo = codigo;
-                            precio.Descripcion = descripcion;
-                            precio.Aclaraciones = txtAclaraciones.Text;
-                            precio.Dolares = precioDolares;
-                            pDb.Agregar(precio);
-
-                            MessageBox.Show("Precio registrado correctamente en el sistema.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Error al intentar agregar el Precio.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                if (this.modificar)
-                {
-                    if (MessageBox.Show("¿Confirma modificar el Precio seleccionado?", "Atención!!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            PrecioDB pDb = new PrecioDB();
-
-                            Precio precio = new Precio();
-
-                            precio.ID = Convert.ToInt64(txtPesos.Text);
-                            precio.Codigo = codigo;
-                            precio.Descripcion = descripcion;
-                            precio.Aclaraciones = txtAclaraciones.Text;
-                            precio.Dolares = precioDolares;
-
-                            pDb.Modificar(precio);
-
-                            MessageBox.Show("Precio modificado correctamente.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Error al intentar modificar el Precio.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-
-                lblDolares.Visible = false;
-                lblDescripcion.Visible = false;
-                txtDolares.Visible = false;
-                txtDolares.Text = "";
-                txtDescripcion.Visible = false;
-                txtDescripcion.Text = "";
-                txtPesos.Text = "";
-                btnConfirmar.Visible = false;
-
-                lblCodigo.Visible = false;
-                txtCodigo.Text = "";
-                txtCodigo.Visible = false;
-                lblAclaraciones.Visible = false;
-                txtAclaraciones.Text = "";
-                txtAclaraciones.Visible = false;
-
-                btnAbm.Visible = false;
-                btnAtras.Visible = true;
-                btnAgregar.Visible = true;
-                btnModificar.Visible = true;
-                btnEliminar.Visible = true;
-                dgvPrecios.Visible = true;
+                MessageBox.Show("Precio, Código o Descripción inválidos o vacíos.", "Atención!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            CargarListadoAbm();
-            cargarListadoPrecios("select * from ListaPrecios order by ID asc");
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
