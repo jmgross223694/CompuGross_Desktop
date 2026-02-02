@@ -314,7 +314,7 @@ namespace CompuGross
 
         private void lblTerminosLicencia_Click(object sender, EventArgs e)
         {
-            string urlLicencia = "https://jmgross223694.github.io/mi-portfolio/terms";
+            string urlLicencia = "https://jmgross223694.github.io/Portfolio/terms";
 
             System.Diagnostics.Process.Start(urlLicencia);
 

@@ -23,7 +23,8 @@ namespace CompuGross
         {
             InitializeComponent();
             this.IsMdiContainer = true;
-            CargarFechaExpiracion();
+            //CargarFechaExpiracion();
+            lblFechaExpiracion.Text = "";
         }
 
         private void CargarFechaExpiracion()
