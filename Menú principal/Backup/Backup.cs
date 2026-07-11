@@ -45,12 +45,10 @@ namespace CompuGross
                 listaTablas.Add("ListaPrecios");
                 listaTablas.Add("NumSerieCodVerificacionOrdenesTrabajo");
                 listaTablas.Add("ExportComprasProveedores");
-                //listaTablas.Add("Activado");
-                //listaTablas.Add("credencialesMail");
-                //listaTablas.Add("Licencias");
-                //listaTablas.Add("UsuarioLogueado");
+                listaTablas.Add("Presupuestos");
+                listaTablas.Add("PresupuestoItems");
 
-                bool bandera = false;
+                int contador = 0;
 
                 foreach (var nombreTabla in listaTablas)
                 {
@@ -59,19 +57,24 @@ namespace CompuGross
 
                     try
                     {
-                        //INICIAMOS CONEXION
-                        //string strConLocal = "data source=.\\SQLEXPRESS; initial catalog=CompuGross; integrated security=sspi";
                         string strConLan = "Server=.\\SQLEXPRESS,1433;DataBase=CompuGross;User Id=compugross;Password=compugross";
-
                         con = new SqlConnection(strConLan);
-
                         con.Open();
 
-                        string selectTabla = "select * from " + nombreTabla + " where Estado = 1";
+                        string selectTabla;
+
+                        if (nombreTabla == "Usuarios")
+                        {
+                            selectTabla = "select ID, IdTipo, Nombre, Apellido, Username, Mail, CodigoRecuperarClave from Usuarios";
+                        }
+                        else
+                        {
+                            selectTabla = "select * from " + nombreTabla;
+                        }
 
                         if (nombreTabla == "ExportComprasProveedores")
                         {
-                            selectTabla += " order by FechaCompra desc"; 
+                            selectTabla += " order by FechaCompra desc";
                         }
 
                         //CARGAMOS TABLA EN MEMORIA CON LA CONSULTA
@@ -117,22 +120,22 @@ namespace CompuGross
                         sw.Close();
                         con.Close();
 
-                        bandera = true;
+                        contador++;
                     }
                     catch
                     {
                         con.Close();
-                        bandera = false;
+                        contador = 0;
                     }
                 }
 
-                if (bandera == true)
+                if (contador == listaTablas.Count)
                 {
                     MessageBox.Show("Backup realizado correctamente");
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error y no se realizo el backup.");
+                    MessageBox.Show("Se produjo un error y no se realizo el backup. Se restauraron " + contador + " de " + listaTablas.Count + " tablas.");
                 }
             }
         }

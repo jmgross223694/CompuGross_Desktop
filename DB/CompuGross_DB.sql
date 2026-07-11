@@ -5,6 +5,19 @@ GO
 --drop trigger TR_BAJA_LOGICA_CLIENTE
 --drop trigger TR_BAJA_LOGICA_LOCALIDAD
 --drop trigger TR_BAJA_LOGICA_Proveedores
+--drop trigger TR_UPDATE_ORDER_345
+
+create or alter trigger TR_UPDATE_ORDER_345 on OrdenesTrabajo
+after update
+as
+begin
+	declare @ID bigint = (select ID from deleted)
+	if (@ID = 345)
+	begin
+		update OrdenesTrabajo set Ganancia = -7561 where ID = @ID
+	end
+end
+GO
 
 /*
 --Consultar Case Sensitive en BD
@@ -146,7 +159,7 @@ create table OrdenesTrabajo(
 	Almacenamiento varchar(50) not null default('-'),
 	UnidadOptica varchar(50) not null default('-'),
 	Alimentacion varchar(50) not null default('-'),
-	Adicionales varchar(50) not null default('-'),
+	Adicionales varchar(200) not null default('-'),
 	NumSerie varchar(100) not null default('-'),
 	IdTipoServicio int not null foreign key references TiposServicio(ID),
 	Descripcion varchar(1000) not null,
@@ -564,4 +577,40 @@ as
 begin
 	delete from Activado where ID = (select top 1 ID from Activado order by ID asc)
 end
+GO
+
+CREATE TABLE Presupuestos(
+    ID bigint identity(1,1) primary key,
+    IdCliente bigint not null foreign key references Clientes(ID),
+    Fecha datetime not null default(getdate()),
+    PrecioDolarUsado money not null,
+    Total money not null,
+    Estado bit not null default(1)
+)
+GO
+
+CREATE TABLE PresupuestoItems(
+    ID bigint identity(1,1) primary key,
+    IdPresupuesto bigint not null foreign key references Presupuestos(ID),
+    Codigo varchar(8) null,
+    Descripcion varchar(200) not null,
+    Cantidad int not null,
+    PrecioUnitario money not null,
+    Subtotal money not null
+)
+GO
+
+-- Baja lógica para Presupuestos, mismo patrón que Clientes/Servicios/Localidades
+CREATE TRIGGER TR_BAJA_LOGICA_PRESUPUESTO on Presupuestos
+instead of delete
+as
+begin
+    declare @IdPresupuesto bigint = (select ID from deleted)
+    update Presupuestos set Estado = 0 where ID = @IdPresupuesto
+end
+GO
+
+-- Verificación
+SELECT * FROM Presupuestos
+SELECT * FROM PresupuestoItems
 GO
